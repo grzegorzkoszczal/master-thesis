@@ -1,0 +1,168 @@
+% Tutorial:
+% https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex
+% https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management#biblatex
+% For custom sorting, use `key` parameter. By default, positions are
+% sorted according to the `author` field.
+
+@misc{book:latex,
+  title    = {LaTeX},
+  subtitle = {Guide to the LaTeX typesetting system},
+  keywords = {Useful_Link}
+}
+    % {} are used in 'author' field to disable printing the author 'Joe
+    % Doe' name, as 'J. Doe'. Overall, you can use them to enforce
+    % verbatim representation.
+    author       = "{Wikibooks community}",
+    publisher    = "Wikibooks",
+    howpublished = "\url{https://en.wikibooks.org/wiki/LaTeX}",
+}
+
+# ===== RESEARCH PAPERS =====
+
+# NPB-CPP Article
+# Used in section explaining benchmarks
+@article{NPB-CPP,
+  title    = {The NAS Parallel Benchmarks for evaluating C++ parallel programming frameworks on shared-memory architectures},
+  journal  = {Future Generation Computer Systems},
+  volume   = {125},
+  pages    = {743-757},
+  year     = {2021},
+  issn     = {0167-739X},
+  doi      = {https://doi.org/10.1016/j.future.2021.07.021},
+  url      = {https://www.sciencedirect.com/science/article/pii/S0167739X21002831},
+  author   = {Júnior Löff and Dalvan Griebler and Gabriele Mencagli and Gabriell Araujo and Massimo Torquati and Marco Danelutto and Luiz Gustavo Fernandes},
+  keywords = {Research_Paper, NAS Parallel Benchmarks, Parallel programming, Multicore architectures, Performance evaluation},
+  abstract = {The NAS Parallel Benchmarks (NPB), originally implemented mostly in Fortran, is a consolidated suite containing several benchmarks extracted from Computational Fluid Dynamics (CFD) models. The benchmark suite has important characteristics such as intensive memory communications, complex data dependencies, different memory access patterns, and hardware components/sub-systems overload. Parallel programming APIs, libraries, and frameworks that are written in C++ as well as new optimizations and parallel processing techniques can benefit if NPB is made fully available in this programming language. In this paper we present NPB-CPP, a fully C++ translated version of NPB consisting of all the NPB kernels and pseudo-applications developed using OpenMP, Intel TBB, and FastFlow parallel frameworks for multicores. The design of NPB-CPP leverages the Structured Parallel Programming methodology (essentially based on parallel design patterns). We show the structure of each benchmark application in terms of composition of few patterns (notably Map and MapReduce constructs) provided by the selected C++ frameworks. The experimental evaluation shows the accuracy of NPB-CPP with respect to the original NPB source code. Furthermore, we carefully evaluate the parallel performance on three multi-core systems (Intel, IBM Power, and AMD) with different C++ compilers (gcc, icc, and clang) by discussing the performance differences in order to give to the researchers useful insights to choose the best parallel programming framework for a given type of problem.}
+}
+
+# NPB-CUDA Article #1
+# Used in section explaining benchmarks
+# https://doi.org/10.1002/spe.3056
+# https://onlinelibrary.wiley.com/doi/10.1002/spe.3056#pane-pcw-references
+@article{NPB-CUDA_1,
+  author   = {Araujo, Gabriell and Griebler, Dalvan and Rockenbach, Dinei A. and Danelutto, Marco and Fernandes, Luiz G.},
+  title    = {NAS Parallel Benchmarks with CUDA and beyond},
+  journal  = {Software: Practice and Experience},
+  volume   = {53},
+  number   = {1},
+  pages    = {53-80},
+  keywords = {Research_Paper, graphics processing units, high-performance computing, NPB, parallel applications, parallel programming, performance analysis},
+  doi      = {https://doi.org/10.1002/spe.3056},
+  url      = {https://onlinelibrary.wiley.com/doi/abs/10.1002/spe.3056},
+  abstract = {Abstract NAS Parallel Benchmarks (NPB) is a standard benchmark suite used in the evaluation of parallel hardware and software. Several research efforts from academia have made these benchmarks available with different parallel programming models beyond the original versions with OpenMP and MPI. This work joins these research efforts by providing a new CUDA implementation for NPB. Our contribution covers different aspects beyond the implementation. First, we define design principles based on the best programming practices for GPUs and apply them to each benchmark using CUDA. Second, we provide ease of use parametrization support for configuring the number of threads per block in our version. Third, we conduct a broad study on the impact of the number of threads per block in the benchmarks. Fourth, we propose and evaluate five strategies for helping to find a better number of threads per block configuration. The results have revealed relevant performance improvement solely by changing the number of threads per block, showing performance improvements from 8\% up to 717\% among the benchmarks. Fifth, we conduct a comparative analysis with the literature, evaluating performance, memory consumption, code refactoring required, and parallelism implementations. The performance results have shown up to 267\% improvements over the best benchmarks versions available. We also observe the best and worst design choices, concerning code size and the performance trade-off. Lastly, we highlight the challenges of implementing parallel CFD applications for GPUs and how the computations impact the GPU's behavior.},
+  year     = {2023}
+}
+
+# NPB-CUDA Article #2
+# Used in section explaining benchmarks
+# https://ieeexplore.ieee.org/document/9092341
+@inproceedings{NPB-CUDA_2,
+  author    = {Araujo, Gabriell Alves de and Griebler, Dalvan and Danelutto, Marco and Fernandes, Luiz Gustavo},
+  booktitle = {2020 28th Euromicro International Conference on Parallel, Distributed and Network-Based Processing (PDP)},
+  title     = {Efficient NAS Parallel Benchmark Kernels with CUDA},
+  keywords  = {Research_Paper},
+  year      = {2020},
+  volume    = {},
+  number    = {},
+  pages     = {9-16},
+  doi       = {10.1109/PDP50117.2020.00009}
+}
+
+# Article about increasing energy consumption by data centers
+# Used in introduction
+@article{Data_Centre_Energy_Consumption,
+  author         = {Avgerinou, Maria and Bertoldi, Paolo and Castellazzi, Luca},
+  title          = {Trends in Data Centre Energy Consumption under the European Code of Conduct for Data Centre Energy Efficiency},
+  keywords       = {Research_Paper},
+  journal        = {Energies},
+  volume         = {10},
+  year           = {2017},
+  number         = {10},
+  article-number = {1470},
+  url            = {https://www.mdpi.com/1996-1073/10/10/1470},
+  issn           = {1996-1073},
+  doi            = {10.3390/en10101470}
+}
+
+# Article about using the GPU Power Capping for energy-aware computing
+# Currently NOT implemented
+@inproceedings{GPU_Power_Capping_Czarnul,
+  author    = {Krzywaniak, Adam
+               and Czarnul, Pawel
+               and Proficz, Jerzy},
+  editor    = {Groen, Derek
+               and de Mulatier, Cl{\'e}lia
+               and Paszynski, Maciej
+               and Krzhizhanovskaya, Valeria V.
+               and Dongarra, Jack J.
+               and Sloot, Peter M. A.},
+  title     = {GPU Power Capping for Energy-Performance Trade-Offs in Training of Deep Convolutional Neural Networks for Image Recognition},
+  keywords  = {Research_Paper},
+  booktitle = {Computational Science -- ICCS 2022},
+  year      = {2022},
+  publisher = {Springer International Publishing},
+  address   = {Cham},
+  pages     = {667--681},
+  abstract  = {In the paper we present performance-energy trade-off investigation of training Deep Convolutional Neural Networks for image recognition. Several representative and widely adopted network models, such as Alexnet, VGG-19, Inception V3, Inception V4, Resnet50 and Resnet152 were tested using systems with Nvidia Quadro RTX 6000 as well as Nvidia V100 GPUs. Using GPU power capping we found other than default configurations minimizing three various metrics: energy (E), energy-delay product (EDP) as well as energy-delay sum (EDS) which resulted in considerable energy savings, with a low to medium performance loss for EDP and EDS. Specifically, for Quadro 6000 and minimization of E we obtained energy savings of 28.5{\%}--32.5{\%}, for EDP 25{\%}--28{\%} of energy was saved with average 4.5{\%}--15.4{\%} performance loss, for EDS (k = 2) 22{\%}--27{\%} of energy was saved with 4.5{\%}--13.8{\%} performance loss. For V100 we found average energy savings of 24{\%}--33{\%}, for EDP energy savings of 23{\%}--27{\%} with corresponding performance loss of 13{\%}--21{\%} and for EDS (k = 2) 23.5{\%}--27.3{\%} of energy was saved with performance loss of 4.5{\%}--13.8{\%}.},
+  isbn      = {978-3-031-08751-6}
+}
+
+# Article about using the Power Capping in order to analyze energy/performance results in benchmarks
+# Used in Introduction
+# https://www.researchgate.net/publication/327893865_Analyzing_energyperformance_trade-offs_with_power_capping_for_parallel_applications_on_modern_multi_and_many_core_processors
+@inproceedings{Parallel_Apps_Power_Capping_Czarnul,
+  author   = {Krzywaniak, Adam and Proficz, Jerzy and Czarnul, Pawel},
+  title    = {Analyzing energy/performance trade-offs with power capping for parallel applications on modern multi and many core processors},
+  keywords = {Research_Paper},
+  year     = {2018},
+  month    = {09},
+  pages    = {339-346},
+  doi      = {10.15439/2018F177}
+}
+
+# Article about improving the energy efficiency of computing
+# Used in Introduction
+@article{Software_Methods_of_Energy_Efficiency,
+  author   = {Chao Jin and Bronis R de Supinski and David Abramson and Heidi Poxon and Luiz DeRose and Minh Ngoc Dinh and Mark Endrei and Elizabeth R Jessup},
+  title    = {A survey on software methods to improve the energy efficiency of parallel computing},
+  keywords = {Research_Paper},
+  journal  = {The International Journal of High Performance Computing Applications},
+  volume   = {31},
+  number   = {6},
+  pages    = {517-549},
+  year     = {2017},
+  doi      = {10.1177/1094342016665471},
+  abstract = {Energy consumption is one of the top challenges for achieving the next generation of supercomputing. Codesign of hardware and software is critical for improving energy efficiency (EE) for future large-scale systems. Many architectural power-saving techniques have been developed, and most hardware components are approaching physical limits. Accordingly, parallel computing software, including both applications and systems, should exploit power-saving hardware innovations and manage efficient energy use. In addition, new power-aware parallel computing methods are essential to decrease energy usage further. This article surveys software-based methods that aim to improve EE for parallel computing. It reviews the methods that exploit the characteristics of parallel scientific applications, including load imbalance and mixed precision of floating-point (FP) calculations, to improve EE. In addition, this article summarizes widely used methods to improve power usage at different granularities, such as the whole system and per application. In particular, it describes the most important techniques to measure and to achieve energy-efficient usage of various parallel computing facilities, including processors, memories, and networks. Overall, this article reviews the state-of-the-art of energy-efficient methods for parallel computing to motivate researchers to achieve optimal parallel computing under a power budget constraint.}
+}
+
+# ===== EXTERNAL LINKS =====
+
+# Link to GitHub repository with software used for controlling the Yokogawa WT310E Power Meter
+@link{GitHub_intel/yoko-tool,
+  author   = {Artem Bityutskiy, Antti Laakso, Helia Correia},
+  title    = {Yokotool},
+  keywords = {Useful_Link},
+  url      = {https://github.com/intel/yoko-tool},
+  abstract = {Command-line tool for controlling Yokogawa power meters in Linux}
+}
+
+@link{Energy_Consumption_of_ICT,
+  author   = {The Parliamentary Office of Science and Technology},
+  title    = {Energy Consumption of ICT},
+  keywords = {Useful_Link},
+  url      = {https://researchbriefings.files.parliament.uk/documents/POST-PN-0677/POST-PN-0677.pdf}
+}
+
+@link{RAPL_Reporting,
+  author   = {Intel},
+  title    = {Running Average Power Limit Energy Reporting},
+  keywords = {Useful_Link},
+  url      = {https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/advisory-guidance/running-average-power-limit-energy-reporting.html}
+}
+
+@link{NVML,
+  author   = {NVIDIA},
+  title    = {NVIDIA Management Library (NVML)},
+  keywords = {Useful_Link},
+  url      = {https://developer.nvidia.com/nvidia-management-library-nvml}
+}

@@ -1,0 +1,187 @@
+\chapter{Theoretical background}
+
+\section{Measurement software}
+
+\subsection{Intel RAPL}
+
+Intel RAPL (Running Average Power Limit)[12] is an interface
+[13], which allows software to set a power limit that hardware
+ensures and any power control system takes it as an input and
+tunes behavior to ensure that this operating limit is respected.
+That way, it is possible to set and monitor power limits both
+on processor and DRAM, and by controlling the maximum average
+power, it matches the expected power and cooling budget. RAPL
+exposes its energy counters through model-specific registers
+(MSRs) It updates these counters once in every 1 ms. The energy
+is calculated as a multiple of model specific energy units.
+For Sandy Bridge, the energy unit is 15.3 µJ, whereas it is 61
+µJ for Haswell and Skylake.
+
+Moreover, the Intel RAPL divides the platform into four domains,
+which consists of:
+
+\begin{itemize}
+    \item PP0 (Core Devices) - Includes the energy consumption
+    by all the CPU cores in the socket(s).
+    \item PP1 (Uncore Devices) - Includes the power consumption
+    of integrated graphics processing unit (unavailable on the
+    server platforms)
+    \item DRAM - The energy consumption of the main memory.
+    \item Package - The energy consumption of the entire socket
+    including core and uncore.
+\end{itemize}
+
+\subsection{NVIDIA NVML}
+
+NVIDIA Management Library (NVML)[6] - A C-based API for
+monitoring and managing various states of the NVIDIA GPU
+devices. It provides direct access to the queries and commands
+exposed via nvidia-smi[18]. The runtime version of NVML ships
+with the NVIDIA display driver, and the SDK provides the
+appropriate header, stub libraries and sample applications.
+Each new version of NVML is backwards compatible and is intended
+to be a platform for building third party applications.
+
+There are various techniques of computing the energy consumption
+using the NVIDIA Management Library, which query the onboard
+sensors and read the power usage of the device. Such techniques
+are either from the native NVML API, like Sampling Monitoring
+Approach (SMA) or Multi-Threaded Synchronized Monitoring (MTSM)
+or from CUDA component and it’s called Performance Application
+Programming Interface (PAPI)[19].
+
+Sampling Monitoring Approach (SMA) - The C-based API provided
+by NVML that can query the power usage of the device and provide
+an instantaneous power measurement. Therefore, it can be
+programmed to keep reading the hardware sensor with a certain
+frequency. The nvmlDeviceGetPowerUsage() function is used to
+retrieve the power usage reading for the device, in milliwatts.
+This function is called and executed by the CPU. The highest
+frequency possible is 66.7 Hz, which means the measurements are
+done every 15 ms.
+
+Performance Application Programming Interface (PAPI) provides
+an API to access the hardware performance counters found on
+modern processors. The various performance metrics can be read
+through simple programming interfaces from C or Fortran. It
+could be used as a middleware in different profiling and tracing
+tools. PAPI can work as a high-level wrapper for different
+components. Previously it used only Intel RAPL's interface to
+report the power usage and energy consumption for Intel CPUs,
+but recent updates added the NVML component, which supports
+both measuring and capping power usage on modern NVIDIA GPU
+architectures. The major advantage of using PAPI is that the
+measurements are by default synchronized with the kernel execution.
+The NVML component implemented in PAPI uses the function,
+getPowerUsage() which query nvmlDeviceGetPowerUsage() function.
+According to the documentation, this function is called only
+once when the command “papi end” is called. Thus, the power
+returned using this method is an instantaneous power when the
+kernel finishes execution.
+
+Multi-Threaded Synchronized Monitoring (MTSM) - This method
+differs from SMA approach in the measurement period, a specific,
+exact window of the kernel execution is identified which results
+in recording of only the power reading of the kernel solely.
+Monitoring part is performed by the host CPU in that way the
+master thread calls and then monitors the kernel and other
+threads records the power, therefore it requires the use of
+parallel programming execution models, such as Pthreads[20] or
+OpenMP[21]. This approach at first initializes the volatile
+variable (at master thread) that is used later in recording of
+power readings. Then, the remaining threads execute the monitoring
+function in parallel and start measuring the time and power draw
+as the benchmark kernel starts doing the computation. After its
+work is done, the timing is ended and the stored measurements
+are synchronized, giving the precise logs of power consumption
+during the test period.
+
+\section{Measurement hardware}
+
+\subsection{Yokogawa WT310E}
+
+In order to perform comparison and to check the reliability
+of software power measurement methods, such as mentioned
+above Intel RAPL or NVIDIA NVML, it is mandatory to use
+a certified tool that would serve as the ground truth in
+such tests. Such a tool is Yokogawa WT310E - an external
+power meter that will serve this purpose in tests in this paper.
+It is a digital power analyzer that provides extremely low
+current measurement capability down to 50 micro-Amps, and
+a maximum of up to 26 Amps RMS. This device follows standards
+and certificates such as Energy Star®[28], SPECpower[29] and
+IEC62301[30] / EN50564[31] testing. This model comes from
+a WT300E's family of appliances that offer a wide range of
+functions and enhanced specifications, allowing handling of
+all the measurement applications from low frequency to high
+frequency inverters using a single power meter. The WT300E
+series with the fast display update rate of 100ms, offer's
+engineers a short tact time in their testing procedures.
+The basic accuracy for all input ranges is 0.1\% rdg + 0.05\%
+rng (50/60Hz) and DC 0.1\% rdg + 0.2\% rng.
+
+To use the Yokogawa WT310E power meter, a special software has
+been written for easy use - the Yokotool~\cite{GitHub_intel/yoko-tool}.
+Yokotool is a command-line tool for controlling Yokogawa power
+meters in Linux. The tool is written in Python and works with both
+Python 2.7 and Python 3. The tool comes with the
+"yokolibs.PowerMeter" module which can be used from Python scripts.
+
+(Work-In-Progress - Here I can cover a bit more of the use
+of Yokotool in this project)
+
+(Work-In-Progress: add honorable mentions, such as WattsUp
+and Kill-A-Watt[23] and their use in previous works)
+
+% Here I describe the benchmark applications
+\section{Benchmark applications}
+
+(Work-In-Progress)
+
+[TO DO:
+
+1. Cite 2 works from NPB-CPP and NPB-CUDA github repos
+
+2. Write more about my own multi-gpu benchmark, maybe cite myself]
+
+For the purpose of the experiments, benchmark applications should
+fully utilize the resources of the tested CPUs and GPUs, as well as
+be able to run on various configurations parameters. Such parameters
+are: being able to run in parallel on various numbers of logical
+processors, being able to run on one or more GPUs and being able to
+execute on various input parameters class sizes.
+
+There are three benchmark sets, that satisfies mentioned goals:
+\begin{itemize}
+    \item NAS Parallel Benchmarks (CPP, OMP version)
+    \item NAS Parallel Benchmarks (CUDA)
+    \item Custom deep learning model, based on XCeptionnet
+\end{itemize}
+
+\subsection{NPB-CPP, OMP version}
+
+(Work-In-Progress)~\cite{NPB-CPP}
+
+Explain those benchmarks, how do they works, what problems do they
+tackle, what are class sizes, how do they differ, why is it 
+useful and so on.
+
+Write that it works on one a two CPUs and on different number of
+threads - and prove it by screenshots or something.
+
+DON'T EXPLAIN WHICH ONE YOU CHOSE, ADD THAT LATER IN ANOTHER CHAPTER
+FOR EXAMPLE, `TEST METHODOLOGY' CHAPTER
+
+\subsection{NPB-CUDA}
+
+(Work-In-Progress)~\cite{NPB-CUDA_1}~\cite{NPB-CUDA_2}
+
+Most of content will be covered in previous subsection, so mention
+how does it work for GPUs
+
+Mention that it works on SINGLE GPU
+
+\subsection{Deep learnin model}
+
+Explain thoroughly Your own model and the fact it works 
+on GPUs in distributed manner.

@@ -1,0 +1,45 @@
+\chapter*{Introduction}
+
+The Information and Communication Technology sector is responsible
+for a significant share of global electricity use. In 2020,
+the data centers, communication networks and user devices
+accounted for an estimated 4-6\% of global electricity 
+use~\cite{Energy_Consumption_of_ICT}. This value has grown
+exponentially over the last years, mainly due to technological
+advances such as cloud computing and the rapid growth of the use of
+Internet services~\cite{Data_Centre_Energy_Consumption}. Moreover,
+it is predicted that ICT energy use is likely to increase
+until 2030 and may reach approximately 13\% of global electricity
+use. According to the increased energy demand, vast efforts has
+been put in order to improve the energy efficiency across the
+ICT sector with a success. As a result the overall energy use
+remains mostly flat according  to some estimates.
+
+The goal of energy efficiency increase is reached using various
+methods. Some of them involve the kernels optimizations and
+using the energy methods of
+computing~\cite{Software_Methods_of_Energy_Efficiency}.
+Such methods focus mainly on load imbalance, mixed precision
+in floating-point operations. Other methods of increasing
+computational efficiency are related to
+power-capping~\cite{Parallel_Apps_Power_Capping_Czarnul}.
+Such an approach assumes setting a certain power limit level on
+CPU or GPU in order to achieve a power/performance trade-off.
+Appropriate limitations of power draw results in slightly
+longer execution times and significant savings, which render
+this method a viable option.
+
+In order to make such implementation meaningful, we must make
+sure that the tools used to validate them are also as precise
+as possible. For the measurement of the power draw of a CPU,
+Intel provides its own interface, called Running Average Power
+Limit (RAPL)~\cite{RAPL_Reporting}. On the GPU side, NVIDIA
+provides the NVIDIA Management Library (NVML)~\cite{NVML}.
+Unfortunately, concerns rise on the precision of such softwares,
+mainly because their providers don't share any information about
+estimated error of power draw readings, leaving researchers
+questioning their practical use. In order to verify the
+precision of software measurement tools, the external
+measurement tool is used - the Yokogawa WT310E[7].
+Its high precision, backed up by certificates, makes it an
+excellent tool to benchmark the precision of Intel RAPL and NVML.

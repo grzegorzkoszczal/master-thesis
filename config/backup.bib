@@ -1,0 +1,110 @@
+% Tutorial:
+% https://www.overleaf.com/learn/latex/Bibliography_management_with_biblatex
+% https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management#biblatex
+% For custom sorting, use `key` parameter. By default, positions are
+% sorted according to the `author` field.
+
+
+
+@misc{book:latex,
+  title    = {LaTeX},
+  subtitle = {Guide to the LaTeX typesetting system}
+}
+    % {} are used in 'author' field to disable printing the author 'Joe
+    % Doe' name, as 'J. Doe'. Overall, you can use them to enforce
+    % verbatim representation.
+    author       = "{Wikibooks community}",
+    publisher    = "Wikibooks",
+    howpublished = "\url{https://en.wikibooks.org/wiki/LaTeX}",
+}
+
+
+
+# https://www.mdpi.com/1996-1073/10/10/1470#metrics
+@article{Data_Centre_Energy_Consumption,
+  author         = {Avgerinou, Maria and Bertoldi, Paolo and Castellazzi, Luca},
+  title          = {Trends in Data Centre Energy Consumption under the European Code of Conduct for Data Centre Energy Efficiency},
+  journal        = {Energies},
+  volume         = {10},
+  year           = {2017},
+  number         = {10},
+  article-number = {1470},
+  url            = {https://www.mdpi.com/1996-1073/10/10/1470},
+  issn           = {1996-1073},
+  abstract       = {Climate change is recognised as one of the key challenges humankind is facing. The Information and Communication Technology (ICT) sector including data centres generates up to 2% of the global CO2 emissions, a number on par to the aviation sector contribution, and data centres are estimated to have the fastest growing carbon footprint from across the whole ICT sector, mainly due to technological advances such as the cloud computing and the rapid growth of the use of Internet services. There are no recent estimations of the total energy consumption of the European data centre and of their energy efficiency. The aim of this paper is to evaluate, analyse and present the current trends in energy consumption and efficiency in data centres in the European Union using the data submitted by companies participating in the European Code of Conduct for Data Centre Energy Efficiency programme, a voluntary initiative created in 2008 in response to the increasing energy consumption in data centres and the need to reduce the related environmental, economic and energy supply security impacts. The analysis shows that the average Power Usage Effectiveness (PUE) of the facilities participating in the programme is declining year after year. This confirms that voluntary approaches could be effective in addressing climate and energy issue.},
+  doi            = {10.3390/en10101470}
+}
+
+
+
+# NPB-CPP Article, used in section explaining benchmarks
+@article{NPB-CPP,
+  title    = {The NAS Parallel Benchmarks for evaluating C++ parallel programming frameworks on shared-memory architectures},
+  journal  = {Future Generation Computer Systems},
+  volume   = {125},
+  pages    = {743-757},
+  year     = {2021},
+  issn     = {0167-739X},
+  doi      = {https://doi.org/10.1016/j.future.2021.07.021},
+  url      = {https://www.sciencedirect.com/science/article/pii/S0167739X21002831},
+  author   = {Júnior Löff and Dalvan Griebler and Gabriele Mencagli and Gabriell Araujo and Massimo Torquati and Marco Danelutto and Luiz Gustavo Fernandes},
+  keywords = {NAS Parallel Benchmarks, Parallel programming, Multicore architectures, Performance evaluation},
+  abstract = {The NAS Parallel Benchmarks (NPB), originally implemented mostly in Fortran, is a consolidated suite containing several benchmarks extracted from Computational Fluid Dynamics (CFD) models. The benchmark suite has important characteristics such as intensive memory communications, complex data dependencies, different memory access patterns, and hardware components/sub-systems overload. Parallel programming APIs, libraries, and frameworks that are written in C++ as well as new optimizations and parallel processing techniques can benefit if NPB is made fully available in this programming language. In this paper we present NPB-CPP, a fully C++ translated version of NPB consisting of all the NPB kernels and pseudo-applications developed using OpenMP, Intel TBB, and FastFlow parallel frameworks for multicores. The design of NPB-CPP leverages the Structured Parallel Programming methodology (essentially based on parallel design patterns). We show the structure of each benchmark application in terms of composition of few patterns (notably Map and MapReduce constructs) provided by the selected C++ frameworks. The experimental evaluation shows the accuracy of NPB-CPP with respect to the original NPB source code. Furthermore, we carefully evaluate the parallel performance on three multi-core systems (Intel, IBM Power, and AMD) with different C++ compilers (gcc, icc, and clang) by discussing the performance differences in order to give to the researchers useful insights to choose the best parallel programming framework for a given type of problem.}
+}
+
+
+
+# NPB-CUDA Article #1, used in section explaining benchmarks
+# https://doi.org/10.1002/spe.3056
+# https://onlinelibrary.wiley.com/doi/10.1002/spe.3056#pane-pcw-references
+@article{NPB-CUDA_1,
+  author   = {Araujo, Gabriell and Griebler, Dalvan and Rockenbach, Dinei A. and Danelutto, Marco and Fernandes, Luiz G.},
+  title    = {NAS Parallel Benchmarks with CUDA and beyond},
+  journal  = {Software: Practice and Experience},
+  volume   = {53},
+  number   = {1},
+  pages    = {53-80},
+  keywords = {graphics processing units, high-performance computing, NPB, parallel applications, parallel programming, performance analysis},
+  doi      = {https://doi.org/10.1002/spe.3056},
+  url      = {https://onlinelibrary.wiley.com/doi/abs/10.1002/spe.3056},
+  eprint   = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/spe.3056},
+  abstract = {Abstract NAS Parallel Benchmarks (NPB) is a standard benchmark suite used in the evaluation of parallel hardware and software. Several research efforts from academia have made these benchmarks available with different parallel programming models beyond the original versions with OpenMP and MPI. This work joins these research efforts by providing a new CUDA implementation for NPB. Our contribution covers different aspects beyond the implementation. First, we define design principles based on the best programming practices for GPUs and apply them to each benchmark using CUDA. Second, we provide ease of use parametrization support for configuring the number of threads per block in our version. Third, we conduct a broad study on the impact of the number of threads per block in the benchmarks. Fourth, we propose and evaluate five strategies for helping to find a better number of threads per block configuration. The results have revealed relevant performance improvement solely by changing the number of threads per block, showing performance improvements from 8\% up to 717\% among the benchmarks. Fifth, we conduct a comparative analysis with the literature, evaluating performance, memory consumption, code refactoring required, and parallelism implementations. The performance results have shown up to 267\% improvements over the best benchmarks versions available. We also observe the best and worst design choices, concerning code size and the performance trade-off. Lastly, we highlight the challenges of implementing parallel CFD applications for GPUs and how the computations impact the GPU's behavior.},
+  year     = {2023}
+}
+
+
+
+# NPB-CUDA Article #2, used in section explaining benchmarks
+@inproceedings{NPB-CUDA_2,
+  author    = {Araujo, Gabriell Alves de and Griebler, Dalvan and Danelutto, Marco and Fernandes, Luiz Gustavo},
+  booktitle = {2020 28th Euromicro International Conference on Parallel, Distributed and Network-Based Processing (PDP)},
+  title     = {Efficient NAS Parallel Benchmark Kernels with CUDA},
+  year      = {2020},
+  volume    = {},
+  number    = {},
+  pages     = {9-16},
+  doi       = {10.1109/PDP50117.2020.00009}
+}
+
+
+
+@inproceedings{GPU_Power_Capping_Czarnul_Krzywaniak,
+  author    = {Krzywaniak, Adam
+               and Czarnul, Pawel
+               and Proficz, Jerzy},
+  editor    = {Groen, Derek
+               and de Mulatier, Cl{\'e}lia
+               and Paszynski, Maciej
+               and Krzhizhanovskaya, Valeria V.
+               and Dongarra, Jack J.
+               and Sloot, Peter M. A.},
+  title     = {GPU Power Capping for Energy-Performance Trade-Offs in Training of Deep Convolutional Neural Networks for Image Recognition},
+  booktitle = {Computational Science -- ICCS 2022},
+  year      = {2022},
+  publisher = {Springer International Publishing},
+  address   = {Cham},
+  pages     = {667--681},
+  abstract  = {In the paper we present performance-energy trade-off investigation of training Deep Convolutional Neural Networks for image recognition. Several representative and widely adopted network models, such as Alexnet, VGG-19, Inception V3, Inception V4, Resnet50 and Resnet152 were tested using systems with Nvidia Quadro RTX 6000 as well as Nvidia V100 GPUs. Using GPU power capping we found other than default configurations minimizing three various metrics: energy (E), energy-delay product (EDP) as well as energy-delay sum (EDS) which resulted in considerable energy savings, with a low to medium performance loss for EDP and EDS. Specifically, for Quadro 6000 and minimization of E we obtained energy savings of 28.5{\%}--32.5{\%}, for EDP 25{\%}--28{\%} of energy was saved with average 4.5{\%}--15.4{\%} performance loss, for EDS (k = 2) 22{\%}--27{\%} of energy was saved with 4.5{\%}--13.8{\%} performance loss. For V100 we found average energy savings of 24{\%}--33{\%}, for EDP energy savings of 23{\%}--27{\%} with corresponding performance loss of 13{\%}--21{\%} and for EDS (k = 2) 23.5{\%}--27.3{\%} of energy was saved with performance loss of 4.5{\%}--13.8{\%}.},
+  isbn      = {978-3-031-08751-6}
+}
+
