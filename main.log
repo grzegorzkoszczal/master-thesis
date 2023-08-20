@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.8.19)  19 AUG 2023 04:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.8.19)  19 AUG 2023 18:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -840,7 +840,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count468
-<pdf/title-page.pdf, id=107, 597.51233pt x 845.0471pt>
+<pdf/title-page.pdf, id=99, 597.51233pt x 845.0471pt>
 File: pdf/title-page.pdf Graphic file (type pdf)
 <use pdf/title-page.pdf>
 Package pdftex.def Info: pdf/title-page.pdf  used on input line 9.
@@ -849,7 +849,7 @@ File: pdf/title-page.pdf Graphic file (type pdf)
 <use pdf/title-page.pdf>
 Package pdftex.def Info: pdf/title-page.pdf  used on input line 9.
 (pdftex.def)             Requested size: 597.51086pt x 845.04504pt.
-<pdf/title-page.pdf, id=110, page=1, 597.51233pt x 845.0471pt>
+<pdf/title-page.pdf, id=102, page=1, 597.51233pt x 845.0471pt>
 File: pdf/title-page.pdf Graphic file (type pdf)
 <use pdf/title-page.pdf, page 1>
 Package pdftex.def Info: pdf/title-page.pdf , page1 used on input line 9.
@@ -873,7 +873,7 @@ Package pdftex.def Info: pdf/title-page.pdf , page1 used on input line 9.
  [1
 
  <./pdf/title-page.pdf>]
-<pdf/author-statement.pdf, id=130, 597.51233pt x 845.0471pt>
+<pdf/author-statement.pdf, id=122, 597.51233pt x 845.0471pt>
 File: pdf/author-statement.pdf Graphic file (type pdf)
 <use pdf/author-statement.pdf>
 Package pdftex.def Info: pdf/author-statement.pdf  used on input line 13.
@@ -882,7 +882,7 @@ File: pdf/author-statement.pdf Graphic file (type pdf)
 <use pdf/author-statement.pdf>
 Package pdftex.def Info: pdf/author-statement.pdf  used on input line 13.
 (pdftex.def)             Requested size: 597.51086pt x 845.04504pt.
-<pdf/author-statement.pdf, id=133, page=1, 597.51233pt x 845.0471pt>
+<pdf/author-statement.pdf, id=125, page=1, 597.51233pt x 845.0471pt>
 File: pdf/author-statement.pdf Graphic file (type pdf)
 <use pdf/author-statement.pdf, page 1>
 Package pdftex.def Info: pdf/author-statement.pdf , page1 used on input line 13.
@@ -951,7 +951,57 @@ l.20 \include{misc/abstract-en.tex}
 ]
 \openout2 = `chapters/introduction.aux'.
 
- (chapters/introduction.tex) [3
+ (chapters/introduction.tex
+
+LaTeX Warning: Citation 'Energy_Consumption_of_ICT' on page 3 undefined on input line 7.
+
+
+LaTeX Warning: Citation 'Data_Centre_Energy_Consumption' on page 3 undefined on input line 10.
+
+
+Overfull \hbox (45.5234pt too wide) in paragraph at lines 3--17
+\T1/phv/m/n/10 cloud computing and the rapid growth of the use of Internet services [[]].
+ []
+
+
+LaTeX Warning: Citation 'Software_Methods_of_Energy_Efficiency' on page 3 undefined on input line 21.
+
+
+LaTeX Warning: Citation 'Parallel_Apps_Power_Capping_Czarnul' on page 3 undefined on input line 25.
+
+
+Overfull \hbox (113.59291pt too wide) in paragraph at lines 18--31
+\T1/phv/m/n/10 involve the kernels optimizations and using the energy methods of computing [[]].
+ []
+
+
+Overfull \hbox (104.05293pt too wide) in paragraph at lines 18--31
+\T1/phv/m/n/10 methods of increasing computational efficiency are related to power-capping [[]].
+ []
+
+
+LaTeX Warning: Citation 'RAPL_Reporting' on page 3 undefined on input line 36.
+
+
+LaTeX Warning: Citation 'NVML' on page 3 undefined on input line 37.
+
+
+LaTeX Warning: Citation 'Yokogawa_Producent_Page' on page 3 undefined on input line 44.
+
+
+LaTeX Warning: Citation 'Yokogawa_Meter_Series_Specifications' on page 3 undefined on input line 45.
+
+)
+Overfull \hbox (9.55339pt too wide) in paragraph at lines 32--30
+\T1/phv/m/n/10 On the GPU side, NVIDIA provides the NVIDIA Management Library (NVML) [[]]. Unfortunately,
+ []
+
+
+Overfull \hbox (136.78319pt too wide) in paragraph at lines 32--30
+\T1/phv/m/n/10 measurement tool is used - the Yokogawa WT310E [[]]  [[]].
+ []
+
+[3
 
 
 
@@ -963,6 +1013,17 @@ l.20 \include{misc/abstract-en.tex}
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
 (Font)              Font shape `T1/phv/b/sl' tried instead on input line 3.
+
+LaTeX Warning: Citation 'NPB' on page 4 undefined on input line 56.
+
+
+LaTeX Warning: Citation 'NASA_Advanced_Supercomputing' on page 4 undefined on input line 56.
+
+
+Overfull \hbox (12.29384pt too wide) in paragraph at lines 52--64
+\T1/phv/m/n/10 applications for this task are NAS Parallel Benchmarks [[]] [[]]
+ []
+
 ) [4
 
 
@@ -975,36 +1036,47 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 5.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 17.
+
+LaTeX Warning: Citation 'Power_Management_on_Intel_Microprocessor' on page 5 undefined on input line 8.
+
+
+LaTeX Warning: Citation 'RAPL_Power_Estimation_and_Capping' on page 5 undefined on input line 9.
+
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 19.
 (/home/gk99/.miktex/texmfs/install/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
-Overfull \hbox (19.83315pt too wide) in paragraph at lines 45--52
+Overfull \hbox (2.93373pt too wide) in paragraph at lines 7--21
+[]\T1/phv/m/n/10 Intel RAPL (Running Average Power Limit)  [[]]
+ []
+
+
+Overfull \hbox (19.83315pt too wide) in paragraph at lines 47--54
 []\T1/phv/m/n/10 There are various techniques of computing the energy consumption using the NVIDIA Management
  []
 
 
-Overfull \hbox (4.67593pt too wide) in paragraph at lines 45--52
+Overfull \hbox (4.67593pt too wide) in paragraph at lines 47--54
 \T1/phv/m/n/10 Library, which query the onboard sensors and read the power usage of the device. Such techniques
  []
 
 
-Overfull \hbox (6.29292pt too wide) in paragraph at lines 45--52
+Overfull \hbox (6.29292pt too wide) in paragraph at lines 47--54
 \T1/phv/m/n/10 Synchronized Monitoring (MTSM) or from CUDA component and it's called Performance Application
  []
 
 
-Overfull \hbox (3.5629pt too wide) in paragraph at lines 63--81
+Overfull \hbox (3.5629pt too wide) in paragraph at lines 65--83
 []\T1/phv/m/n/10 Performance Application Programming Interface (PAPI) provides an API to access the hardware
  []
 
 
-Overfull \hbox (12.61314pt too wide) in paragraph at lines 63--81
+Overfull \hbox (12.61314pt too wide) in paragraph at lines 65--83
 \T1/phv/m/n/10 in different profiling and tracing tools. PAPI can work as a high-level wrapper for different components.
  []
 
 
-Overfull \hbox (61.79504pt too wide) in paragraph at lines 63--81
+Overfull \hbox (61.79504pt too wide) in paragraph at lines 65--83
 \T1/phv/m/n/10 component implemented in PAPI uses the function, getPowerUsage() which query nvmlDeviceGetPowerUsage()
  []
 
@@ -1013,7 +1085,21 @@ Overfull \hbox (61.79504pt too wide) in paragraph at lines 63--81
 
 
 
-] [6]) [7]
+]
+
+LaTeX Warning: Citation 'GitHub_intel/yoko-tool' on page 6 undefined on input line 126.
+
+[6]
+
+LaTeX Warning: Citation 'NPB-CPP' on page 7 undefined on input line 165.
+
+
+LaTeX Warning: Citation 'NPB-CUDA_1' on page 7 undefined on input line 179.
+
+
+LaTeX Warning: Citation 'NPB-CUDA_2' on page 7 undefined on input line 179.
+
+) [7]
 \openout2 = `chapters/03.aux'.
 
  (chapters/03.tex
@@ -1024,9 +1110,7 @@ Overfull \hbox (32.40839pt too wide) in paragraph at lines 6--6
  []
 
 
-Overfull \hbox (25.49396pt too wide) in paragraph at lines 8--19
-\T1/phv/m/n/10 They mentioned three most popular methods of measurement: (a) System-level physical measurements
- []
+LaTeX Warning: Citation 'State_of_the_Art_Article_1' on page 8 undefined on input line 8.
 
 [8
 
@@ -1034,57 +1118,77 @@ Overfull \hbox (25.49396pt too wide) in paragraph at lines 8--19
 
 
 ]
-Overfull \hbox (2.00505pt too wide) in paragraph at lines 76--85
+Overfull \hbox (2.00505pt too wide) in paragraph at lines 77--86
 []\T1/phv/m/n/10 In the first set of experiments, the FFTW and MKL-FFT energy consumption has been explored,
  []
 
 
-Overfull \hbox (14.99754pt too wide) in paragraph at lines 86--97
+Overfull \hbox (14.99754pt too wide) in paragraph at lines 87--98
 []\T1/phv/m/n/10 Second set of tests was conducted using OpenBLAS DGEMM. Executions were, again, performed
  []
 
+
+LaTeX Warning: Citation 'Implementation_for_Accelerator_Kernels' on page 9 undefined on input line 131.
+
+
+LaTeX Warning: Citation 'NVML_Reference_Manual' on page 9 undefined on input line 135.
+
+
+Overfull \hbox (62.98546pt too wide) in paragraph at lines 129--153
+\T1/phv/m/n/10 sensors on NVIDIA GPUs, the dedicated libraries were used, called NVIDIA NVML  [[]]
+ []
+
 [9]
-Overfull \hbox (27.96837pt too wide) in paragraph at lines 170--184
+Overfull \hbox (27.96837pt too wide) in paragraph at lines 173--187
 \T1/phv/m/n/10 measurements using sensors and HCLWattsUp can be reduced using calibration, which is, nevertheless,
  []
 
 
-Overfull \hbox (4.64153pt too wide) in paragraph at lines 170--184
+Overfull \hbox (4.64153pt too wide) in paragraph at lines 173--187
 \T1/phv/m/n/10 2D and MKL FFT 2D),which means that data transfers (between CPU host-core and an accelerator)
  []
 
 
-Overfull \hbox (12.71075pt too wide) in paragraph at lines 187--187
+Overfull \hbox (12.71075pt too wide) in paragraph at lines 190--190
 |[]\T1/phv/b/sl/10 "VERIFIED INSTRUCTION-LEVEL ENERGY CONSUMPTION MEASUREMENT FOR NVIDIA
  []
+
+
+LaTeX Warning: Citation 'State_of_the_Art_Article_2' on page 10 undefined on input line 192.
 
 
 Underfull \vbox (badness 1490) has occurred while \output is active []
 
  [10]
-Overfull \hbox (40.70271pt too wide) in paragraph at lines 256--280
+Overfull \hbox (40.70271pt too wide) in paragraph at lines 260--284
 []\T1/phv/m/n/10 The experiment has been conducted for four NVIDIA GPUs from four different generations/architectures:
  []
 
 
-Underfull \vbox (badness 5036) has occurred while \output is active []
+LaTeX Warning: Citation 'State_of_the_Art_Article_3' on page 11 undefined on input line 288.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-Overfull \hbox (7.49422pt too wide) in paragraph at lines 318--340
+Overfull \hbox (7.49422pt too wide) in paragraph at lines 323--345
 []\T1/phv/m/n/10 Benchmark applications used in this paper solved two different n-body problem implementations.
  []
 
 
-Overfull \hbox (8.44624pt too wide) in paragraph at lines 318--340
+Overfull \hbox (8.44624pt too wide) in paragraph at lines 323--345
 \T1/phv/m/n/10 irregular pointer-chasing memory accesses, and consists of multiple different kernels. Nevertheless,
  []
 
 
-Overfull \hbox (7.53589pt too wide) in paragraph at lines 341--370
+Overfull \hbox (7.53589pt too wide) in paragraph at lines 346--375
 \T1/phv/m/n/10 interface, which returns the power readings in milliwatts. The sampling intervals of the measurement
  []
 
-[12]) [13] [14]
+
+Underfull \vbox (badness 2237) has occurred while \output is active []
+
+ [12] [13]) [14]
 \openout2 = `chapters/example.aux'.
 
  (chapters/example.tex
@@ -1094,11 +1198,17 @@ Overfull \hbox (1.3368pt too wide) in paragraph at lines 6--14
 []\T1/phv/m/n/10 Caªa praca powinna skªada¢ si¦ z rodziaªów \T1/phv/m/sl/10 chapters\T1/phv/m/n/10 , które dziel¡ si¦ na podrozdziaªy \T1/phv/m/sl/10 sections\T1/phv/m/n/10 .
  []
 
-<figures/przykladowy-rysunek.png, id=271, 395.4775pt x 316.18124pt>
+<figures/przykladowy-rysunek.png, id=241, 395.4775pt x 316.18124pt>
 File: figures/przykladowy-rysunek.png Graphic file (type png)
 <use figures/przykladowy-rysunek.png>
 Package pdftex.def Info: figures/przykladowy-rysunek.png  used on input line 23.
 (pdftex.def)             Requested size: 106.69783pt x 85.30252pt.
+
+LaTeX Warning: Citation 'book:latex' on page 15 undefined on input line 25.
+
+
+LaTeX Warning: Citation 'book:latex' on page 15 undefined on input line 25.
+
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 32.
 (/home/gk99/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -1126,6 +1236,15 @@ LaTeX Warning: Reference `tbl:etykieta-tabeli' on page 15 undefined on input lin
 
 
  <./figures/przykladowy-rysunek.png>]
+
+LaTeX Warning: Citation 'book:latex' on page 16 undefined on input line 71.
+
+
+Overfull \hbox (21.34558pt too wide) in paragraph at lines 67--72
+\T1/phv/m/n/10 przy u»yciu \T1/pcr/m/n/10 \cite\T1/phv/m/n/10 . Jako przykªad mo»emy zacytowa¢ wspomnian¡ ju» ksi¡»k¦ o LaTeXu [[]]. 
+ []
+
+
 Overfull \hbox (27.58565pt too wide) in paragraph at lines 75--81
 []\T1/phv/m/n/10 Równania najpro±ciej definiowa¢ jest przy pomocy wbudowanego w LateXa ±rodowiska \T1/pcr/m/n/10 \equation\T1/phv/m/n/10 ,
  []
@@ -1142,62 +1261,30 @@ Overfull \hbox (5.0407pt too wide) in paragraph at lines 118--122
 
 ) [16] [17]
 
-Package biblatex Warning: Split bibliography detected.
-(biblatex)                Many simple split bibliography setups with
-(biblatex)                non-overlapping bibliographies benefit from
-(biblatex)                setting 'defernumbers=true'.
-(biblatex)                See the documentation for details.
-(biblatex)                This warning can be suppressed with
-(biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
+Package biblatex Warning: Keyword 'Research_Paper' not found on input line 39.
 
 
-Overfull \hbox (1.3644pt too wide) in paragraph at lines 39--39
-\T1/phv/m/n/10 offs with power capping for parallel applications on modern multi and many core processors^^Q.
- []
+LaTeX Warning: Empty bibliography on input line 39.
 
 
-Package biblatex Warning: Split bibliography detected.
-(biblatex)                Many simple split bibliography setups with
-(biblatex)                non-overlapping bibliographies benefit from
-(biblatex)                setting 'defernumbers=true'.
-(biblatex)                See the documentation for details.
-(biblatex)                This warning can be suppressed with
-(biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
-
-[18
+Package biblatex Warning: Keyword 'Useful_Link' not found on input line 40.
 
 
+LaTeX Warning: Empty bibliography on input line 40.
 
-]
-
-Package biblatex Warning: No driver for 'link'.
-(biblatex)                Using fallback driver on input line 40.
-
-
-Package biblatex Warning: No driver for 'link'.
-(biblatex)                Using fallback driver on input line 40.
-
-
-Package biblatex Warning: No driver for 'link'.
-(biblatex)                Using fallback driver on input line 40.
-
-
-Package biblatex Warning: No driver for 'link'.
-(biblatex)                Using fallback driver on input line 40.
-
-[19
-
-] (main.lof)
+(main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [20
+ [18
+
+
 
 ] (main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [21
+ [19
 
 ] (main.aux (misc/abstract-en.aux) (misc/list-of-symbols.aux) (chapters/introduction.aux) (chapters/01.aux) (chapters/02.aux) (chapters/03.aux) (chapters/example.aux))
  ***********
@@ -1209,23 +1296,28 @@ L3 programming layer <2023-06-30>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8E4409FE994BCC43635083B031867DD7;4755.
+(rerunfilecheck)             Checksum: 36F6119D9C4A52E4BF4F915661AF724C;4482.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25578 strings out of 477486
- 462947 string characters out of 5814354
- 1930244 words of memory out of 5000000
- 46128 multiletter control sequences out of 15000+600000
- 589394 words of font info for 72 fonts, out of 8000000 for 9000
+ 25483 strings out of 477486
+ 459902 string characters out of 5814354
+ 1929244 words of memory out of 5000000
+ 46050 multiletter control sequences out of 15000+600000
+ 584226 words of font info for 70 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 90i,17n,108p,1774b,1569s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,108p,1184b,1563s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/courier/ucrr8a.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvb8a.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvbo8a.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (24 pages, 563078 bytes).
+Output written on main.pdf (22 pages, 542705 bytes).
 PDF statistics:
- 411 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
- 254 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 342 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 238 words of extra memory for PDF output out of 10000 (max. 10000000)
 

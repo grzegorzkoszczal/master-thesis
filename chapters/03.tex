@@ -5,9 +5,10 @@
 \section{"A Comparative Study of Methods for Measurement
 of Energy of Computing"}
 
-Authors of this work investigated the accuracy of measurement
-of energy consumption during an application execution in order
-to ensure the application-level energy minimization techniques.
+Authors of this work~\cite{State_of_the_Art_Article_1}
+investigated the accuracy of measurement of energy consumption
+during an application execution in order to ensure the
+application-level energy minimization techniques.
 They mentioned three most popular methods of measurement:
 (a) System-level physical measurements using external power meters;
 (b) Measurements using on-chip power sensors and (c) Energy
@@ -126,10 +127,12 @@ abstract processor is measured. To strain the hardware, two
 applications were used:
 
 The first one was the matrix multiplication (DGEMM), the second
-one was 2D-FFT. Tests were performed on two NVIDIA GPUs: K40c[14]
-and P100, and one Intel coprocessor, the Intel Xeon Phi 3120P.
+one was 2D-FFT. Tests were performed on two NVIDIA GPUs: K40c
+~\cite{Implementation_for_Accelerator_Kernels} and P100,
+and one Intel coprocessor, the Intel Xeon Phi 3120P.
 To obtain the power values from on-chip sensors on NVIDIA GPUs,
-the dedicated libraries were used, called NVIDIA NVML[15] and
+the dedicated libraries were used, called NVIDIA NVML
+~\cite{NVML_Reference_Manual} and
 to obtain power values from Intel Xeon Phi, the Intel System
 Management Controller chip (SMC) [16] was used. Values from the
 Intel Xeon Phi can be programmatically obtained using Intel
@@ -186,15 +189,16 @@ consumption is important.
 \section{"Verified Instruction-Level Energy Consumption Measurement
 for NVIDIA GPUs"}
 
-Authors of this research paper investigated the actual cost of
-the power/energy overhead of the internal microarchitecture of
-various NVIDIA GPUs from four different generations. In order
-to do so, they compared over 40 different PTX instructions and
-showed the effect of the CUDA compiler optimizations on the
-energy consumption of each instruction. To measure the power
-consumption, they used three different software techniques to
-read the GPU on-chip power sensors and determined their precision
-by comparing them to custom-designed hardware power measurement.
+Authors of this research paper~\cite{State_of_the_Art_Article_2}
+investigated the actual cost of the power/energy overhead of
+the internal microarchitecture of various NVIDIA GPUs from
+four different generations. In order to do so, they compared
+over 40 different PTX instructions and showed the effect of
+the CUDA compiler optimizations on the energy consumption of
+each instruction. To measure the power consumption, they used
+three different software techniques to read the GPU on-chip
+power sensors and determined their precision by comparing them
+to custom-designed hardware power measurement.
 The motivation of their work comes from the fact that in order
 to increase the performance of the GPUs, their power consumption
 must be correctly and reliably measured, because it serves as
@@ -281,14 +285,15 @@ PAPI as it is closer to what has been measured using the hardware.
 % Third research paper
 \section{“Measuring GPU Power with the K20 Built-in Sensor”}
 
-Authors of this research paper investigated accurate profiling of
-the power consumption of GPU code when using the on-board power
-sensor of NVIDIA K20 GPUs. Moreover, two major anomalies that
-happened during the tests were more thoroughly analyzed - the first
-one being related to the doubling a benchmark kernel's runtime
-resulted with more than double energy usage, the second indicated
-that running two kernels in close temporal proximity inflates the
-energy consumption of the later kernel. Based on previous work in
+Authors of this research paper~\cite{State_of_the_Art_Article_3}
+investigated accurate profiling of the power consumption of
+GPU code when using the on-board power sensor of NVIDIA K20 GPUs.
+Moreover, two major anomalies that happened during the tests
+were more thoroughly analyzed - the first one being related to
+the doubling a benchmark kernel's runtime resulted with more
+than double energy usage, the second indicated that running two
+kernels in close temporal proximity inflates the energy
+consumption of the later kernel. Based on previous work in
 a similar field and set of preliminary tests, a new, reliable
 methodology has been proposed as the conclusion of this experiment.
 

@@ -2367,13 +2367,24 @@
     <bcf:citekey order="4" intorder="1">Parallel_Apps_Power_Capping_Czarnul</bcf:citekey>
     <bcf:citekey order="5" intorder="1">RAPL_Reporting</bcf:citekey>
     <bcf:citekey order="6" intorder="1">NVML</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">GitHub_intel/yoko-tool</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">NPB-CPP</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">NPB-CUDA_1</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">NPB-CUDA_2</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">book:latex</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">book:latex</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">book:latex</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">Yokogawa_Producent_Page</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">Yokogawa_Meter_Series_Specifications</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">NPB</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">NASA_Advanced_Supercomputing</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">Power_Management_on_Intel_Microprocessor</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">RAPL_Power_Estimation_and_Capping</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">GitHub_intel/yoko-tool</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">NPB-CPP</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">NPB-CUDA_1</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">NPB-CUDA_2</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">State_of_the_Art_Article_1</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">Implementation_for_Accelerator_Kernels</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">NVML_Reference_Manual</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">State_of_the_Art_Article_2</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">State_of_the_Art_Article_3</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">book:latex</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">book:latex</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">book:latex</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
