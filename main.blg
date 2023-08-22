@@ -1,24 +1,108 @@
-[0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'main.blg'
-[29] biber:340> INFO - === Sat Aug 19, 2023, 04:25:48
-[36] Biber.pm:419> INFO - Reading 'main.bcf'
-[60] Biber.pm:979> INFO - Found 11 citekeys in bib section 0
-[67] Biber.pm:4419> INFO - Processing section 0
-[72] Biber.pm:4610> INFO - Looking for bibtex file 'config/bibliography.bib' for section 0
-[73] bibtex.pm:1713> INFO - LaTeX decoding ...
-[80] bibtex.pm:1519> INFO - Found BibTeX data source 'config/bibliography.bib'
-[119] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[119] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[119] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[119] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[125] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[127] bbl.pm:763> INFO - Output to main.bbl
-[127] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_832v/f4d088b3f9f145b5c3058da33afd57d4_19790.utf8, line 24, warning: 184 characters of junk seen at toplevel
-[127] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_832v/f4d088b3f9f145b5c3058da33afd57d4_19790.utf8, line 42, warning: 158 characters of junk seen at toplevel
-[127] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_832v/f4d088b3f9f145b5c3058da33afd57d4_19790.utf8, line 59, warning: 97 characters of junk seen at toplevel
-[127] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_832v/f4d088b3f9f145b5c3058da33afd57d4_19790.utf8, line 73, warning: 72 characters of junk seen at toplevel
-[127] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_832v/f4d088b3f9f145b5c3058da33afd57d4_19790.utf8, line 89, warning: 84 characters of junk seen at toplevel
-[127] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_832v/f4d088b3f9f145b5c3058da33afd57d4_19790.utf8, line 113, warning: 281 characters of junk seen at toplevel
-[127] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_832v/f4d088b3f9f145b5c3058da33afd57d4_19790.utf8, line 125, warning: 71 characters of junk seen at toplevel
-[127] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_832v/f4d088b3f9f145b5c3058da33afd57d4_19790.utf8, line 141, warning: 104 characters of junk seen at toplevel
-[127] Biber.pm:133> INFO - WARNINGS: 8
+This is BibTeX, Version 0.99d (TeX Live 2023/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: biblatex.bst
+A level-1 auxiliary file: misc/abstract-en.aux
+A level-1 auxiliary file: misc/list-of-symbols.aux
+A level-1 auxiliary file: chapters/introduction.aux
+A level-1 auxiliary file: chapters/01.aux
+A level-1 auxiliary file: chapters/02.aux
+A level-1 auxiliary file: chapters/03.aux
+A level-1 auxiliary file: chapters/example.aux
+Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=8) to 20 items from 10.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated field_info (elt_size=8) to 10040 items from 5000.
+Database file #1: main-blx.bib
+Database file #2: config/bibliography.bib
+Warning--entry type for "NASA_Advanced_Supercomputing" isn't style-file defined
+--line 325 of file config/bibliography.bib
+Warning--entry type for "GitHub_intel/yoko-tool" isn't style-file defined
+--line 334 of file config/bibliography.bib
+Warning--entry type for "Energy_Consumption_of_ICT" isn't style-file defined
+--line 342 of file config/bibliography.bib
+Warning--entry type for "RAPL_Reporting" isn't style-file defined
+--line 349 of file config/bibliography.bib
+Warning--entry type for "NVML" isn't style-file defined
+--line 356 of file config/bibliography.bib
+Warning--entry type for "Yokogawa_Producent_Page" isn't style-file defined
+--line 363 of file config/bibliography.bib
+Warning--entry type for "Yokogawa_Meter_Series_Specifications" isn't style-file defined
+--line 370 of file config/bibliography.bib
+Warning--entry type for "NVML_Reference_Manual" isn't style-file defined
+--line 377 of file config/bibliography.bib
+Warning--entry type for "Intel_Xeon_Phi_Coprocessor_Developer" isn't style-file defined
+--line 384 of file config/bibliography.bib
+Warning--entry type for "NVIDIA_SMI" isn't style-file defined
+--line 391 of file config/bibliography.bib
+Warning--entry type for "PAPI_CUDA" isn't style-file defined
+--line 398 of file config/bibliography.bib
+Warning--entry type for "Pthreads" isn't style-file defined
+--line 405 of file config/bibliography.bib
+Warning--entry type for "OpenMP" isn't style-file defined
+--line 412 of file config/bibliography.bib
+Warning--entry type for "NVIDIA_Parallel_Thread_Execution" isn't style-file defined
+--line 419 of file config/bibliography.bib
+Warning--entry type for "NVIDIA_NVCC" isn't style-file defined
+--line 426 of file config/bibliography.bib
+Warning--entry type for "K20Power" isn't style-file defined
+--line 432 of file config/bibliography.bib
+Warning--entry type for "LonestarGPU" isn't style-file defined
+--line 439 of file config/bibliography.bib
+Biblatex version: 3.19
+Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+You've used 36 entries,
+            6399 wiz_defined-function locations,
+            1474 strings with 32754 characters,
+and the built_in function-call counts, 279375 in all, are:
+= -- 22620
+> -- 3728
+< -- 1072
++ -- 7842
+- -- 1384
+* -- 20064
+:= -- 31697
+add.period$ -- 0
+call.type$ -- 36
+change.case$ -- 502
+chr.to.int$ -- 54
+cite$ -- 70
+duplicate$ -- 29289
+empty$ -- 24701
+format.name$ -- 2373
+if$ -- 56261
+int.to.chr$ -- 0
+int.to.str$ -- 97
+missing$ -- 0
+newline$ -- 1294
+num.names$ -- 1667
+pop$ -- 12779
+preamble$ -- 1
+purify$ -- 694
+quote$ -- 0
+skip$ -- 6424
+stack$ -- 0
+substring$ -- 42027
+swap$ -- 5389
+text.length$ -- 950
+text.prefix$ -- 35
+top$ -- 1
+type$ -- 1195
+warning$ -- 0
+while$ -- 3870
+width$ -- 0
+write$ -- 1259
+(There were 17 warnings)

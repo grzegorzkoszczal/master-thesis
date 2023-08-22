@@ -520,6 +520,9 @@ INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-dm.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+INPUT /usr/share/texmf-dist/tex/latex/biblatex/blx-bibtex.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
@@ -932,7 +935,7 @@ OUTPUT main.out
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-OUTPUT main.bcf
+OUTPUT main-blx.bib
 INPUT main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
@@ -1204,6 +1207,8 @@ INPUT /usr/share/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/helvetic/phvrc8t.tfm
 INPUT /usr/share/texmf-dist/fonts/vf/adobe/helvetic/phvrc8t.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/adobe/helvetic/phvro8c.tfm
+INPUT /usr/share/texmf-dist/fonts/vf/adobe/helvetic/phvro8c.vf
 INPUT ./main.lof
 INPUT main.lof
 INPUT main.lof
