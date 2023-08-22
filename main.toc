@@ -15,9 +15,9 @@
 \contentsline {subsection}{\numberline {2.3.2}NPB-CUDA}{7}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Deep learning model}{7}{subsection.2.3.3}%
 \contentsline {chapter}{\numberline {3}Related work}{8}{chapter.3}%
-\contentsline {section}{\numberline {3.1}"A Comparative Study of Methods for Measurement of Energy of Computing"}{8}{section.3.1}%
-\contentsline {section}{\numberline {3.2}"Verified Instruction-Level Energy Consumption Measurement for NVIDIA GPUs"}{10}{section.3.2}%
-\contentsline {section}{\numberline {3.3}“Measuring GPU Power with the K20 Built-in Sensor”}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.1}`A Comparative Study of Methods for Measurement of Energy of Computing'}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}`Verified Instruction-Level Energy Consumption Measurement for NVIDIA GPUs'}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.3}`Measuring GPU Power with the K20 Built-in Sensor'}{12}{section.3.3}%
 \contentsline {chapter}{\numberline {4}Proposal of a Solution to the Problem}{15}{chapter.4}%
 \contentsline {section}{\numberline {4.1}[PLACEHOLDER]}{15}{section.4.1}%
 \contentsline {chapter}{\numberline {5}Experiments}{16}{chapter.5}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.8.15)  23 AUG 2023 00:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.8.15)  23 AUG 2023 00:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1020,8 +1020,8 @@ Chapter 3.
 
 
 ] [9]
-Overfull \hbox (12.71075pt too wide) in paragraph at lines 193--193
-|[]\T1/phv/b/sl/10 "VERIFIED INSTRUCTION-LEVEL EN-ERGY CON-SUMP-TION MEA-SURE-MENT FOR NVIDIA
+Overfull \hbox (10.75066pt too wide) in paragraph at lines 193--193
+|[]\T1/phv/b/sl/10 `VERIFIED INSTRUCTION-LEVEL EN-ERGY CON-SUMP-TION MEA-SURE-MENT FOR NVIDIA
  []
 
 
@@ -1102,7 +1102,7 @@ Overfull \hbox (15.89569pt too wide) in paragraph at lines 41--41
 
 ] (./main.aux (./misc/abstract-en.aux) (./misc/list-of-symbols.aux) (./chapters/introduction.aux) (./chapters/01_Research_Goal.aux) (./chapters/02_Theoretical_Background.aux) (./chapters/03_Related_Work.aux) (./chapters/04_Proposal_of_the_Solution.aux) (./chapters/05_Experiments.aux) (./chapters/06_Summary.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8C6214D30F73315D064AED9FABB352CC;6037.
+(rerunfilecheck)             Checksum: C09AE6379A3A646FCBF3C30B78A81674;6031.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
@@ -1116,7 +1116,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  90i,17n,103p,2290b,1553s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (26 pages, 466502 bytes).
+Output written on main.pdf (26 pages, 466372 bytes).
 PDF statistics:
  551 PDF objects out of 1000 (max. 8388607)
  484 compressed objects within 5 object streams
