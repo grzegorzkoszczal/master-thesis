@@ -2,8 +2,8 @@
 \chapter{Related work}
 
 % First research paper
-\section{"A Comparative Study of Methods for Measurement
-of Energy of Computing"}
+\section{`A Comparative Study of Methods for Measurement
+of Energy of Computing'}
 
 Authors of this work~\cite{State_of_the_Art_Article_1}
 investigated the accuracy of measurement of energy consumption
@@ -21,14 +21,14 @@ measurement appliance.
 The methodology is as follows: The ground truth tests were
 performed at first, using WattsUp Pro Meter[9]. The group of
 components that were running the benchmark kernel were defined
-as abstract processor - a whole that consists of multicore CPU
+as abstract processor $-$ a whole that consists of multicore CPU
 processor, consisting of a certain number of physical cores and
-DRAM. In order to perform meaningful measurements, only a certain
+DRAM\@. In order to perform meaningful measurements, only a certain
 configuration of application was run, that executed solely on an
 abstract processor, without need of using any other system
 resources, such as solid state drives or network interface cards
 and so on. The result of such an approach is that HCLWattsUp
-reflects solely the power drawn from CPU and DRAM.
+reflects solely the power drawn from CPU and DRAM\@.
 
 The researchers took other important precautions during the
 experiment. At first, all the resources they used have been
@@ -53,7 +53,7 @@ given application kernel.
 After determining the “ground truth” measurements using the
 configuration with HCLWattsUp, the researchers conducted a series
 of tests that determined the dynamic energy consumption by the
-given application using RAPL. At first the Intel PCM/PAPI was
+given application using RAPL\@. At first the Intel PCM/PAPI was
 used to obtain the base power of CPUs, both core and uncore as
 well as DRAM, with no straining workload applied. Then, in the
 next phase, using HCLWattsUp API the execution time of the given
@@ -65,7 +65,7 @@ dynamic energy consumption of the abstract processor by subtracting
 the base energy from the total energy drawn during the kernel
 execution. To determine the dynamic energy consumption using
 HCLWattsUp, all the steps mentioned before has been repeated,
-but using the HCLWattsUp software instead of the Intel RAPL.
+but using the HCLWattsUp software instead of the Intel RAPL\@.
 
 The execution time of the benchmark kernels were the same for
 both of the power draw measurement tools, so any difference
@@ -84,7 +84,7 @@ possible to calibrate the RAPL readings, which resulted in
 significant decrease of average error for the dynamic energy
 profile.
 
-Second set of tests was conducted using OpenBLAS DGEMM.
+Second set of tests was conducted using OpenBLAS DGEMM\@.
 Executions were, again, performed using various configurations
 of data sizes, but results were less satisfactory than in the
 first tests. Like the first set of experiments, RAPL profiles
@@ -120,14 +120,14 @@ calibrated, leaving the readings quite troublesome.
 
 Next experiment conducted in this paper was the comparison of
 measurements by GPU and Xeon Phi Sensors with HCLWattsUp. The
-methodology of work is similar to the one explained before - the
+methodology of work is similar to the one explained before $-$ the
 entire testbed is reserved solely for the purpose of the
 experiment, the fans are set to the maximum speed and only the
 abstract processor is measured. To strain the hardware, two
 applications were used:
 
 The first one was the matrix multiplication (DGEMM), the second
-one was 2D-FFT. Tests were performed on two NVIDIA GPUs: K40c
+one was 2D-FFT\@. Tests were performed on two NVIDIA GPUs: K40c
 ~\cite{Implementation_for_Accelerator_Kernels} and P100,
 and one Intel coprocessor, the Intel Xeon Phi 3120P
 ~\cite{Intel_Xeon_Phi_Coprocessor_Architecture}.
@@ -141,7 +141,7 @@ Values from the
 Intel Xeon Phi can be programmatically obtained using Intel
 manycore platform software stack (MPSS) [17]. The methodology
 taken to compare the measurements using GPU and Xeon Phi sensors
-and HCLWattsUp is similar to this for RAPL. Briefly, HCLWattsUp
+and HCLWattsUp is similar to this for RAPL\@. Briefly, HCLWattsUp
 API provides the dynamic energy consumption of an application
 using both CPU and an accelerator (GPU or Xeon Phi) instead of
 the components involved in its execution. Execution of an
@@ -151,7 +151,7 @@ Xeon Phi. On-chip power sensors (NVML and MPSS) only provide
 the power consumption of GPU or Xeon Phi only. Therefore, to
 obtain the dynamic energy profiles of applications, the Intel
 RAPL was used to determine the energy contribution of CPU and
-DRAM. Energy contributions from data transfers using PCIe were
+DRAM\@. Energy contributions from data transfers using PCIe were
 considered as not significant.
 
 At first, the DGEMM was used as the test benchmark with various
@@ -160,7 +160,7 @@ sensors exhibit a linear profile whereas HCLWattsUp does not.
 Moreover, the sensor does not follow the application behavior
 exhibited by HCLWattsUp for approximately two-thirds of the data
 points. In the case of the Intel Xeon Phi coprocessor, the results
-seemed to be better - sensors follow the trend exhibited by
+seemed to be better $-$ sensors follow the trend exhibited by
 HCLWattsUp for third-fourth of the data points. However, sensors
 report higher dynamic energy than HCLWattsUp, but that can be
 reduced significantly using calibration.
@@ -170,7 +170,7 @@ by NVML follow the same trend for the majority of the data points,
 compared to the results from NCLWattsUp. The sensor of the Intel
 Xeon Phi followed the trend of HCLWattsUp for over 90\% of all
 data points, which is a good result. Overall, Intel RAPL and NVML
-both exhibit the same trend for FFT. Therefore, the difference
+both exhibit the same trend for FFT\@. Therefore, the difference
 with HCLWattsUp comes from both sensors collectively.
 
 The results of this test allows to draw several conclusions.
@@ -189,8 +189,8 @@ It suggests that optimizing the data transfers for dynamic energy
 consumption is important.
 
 % Second research paper
-\section{"Verified Instruction-Level Energy Consumption Measurement
-for NVIDIA GPUs"}
+\section{`Verified Instruction-Level Energy Consumption Measurement
+for NVIDIA GPUs'}
 
 Authors of this research paper~\cite{State_of_the_Art_Article_2}
 investigated the actual cost of the power/energy overhead of
@@ -274,11 +274,11 @@ of code, and overall the optimized versions of instruction proved
 to be less energy hungry than the non-optimized ones. In terms of
 differences between various software power measuring techniques,
 namely PAPI versus MTSM, The dominant tendency of the results is
-that PAPI readings are always more than the MTSM. Although the
+that PAPI readings are always more than the MTSM\@. Although the
 difference is not significant for small kernels, it can be up to
 1 µJ for bigger kernels like Floating Single and Double Precision
 div instructions. Different software techniques (MTSM and PAPI)
-have been compared against the hardware setup on Volta TITAN V GPU.
+have been compared against the hardware setup on Volta TITAN V GPU\@.
 Compared to the ground truth hardware measurements, for all the
 instructions, the average Mean Absolute Percentage Error (MAPE)
 of MTSM Energy is 6.39 and the mean Root Mean Square Error (RMSE)
@@ -288,13 +288,13 @@ PAPI as it is closer to what has been measured using the hardware.
 
 % Third research paper
 \newpage
-\section{“Measuring GPU Power with the K20 Built-in Sensor”}
+\section{`Measuring GPU Power with the K20 Built-in Sensor'}
 
 Authors of this research paper~\cite{State_of_the_Art_Article_3}
 investigated accurate profiling of the power consumption of
 GPU code when using the on-board power sensor of NVIDIA K20 GPUs.
 Moreover, two major anomalies that happened during the tests
-were more thoroughly analyzed - the first one being related to
+were more thoroughly analyzed $-$ the first one being related to
 the doubling a benchmark kernel's runtime resulted with more
 than double energy usage, the second indicated that running two
 kernels in close temporal proximity inflates the energy
@@ -429,7 +429,7 @@ level before one can measure the energy consumption of the next
 kernel. Those tests were also validated on other GPUs and the
 results showed that they behave in a~similar manner to the first
 one. The only notable difference is that all of the measurements
-are a few watts higher on the second GPU. The difference is,
+are a few watts higher on the second GPU\@. The difference is,
 however, within the 5 W absolute accuracy of the sensor. The
 profiled power obtained from tests on other GPUs are all very
 similar to each other, which further validates the used methodology.

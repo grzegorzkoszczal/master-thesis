@@ -29,55 +29,13 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated field_info (elt_size=8) to 10460 items from 5000.
 Database file #1: main-blx.bib
 Database file #2: config/bibliography.bib
-Warning--entry type for "NASA_Advanced_Supercomputing" isn't style-file defined
---line 325 of file config/bibliography.bib
-Warning--entry type for "GitHub_intel/yoko-tool" isn't style-file defined
---line 334 of file config/bibliography.bib
-Warning--entry type for "Energy_Consumption_of_ICT" isn't style-file defined
---line 342 of file config/bibliography.bib
-Warning--entry type for "RAPL_Reporting" isn't style-file defined
---line 349 of file config/bibliography.bib
-Warning--entry type for "NVML" isn't style-file defined
---line 356 of file config/bibliography.bib
-Warning--entry type for "Yokogawa_Producent_Page" isn't style-file defined
---line 363 of file config/bibliography.bib
-Warning--entry type for "Yokogawa_Meter_Series_Specifications" isn't style-file defined
---line 370 of file config/bibliography.bib
-Warning--entry type for "NVML_Reference_Manual" isn't style-file defined
---line 377 of file config/bibliography.bib
-Warning--entry type for "Intel_Xeon_Phi_Coprocessor_Developer" isn't style-file defined
---line 384 of file config/bibliography.bib
-Warning--entry type for "NVIDIA_SMI" isn't style-file defined
---line 391 of file config/bibliography.bib
-Warning--entry type for "PAPI_CUDA" isn't style-file defined
---line 398 of file config/bibliography.bib
-Warning--entry type for "Pthreads" isn't style-file defined
---line 405 of file config/bibliography.bib
-Warning--entry type for "OpenMP" isn't style-file defined
---line 412 of file config/bibliography.bib
-Warning--entry type for "NVIDIA_Parallel_Thread_Execution" isn't style-file defined
---line 419 of file config/bibliography.bib
-Warning--entry type for "NVIDIA_NVCC" isn't style-file defined
---line 426 of file config/bibliography.bib
-Warning--entry type for "K20Power" isn't style-file defined
---line 432 of file config/bibliography.bib
-Warning--entry type for "LonestarGPU" isn't style-file defined
---line 439 of file config/bibliography.bib
-Warning--entry type for "EnergyStar" isn't style-file defined
---line 446 of file config/bibliography.bib
-Warning--entry type for "SPEC" isn't style-file defined
---line 451 of file config/bibliography.bib
-Warning--entry type for "IEC" isn't style-file defined
---line 458 of file config/bibliography.bib
-Warning--entry type for "iTeh" isn't style-file defined
---line 469 of file config/bibliography.bib
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 You've used 39 entries,
             6399 wiz_defined-function locations,
             1489 strings with 35065 characters,
-and the built_in function-call counts, 295081 in all, are:
+and the built_in function-call counts, 295102 in all, are:
 = -- 23578
 > -- 4151
 < -- 1182
@@ -110,9 +68,8 @@ swap$ -- 5796
 text.length$ -- 1057
 text.prefix$ -- 38
 top$ -- 1
-type$ -- 1293
+type$ -- 1314
 warning$ -- 0
 while$ -- 4140
 width$ -- 0
 write$ -- 1347
-(There were 21 warnings)
