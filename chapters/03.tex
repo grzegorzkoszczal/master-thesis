@@ -213,11 +213,12 @@ to verify the power measurement software they provide.
 
 The authors of the research paper prepared a set of special
 micro-benchmarks to stress the GPU, in order to capture the
-power usage of each PTX instruction[22], so the instructions
-were written in PTX as well. PTX is a virtual-assembly language
-used in NVIDIA's CUDA programming environment whose purpose is to
-control the exact sequence of instructions executing without any
-overhead. The researchers prepared two kernels for the purpose
+power usage of each PTX
+instruction~\cite{NVIDIA_Parallel_Thread_Execution}, so the
+instructions were written in PTX as well. PTX is a virtual-assembly
+language used in NVIDIA's CUDA programming environment whose purpose
+is to control the exact sequence of instructions executing without
+any overhead. The researchers prepared two kernels for the purpose
 of this work - first one is tasked with adding integers and second
 one responsible for dividing variables with unsigned values.
 Since it is impossible to capture power draw of an execution of
@@ -265,19 +266,19 @@ different generations/architectures: GTX TITAN X from Maxwell
 architecture, GTX 1080 Ti from Pascal architecture, TITAN V from
 Volta architecture and TITAN RTX from Turing architecture. To
 compile and run the previously prepared benchmarks, the CUDA NVCC
-compiler[24] has been used. The results of the tests show that
-NVIDIA TITAN V has the lowest energy consumption per instruction
-among all the tested GPUs. Additionally the tests were performed
-on both CUDA optimized and non-optimized versions of code, and
-overall the optimized versions of instruction proved to be less
-energy hungry than the non-optimized ones. In terms of differences
-between various software power measuring techniques, namely PAPI
-versus MTSM, The dominant tendency of the results is that PAPI
-readings are always more than the MTSM. Although the difference
-is not significant for small kernels, it can be up to 1 µJ for
-bigger kernels like Floating Single and Double Precision div
-instructions. Different software techniques (MTSM and PAPI) have
-been compared against the hardware setup on Volta TITAN V GPU.
+compiler~\cite{NVIDIA_NVCC} has been used. The results of the
+tests show that NVIDIA TITAN V has the lowest energy consumption
+per instruction among all the tested GPUs. Additionally the tests
+were performed on both CUDA optimized and non-optimized versions
+of code, and overall the optimized versions of instruction proved
+to be less energy hungry than the non-optimized ones. In terms of
+differences between various software power measuring techniques,
+namely PAPI versus MTSM, The dominant tendency of the results is
+that PAPI readings are always more than the MTSM. Although the
+difference is not significant for small kernels, it can be up to
+1 µJ for bigger kernels like Floating Single and Double Precision
+div instructions. Different software techniques (MTSM and PAPI)
+have been compared against the hardware setup on Volta TITAN V GPU.
 Compared to the ground truth hardware measurements, for all the
 instructions, the average Mean Absolute Percentage Error (MAPE)
 of MTSM Energy is 6.39 and the mean Root Mean Square Error (RMSE)
@@ -298,7 +299,8 @@ than double energy usage, the second indicated that running two
 kernels in close temporal proximity inflates the energy
 consumption of the later kernel. Based on previous work in
 a similar field and set of preliminary tests, a new, reliable
-methodology has been proposed as the conclusion of this experiment.
+methodology~\cite{K20Power} has been proposed as the conclusion
+of this experiment.
 
 GPUs used in this project are NVIDIA Tesla K20, equipped with
 on-board sensors for querying the power consumption at runtime.
@@ -332,7 +334,8 @@ for all n bodies, leading to a very regular implementation that
 maps well to GPUs. Moreover, the force calculations are
 independent, resulting in large amounts of parallelism. The second
 code, called BH, uses the Barnes-Hut algorithm to approximately
-compute the forces [26][27]. It hierarchically partitions the
+compute the forces~\cite{O(N)_Force_Calculation_Algorithm}
+~\cite{LonestarGPU}. It hierarchically partitions the
 volume around the n bodies into successively smaller cubes, called
 cells, until there is just one body per innermost cell. The
 resulting spatial hierarchy is recorded in an unbalanced octree.
@@ -341,10 +344,10 @@ NB code is relatively straightforward, has a high computational
 density, and only accesses main memory infrequently due to
 excellent caching in shared memory. In contrast, the BH code is
 quite complex, has a low computational density, performs mostly
-irregular pointer-chasing memory accesses, and consists of multiple
-different kernels. Nevertheless, because of its lower time
-complexity, it is about 33 times faster than the NB code when
-simulating one million stars.
+irregular~\cite{Irregular_Programs_GPUs_Study} pointer-chasing
+memory accesses, and consists of multiple different kernels.
+Nevertheless, because of its lower time complexity, it is about
+33 times faster than the NB code when simulating one million stars.
 
 In order to conduct the energy measurement from the GPU power
 sensor, the authors of the work wrote their own tool to query the

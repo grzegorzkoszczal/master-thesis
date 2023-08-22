@@ -15,7 +15,7 @@
     author       = "{Wikibooks community}",
     publisher    = "Wikibooks",
     howpublished = "\url{https://en.wikibooks.org/wiki/LaTeX}",
-}
+
 
 # ===== RESEARCH PAPERS =====
 
@@ -35,6 +35,7 @@
   url            = {https://www.mdpi.com/1996-1073/12/11/2204},
   issn           = {1996-1073},
   abstract       = {Energy of computing is a serious environmental concern and mitigating it is an important technological challenge. Accurate measurement of energy consumption during an application execution is key to application-level energy minimization techniques. There are three popular approaches to providing it: (a) System-level physical measurements using external power meters; (b) Measurements using on-chip power sensors and (c) Energy predictive models. In this work, we present a comprehensive study comparing the accuracy of state-of-the-art on-chip power sensors and energy predictive models against system-level physical measurements using external power meters, which we consider to be the ground truth. We show that the average error of the dynamic energy profiles obtained using on-chip power sensors can be as high as 73\% and the maximum reaches 300\% for two scientific applications, matrix-matrix multiplication and 2D fast Fourier transform for a wide range of problem sizes. The applications are executed on three modern Intel multicore CPUs, two Nvidia GPUs and an Intel Xeon Phi accelerator. The average error of the energy predictive models employing performance monitoring counters (PMCs) as predictor variables can be as high as 32\% and the maximum reaches 100\% for a diverse set of seventeen benchmarks executed on two Intel multicore CPUs (one Haswell and the other Skylake). We also demonstrate that using inaccurate energy measurements provided by on-chip sensors for dynamic energy optimization can result in significant energy losses up to 84\%. We show that, owing to the nature of the deviations of the energy measurements provided by on-chip sensors from the ground truth, calibration can not improve the accuracy of the on-chip sensors to an extent that can allow them to be used in optimization of applications for dynamic energy. Finally, we present the lessons learned, our recommendations for the use of on-chip sensors and energy predictive models and future directions.},
+  keywords       = {Research_Paper},
   doi            = {10.3390/en12112204}
 }
 
@@ -51,9 +52,9 @@
   doi       = {10.1145/3387902.3392613},
   abstract  = {GPUs are prevalent in modern computing systems at all scales. They consume a significant fraction of the energy in these systems. However, vendors do not publish the actual cost of the power/energy overhead of their internal microarchitecture. In this paper, we accurately measure the energy consumption of various PTX instructions found in modern NVIDIA GPUs. We provide an exhaustive comparison of more than 40 instructions for four high-end NVIDIA GPUs from four different generations (Maxwell, Pascal, Volta, and Turing). Furthermore, we show the effect of the CUDA compiler optimizations on the energy consumption of each instruction. We use three different software techniques to read the GPU on-chip power sensors, which use NVIDIA's NVML API and provide an in-depth comparison between these techniques. Additionally, we verified the software measurement techniques against a custom-designed hardware power measurement. The results show that Volta GPUs have the best energy efficiency of all the other generations for the different categories of the instructions. This work should aid in understanding NVIDIA GPUs' microarchitecture. It should also make energy measurements of any GPU kernel both efficient and accurate.},
   booktitle = {Proceedings of the 17th ACM International Conference on Computing Frontiers},
-  pages     = {60–70},
+  pages     = {60-70},
   numpages  = {11},
-  keywords  = {PTX, NVML, internal power sensors, external power meters, GPU power usage, PAPI},
+  keywords  = {Research_Paper, PTX, NVML, internal power sensors, external power meters, GPU power usage, PAPI},
   location  = {Catania, Sicily, Italy},
   series    = {CF '20}
 }
@@ -71,9 +72,9 @@
   doi       = {10.1145/2588768.2576783},
   abstract  = {GPU-accelerated programs are becoming increasingly common in HPC, personal computers, and even handheld devices, making it important to optimize their energy efficiency. However, accurately profiling the power consumption of GPU code is not straightforward. In fact, we have identified multiple anomalies when using the on-board power sensor of K20 GPUs. For example, we have found that doubling a kernel's runtime more than doubles its energy usage, that kernels consume energy after they have stopped executing, and that running two kernels in close temporal proximity inflates the energy consumption of the later kernel. Moreover, we have observed that the power sampling frequency varies greatly and that the GPU sensor only performs power readings once in a while. We present a methodology to accurately compute the instant power and the energy consumption despite these issues.},
   booktitle = {Proceedings of Workshop on General Purpose Processing Using GPUs},
-  pages     = {28–36},
+  pages     = {28-36},
   numpages  = {9},
-  keywords  = {Power measurement, GPU power sensor, energy measurement},
+  keywords  = {Research_Paper, Power measurement, GPU power sensor, energy measurement},
   location  = {Salt Lake City, UT, USA},
   series    = {GPGPU-7}
 }
@@ -91,6 +92,7 @@
   pages     = {1254--1259},
   isbn      = {978-0-387-09766-4},
   doi       = {10.1007/978-0-387-09766-4_133},
+  keywords  = {Research_Paper},
   url       = {https://doi.org/10.1007/978-0-387-09766-4_133}
 }
 
@@ -258,9 +260,9 @@
   abstract   = {Cloud environments today are increasingly featuring hybrid nodes containing multicore CPU processors and a diverse mix of accelerators such as Graphics Processing Units (GPUs), Intel Xeon Phi co-processors, and Field-Programmable Gate Arrays (FPGAs) to facilitate easier migration to them of HPC workloads. While virtualization of accelerators in clouds is a leading research challenge, we address the programming challenges that assail execution of large instances of data-parallel applications using these accelerators in this paper. In a typical hybrid node in a cloud, the tight integration of accelerators with multicore CPUs via PCI-E communication links contains inherent limitations such as limited main memory of accelerators and limited bandwidth of the PCI-E communication links. These limitations poses formidable programming challenges to execution of large problem sizes on these accelerators. In this paper, we describe a library containing interfaces (HCLOOC) that addresses these challenges. It employs optimal software pipelines to overlap data transfers between host CPU and the accelerator and computations on the accelerator. It is designed using the fundamental building blocks, which are OpenCL command queues for FPGAs, Intel offload streams for Intel Xeon Phis, and CUDA streams and events that allow concurrent utilization of the copy and execution engines provided in NVidia GPUs. We elucidate the key features of our library using an out-of-core implementation of matrix multiplication of large dense matrices on a hybrid node, an Intel Haswell multicore CPU server hosting three accelerators that includes NVidia K40c GPU, Intel Xeon Phi 3120P, and a Xilinx FPGA. Based on experiments with the GPU, we show that our out-of-core implementation achieves 82\% of peak double-precision floating performance of the GPU and a speedup of 2.7 times over the NVidia's out-of-core matrix multiplication implementation (CUBLAS-XT). We also demonstrate that our implementation exhibits 0\% drop in performance when the problem size exceeds the main memory of the GPU. We observe this 0\% drop also for our implementation for Intel Xeon Phi and Xilinx FPGA.},
   journal    = {J. Supercomput.},
   month      = {feb},
-  pages      = {551–568},
+  pages      = {551-568},
   numpages   = {18},
-  keywords   = {Intel MKL, Heterogeneous clouds, CUDA, Intel Xeon Phi, GPU, CUBLAS, Matrix multiplication, Out-of-core}
+  keywords   = {Research_Paper, Intel MKL, Heterogeneous clouds, CUDA, Intel Xeon Phi, GPU, CUBLAS, Matrix multiplication, Out-of-core}
 }
 
 @book{Intel_Xeon_Phi_Coprocessor_Architecture,
@@ -271,6 +273,51 @@
   address   = {Berkeley, CA :},
   keywords  = {Research_Paper},
   url       = {https://doi.org/10.1007/978-1-4302-5927-5}
+}
+
+@inproceedings{Power_Aware_GPU_Computing,
+  author    = {Kasichayanula, Kiran and Terpstra, Dan and Luszczek, Piotr and Tomov, Stan and Moore, Shirley and Peterson, Gregory D.},
+  booktitle = {2012 Symposium on Application Accelerators in High Performance Computing},
+  title     = {Power Aware Computing on GPUs},
+  year      = {2012},
+  volume    = {},
+  number    = {},
+  pages     = {64-73},
+  abstract  = {Energy and power density concerns in modern processors have led to significant computer architecture research efforts in power-aware and temperature-aware computing. With power dissipation becoming an increasingly vexing problem, power analysis of Graphical Processing Unit (GPU) and its components has become crucial for hardware and software system design. Here, we describe our technique for a coordinated measurement approach that combines real total power measurement and per-component power estimation. To identify power consumption accurately, we introduce the Activity-based Model for GPUs (AMG), from which we identify activity factors and power for micro architectures on GPUs that will help in analyzing power tradeoffs of one component versus another using micro benchmarks. The key challenge addressed in this work is real-time power consumption, which can be accurately estimated using NVIDIA's Management Library (NVML). We validated our model using Kill-A-Watt power meter and the results are accurate within 10%. This work also analyses energy consumption of MAGMA (Matrix Algebra on GPU and Multicore Architectures) BLAS2, BLAS3 kernels, and Hessenberg kernels.},
+  keywords  = {Research_Paper},
+  doi       = {10.1109/SAAHPC.2012.26},
+  issn      = {2166-515X},
+  month     = {July}
+}
+
+@article{O(N)_Force_Calculation_Algorithm,
+  author    = {Walter Dehnen},
+  title     = {A Hierarchical (N) Force Calculation Algorithm},
+  keywords  = {Research_Paper},
+  doi       = {10.1006/jcph.2002.7026},
+  url       = {https://doi.org/10.1006%2Fjcph.2002.7026},
+  year      = {2002},
+  month     = {jun},
+  publisher = {Elsevier (BV)},
+  volume    = {179},
+  number    = {1},
+  pages     = {27--42},
+  journal   = {Journal of Computational Physics}
+}
+
+@inproceedings{Irregular_Programs_GPUs_Study,
+  author    = {Burtscher, Martin and Nasre, Rupesh and Pingali, Keshav},
+  booktitle = {2012 IEEE International Symposium on Workload Characterization (IISWC)},
+  title     = {A quantitative study of irregular programs on GPUs},
+  year      = {2012},
+  volume    = {},
+  number    = {},
+  pages     = {141-151},
+  abstract  = {GPUs have been used to accelerate many regular applications and, more recently, irregular applications in which the control flow and memory access patterns are data-dependent and statically unpredictable. This paper defines two measures of irregularity called control-flow irregularity and memory-access irregularity, and investigates, using performance-counter measurements, how irregular GPU kernels differ from regular kernels with respect to these measures. For a suite of 13 benchmarks, we find that (i) irregularity at the warp level varies widely, (ii) control-flow irregularity and memory-access irregularity are largely independent of each other, and (iii) most kernels, including regular ones, exhibit some irregularity. A program's irregularity can change between different inputs, systems, and arithmetic precision but generally stays in a specific region of the irregularity space. Whereas some highly tuned implementations of irregular algorithms exhibit little irregularity, trading off extra irregularity for better locality or less work can improve overall performance.},
+  keywords  = {Research_Paper},
+  doi       = {10.1109/IISWC.2012.6402918},
+  issn      = {},
+  month     = {Nov}
 }
 
 # ===== EXTERNAL LINKS =====
@@ -369,11 +416,31 @@
   url      = {https://www.openmp.org/resources/refguides/}
 }
 
-@link{,
-  author   = {},
-  title    = {},
+@link{NVIDIA_Parallel_Thread_Execution,
+  author   = {NVIDIA},
+  title    = {Parallel Thread Execution ISA Version 8.2},
   keywords = {Useful_Link},
-  url      = {}
+  url      = {https://docs.nvidia.com/cuda/parallel-thread-execution/index.html}
+}
+
+@link{NVIDIA_NVCC,
+  author   = {NVIDIA},
+  title    = {NVIDIA CUDA Compiler Driver NVCC},
+  keywords = {Useful_Link},
+  url      = {https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/}
+}
+@link{K20Power,
+  author   = {Martin Burtscher},
+  title    = {K20Power v1.1},
+  keywords = {Useful_Link},
+  url      = {https://userweb.cs.txstate.edu/~burtscher/research/K20power/}
+}
+
+@link{LonestarGPU,
+  author   = {ISS Group at the University of Texas},
+  title    = {LonestarGPU},
+  keywords = {Useful_Link},
+  url      = {https://iss.oden.utexas.edu/?p=projects/galois/lonestargpu}
 }
 
 @link{,
@@ -381,6 +448,9 @@
   title    = {},
   keywords = {Useful_Link},
   url      = {}
+}@link{,
+  author   = {},
+  title    = {},
+  keywords = {Useful_Link},
+  url      = {}
 }
-
-# Yurika says hi!
