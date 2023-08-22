@@ -35,10 +35,11 @@ which consists of:
 
 \subsection{NVIDIA NVML}
 
-NVIDIA Management Library (NVML)[6] - A C-based API for
-monitoring and managing various states of the NVIDIA GPU
+NVIDIA Management Library (NVML)~\cite{NVML} - A C-based API
+for monitoring and managing various states of the NVIDIA GPU
 devices. It provides direct access to the queries and commands
-exposed via nvidia-smi[18]. The runtime version of NVML ships
+exposed via nvidia-smi~\cite{NVIDIA_SMI}.
+The runtime version of NVML ships
 with the NVIDIA display driver, and the SDK provides the
 appropriate header, stub libraries and sample applications.
 Each new version of NVML is backwards compatible and is intended
@@ -50,7 +51,7 @@ sensors and read the power usage of the device. Such techniques
 are either from the native NVML API, like Sampling Monitoring
 Approach (SMA) or Multi-Threaded Synchronized Monitoring (MTSM)
 or from CUDA component and it’s called Performance Application
-Programming Interface (PAPI)[19].
+Programming Interface (PAPI)~\cite{PAPI_CUDA}.
 
 Sampling Monitoring Approach (SMA) - The C-based API provided
 by NVML that can query the power usage of the device and provide
@@ -88,8 +89,9 @@ in recording of only the power reading of the kernel solely.
 Monitoring part is performed by the host CPU in that way the
 master thread calls and then monitors the kernel and other
 threads records the power, therefore it requires the use of
-parallel programming execution models, such as Pthreads[20] or
-OpenMP[21]. This approach at first initializes the volatile
+parallel programming execution models, such as Pthreads
+~\cite{Pthreads} or
+OpenMP~\cite{OpenMP}. This approach at first initializes the volatile
 variable (at master thread) that is used later in recording of
 power readings. Then, the remaining threads execute the monitoring
 function in parallel and start measuring the time and power draw

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.8.19)  19 AUG 2023 18:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.8.19)  21 AUG 2023 15:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1051,32 +1051,46 @@ Overfull \hbox (2.93373pt too wide) in paragraph at lines 7--21
  []
 
 
-Overfull \hbox (19.83315pt too wide) in paragraph at lines 47--54
+LaTeX Warning: Citation 'NVML' on page 5 undefined on input line 38.
+
+
+LaTeX Warning: Citation 'NVIDIA_SMI' on page 5 undefined on input line 41.
+
+
+Overfull \hbox (4.13695pt too wide) in paragraph at lines 38--47
+\T1/phv/m/n/10 display driver, and the SDK provides the appropriate header, stub libraries and sample applications.
+ []
+
+
+LaTeX Warning: Citation 'PAPI_CUDA' on page 5 undefined on input line 54.
+
+
+Overfull \hbox (19.83315pt too wide) in paragraph at lines 48--55
 []\T1/phv/m/n/10 There are various techniques of computing the energy consumption using the NVIDIA Management
  []
 
 
-Overfull \hbox (4.67593pt too wide) in paragraph at lines 47--54
+Overfull \hbox (4.67593pt too wide) in paragraph at lines 48--55
 \T1/phv/m/n/10 Library, which query the onboard sensors and read the power usage of the device. Such techniques
  []
 
 
-Overfull \hbox (6.29292pt too wide) in paragraph at lines 47--54
+Overfull \hbox (6.29292pt too wide) in paragraph at lines 48--55
 \T1/phv/m/n/10 Synchronized Monitoring (MTSM) or from CUDA component and it's called Performance Application
  []
 
 
-Overfull \hbox (3.5629pt too wide) in paragraph at lines 65--83
+Overfull \hbox (3.5629pt too wide) in paragraph at lines 66--84
 []\T1/phv/m/n/10 Performance Application Programming Interface (PAPI) provides an API to access the hardware
  []
 
 
-Overfull \hbox (12.61314pt too wide) in paragraph at lines 65--83
+Overfull \hbox (12.61314pt too wide) in paragraph at lines 66--84
 \T1/phv/m/n/10 in different profiling and tracing tools. PAPI can work as a high-level wrapper for different components.
  []
 
 
-Overfull \hbox (61.79504pt too wide) in paragraph at lines 65--83
+Overfull \hbox (61.79504pt too wide) in paragraph at lines 66--84
 \T1/phv/m/n/10 component implemented in PAPI uses the function, getPowerUsage() which query nvmlDeviceGetPowerUsage()
  []
 
@@ -1087,17 +1101,23 @@ Overfull \hbox (61.79504pt too wide) in paragraph at lines 65--83
 
 ]
 
-LaTeX Warning: Citation 'GitHub_intel/yoko-tool' on page 6 undefined on input line 126.
+LaTeX Warning: Citation 'Pthreads' on page 6 undefined on input line 93.
+
+
+LaTeX Warning: Citation 'OpenMP' on page 6 undefined on input line 94.
+
+
+LaTeX Warning: Citation 'GitHub_intel/yoko-tool' on page 6 undefined on input line 128.
 
 [6]
 
-LaTeX Warning: Citation 'NPB-CPP' on page 7 undefined on input line 165.
+LaTeX Warning: Citation 'NPB-CPP' on page 7 undefined on input line 167.
 
 
-LaTeX Warning: Citation 'NPB-CUDA_1' on page 7 undefined on input line 179.
+LaTeX Warning: Citation 'NPB-CUDA_1' on page 7 undefined on input line 181.
 
 
-LaTeX Warning: Citation 'NPB-CUDA_2' on page 7 undefined on input line 179.
+LaTeX Warning: Citation 'NPB-CUDA_2' on page 7 undefined on input line 181.
 
 ) [7]
 \openout2 = `chapters/03.aux'.
@@ -1131,57 +1151,78 @@ Overfull \hbox (14.99754pt too wide) in paragraph at lines 87--98
 LaTeX Warning: Citation 'Implementation_for_Accelerator_Kernels' on page 9 undefined on input line 131.
 
 
-LaTeX Warning: Citation 'NVML_Reference_Manual' on page 9 undefined on input line 135.
+LaTeX Warning: Citation 'Intel_Xeon_Phi_Coprocessor_Architecture' on page 9 undefined on input line 133.
 
 
-Overfull \hbox (62.98546pt too wide) in paragraph at lines 129--153
-\T1/phv/m/n/10 sensors on NVIDIA GPUs, the dedicated libraries were used, called NVIDIA NVML  [[]]
+LaTeX Warning: Citation 'NVML_Reference_Manual' on page 9 undefined on input line 136.
+
+
+LaTeX Warning: Citation 'Intel_Xeon_Phi_Coprocessor_Developer' on page 9 undefined on input line 139.
+
+
+Overfull \hbox (14.27466pt too wide) in paragraph at lines 129--156
+\T1/phv/m/n/10 and one Intel coprocessor, the Intel Xeon Phi 3120P  [[]].
+ []
+
+
+Overfull \hbox (46.10532pt too wide) in paragraph at lines 129--156
+\T1/phv/m/n/10 Xeon Phi, the Intel System Management Controller chip (SMC) [[]]
+ []
+
+
+Overfull \hbox (1.33574pt too wide) in paragraph at lines 129--156
+\T1/phv/m/n/10 using GPU and Xeon Phi sensors and HCLWattsUp is similar to this for RAPL. Briefly, HCLWattsUp
+ []
+
+
+Overfull \hbox (3.92282pt too wide) in paragraph at lines 129--156
+\T1/phv/m/n/10 API provides the dynamic energy consumption of an application using both CPU and an accelerator
  []
 
 [9]
-Overfull \hbox (27.96837pt too wide) in paragraph at lines 173--187
+Overfull \hbox (27.96837pt too wide) in paragraph at lines 176--190
 \T1/phv/m/n/10 measurements using sensors and HCLWattsUp can be reduced using calibration, which is, nevertheless,
  []
 
 
-Overfull \hbox (4.64153pt too wide) in paragraph at lines 173--187
+Overfull \hbox (4.64153pt too wide) in paragraph at lines 176--190
 \T1/phv/m/n/10 2D and MKL FFT 2D),which means that data transfers (between CPU host-core and an accelerator)
  []
 
 
-Overfull \hbox (12.71075pt too wide) in paragraph at lines 190--190
+Overfull \hbox (12.71075pt too wide) in paragraph at lines 193--193
 |[]\T1/phv/b/sl/10 "VERIFIED INSTRUCTION-LEVEL ENERGY CONSUMPTION MEASUREMENT FOR NVIDIA
  []
 
 
-LaTeX Warning: Citation 'State_of_the_Art_Article_2' on page 10 undefined on input line 192.
+LaTeX Warning: Citation 'State_of_the_Art_Article_2' on page 10 undefined on input line 195.
 
 
 Underfull \vbox (badness 1490) has occurred while \output is active []
 
  [10]
-Overfull \hbox (40.70271pt too wide) in paragraph at lines 260--284
+Overfull \hbox (40.70271pt too wide) in paragraph at lines 263--287
 []\T1/phv/m/n/10 The experiment has been conducted for four NVIDIA GPUs from four different generations/architectures:
  []
 
 
-LaTeX Warning: Citation 'State_of_the_Art_Article_3' on page 11 undefined on input line 288.
+LaTeX Warning: Citation 'State_of_the_Art_Article_3' on page 11 undefined on input line 291.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-Overfull \hbox (7.49422pt too wide) in paragraph at lines 323--345
+Overfull \hbox (7.49422pt too wide) in paragraph at lines 326--348
 []\T1/phv/m/n/10 Benchmark applications used in this paper solved two different n-body problem implementations.
  []
 
 
-Overfull \hbox (8.44624pt too wide) in paragraph at lines 323--345
+Overfull \hbox (8.44624pt too wide) in paragraph at lines 326--348
 \T1/phv/m/n/10 irregular pointer-chasing memory accesses, and consists of multiple different kernels. Nevertheless,
  []
 
 
-Overfull \hbox (7.53589pt too wide) in paragraph at lines 346--375
+Overfull \hbox (7.53589pt too wide) in paragraph at lines 349--378
 \T1/phv/m/n/10 interface, which returns the power readings in milliwatts. The sampling intervals of the measurement
  []
 
@@ -1315,7 +1356,7 @@ Here is how much of TeX's memory you used:
  0 hyphenation exceptions out of 8191
  90i,17n,108p,1184b,1563s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/courier/ucrr8a.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvb8a.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvbo8a.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.pfb></home/gk99/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (22 pages, 542705 bytes).
+Output written on main.pdf (22 pages, 542947 bytes).
 PDF statistics:
  342 PDF objects out of 1000 (max. 8388607)
  57 named destinations out of 1000 (max. 500000)

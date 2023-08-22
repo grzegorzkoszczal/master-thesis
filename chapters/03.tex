@@ -129,12 +129,15 @@ applications were used:
 The first one was the matrix multiplication (DGEMM), the second
 one was 2D-FFT. Tests were performed on two NVIDIA GPUs: K40c
 ~\cite{Implementation_for_Accelerator_Kernels} and P100,
-and one Intel coprocessor, the Intel Xeon Phi 3120P.
+and one Intel coprocessor, the Intel Xeon Phi 3120P
+~\cite{Intel_Xeon_Phi_Coprocessor_Architecture}.
 To obtain the power values from on-chip sensors on NVIDIA GPUs,
 the dedicated libraries were used, called NVIDIA NVML
 ~\cite{NVML_Reference_Manual} and
 to obtain power values from Intel Xeon Phi, the Intel System
-Management Controller chip (SMC) [16] was used. Values from the
+Management Controller chip
+(SMC)~\cite{Intel_Xeon_Phi_Coprocessor_Developer} was used.
+Values from the
 Intel Xeon Phi can be programmatically obtained using Intel
 manycore platform software stack (MPSS) [17]. The methodology
 taken to compare the measurements using GPU and Xeon Phi sensors
