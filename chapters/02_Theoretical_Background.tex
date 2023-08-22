@@ -57,11 +57,11 @@ Sampling Monitoring Approach (SMA) $-$ The C-based API provided
 by NVML that can query the power usage of the device and provide
 an instantaneous power measurement. Therefore, it can be
 programmed to keep reading the hardware sensor with a certain
-frequency. The \emph{nvmlDeviceGetPowerUsage()} function is used to
-retrieve the power usage reading for the device, in milliwatts.
-This function is called and executed by the CPU. The highest
-frequency possible is 66.7 Hz, which means the measurements are
-done every 15 ms.
+frequency. The \emph{nvmlDeviceGetPowerUsage()} function is
+used to retrieve the power usage reading for the device, in
+milliwatts. This function is called and executed by the CPU\@.
+The highest frequency possible is 66.7 Hz, which means the
+measurements are done every 15 ms.
 
 Performance Application Programming Interface (PAPI) provides
 an API to access the hardware performance counters found on
@@ -112,7 +112,7 @@ such tests. Such a tool is Yokogawa WT310E $-$ an external
 power meter that will serve this purpose in tests in this paper.
 It is a digital power analyzer that provides extremely low
 current measurement capability down to 50 micro-Amps, and
-a maximum of up to 26 Amps RMS. This device follows standards
+a maximum of up to 26 Amps RMS\@. This device follows standards
 and certificates such as Energy Star®~\cite{EnergyStar},
 SPECpower~\cite{SPEC} and IEC62301~\cite{IEC} / EN50564~\cite{iTeh}
 testing. This model comes from a WT300E's family of appliances
@@ -143,7 +143,7 @@ use in previous works)
 
 (Work-In-Progress)
 
-[TO DO:
+[TO DO\@:
 
 1. Cite 2 works from NPB-CPP and NPB-CUDA github repos
 

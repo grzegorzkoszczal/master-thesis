@@ -5,10 +5,12 @@ The style file: biblatex.bst
 A level-1 auxiliary file: misc/abstract-en.aux
 A level-1 auxiliary file: misc/list-of-symbols.aux
 A level-1 auxiliary file: chapters/introduction.aux
-A level-1 auxiliary file: chapters/01.aux
-A level-1 auxiliary file: chapters/02.aux
-A level-1 auxiliary file: chapters/03.aux
-A level-1 auxiliary file: chapters/example.aux
+A level-1 auxiliary file: chapters/01_Research_Goal.aux
+A level-1 auxiliary file: chapters/02_Theoretical_Background.aux
+A level-1 auxiliary file: chapters/03_Related_Work.aux
+A level-1 auxiliary file: chapters/04_Proposal_of_the_Solution.aux
+A level-1 auxiliary file: chapters/05_Experiments.aux
+A level-1 auxiliary file: chapters/06_Summary.aux
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=8) to 20 items from 10.
@@ -24,7 +26,7 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated field_info (elt_size=8) to 10600 items from 5000.
+Reallocated field_info (elt_size=8) to 10460 items from 5000.
 Database file #1: main-blx.bib
 Database file #2: config/bibliography.bib
 Warning--entry type for "NASA_Advanced_Supercomputing" isn't style-file defined
@@ -72,45 +74,45 @@ Warning--entry type for "iTeh" isn't style-file defined
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 40 entries,
+You've used 39 entries,
             6399 wiz_defined-function locations,
-            1490 strings with 34988 characters,
-and the built_in function-call counts, 297064 in all, are:
-= -- 23731
-> -- 4089
-< -- 1186
-+ -- 8195
-- -- 1503
-* -- 21225
-:= -- 33345
+            1489 strings with 35065 characters,
+and the built_in function-call counts, 295081 in all, are:
+= -- 23578
+> -- 4151
+< -- 1182
++ -- 8330
+- -- 1541
+* -- 21030
+:= -- 33371
 add.period$ -- 0
-call.type$ -- 40
-change.case$ -- 534
+call.type$ -- 39
+change.case$ -- 530
 chr.to.int$ -- 84
-cite$ -- 78
-duplicate$ -- 31217
-empty$ -- 26470
-format.name$ -- 2560
-if$ -- 60004
+cite$ -- 76
+duplicate$ -- 31324
+empty$ -- 26001
+format.name$ -- 2599
+if$ -- 59429
 int.to.chr$ -- 0
-int.to.str$ -- 105
+int.to.str$ -- 104
 missing$ -- 0
-newline$ -- 1384
+newline$ -- 1385
 num.names$ -- 1831
-pop$ -- 14105
+pop$ -- 13818
 preamble$ -- 1
-purify$ -- 734
+purify$ -- 737
 quote$ -- 0
-skip$ -- 7075
+skip$ -- 7042
 stack$ -- 0
-substring$ -- 43874
-swap$ -- 5836
-text.length$ -- 1058
-text.prefix$ -- 39
+substring$ -- 43226
+swap$ -- 5796
+text.length$ -- 1057
+text.prefix$ -- 38
 top$ -- 1
-type$ -- 1327
+type$ -- 1293
 warning$ -- 0
-while$ -- 4088
+while$ -- 4140
 width$ -- 0
-write$ -- 1345
+write$ -- 1347
 (There were 21 warnings)
