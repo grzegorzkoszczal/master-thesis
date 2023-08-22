@@ -23,19 +23,19 @@ Moreover, the Intel RAPL divides the platform into four domains,
 which consists of:
 
 \begin{itemize}
-    \item PP0 (Core Devices) - Includes the energy consumption
+    \item PP0 (Core Devices) $-$ Includes the energy consumption
     by all the CPU cores in the socket(s).
-    \item PP1 (Uncore Devices) - Includes the power consumption
+    \item PP1 (Uncore Devices) $-$ Includes the power consumption
     of integrated graphics processing unit (unavailable on the
     server platforms)
-    \item DRAM - The energy consumption of the main memory.
-    \item Package - The energy consumption of the entire socket
+    \item DRAM $-$ The energy consumption of the main memory.
+    \item Package $-$ The energy consumption of the entire socket
     including core and uncore.
 \end{itemize}
 
 \subsection{NVIDIA NVML}
 
-NVIDIA Management Library (NVML)~\cite{NVML} - A C-based API
+NVIDIA Management Library (NVML)~\cite{NVML} $-$ A C-based API
 for monitoring and managing various states of the NVIDIA GPU
 devices. It provides direct access to the queries and commands
 exposed via nvidia-smi~\cite{NVIDIA_SMI}.
@@ -53,11 +53,11 @@ Approach (SMA) or Multi-Threaded Synchronized Monitoring (MTSM)
 or from CUDA component and it's called Performance Application
 Programming Interface (PAPI)~\cite{PAPI_CUDA}.
 
-Sampling Monitoring Approach (SMA) - The C-based API provided
+Sampling Monitoring Approach (SMA) $-$ The C-based API provided
 by NVML that can query the power usage of the device and provide
 an instantaneous power measurement. Therefore, it can be
 programmed to keep reading the hardware sensor with a certain
-frequency. The nvmlDeviceGetPowerUsage() function is used to
+frequency. The \emph{nvmlDeviceGetPowerUsage()} function is used to
 retrieve the power usage reading for the device, in milliwatts.
 This function is called and executed by the CPU. The highest
 frequency possible is 66.7 Hz, which means the measurements are
@@ -76,13 +76,13 @@ both measuring and capping power usage on modern NVIDIA GPU
 architectures. The major advantage of using PAPI is that the
 measurements are by default synchronized with the kernel execution.
 The NVML component implemented in PAPI uses the function,
-getPowerUsage() which query nvmlDeviceGetPowerUsage() function.
-According to the documentation, this function is called only
-once when the command “papi end” is called. Thus, the power
+\emph{getPowerUsage()} which query \emph{nvmlDeviceGetPowerUsage()}
+function. According to the documentation, this function is called
+only once when the command “papi end” is called. Thus, the power
 returned using this method is an instantaneous power when the
 kernel finishes execution.
 
-Multi-Threaded Synchronized Monitoring (MTSM) - This method
+Multi-Threaded Synchronized Monitoring (MTSM) $-$ This method
 differs from SMA approach in the measurement period, a specific,
 exact window of the kernel execution is identified which results
 in recording of only the power reading of the kernel solely.
@@ -108,7 +108,7 @@ In order to perform comparison and to check the reliability
 of software power measurement methods, such as mentioned
 above Intel RAPL or NVIDIA NVML, it is mandatory to use
 a certified tool that would serve as the ground truth in
-such tests. Such a tool is Yokogawa WT310E - an external
+such tests. Such a tool is Yokogawa WT310E $-$ an external
 power meter that will serve this purpose in tests in this paper.
 It is a digital power analyzer that provides extremely low
 current measurement capability down to 50 micro-Amps, and
@@ -125,13 +125,13 @@ The basic accuracy for all input ranges is 0.1\% rdg + 0.05\%
 rng (50/60Hz) and DC 0.1\% rdg + 0.2\% rng.
 
 To use the Yokogawa WT310E power meter, a special software has
-been written for easy use - the Yokotool~\cite{GitHub_intel/yoko-tool}.
+been written for easy use $-$ the Yokotool~\cite{GitHub_intel/yoko-tool}.
 Yokotool is a command-line tool for controlling Yokogawa power
 meters in Linux. The tool is written in Python and works with both
 Python 2.7 and Python 3. The tool comes with the
-"yokolibs.PowerMeter" module which can be used from Python scripts.
+`yokolibs.PowerMeter' module which can be used from Python scripts.
 
-(Work-In-Progress - Here I can cover a bit more of the use
+(Work-In-Progress $-$ Here I can cover a bit more of the use
 of Yokotool in this project)
 
 (Work-In-Progress: add honorable mentions, such as WattsUp
@@ -172,7 +172,7 @@ tackle, what are class sizes, how do they differ, why is it
 useful and so on.
 
 Write that it works on one a two CPUs and on different number of
-threads - and prove it by screenshots or something.
+threads $-$ and prove it by screenshots or something.
 
 DON'T EXPLAIN WHICH ONE YOU CHOSE, ADD THAT LATER IN ANOTHER CHAPTER
 FOR EXAMPLE, `TEST METHODOLOGY' CHAPTER
