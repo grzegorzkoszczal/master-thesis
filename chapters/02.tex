@@ -50,7 +50,7 @@ using the NVIDIA Management Library, which query the onboard
 sensors and read the power usage of the device. Such techniques
 are either from the native NVML API, like Sampling Monitoring
 Approach (SMA) or Multi-Threaded Synchronized Monitoring (MTSM)
-or from CUDA component and it’s called Performance Application
+or from CUDA component and it's called Performance Application
 Programming Interface (PAPI)~\cite{PAPI_CUDA}.
 
 Sampling Monitoring Approach (SMA) - The C-based API provided
@@ -113,14 +113,14 @@ power meter that will serve this purpose in tests in this paper.
 It is a digital power analyzer that provides extremely low
 current measurement capability down to 50 micro-Amps, and
 a maximum of up to 26 Amps RMS. This device follows standards
-and certificates such as Energy Star®[28], SPECpower[29] and
-IEC62301[30] / EN50564[31] testing. This model comes from
-a WT300E's family of appliances that offer a wide range of
-functions and enhanced specifications, allowing handling of
-all the measurement applications from low frequency to high
-frequency inverters using a single power meter. The WT300E
-series with the fast display update rate of 100ms, offer's
-engineers a short tact time in their testing procedures.
+and certificates such as Energy Star®~\cite{EnergyStar},
+SPECpower~\cite{SPEC} and IEC62301~\cite{IEC} / EN50564~\cite{iTeh}
+testing. This model comes from a WT300E's family of appliances
+that offer a wide range of functions and enhanced specifications,
+allowing handling of all the measurement applications from low
+frequency to high frequency inverters using a single power meter.
+The WT300E series with the fast display update rate of 100ms,
+offer's engineers a short tact time in their testing procedures.
 The basic accuracy for all input ranges is 0.1\% rdg + 0.05\%
 rng (50/60Hz) and DC 0.1\% rdg + 0.2\% rng.
 
@@ -186,7 +186,7 @@ how does it work for GPUs
 
 Mention that it works on SINGLE GPU
 
-\subsection{Deep learnin model}
+\subsection{Deep learning model}
 
 Explain thoroughly Your own model and the fact it works 
 on GPUs in distributed manner.

@@ -8,7 +8,6 @@ A level-1 auxiliary file: chapters/introduction.aux
 A level-1 auxiliary file: chapters/01.aux
 A level-1 auxiliary file: chapters/02.aux
 A level-1 auxiliary file: chapters/03.aux
-A level-1 auxiliary file: chapters/example.aux
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=8) to 20 items from 10.
@@ -24,7 +23,7 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-Reallocated field_info (elt_size=8) to 10040 items from 5000.
+Reallocated field_info (elt_size=8) to 10460 items from 5000.
 Database file #1: main-blx.bib
 Database file #2: config/bibliography.bib
 Warning--entry type for "NASA_Advanced_Supercomputing" isn't style-file defined
@@ -61,48 +60,56 @@ Warning--entry type for "K20Power" isn't style-file defined
 --line 432 of file config/bibliography.bib
 Warning--entry type for "LonestarGPU" isn't style-file defined
 --line 439 of file config/bibliography.bib
+Warning--entry type for "EnergyStar" isn't style-file defined
+--line 446 of file config/bibliography.bib
+Warning--entry type for "SPEC" isn't style-file defined
+--line 451 of file config/bibliography.bib
+Warning--entry type for "IEC" isn't style-file defined
+--line 458 of file config/bibliography.bib
+Warning--entry type for "iTeh" isn't style-file defined
+--line 469 of file config/bibliography.bib
 Biblatex version: 3.19
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-You've used 36 entries,
+You've used 39 entries,
             6399 wiz_defined-function locations,
-            1474 strings with 32754 characters,
-and the built_in function-call counts, 279375 in all, are:
-= -- 22620
-> -- 3728
-< -- 1072
-+ -- 7842
-- -- 1384
-* -- 20064
-:= -- 31697
+            1490 strings with 34931 characters,
+and the built_in function-call counts, 295139 in all, are:
+= -- 23696
+> -- 4040
+< -- 1154
++ -- 8169
+- -- 1490
+* -- 21164
+:= -- 33277
 add.period$ -- 0
-call.type$ -- 36
-change.case$ -- 502
+call.type$ -- 39
+change.case$ -- 530
 chr.to.int$ -- 54
-cite$ -- 70
-duplicate$ -- 29289
-empty$ -- 24701
-format.name$ -- 2373
-if$ -- 56261
+cite$ -- 76
+duplicate$ -- 30949
+empty$ -- 26193
+format.name$ -- 2560
+if$ -- 59581
 int.to.chr$ -- 0
-int.to.str$ -- 97
+int.to.str$ -- 104
 missing$ -- 0
-newline$ -- 1294
-num.names$ -- 1667
-pop$ -- 12779
+newline$ -- 1375
+num.names$ -- 1831
+pop$ -- 13793
 preamble$ -- 1
-purify$ -- 694
+purify$ -- 731
 quote$ -- 0
-skip$ -- 6424
+skip$ -- 6986
 stack$ -- 0
-substring$ -- 42027
-swap$ -- 5389
-text.length$ -- 950
-text.prefix$ -- 35
+substring$ -- 43836
+swap$ -- 5746
+text.length$ -- 1033
+text.prefix$ -- 38
 top$ -- 1
-type$ -- 1195
+type$ -- 1293
 warning$ -- 0
-while$ -- 3870
+while$ -- 4062
 width$ -- 0
-write$ -- 1259
-(There were 17 warnings)
+write$ -- 1337
+(There were 21 warnings)
