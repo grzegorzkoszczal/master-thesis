@@ -1,7 +1,7 @@
 \chapter{Przykładowy rozdzial}
 % You can label chapter to refer to it later in the text, e.g. in the
 % later chapter.
-\label{chpt:przykladowy-rozdzial}
+~\label{chpt:przykladowy-rozdzial}
 
 Cała praca powinna składać się z rodziałów \emph{chapters}, które dzielą
 się na podrozdziały \emph{sections}. Podrozdziały dodatkowo
@@ -21,9 +21,7 @@ logiczne części.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.25\linewidth]{przykladowy-rysunek}
-    \caption{Logo książki o LaTeXu w Wikibooks
-    \cite{book:latex}}
-    \label{fig:przykladowy-rysunek}
+    \caption{Logo książki o LaTeXu w Wikibooks~\cite{book:latex}}~\label{fig:przykladowy-rysunek}
 \end{figure}
 
 Rysunki i tabele należy zamieszczać zgodnie ze wzorem, zawsze podając:
@@ -47,7 +45,7 @@ wsparcie SVG, dlatego częstym wyborem jest konwertowanie grafik
 wektorowych do formatu PDF.
 
 Każdy rysunek powinien mieć odwołanie w tekście. Tu jako przykład
-rysunku służy logo książki o LaTeXu \ref{fig:przykladowy-rysunek}, która
+rysunku służy logo książki o LaTeXu~\ref{fig:przykladowy-rysunek}, która
 dostępna jest w Wikibooks.
 
 \subsubsection{Tabele}
@@ -57,7 +55,7 @@ dostępna jest w Wikibooks.
 Paczka \emph{tabularray} pozwala na proste definiowanie podstawowych
 i bardzo złożonych tabel. Każda tabela również powinna mieć odwołanie
 w tekście. Tu jako przykład została zdefiniowana tabela
-\ref{tbl:etykieta-tabeli}. Warto zauważyć, że tabele i rysunki
+~\ref{tbl:table-label}. Warto zauważyć, że tabele i rysunki
 numerowane są niezależnie, więc mogą dzielić ten sam numer. Z tego
 powodu, z kontekstu zawsze powinno wynikać, czy mowa o tabeli, czy
 o~rysunku.
@@ -68,7 +66,7 @@ Pozycje bibliograficzne należy dodawać w pliku
 \emph{config/bibliography.bib} używając standardu biblatex. Pojawią się
 one w wykazie literatury dopiero po tym, jak zostaną zacytowane w tekście
 przy użyciu \mono{{\textbackslash}cite}. Jako przykład możemy zacytować
-wspomnianą już książkę o LaTeXu \cite{book:latex}.
+wspomnianą już książkę o LaTeXu~\cite{book:latex}.
 
 \subsubsection{Równania}
 
@@ -77,7 +75,7 @@ Równania najprościej definiować jest przy pomocy wbudowanego w LateXa
 symboli w trybie matematycznym. Równania również można oznaczać
 etykietami, tak żeby oznaczyć je w tekście, ale w ich przypadku nie jest
 to wymagane. W tym przypadku możemy odnieść się do równania
-\ref{eq:przykladowe-rownanie}.
+~\ref{eq:przykladowe-rownanie}.
 
 \begin{equation} \label{eq:przykladowe-rownanie}
     \Delta p = K_s (\frac{1}{T_0} - \frac{1}{T_s}) h

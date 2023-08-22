@@ -376,8 +376,8 @@
     \endverb
     \field{pages}{141\bibrangedash 151}
     \field{title}{A quantitative study of irregular programs on GPUs}
+    \field{month}{11}
     \field{year}{2012}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{State_of_the_Art_Article_3}{inproceedings}{}
@@ -506,8 +506,8 @@
     \endverb
     \field{pages}{189\bibrangedash 194}
     \field{title}{RAPL: Memory power estimation and capping}
+    \field{month}{08}
     \field{year}{2010}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{O(N)_Force_Calculation_Algorithm}{article}{}
@@ -540,8 +540,8 @@
     \endverb
     \field{volume}{179}
     \field{journaltitle}{Journal of Computational Physics}
+    \field{month}{06}
     \field{year}{2002}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{State_of_the_Art_Article_1}{article}{}
@@ -768,8 +768,8 @@
     \field{issn}{2166-515X}
     \field{pages}{64\bibrangedash 73}
     \field{title}{Power Aware Computing on GPUs}
+    \field{month}{07}
     \field{year}{2012}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{Pthreads}{misc}{}
@@ -849,8 +849,8 @@
       {USA}%
     }
     \field{journaltitle}{J. Supercomput.}
+    \field{month}{02}
     \field{year}{2018}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{Parallel_Apps_Power_Capping_Czarnul}{inproceedings}{}
@@ -888,6 +888,15 @@
     \field{title}{Analyzing energy/performance trade-offs with power capping for parallel applications on modern multi and many core processors}
     \field{month}{09}
     \field{year}{2018}
+  \endentry
+
+  \entry{book:latex}{misc}{}
+    \keyw{Useful_Link}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{subtitle}{Guide to the LaTeX typesetting system}
+    \field{title}{LaTeX}
   \endentry
 
   \entry{NPB-CPP}{article}{}
@@ -1231,8 +1240,8 @@
     \field{title}{Power-Management Architecture of the Intel Microarchitecture Code-Named Sandy Bridge}
     \field{volume}{32}
     \field{journaltitle}{IEEE Micro}
+    \field{month}{03}
     \field{year}{2012}
-    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{Energy_Consumption_of_ICT}{misc}{}
