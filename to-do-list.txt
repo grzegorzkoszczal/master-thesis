@@ -21,6 +21,9 @@ What is already planned to do / questions to the supervisor:
     of the necessary software (parallel-ssh in order to
     work and run benchmarks on two nodes, pip in order
     to re-install yoko-tool software for )
+4.  Should I write abstract in Polish aswell?
+5.  Should I write names of chapters, bibliography etc. 
+    in all upper case?
 
 
 What to do next (conclusions after consultations):

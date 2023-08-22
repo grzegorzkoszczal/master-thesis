@@ -102,7 +102,7 @@ N x N. The tests were performed in different problem ranges.
 Researchers claim that for many data points, RAPL reports an
 increase in dynamic energy consumption with respect to the
 previous data point in the profile whereas HCLWattsUp reports
-a decrease and vice versa. Therefore it is impossible to use
+a~decrease and vice versa. Therefore it is impossible to use
 calibration to reduce the average error between the profiles
 because of their interlacing behavior.
 
@@ -219,10 +219,10 @@ instructions were written in PTX as well. PTX is a virtual-assembly
 language used in NVIDIA's CUDA programming environment whose purpose
 is to control the exact sequence of instructions executing without
 any overhead. The researchers prepared two kernels for the purpose
-of this work - first one is tasked with adding integers and second
+of this work $-$ first one is tasked with adding integers and second
 one responsible for dividing variables with unsigned values.
 Since it is impossible to capture power draw of an execution of
-a single instruction, a different approach was proposed: the same
+a single instruction, a~different approach was proposed: the same
 instruction has been repeated millions of times and the power
 drawn during the entire test case has been measured. Then the
 amount of power reported by the measuring system was divided by
@@ -287,6 +287,7 @@ RMSE is 5.04. The results prove that MTSM is more accurate than
 PAPI as it is closer to what has been measured using the hardware.
 
 % Third research paper
+\newpage
 \section{“Measuring GPU Power with the K20 Built-in Sensor”}
 
 Authors of this research paper~\cite{State_of_the_Art_Article_3}
@@ -353,33 +354,33 @@ In order to conduct the energy measurement from the GPU power
 sensor, the authors of the work wrote their own tool to query the
 sensor via the NVIDIA Management Library (NVML) interface, which
 returns the power readings in milliwatts. The sampling intervals
-of the measurement are lowest possible - 15 ms between
+of the measurement are lowest possible $-$ 15 ms between
 measurements. At first, during the tests, there was a noticeable
-power lag and measurement distortion - power profiling tends to
+power lag and measurement distortion $-$ power profiling tends to
 lag behind the kernel activity and shape of the profile does not
 match the kernel activity in both shape (minor difference) and time
 (major difference). The key insight in creating a model of correct
 measurement is the fact that the power sensor gradually approaches
 the true power level rather than doing so instantly. Since the
-'curved' power readings between time when kernel start running and
+`curved' power readings between time when kernel start running and
 time when the power curve stabilizes reminded the authors of this
 work of capacitors charging and discharging, they tested whether
 the power profiles can be described by the same formulas. This
 turned out to work very well in the end. It is assumed that this
 is the case because the power sensor hardware uses a capacitor of
-some sort. After this revelation, the authors determined the '
-capacitance' of the power sensor by using a single capacitor
+some sort. After this revelation, the authors determined the 
+`capacitance' of the power sensor by using a single capacitor
 function to approximate the curve between the kernel start time
 and kernel stop time. After that, they determined the value of the
 capacitance that minimizes the sum of the differences between the
 measured values and the function values. As the capacitance is
 constant, it only needs to be established once for a given GPU,
-which is C = 833.333 on all tested K20 GPUs. Computing the true
+which is C~=~833.333 on all tested K20 GPUs. Computing the true
 power draw value then become a single function of the slope of
 power profile derived in time domain and is shown in a function
 below:
 
-Ptrue(ti)=Pmeasured(ti) + C  (Pmeasured(ti+1) - Pmeasured(ti-1))(ti+1 - tt-1)    [W]
+Ptrue(ti)=Pmeasured(ti) + C  (Pmeasured(ti+1) {-} Pmeasured(ti-1))(ti+1 {-} tt-1)    [W]
 
 Moving back onto the recommended steps for this experiment,
 following assumption should be considered: highest possible sample
@@ -389,7 +390,7 @@ the same value that are no more than 4 ms apart of each other,
 computation of true power with the equation mentioned above and
 finally, computation of the true energy consumption by integrating
 the true power, using the time stamps, over all intervals where
-the power level is above the 'active idle' threshold of 52.5 W.
+the power level is above the `active idle' threshold of 52.5~W.
 
 After incorporating the steps mentioned above in the tests, the
 authors of the research paper validated their results. To do so,
@@ -426,7 +427,7 @@ advantage of this approach. This means that there is no need to
 have to delay kernel runs until the GPU reaches its idle power
 level before one can measure the energy consumption of the next
 kernel. Those tests were also validated on other GPUs and the
-results showed that they behave in a similar manner to the first
+results showed that they behave in a~similar manner to the first
 one. The only notable difference is that all of the measurements
 are a few watts higher on the second GPU. The difference is,
 however, within the 5 W absolute accuracy of the sensor. The
@@ -437,7 +438,7 @@ As a conclusion of this work, many results and insights were
 obtained, such as: Power profile is distorted with respect to the
 kernel activity; the measured power lags behind the kernel
 activity; running multiple kernels one after another inflates the
-power draw of the later kernels; after a short-running kernel, the
+power draw of the later kernels; after a~short-running kernel, the
 power draw can even increase for a while; integrating the power to
 a discernable time after a kernel stops does not correctly
 compensate for the power lag; the sampling interval lengths vary

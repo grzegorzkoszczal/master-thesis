@@ -205,33 +205,6 @@
     \field{year}{2020}
   \endentry
 
-  \entry{GitHub_intel/yoko-tool}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=ABHCAL}{%
-         family={Artem\bibnamedelima Bityutskiy},
-         familyi={A\bibinitperiod\bibinitdelim B\bibinitperiod},
-         suffix={Antti\bibnamedelima Laakso},
-         suffixi={A\bibinitperiod\bibinitdelim L\bibinitperiod},
-         given={Helia\bibnamedelima Correia},
-         giveni={H\bibinitperiod\bibinitdelim C\bibinitperiod},
-      }}%
-    }
-    \keyw{Useful_Link}
-    \strng{namehash}{ABALHC1}
-    \strng{fullhash}{ABALHC1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \field{abstract}{%
-    Command-line tool for controlling Yokogawa power meters in Linux%
-    }
-    \field{title}{Yokotool}
-    \verb{url}
-    \verb https://github.com/intel/yoko-tool
-    \endverb
-  \endentry
-
   \entry{Data_Centre_Energy_Consumption}{article}{}
     \name{author}{3}{}{%
       {{hash=AM}{%
@@ -315,6 +288,43 @@
       {Boston, MA}%
     }
     \field{year}{2011}
+  \endentry
+
+  \entry{GitHub_intel/yoko-tool}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=BA}{%
+         family={Bityutskiy},
+         familyi={B\bibinitperiod},
+         given={Artem},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Laakso},
+         familyi={L\bibinitperiod},
+         given={Antti},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CH}{%
+         family={Correia},
+         familyi={C\bibinitperiod},
+         given={Helia},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \keyw{Useful_Link}
+    \strng{namehash}{BALACH1}
+    \strng{fullhash}{BALACH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{abstract}{%
+    Command-line tool for controlling Yokogawa power meters in Linux%
+    }
+    \field{title}{Yokotool}
+    \verb{url}
+    \verb https://github.com/intel/yoko-tool
+    \endverb
   \endentry
 
   \entry{K20Power}{misc}{}
@@ -888,15 +898,6 @@
     \field{title}{Analyzing energy/performance trade-offs with power capping for parallel applications on modern multi and many core processors}
     \field{month}{09}
     \field{year}{2018}
-  \endentry
-
-  \entry{book:latex}{misc}{}
-    \keyw{Useful_Link}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{L}
-    \field{sortinithash}{L}
-    \field{subtitle}{Guide to the LaTeX typesetting system}
-    \field{title}{LaTeX}
   \endentry
 
   \entry{NPB-CPP}{article}{}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.8.15)  22 AUG 2023 22:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.8.15)  23 AUG 2023 00:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -743,7 +743,7 @@ Package csquotes Info: ... none found.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 4.
  (/usr/share/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
-) (./main.aux (./misc/abstract-en.aux) (./misc/list-of-symbols.aux) (./chapters/introduction.aux) (./chapters/01.aux) (./chapters/02.aux) (./chapters/03.aux) (./chapters/example.aux))
+) (./main.aux (./misc/abstract-en.aux) (./misc/list-of-symbols.aux) (./chapters/introduction.aux) (./chapters/01_Research_Goal.aux) (./chapters/02_Theoretical_Background.aux) (./chapters/03_Related_Work.aux) (./chapters/04_Proposal_of_the_Solution.aux) (./chapters/05_Experiments.aux) (./chapters/06_Summary.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -866,7 +866,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count468
-<pdf/title-page.pdf, id=108, 597.51233pt x 845.0471pt>
+<pdf/title-page.pdf, id=144, 597.51233pt x 845.0471pt>
 File: pdf/title-page.pdf Graphic file (type pdf)
 <use pdf/title-page.pdf>
 Package pdftex.def Info: pdf/title-page.pdf  used on input line 9.
@@ -875,7 +875,7 @@ File: pdf/title-page.pdf Graphic file (type pdf)
 <use pdf/title-page.pdf>
 Package pdftex.def Info: pdf/title-page.pdf  used on input line 9.
 (pdftex.def)             Requested size: 597.51086pt x 845.04504pt.
-<pdf/title-page.pdf, id=111, page=1, 597.51233pt x 845.0471pt>
+<pdf/title-page.pdf, id=147, page=1, 597.51233pt x 845.0471pt>
 File: pdf/title-page.pdf Graphic file (type pdf)
 <use pdf/title-page.pdf, page 1>
 Package pdftex.def Info: pdf/title-page.pdf , page1 used on input line 9.
@@ -899,7 +899,7 @@ Package pdftex.def Info: pdf/title-page.pdf , page1 used on input line 9.
  [1
 
  <./pdf/title-page.pdf>]
-<pdf/author-statement.pdf, id=131, 597.51233pt x 845.0471pt>
+<pdf/author-statement.pdf, id=167, 597.51233pt x 845.0471pt>
 File: pdf/author-statement.pdf Graphic file (type pdf)
 <use pdf/author-statement.pdf>
 Package pdftex.def Info: pdf/author-statement.pdf  used on input line 13.
@@ -908,7 +908,7 @@ File: pdf/author-statement.pdf Graphic file (type pdf)
 <use pdf/author-statement.pdf>
 Package pdftex.def Info: pdf/author-statement.pdf  used on input line 13.
 (pdftex.def)             Requested size: 597.51086pt x 845.04504pt.
-<pdf/author-statement.pdf, id=134, page=1, 597.51233pt x 845.0471pt>
+<pdf/author-statement.pdf, id=170, page=1, 597.51233pt x 845.0471pt>
 File: pdf/author-statement.pdf Graphic file (type pdf)
 <use pdf/author-statement.pdf, page 1>
 Package pdftex.def Info: pdf/author-statement.pdf , page1 used on input line 13.
@@ -978,9 +978,9 @@ l.20 \include{misc/abstract-en.tex}
 
 
 ]
-\openout2 = `chapters/01.aux'.
+\openout2 = `chapters/01_Research_Goal.aux'.
 
- (./chapters/01.tex
+ (./chapters/01_Research_Goal.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
 (Font)              Font shape `T1/phv/b/sl' tried instead on input line 3.
@@ -990,9 +990,9 @@ LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
 
 
 ]
-\openout2 = `chapters/02.aux'.
+\openout2 = `chapters/02_Theoretical_Background.aux'.
 
- (./chapters/02.tex
+ (./chapters/02_Theoretical_Background.tex
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 5.
@@ -1010,9 +1010,9 @@ Overfull \hbox (3.11206pt too wide) in paragraph at lines 26--28
 
 
 ] [6]) [7]
-\openout2 = `chapters/03.aux'.
+\openout2 = `chapters/03_Related_Work.aux'.
 
- (./chapters/03.tex
+ (./chapters/03_Related_Work.tex
 Chapter 3.
 [8
 
@@ -1027,58 +1027,45 @@ Overfull \hbox (12.71075pt too wide) in paragraph at lines 193--193
 
 Underfull \vbox (badness 1490) has occurred while \output is active []
 
- [10]
-Underfull \vbox (badness 5036) has occurred while \output is active []
+ [10] [11]
+Underfull \vbox (badness 2237) has occurred while \output is active []
 
- [11] [12]) [13] [14]
-\openout2 = `chapters/example.aux'.
+ [12] [13]) [14]
+\openout2 = `chapters/04_Proposal_of_the_Solution.aux'.
 
- (./chapters/example.tex
+ (./chapters/04_Proposal_of_the_Solution.tex
 Chapter 4.
-
-Overfull \hbox (24.55365pt too wide) in paragraph at lines 6--14
-\T1/phv/m/n/10 jest w spisie tre±ci. Oprócz tego La-TeX umo»li-wia na dzie-le-nie punk-tów po-drozdzi-aªów na poszczególne
- []
-
-<figures//przykladowy-rysunek.png, id=332, 395.4775pt x 316.18124pt>
-File: figures//przykladowy-rysunek.png Graphic file (type png)
-<use figures//przykladowy-rysunek.png>
-Package pdftex.def Info: figures//przykladowy-rysunek.png  used on input line 23.
-(pdftex.def)             Requested size: 106.69783pt x 85.30252pt.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 30.
-(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) (./tables/01_przykladowa-tabela.tex
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
 ) [15
 
 
 
 
- <./figures//przykladowy-rysunek.png>]
-Overfull \hbox (27.58565pt too wide) in paragraph at lines 73--79
-[]\T1/phv/m/n/10 Równania na-jpro±-ciej defin-iowa¢ jest przy po-mocy wbu-dowanego w La-teXa ±rodowiska \T1/pcr/m/n/10 \equation\T1/phv/m/n/10 ,
- []
+]
+\openout2 = `chapters/05_Experiments.aux'.
 
-) [16] [17]
-
-Package biblatex Warning: Split bibliography detected.
-(biblatex)                Many simple split bibliography setups with
-(biblatex)                non-overlapping bibliographies benefit from
-(biblatex)                setting 'defernumbers=true'.
-(biblatex)                See the documentation for details.
-(biblatex)                This warning can be suppressed with
-(biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
+ (./chapters/05_Experiments.tex
+Chapter 5.
+) [16
 
 
-Overfull \hbox (5.4025pt too wide) in paragraph at lines 39--39
+
+
+]
+\openout2 = `chapters/06_Summary.aux'.
+
+ (./chapters/06_Summary.tex
+Chapter 6.
+) [17
+
+
+
+
+]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 40.
+ (/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (5.4025pt too wide) in paragraph at lines 40--40
 \T1/phv/m/sl/10 ter-na-tional Sym-po-sium on Low-Power Elec-tron-ics and De-sign (ISLPED)\T1/phv/m/n/10 . Aug. 2010, pp. 189^^U
  []
 
@@ -1088,24 +1075,14 @@ Overfull \hbox (5.4025pt too wide) in paragraph at lines 39--39
 
 ]
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <10> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 39.
-
-
-Package biblatex Warning: Split bibliography detected.
-(biblatex)                Many simple split bibliography setups with
-(biblatex)                non-overlapping bibliographies benefit from
-(biblatex)                setting 'defernumbers=true'.
-(biblatex)                See the documentation for details.
-(biblatex)                This warning can be suppressed with
-(biblatex)                '\BiblatexSplitbibDefernumbersWarningOff'.
-
-[19]
-Overfull \hbox (23.96713pt too wide) in paragraph at lines 40--40
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 40.
+ [19]
+Overfull \hbox (23.96713pt too wide) in paragraph at lines 41--41
 []\T1/phv/m/n/10 Martin Burtscher. \T1/phv/m/sl/10 K20Power v1.1\T1/phv/m/n/10 . \T1/phv/m/sc/10 url\T1/phv/m/n/10 : []$\T1/pcr/m/n/10 https : / / userweb . cs . txstate . edu / ~burtscher /
  []
 
 
-Overfull \hbox (15.89569pt too wide) in paragraph at lines 40--40
+Overfull \hbox (15.89569pt too wide) in paragraph at lines 41--41
 []\T1/phv/m/n/10 ICR Pol-ska. \T1/phv/m/sl/10 En-er-gyS-tar - ICR POLAND - test-ing and cer-ti-fi-ca-tion\T1/phv/m/n/10 . \T1/phv/m/sc/10 url\T1/phv/m/n/10 : []$\T1/pcr/m/n/10 https : / / icrpolska .
  []
 
@@ -1123,26 +1100,26 @@ Overfull \hbox (15.89569pt too wide) in paragraph at lines 40--40
 
  [23
 
-] (./main.aux (./misc/abstract-en.aux) (./misc/list-of-symbols.aux) (./chapters/introduction.aux) (./chapters/01.aux) (./chapters/02.aux) (./chapters/03.aux) (./chapters/example.aux))
+] (./main.aux (./misc/abstract-en.aux) (./misc/list-of-symbols.aux) (./chapters/introduction.aux) (./chapters/01_Research_Goal.aux) (./chapters/02_Theoretical_Background.aux) (./chapters/03_Related_Work.aux) (./chapters/04_Proposal_of_the_Solution.aux) (./chapters/05_Experiments.aux) (./chapters/06_Summary.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2A445789CFC5B3BF2EF3D0B64EEFEACF;4760.
+(rerunfilecheck)             Checksum: 8C6214D30F73315D064AED9FABB352CC;6037.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26014 strings out of 477985
- 475771 string characters out of 5840058
+ 26071 strings out of 477985
+ 481461 string characters out of 5840058
  1870388 words of memory out of 5000000
- 45737 multiletter control sequences out of 15000+600000
- 543963 words of font info for 69 fonts, out of 8000000 for 9000
+ 45798 multiletter control sequences out of 15000+600000
+ 535105 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,17n,108p,2290b,1576s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (26 pages, 536109 bytes).
+ 90i,17n,103p,2290b,1553s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (26 pages, 466502 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 471 compressed objects within 5 object streams
- 102 named destinations out of 1000 (max. 500000)
- 254 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 551 PDF objects out of 1000 (max. 8388607)
+ 484 compressed objects within 5 object streams
+ 100 named destinations out of 1000 (max. 500000)
+ 321 words of extra memory for PDF output out of 10000 (max. 10000000)
 

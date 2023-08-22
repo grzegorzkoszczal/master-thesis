@@ -63,7 +63,11 @@
 % Setup biblatex for bibliography
 \usepackage{csquotes}
 % \usepackage[sorting=none,giveninits=true]{biblatex}
-\usepackage[backend=bibtex]{biblatex}
+% backend=bibtex makes the .bib file cite the references corretly
+% defernumbers=true enumerates the split bibliography of
+% references in numerical ascending order
+\usepackage[backend=bibtex,defernumbers=true]{biblatex}
+% \usepackage[backend=bibtex]{biblatex}
 \addbibresource{config/bibliography.bib}
 
 % Rename list of figures and list of tables
