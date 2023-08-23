@@ -16,6 +16,8 @@ What has been achieved:
     that will run the GPU benchmark again, as long as the code on CPU is still computing. When the CPU
     benchmark ends successfully, then a SIGTERM is send to end the GPU code, resulting in fully utilizing
     the resources of both CPUs and GPUs during the tests.
+5.  Show the workflow (preparation of the servers and used configurations) from the presentation
+    for Master Thesis Seminar.
 
 What is already planned to do / questions to the supervisor:
 1.  Add the preliminary tests from presentation, about
