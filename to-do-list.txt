@@ -39,7 +39,7 @@ What is already planned to do / questions to the supervisor:
 
 
 What to do next (conclusions after consultations):
-
+1.  Testować i korygować wyniki, ale najważniejsze- odpalać testy
 
 
 
@@ -90,7 +90,11 @@ ACHTUNG!!!
 
 Add the preliminary tests from presentation, about choosing the correct CPU benchmarks as well as correct class sizes
 
+/proc/cpuinfo
 
+komentarz: w tym pliku są po kolei wymieniowe logidzne procesory i w kazdym z nich będą linijki opisu
+i tam bedzie taka informacja jak id core'a, 
+samo sprawdzenie na htop'ie nie wystarczy, trzeba sie upewnic
 
 // ==========
 1 CPU:
@@ -127,3 +131,37 @@ real:   0m56.676s
 40 threads:
 time taskset --cpu-list 0-39 ./is.D
 real:   0m36.360s
+<<<<<<< HEAD
+
+
+czestotliwosc próbkowania
+czy maximum na yokogawie 10hz jest dobre? czy może wybrać 5hz czy 2hz? porobić próby
+
+
+jak częscto linux perf / intel rapl próbkuje? w przeciwienstwie to NVML'a czy yokogawy,
+mamy pomiary co 0.1s, a perf daje nam calkowite zuzycie energi po wykonaniu sie benchmarku
+
+
+
+to benchmarku na 2 node'ach KONEICZNIE aplikacja w MPI, bo pozwala działać na 2 węzłach
+(są NPB-MPI), która działa na 2 wezlach i pozwala na ustalenie rozmiarów danych
+
+
+
+finalnie trzeba bedzie raportowac średnia oraz odchylenie standardowe
+(jak w artykule naukoweym)
+takze 10 testów, gdzie odpalam benchmark
+
+
+
+
+papiery przedluzające, dopytac sie w dziekanacie wniosek o przedluzenie (prodziekan Raczyński)
+argumentować to faktem, że wyniki z tej pracy magisterskiej mogą byc wykorzystane w ew artykule naukowym
+
+
+Yokogawy mogą być podłączone do apl15 oraz apl16
+
+
+Dr Boiński wraca 4 września
+
+GNU Plot to tworzenia wykresów
