@@ -66,10 +66,18 @@ perf stat -I 100 -e power/energy-cores/ -o test.txt mpirun --use-hwthread-cpus -
 
 
 
+COMMAND TO RUN MPI CODE ON MANY NODES:
+hostfile:
+des01.kask
+des02.kask
+
+mpirun --use-hwthread-cpus --cpu-list "0-7" --mca btl tcp,self --mca orte_keep_fqdn_hostnames t --mca btl_tcp_if_include 172.20.83.0/24 --machinefile hostfile ft.B.x
+
 
 
 CONTINUOUS PRINTING (IN THE CONSOLE) THE CPU ENERGY USED:
 perf stat -a -I 100 -e power/energy-cores/
+
 
 
 
