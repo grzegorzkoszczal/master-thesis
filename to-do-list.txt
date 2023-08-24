@@ -37,12 +37,30 @@ What is already planned to do / questions to the supervisor:
 5.  Should I write names of chapters, bibliography etc. 
     in all upper case?
 
+NEW QUESTIONS:
+1.  Can I use 'lscpu' command instead of '/proc/cpuinfo'? for example, lscpu
+    for apl15.maas (which has 2 CPUs and total of 64 logical processors) 
+
 
 What to do next (conclusions after consultations):
 1.  Testować i korygować wyniki, ale najważniejsze- odpalać testy
 
 
+USEFUL COMMANDS:
+taskset --cpu-list 0-15 perf stat -I 100 -e power/energy-cores/ -o test.txt ./ft.C
+> taskset - makes it possible to run benchmarks pinned to certain logical processors
+> --cpu-list 0-4,10-14 - parameter of taskset, pins benchmark to threads 0, 1, 2, 3 and 4
+    of the first CPU and 10, 11, 12, 13 and 14 of the second CPU
 
+> perf - linux utility for measurement of various things
+> 
+
+
+
+
+
+CONTINUOUS PRINTING (IN THE CONSOLE) THE CPU ENERGY USED:
+perf stat -a -I 100 -e power/energy-cores/
 
 
 
