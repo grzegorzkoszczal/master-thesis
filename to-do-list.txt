@@ -46,7 +46,7 @@ What to do next (conclusions after consultations):
 1.  Testować i korygować wyniki, ale najważniejsze- odpalać testy
 
 
-USEFUL COMMANDS:
+USEFUL COMMANDS (OMP BENCHMARKS ARE DEPRECATED, NOW WE USE MPI BENCHMARKS!!!):
 taskset --cpu-list 0-15 perf stat -I 100 -e power/energy-cores/ -o test.txt ./ft.C
 > taskset - makes it possible to run benchmarks pinned to certain logical processors
 > --cpu-list 0-4,10-14 - parameter of taskset, pins benchmark to threads 0, 1, 2, 3 and 4
@@ -54,6 +54,15 @@ taskset --cpu-list 0-15 perf stat -I 100 -e power/energy-cores/ -o test.txt ./ft
 
 > perf - linux utility for measurement of various things
 > 
+
+
+
+COMMAND TO RUN MPI FORTRAN CODE:
+BE AWARE WITH USING --cpu-list "X-Y", ACCORDING TO HTOP PROCESSES ARE BOUND TO THE SAME THREADS
+EVERY RUN, BUT YOU SHOULD CHECK WHICH LOGICAL PROCESSOR BELONGS TO WHICH PHYSICAL PROCESSOR AND/OR CPU:
+!!!
+perf stat -I 100 -e power/energy-cores/ -o test.txt mpirun --use-hwthread-cpus --cpu-list "0-7" ft.B.x
+!!!
 
 
 
