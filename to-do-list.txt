@@ -8,7 +8,8 @@ What has been achieved:
 	>	Tests on two nodes, one CPU each, various number of threads: (benchmark: NPB-MPI), status: [DONE]
 		Note: This tests was performed on des01.kask and des02.kask so far
 	>	Tests on one node, many GPUs, no changes to config: (benchmark: DNN), status: [W-I-P]
-		Note: 
+		Note: We can configure the 'class' size, by implementing custom number of images in train
+		dataset, for example: class=A: 10,000 images and 100 classes, class=B: 20,000 images and so on.
 
 
 What is planned to do:
@@ -33,6 +34,12 @@ What is already planned to do / questions to the supervisor:
 5.  Should I write names of chapters, bibliography etc. 
     in all upper case?
 
+
+
+Questions to the supervisors:
+1.  Some benchmarks in MPI-Fortran must be run in certain configurations. Is that
+	ok, that the number of processes run vary, or should they be unified somehow?
+
 NEW QUESTIONS:
 1.  Can I use 'lscpu' command instead of '/proc/cpuinfo'? for example, lscpu
     for apl15.maas (which has 2 CPUs and total of 64 logical processors) 
@@ -40,6 +47,41 @@ NEW QUESTIONS:
 
 What to do next (conclusions after consultations):
 1.  Testować i korygować wyniki, ale najważniejsze- odpalać testy
+
+=====
+
+EXEMPLARY MEASUREMENTS:
+tests performed on sanna.kask:
+
+Embarassingly Parallel
+
+time mpirun -np 1 --use-hwthread-cpus --cpu-list 0 ep.D.x
+time in seconds: 1510.45
+
+time mpirun -np 10 --use-hwthread-cpus --cpu-list 0-4,10-14 ep.D.x
+time in seconds: 223.03
+
+time mpirun -np 40 --use-hwthread-cpus --cpu-list 0-39 ep.D.x
+time in seconds: 57.63
+
+=====
+
+Lower-Upper Gauss-Seidel solver
+
+time mpirun -np 2 --use-hwthread-cpus --cpu-list 0,10 lu.C.x
+time in seconds: 322.57
+
+time mpirun -np 16 --use-hwthread-cpus --cpu-list 0-7,10-17 lu.C.x
+time in seconds: 80.06
+
+time mpirun -np 40 --use-hwthread-cpus --cpu-list 0-39 lu.C.x
+time in seconds: 36.64
+
+=====
+
+
+
+
 
 
 USEFUL COMMANDS (OMP BENCHMARKS ARE DEPRECATED, NOW WE USE MPI BENCHMARKS!!!):
@@ -127,71 +169,23 @@ komentarz: w tym pliku są po kolei wymieniowe logidzne procesory i w kazdym z n
 i tam bedzie taka informacja jak id core'a, 
 samo sprawdzenie na htop'ie nie wystarczy, trzeba sie upewnic
 
-// ==========
-1 CPU:
-1 thread:
-time taskset --cpu-list 0 ./is.D
-real:   10m45.781s
-
-5 threads
-time taskset --cpu-list 0-4 ./is.D
-real:   2m23.910s
-
-10 threads:
-time taskset --cpu-list 0-9 ./is.D
-real:   1m15.647s
-
-20 threads:
-time taskset --cpu-list 0-19 ./is.D
-real:   0m44.371s
-
-// ==========
-2 CPUs:
-2 threads:
-time taskset --cpu-list 0,20 ./is.D
-real:   7m42.465s
-
-10 threads:
-time taskset --cpu-list 0-4,20-24 ./is.D
-real:   1m39.325s
-
-20 threads:
-time taskset --cpu-list 0-9,20-29 ./is.D
-real:   0m56.676s
-
-40 threads:
-time taskset --cpu-list 0-39 ./is.D
-real:   0m36.360s
-<<<<<<< HEAD
-
-
 czestotliwosc próbkowania
 czy maximum na yokogawie 10hz jest dobre? czy może wybrać 5hz czy 2hz? porobić próby
-
 
 jak częscto linux perf / intel rapl próbkuje? w przeciwienstwie to NVML'a czy yokogawy,
 mamy pomiary co 0.1s, a perf daje nam calkowite zuzycie energi po wykonaniu sie benchmarku
 
-
-
 to benchmarku na 2 node'ach KONEICZNIE aplikacja w MPI, bo pozwala działać na 2 węzłach
 (są NPB-MPI), która działa na 2 wezlach i pozwala na ustalenie rozmiarów danych
-
-
 
 finalnie trzeba bedzie raportowac średnia oraz odchylenie standardowe
 (jak w artykule naukoweym)
 takze 10 testów, gdzie odpalam benchmark
 
-
-
-
 papiery przedluzające, dopytac sie w dziekanacie wniosek o przedluzenie (prodziekan Raczyński)
 argumentować to faktem, że wyniki z tej pracy magisterskiej mogą byc wykorzystane w ew artykule naukowym
 
-
 Yokogawy mogą być podłączone do apl15 oraz apl16
-
 
 Dr Boiński wraca 4 września
 
