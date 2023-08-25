@@ -1,0 +1,57 @@
+> CHECKING THE PHYSICAL NAD LOGICAL PROCESSORS INDEXES OF CPUS:
+lscpu
+
+==================================================
+
+> CONTINUOUS PRINTING (IN THE CONSOLE) THE CPU ENERGY USED:
+perf stat -a -I 100 -e power/energy-cores/
+
+==================================================
+
+> USEFUL COMMANDS (OMP BENCHMARKS ARE DEPRECATED, NOW WE USE MPI BENCHMARKS!!!):
+taskset --cpu-list 0-15 perf stat -I 100 -e power/energy-cores/,power/energy-pkg/,power/energy-gpu/ -o test.txt ./ft.C
+  
+! taskset - makes it possible to run benchmarks pinned to certain logical processors
+! --cpu-list 0-4,10-14 - parameter of taskset, pins benchmark to threads 0, 1, 2, 3 and 4
+    of the first CPU and 10, 11, 12, 13 and 14 of the second CPU
+
+! perf - linux utility for measurement of various things
+! stat - 
+! -I 100 - measurements are done in intervals of 100ms
+! -e - we specify what we want to measure
+! power/energy-cores/ - 
+! power/energy-pkg/ -
+! power/energy-gpu/ -
+! -o test.txt - we save the output of the measurements to text file
+! ./ft.C - execution of the benchmark 
+
+==================================================
+
+> COMMAND TO RUN MPI FORTRAN CODE:
+> BE AWARE WITH USING --cpu-list "X-Y". ACCORDING TO HTOP PROCESSES ARE BOUND TO THE SAME THREADS
+> EVERY RUN, BUT YOU SHOULD CHECK WHICH LOGICAL PROCESSOR BELONGS TO WHICH PHYSICAL PROCESSOR AND/OR CPU:
+!!!
+perf stat -I 100 -e power/energy-cores/ -o test.txt mpirun --use-hwthread-cpus --cpu-list "0-7" ft.B.x
+!!!
+
+==================================================
+  
+> COMMAND TO RUN MPI CODE ON MANY NODES (WORKS WITH DESKTOPS FROM LAB 527):
+! "hostfile" contents:
+des01.kask
+des02.kask
+
+mpirun --use-hwthread-cpus --cpu-list "0-7" --mca btl tcp,self --mca orte_keep_fqdn_hostnames t --mca btl_tcp_if_include 172.20.83.0/24 --machinefile hostfile ft.B.x
+
+==================================================
+
+
+> ENTIRE 'yokotool.py':
+import os
+measurements_dir = "/home/macierz/s175405/ResearchProject12KASK/benchmark/measurements/"
+power_level = open("power_level.txt","r")
+test_index = open("test_index.txt","r")
+used_gpus = open("used_gpus.txt","r")
+os.system("yokotool /dev/usbtmc0 --pmtype wt310 read T,P -o "+measurements_dir+used_gpus.read()+"GPUS/"+power_level>
+
+==================================================
