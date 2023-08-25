@@ -19,11 +19,13 @@ What has been achieved:
 5.  Show the workflow (preparation of the servers and used configurations) from the presentation
     for Master Thesis Seminar.
 
+==================================================
+
 What is already planned to do / questions to the supervisor:
 1.  Add the preliminary tests from presentation, about
     choosing the correct CPU benchmarks as well as correct
     class sizes. (as a preliminary tests section, maybe
-    shout-out to my local rig? She deserved it :3 )
+    shout-out to my local rig?)
 2.  Ask about the configurations. Are they sufficient? Or we
     plan to run the tests on 2 nodes using 2 power meters
     (may require additional software such as pssh)
@@ -37,100 +39,13 @@ What is already planned to do / questions to the supervisor:
 6.  Should I write names of chapters, bibliography etc. 
     in all upper case?
 
-NEW QUESTIONS:
-1.  Can I use 'lscpu' command instead of '/proc/cpuinfo'? for example, lscpu
-    for apl15.maas (which has 2 CPUs and total of 64 logical processors) 
-
+==================================================
 
 What to do next (conclusions after consultations):
-1.  Testować i korygować wyniki, ale najważniejsze- odpalać testy
+1.  Test and check the results of the runs, but most important: simply experiment
 
 
-USEFUL COMMANDS (OMP BENCHMARKS ARE DEPRECATED, NOW WE USE MPI BENCHMARKS!!!):
-taskset --cpu-list 0-15 perf stat -I 100 -e power/energy-cores/ -o test.txt ./ft.C
-> taskset - makes it possible to run benchmarks pinned to certain logical processors
-> --cpu-list 0-4,10-14 - parameter of taskset, pins benchmark to threads 0, 1, 2, 3 and 4
-    of the first CPU and 10, 11, 12, 13 and 14 of the second CPU
-
-> perf - linux utility for measurement of various things
-> 
-
-
-
-COMMAND TO RUN MPI FORTRAN CODE:
-BE AWARE WITH USING --cpu-list "X-Y", ACCORDING TO HTOP PROCESSES ARE BOUND TO THE SAME THREADS
-EVERY RUN, BUT YOU SHOULD CHECK WHICH LOGICAL PROCESSOR BELONGS TO WHICH PHYSICAL PROCESSOR AND/OR CPU:
-!!!
-perf stat -I 100 -e power/energy-cores/ -o test.txt mpirun --use-hwthread-cpus --cpu-list "0-7" ft.B.x
-!!!
-
-
-
-COMMAND TO RUN MPI CODE ON MANY NODES:
-hostfile:
-des01.kask
-des02.kask
-
-mpirun --use-hwthread-cpus --cpu-list "0-7" --mca btl tcp,self --mca orte_keep_fqdn_hostnames t --mca btl_tcp_if_include 172.20.83.0/24 --machinefile hostfile ft.B.x
-
-
-
-CONTINUOUS PRINTING (IN THE CONSOLE) THE CPU ENERGY USED:
-perf stat -a -I 100 -e power/energy-cores/
-
-
-
-
-
-
-OTHER:
-measurements of CPU power draw:
-1. You (probably) need sudo to execute that command! (edit: only on LOCAL machine actually)
-2. sudo perf stat -e power/energy-cores/,power/energy-gpu/,power/energy-pkg/ ./ft.C
-3. We get energy consumed in Joules and time elapsed in seconds.
-
-Useful link:
-https://firefox-source-docs.mozilla.org/performance/perf.html
-
-
-pinning the benchmark tasks to logical cores:
-all cores on local machine:
-time taskset --cpu-list 0-23 ./ft.C
-sanna: 2 cpus, 10 threads each
-time taskset --cpu-list 0-9,20-29 ./ft.C
-
-useful links:
-https://www.xmodulo.com/run-program-process-specific-cpu-cores-linux.html
-https://man.archlinux.org/man/taskset.1.en
-
-ULTIMATE COMMAND:
-time sudo taskset --cpu-list 0-15 perf stat -e power/energy-cores/,power/energy-gpu/,power/energy-pkg/ ./ft.C
-!!!IMPORTANT: I need to used 'sudo' only on LOCAL machine, otherwise performance counters stats are
-              marked as <not supported>. On university servers, it is not necessary - it works right
-              off the bat, probably due to our admin being way more knowledgable than me and adding me
-              as 'sudoer' to this command (Thanks Mr. Boiński!)
-
-
-ENTIRE 'yokotool.py':
-import os
-measurements_dir = "/home/macierz/s175405/ResearchProject12KASK/benchmark/measurements/"
-power_level = open("power_level.txt","r")
-test_index = open("test_index.txt","r")
-used_gpus = open("used_gpus.txt","r")
-os.system("yokotool /dev/usbtmc0 --pmtype wt310 read T,P -o "+measurements_dir+used_gpus.read()+"GPUS/"+power_level>
-
-
-
-ACHTUNG!!!
-
-Add the preliminary tests from presentation, about choosing the correct CPU benchmarks as well as correct class sizes
-
-/proc/cpuinfo
-
-komentarz: w tym pliku są po kolei wymieniowe logidzne procesory i w kazdym z nich będą linijki opisu
-i tam bedzie taka informacja jak id core'a, 
-samo sprawdzenie na htop'ie nie wystarczy, trzeba sie upewnic
-
+Tests on sanna.kask using NPB-OMP benchmarks
 // ==========
 1 CPU:
 1 thread:
@@ -166,37 +81,4 @@ real:   0m56.676s
 40 threads:
 time taskset --cpu-list 0-39 ./is.D
 real:   0m36.360s
-<<<<<<< HEAD
 
-
-czestotliwosc próbkowania
-czy maximum na yokogawie 10hz jest dobre? czy może wybrać 5hz czy 2hz? porobić próby
-
-
-jak częscto linux perf / intel rapl próbkuje? w przeciwienstwie to NVML'a czy yokogawy,
-mamy pomiary co 0.1s, a perf daje nam calkowite zuzycie energi po wykonaniu sie benchmarku
-
-
-
-to benchmarku na 2 node'ach KONEICZNIE aplikacja w MPI, bo pozwala działać na 2 węzłach
-(są NPB-MPI), która działa na 2 wezlach i pozwala na ustalenie rozmiarów danych
-
-
-
-finalnie trzeba bedzie raportowac średnia oraz odchylenie standardowe
-(jak w artykule naukoweym)
-takze 10 testów, gdzie odpalam benchmark
-
-
-
-
-papiery przedluzające, dopytac sie w dziekanacie wniosek o przedluzenie (prodziekan Raczyński)
-argumentować to faktem, że wyniki z tej pracy magisterskiej mogą byc wykorzystane w ew artykule naukowym
-
-
-Yokogawy mogą być podłączone do apl15 oraz apl16
-
-
-Dr Boiński wraca 4 września
-
-GNU Plot to tworzenia wykresów
