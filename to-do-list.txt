@@ -1,29 +1,25 @@
 What has been achieved:
-1.  Work is re-written in LaTeX: You can ask supervisor if
-    this format is acceptable
-2.  Tests have been performed on university cluster
-    (sanna.kask) using command below:
-    taskset --cpu-list 0-15 perf stat -e power/energy-cores/,power/energy-gpu/,power/energy-pkg/ ./ft.C
-3.  NPB have class sizes for both CPU and GPU benchmarks, but none of them can run on multiple GPUs.
-    Therefore, for tests on 2 or more GPUs I suggest to use code from research project. We can define
-    class sizes on that problem as the train dataset size: for purpose of our research we used 69 classes
-    with a total of 10,000 images to train, we can call that, for example a class=A, next the train
-    dataset of 20,000 images would be called class=B and so on, to a maximum of over 80k images on largest
-    class.
-4.  How to run benchmarks on BOTH CPU(s) and GPU(s)? My initial solution is to execute both codes compiled
-    for CPUs and GPUs at the same time: code written in CUDA will execute much faster on the same problem
-    and the same class size on GPU that code in C++ for CPU, therefore I should create a controlling script
-    that will run the GPU benchmark again, as long as the code on CPU is still computing. When the CPU
-    benchmark ends successfully, then a SIGTERM is send to end the GPU code, resulting in fully utilizing
-    the resources of both CPUs and GPUs during the tests.
-5.  Show the workflow (preparation of the servers and used configurations) from the presentation
-    for Master Thesis Seminar.
+1.  New tests have been conducted: NPB-OMP have been abandoned in favor 
+    of NPB-MPI. Main reason is that MPI code ensures internode communication.
+2.  Tests configuration conducted:
+    >  	Tests on one node, one CPU, various number of threads: (benchmark: NPB-MPI), status: [DONE]
+    >  	Tests on one node, two CPUs, various number of threads: (benchmark: NPB-MPI), status: [DONE]
+    >  	Tests on one node, one GPU, no changes to config so far: (benchmark: NPB-CUDA), status: [DONE]
+	>	Tests on two nodes, one CPU each, various number of threads: (benchmark: NPB-MPI), status: [DONE]
+		Note: This tests was performed on des01.kask and des02.kask so far
+	>	Tests on one node, many GPUs, no changes to config: (benchmark: DNN), status: [W-I-P]
+		Note: 
 
-What is already planned to do / questions to the supervisor:
+
+What is planned to do:
 1.  Add the preliminary tests from presentation, about
     choosing the correct CPU benchmarks as well as correct
     class sizes. (as a preliminary tests section, maybe
     shout-out to my local rig? She deserved it :3 )
+
+
+What is already planned to do / questions to the supervisor:
+
 1.  Ask about the configurations. Are they sufficient? Or we
     plan to run the tests on 2 nodes using 2 power meters
     (may require additional software such as pssh)
