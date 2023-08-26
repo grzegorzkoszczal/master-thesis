@@ -39,6 +39,8 @@ What is already planned to do / questions to the supervisor:
 Questions to the supervisors:
 1.  Some benchmarks in MPI-Fortran must be run in certain configurations. Is that
 	ok, that the number of processes run vary, or should they be unified somehow?
+2.  Ask Mr. Boiński about the internode communication and benchmarks between sanna and vinnana. I managed to do it between two desktops in lab 527, but those two seems to be a little different
+3.  Ask Mr. Davlan, why I can't execute the CUDA benchmarks.
 
 NEW QUESTIONS:
 1.  Can I use 'lscpu' command instead of '/proc/cpuinfo'? for example, lscpu
