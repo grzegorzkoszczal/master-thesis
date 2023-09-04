@@ -21,6 +21,9 @@ What is planned to do:
 
 What is already planned to do / questions to the supervisor:
 
+0.  Can I create GitHub repository with all the code and
+    instructions/comments for people searching for solutions
+    used by me?
 1.  Ask about the configurations. Are they sufficient? Or we
     plan to run the tests on 2 nodes using 2 power meters
     (may require additional software such as pssh)
