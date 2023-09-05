@@ -156,16 +156,75 @@ are: being able to run in parallel on various numbers of logical
 processors, being able to run on one or more GPUs and being able to
 execute on various input parameters class sizes.
 
-There are three benchmark sets, that satisfies mentioned goals:
+There are four benchmark sets, that satisfies mentioned goals:
 \begin{itemize}
-    \item NAS Parallel Benchmarks (CPP, OMP version)
+    \item NAS Parallel Benchmarks (C++ with OMP)
+    \item NAS Parallel Benchmarks (Fortran with MPI)
     \item NAS Parallel Benchmarks (CUDA)
-    \item Custom deep learning model, based on XCeptionnet
+    \item Custom deep learning model, based on XCeptionnet with MPI communication
 \end{itemize}
 
-\subsection{NPB-CPP, OMP version}
+In a general sense, the NAS Parallel Benchmarks are a set of programs designed
+and created in order to help evaluate the performance of parallel
+supercomputers. They are based on computational fluid dynamics applications and
+originally consisted of five kernels and three pseudo-applications. Later on,
+the benchmark suite has been extended with more kernels, such as adaptive meshes,
+parallel I/O, multi-zone applications, and computational grids. Every application
+comes with predefined and indicated problem size, labeled as class size.
+Moreover, the benchmark kernels are available in commonly-used programming
+models like MPI and OpenMP, which allows for easy configuration of use with
+various number of CPU threads (NPB-OMP and NPB-MPI)~\cite{NPB-CPP}, as well
+as execution on two or more computational nodes (NPB-MPI only). For the
+computations on GPUs, different set has been created, which excels in tests
+on a single devices (NPB-CUDA)~\cite{NPB-CUDA_1}~\cite{NPB-CUDA_2}.
 
-(Work-In-Progress)~\cite{NPB-CPP}
+The original set consists of eight benchmarks, which are tested later in the
+experiments conducted for the purpose of this work.
+
+Five kernels:
+\begin{itemize}
+    \item IS $-$ Integer Sort (random memory access)
+    \item EP $-$ Embarassingly Parallel
+    \item CG $-$ Conjugate Gradient (irregular memory access and communication)
+    \item MG $-$ Multi-Grid on a sequence of meshes
+    \item FT $-$ Discrete 3D fast Fourier Transform (all-to-all communication)
+\end{itemize}
+
+Three pseudo applications:
+\begin{itemize}
+    \item BT $-$ Block Tri-diagonal solver
+    \item SP $-$ Scalar Penta-diagonal solver
+    \item LU $-$ Lower-Upper Gauss-Seidel solver
+\end{itemize}
+
+The three pseudo applications mentioned earlier also comes with the multi-zone
+versions, designed to exploit multiple levels of parallelism. Moreover, NPB
+suite also offers benchmarks for unstructured computation, parallel I/O and
+data movement. For the purpose of this work only the original single-zone
+kernels and applications were used, therefore these benchmarks suites are
+mentioned only.
+
+In addition to solving different computational problems, each kernel or
+application operates on various sizes of input data, determined during
+compilation, known as classes. Those classes helps choosing the right benchmark
+in term of execution time, which helps in measurements. Too short benchmarks may
+cause measurement error, due to low sampling rate of measurement instruments and
+too long benchmarks are unnecessary, because they prolong the overall experiments.
+
+Benchmark classes:
+\begin{itemize}
+    \item Class S $-$ Very small, used for quick test purpose. Nowadays obsolete.
+    \item Class W $-$ The so-called `90's workstation' size, nowadays consisted small.
+    \item Classes A, B, C $-$ Standard test problems (~4 times size increase from
+    each of the previous classes)
+    \item Classes D, E, F $-$ Large test problems (~16 times size increase from
+    each of the previous classes)
+\end{itemize}
+
+
+\subsection{NPB for CPU, C++ with OMP}
+
+(Work-In-Progress)
 
 Explain those benchmarks, how do they works, what problems do they
 tackle, what are class sizes, how do they differ, why is it 
@@ -177,16 +236,20 @@ threads $-$ and prove it by screenshots or something.
 DON'T EXPLAIN WHICH ONE YOU CHOSE, ADD THAT LATER IN ANOTHER CHAPTER
 FOR EXAMPLE, `TEST METHODOLOGY' CHAPTER
 
-\subsection{NPB-CUDA}
+\subsection{NPB for CPU, Fortran with MPI}
 
-(Work-In-Progress)~\cite{NPB-CUDA_1}~\cite{NPB-CUDA_2}
+[PLACEHOLDER]
+
+\subsection{NPB for GPU, CUDA}
+
+(Work-In-Progress)
 
 Most of content will be covered in previous subsection, so mention
 how does it work for GPUs
 
 Mention that it works on SINGLE GPU
 
-\subsection{Deep learning model}
+\subsection{Custom Deep Neural Networks model}
 
 Explain thoroughly Your own model and the fact it works 
 on GPUs in distributed manner.

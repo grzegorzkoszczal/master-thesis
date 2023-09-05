@@ -1,4 +1,5 @@
 What has been achieved:
+<<<<<<< HEAD
 1.  New tests have been conducted: NPB-OMP have been abandoned in favor 
     of NPB-MPI. Main reason is that MPI code ensures internode communication.
 	UPDATE: NPB-OMP can still has its use, mainly paired with NPB-CUDA
@@ -18,13 +19,44 @@ What has been achieved:
 	>	Tests on one node, hybrid benchmarks: one and two CPUs, various number of threads, one and more GPUs:
 		(benchmarks: NPB-OMP and NPB-CUDA). Using taskset, we can pin processes to threads, utilizing entire node,
 		both CPUs and GPUs to 100%.
+=======
+1.  Work is re-written in LaTeX: You can ask supervisor if
+    this format is acceptable [DONE AND APPROVED]
 
+2.  Tests have been performed on university cluster
+    (sanna.kask) using command below:
+    taskset --cpu-list 0-15 perf stat -e power/energy-cores/,power/energy-gpu/,power/energy-pkg/ ./ft.C
+    [DONE AND APPROVED]
+>>>>>>> d57faa1 (Updated chapter 2)
 
+3.  NPB have class sizes for both CPU and GPU benchmarks, but none of them can run on multiple GPUs.
+    Therefore, for tests on 2 or more GPUs I suggest to use code from research project. We can define
+    class sizes on that problem as the train dataset size: for purpose of our research we used 69 classes
+    with a total of 10,000 images to train, we can call that, for example a class=A, next the train
+    dataset of 20,000 images would be called class=B and so on, to a maximum of over 80k images on largest
+    class. [I NEED TO ASK DR CZARNUL ABOUT THIS SOLUTION]
+
+<<<<<<< HEAD
 What is planned to do:
+=======
+4.  How to run benchmarks on BOTH CPU(s) and GPU(s)? My initial solution is to execute both codes compiled
+    for CPUs and GPUs at the same time: code written in CUDA will execute much faster on the same problem
+    and the same class size on GPU that code in C++ for CPU, therefore I should create a controlling script
+    that will run the GPU benchmark again, as long as the code on CPU is still computing. When the CPU
+    benchmark ends successfully, then a SIGTERM is send to end the GPU code, resulting in fully utilizing
+    the resources of both CPUs and GPUs during the tests. [GOOD APPROACH, BUT I NEED TO CHECK WHICH
+    LOGICAL PROCESSORS ARE USED FOR HANDLING THE GPU BENCHMARKS AND SKIP THEM IN CPU BENCHMARK CONFIG]
+
+5.  Show the workflow (preparation of the servers and used configurations) from the presentation
+    for Master Thesis Seminar. [DONE AND APPROVED]
+
+What is already planned to do / questions to the supervisor:
+>>>>>>> d57faa1 (Updated chapter 2)
 1.  Add the preliminary tests from presentation, about
     choosing the correct CPU benchmarks as well as correct
     class sizes. (as a preliminary tests section, maybe
     shout-out to my local rig? She deserved it :3 )
+<<<<<<< HEAD
 
 
 What is already planned to do / questions to the supervisor:
@@ -170,7 +202,34 @@ time mpirun -np 40 --use-hwthread-cpus --cpu-list 0-39 lu.C.x
 time in seconds: 36.64
 
 =====
+=======
+    [APPROVED, TO BE IMPLEMENTED]
 
+1.  Ask about the configurations. Are they sufficient? Or we
+    plan to run the tests on 2 nodes using 2 power meters
+    (may require additional software such as pssh)
+    [INSTEAD OF USING PSSH, WE SHOULD USE BENCHMARKS DONE IN MPI,
+    THAT WAY WE WILL HAVE EASIER TIME IN TERMS OF INTER-NODE
+    COMMUNICATION]
+
+2.  Ask about the status of the current power meter (old one)
+    and the status / plans for the second power meter.
+
+3.  Ask the administrator of the servers to install rest
+    of the necessary software (parallel-ssh in order to
+    work and run benchmarks on two nodes, pip in order
+    to re-install yoko-tool software for )
+
+4.  Should I write abstract in Polish aswell?
+
+5.  Should I write names of chapters, bibliography etc. 
+    in all upper case?
+
+
+>>>>>>> d57faa1 (Updated chapter 2)
+
+What to do next (conclusions after consultations):
+1.  Testować i korygować wyniki, ale najważniejsze- odpalać testy
 
 
 
@@ -281,4 +340,43 @@ Yokogawy mogą być podłączone do apl15 oraz apl16
 
 Dr Boiński wraca 4 września
 
+<<<<<<< HEAD
+=======
+40 threads:
+time taskset --cpu-list 0-39 ./is.D
+real:   0m36.360s
+<<<<<<< HEAD
+
+
+czestotliwosc próbkowania
+czy maximum na yokogawie 10hz jest dobre? czy może wybrać 5hz czy 2hz? porobić próby
+
+
+jak częscto linux perf / intel rapl próbkuje? w przeciwienstwie to NVML'a czy yokogawy,
+mamy pomiary co 0.1s, a perf daje nam calkowite zuzycie energi po wykonaniu sie benchmarku
+
+
+
+to benchmarku na 2 node'ach KONEICZNIE aplikacja w MPI, bo pozwala działać na 2 węzłach
+(są NPB-MPI), która działa na 2 wezlach i pozwala na ustalenie rozmiarów danych
+
+
+
+finalnie trzeba bedzie raportowac średnia oraz odchylenie standardowe
+(jak w artykule naukoweym)
+takze 10 testów, gdzie odpalam benchmark
+
+
+
+
+papiery przedluzające, dopytac sie w dziekanacie wniosek o przedluzenie (prodziekan Raczyński)
+argumentować to faktem, że wyniki z tej pracy magisterskiej mogą byc wykorzystane w ew artykule naukowym
+
+
+Yokogawy mogą być podłączone do apl15 oraz apl16
+
+
+Dr Boiński wraca 4 września
+
+>>>>>>> d57faa1 (Updated chapter 2)
 GNU Plot to tworzenia wykresów
