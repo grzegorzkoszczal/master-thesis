@@ -1,15 +1,23 @@
 What has been achieved:
 1.  New tests have been conducted: NPB-OMP have been abandoned in favor 
     of NPB-MPI. Main reason is that MPI code ensures internode communication.
-2.  Tests configuration conducted:
-    >  	Tests on one node, one CPU, various number of threads: (benchmark: NPB-MPI), status: [DONE]
-    >  	Tests on one node, two CPUs, various number of threads: (benchmark: NPB-MPI), status: [DONE]
+	UPDATE: NPB-OMP can still has its use, mainly paired with NPB-CUDA
+			benchmarks: I can easily pin processes to threads using taskset,
+			therefore utilizing every device in node in 100%. NPB-CUDA
+			benchmarks reserves one thread and uses it in 100%, that
+
+2.  Tests configurations conducted:
+    >  	Tests on one node, one CPU, various number of threads: (benchmarks: NPB-MPI and NPB-OMP), status: [DONE]
+    >  	Tests on one node, two CPUs, various number of threads: (benchmark: NPB-MPI and NPB-OMP), status: [DONE]
     >  	Tests on one node, one GPU, no changes to config so far: (benchmark: NPB-CUDA), status: [DONE]
 	>	Tests on two nodes, one CPU each, various number of threads: (benchmark: NPB-MPI), status: [DONE]
 		Note: This tests was performed on des01.kask and des02.kask so far
-	>	Tests on one node, many GPUs, no changes to config: (benchmark: DNN), status: [W-I-P]
+	>	Tests on one node, many GPUs, no changes to config: (benchmark: DNN), status: [DONE]
 		Note: We can configure the 'class' size, by implementing custom number of images in train
 		dataset, for example: class=A: 10,000 images and 100 classes, class=B: 20,000 images and so on.
+	>	Tests on one node, hybrid benchmarks: one and two CPUs, various number of threads, one and more GPUs:
+		(benchmarks: NPB-OMP and NPB-CUDA). Using taskset, we can pin processes to threads, utilizing entire node,
+		both CPUs and GPUs to 100%.
 
 
 What is planned to do:
@@ -30,20 +38,19 @@ What is already planned to do / questions to the supervisor:
 2.  Ask about the status of the current power meter (old one)
     and the status / plans for the second power meter.
 3.  Ask the administrator of the servers to install rest
-    of the necessary software (parallel-ssh in order to
-    work and run benchmarks on two nodes, pip in order
-    to re-install yoko-tool software for )
-4.  Should I write abstract in Polish aswell?
-5.  Should I write names of chapters, bibliography etc. 
-    in all upper case?
-
+    of the necessary software (access to apl11.maas, linux perf
+	on sanna.kask, vinnana.kask and apl11.maas). 
+4.	Ask the administrator how to perform tests on both sanna.kask
+	and vinnana.kask (how to estabilish internode communication
+	like it was with des01.kask and des02.kask)
+5.  Should I write abstract in Polish aswell?
 
 
 Questions to the supervisors:
 1.  Some benchmarks in MPI-Fortran must be run in certain configurations. Is that
 	ok, that the number of processes run vary, or should they be unified somehow?
 2.  Ask Mr. Boiński about the internode communication and benchmarks between sanna and vinnana. I managed to do it between two desktops in lab 527, but those two seems to be a little different
-3.  Ask Mr. Davlan, why I can't execute the CUDA benchmarks.
+
 
 NEW QUESTIONS:
 1.  Can I use 'lscpu' command instead of '/proc/cpuinfo'? for example, lscpu
@@ -53,9 +60,77 @@ NEW QUESTIONS:
 What to do next (conclusions after consultations):
 1.  Testować i korygować wyniki, ale najważniejsze- odpalać testy
 
-=====
+=====================================================================
 
 EXEMPLARY MEASUREMENTS:
+
+Test performed on sanna.kask with CUDA compatibility = 7.5
+(A100 mounted on apl11.maas has CUDA compatibility = 8.0)
+
+// at first promising with 100% util. and very high
+// power draw, but too short
+bt.C = 12.19 s          avg 235~240 [W]
+bt.D [unsuccesful] ~ probrably not enough VRAM
+bt.E [no point of testing]
+
+===
+
+// overall bad - nothing happens at the beginning
+cg.C [too short]
+cg.D [no action useful for tests]
+cg.E [no point of testing]
+
+===
+
+// ep.D looks very promising
+ep.C [too short]
+ep.D = 27.16 s          avg 155~160 [w]
+ep.E = 442.79 s         ramping from 160 to 170 [W]
+
+===
+
+// overall bad
+ft.C = 6.63 s [too short]
+ft.D [unsuccesful]
+ft.E [no point of testing]
+
+===
+
+// overall bad
+is.C [too short]
+is.D = 15.33 s          avg 150 [W]
+is.E [not defined]
+
+===
+
+// lu.D looks promising
+lu.C = 16.89 s          avg 180~190 [W]
+lu.D = 300.74 s         fluctuates between 200~230 [W]
+lu.E [unsuccesful]
+
+===
+
+// overall bad - nothing happens at the beginning
+mg.C [too short]
+mg.D [no action useful for tests]
+mg.E [no point of testing]
+
+===
+
+// sp.D looks promising
+sp.C = 10.39 s          avg 200 [W]
+sp.D = 220.86 s         avg 200~210 [W]
+sp.E [unsuccesful]
+
+===
+
+Three benchmarks chosen:
+ep.D
+lu.D
+sp.D
+
+=====================================================================
+
 tests performed on sanna.kask:
 
 Embarassingly Parallel
