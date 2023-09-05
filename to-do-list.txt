@@ -29,21 +29,23 @@ What is planned to do:
 
 What is already planned to do / questions to the supervisor:
 
-0.  Can I create GitHub repository with all the code and
+1.	Ask about the outcome of the conference. When can I quote
+	out research paper and where can I find it?
+2.  Can I create GitHub repository with all the code and
     instructions/comments for people searching for solutions
     used by me?
-1.  Ask about the configurations. Are they sufficient? Or we
+3.  Ask about the configurations. Are they sufficient? Or we
     plan to run the tests on 2 nodes using 2 power meters
     (may require additional software such as pssh)
-2.  Ask about the status of the current power meter (old one)
+4.  Ask about the status of the current power meter (old one)
     and the status / plans for the second power meter.
-3.  Ask the administrator of the servers to install rest
+5.  Ask the administrator of the servers to install rest
     of the necessary software (access to apl11.maas, linux perf
 	on sanna.kask, vinnana.kask and apl11.maas). 
-4.	Ask the administrator how to perform tests on both sanna.kask
+6.	Ask the administrator how to perform tests on both sanna.kask
 	and vinnana.kask (how to estabilish internode communication
 	like it was with des01.kask and des02.kask)
-5.  Should I write abstract in Polish aswell?
+7.  Should I write abstract in Polish aswell?
 
 
 Questions to the supervisors:
