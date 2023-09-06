@@ -33,6 +33,8 @@ What is already planned to do / questions to the supervisor:
 hybrid: 1 and/or 2 CPUs, various number of GPUs: 8 GPUs = 40 threads (8 pinned to GPU benchmark, 32 to CPU benchnark), 4 GPUs = 20 threads, 2 GPUs = 10 threads, 1 GPU = 5 threads (1 GPU-related, 4 CPU benchmark)
 multinode: I suggest using full-blown, hybrid benchmark, there is no point to fragmentate, eg 8gpu 40 thr sanna == 4gpu 40 thr vinnana, 4gpu, 20 thr sanna == 3gpu, 20 thr vinnanna, 2gpu 10 threads sanna == 2 gpu 10 threads vinnana, 1 gpu, same as before for both
 
+NOTE: Check benchmark on sanna.kask with 8 GPUs, but only 12 core for CPU benchmark (USE ONLY physical core, without hyperthreading)
+
 1.	Ask about the outcome of the conference. When can I quote
 	out research paper and where can I find it?
 2.  Can I create GitHub repository with all the code and
@@ -65,6 +67,10 @@ NEW QUESTIONS:
 
 What to do next (conclusions after consultations):
 1.  Testować i korygować wyniki, ale najważniejsze- odpalać testy
+2.  Przetestować na 4-6 najbardziej różnorodnych konfiguracjach: zaczynając od 1 CPU 1 Threads, as stopniowo kończąc na 2 CPUs 40 Threads 8 GPUs,
+żeby mieć pełen zakres danych do wstępnej analizy. Potem udać się z tymi danymi na konsultacje.\
+3.  Poprosić doktora Boińskiego o dostępny i instalację softów na serwerach oraz o podpięcie mierników do sanny i vinnany
+
 
 =====================================================================
 
