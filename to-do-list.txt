@@ -29,6 +29,10 @@ What is planned to do:
 
 What is already planned to do / questions to the supervisor:
 
+0. Configuration: 1 node CPUs and/or GPUs: 1, 5, 10, 20 threads, 2 CPUs 2, 10, 20, 40 threads. 1 GPU, 2 GPUs, 4 GPUs, 8 GPUs.
+hybrid: 1 and/or 2 CPUs, various number of GPUs: 8 GPUs = 40 threads (8 pinned to GPU benchmark, 32 to CPU benchnark), 4 GPUs = 20 threads, 2 GPUs = 10 threads, 1 GPU = 5 threads (1 GPU-related, 4 CPU benchmark)
+multinode: I suggest using full-blown, hybrid benchmark, there is no point to fragmentate, eg 8gpu 40 thr sanna == 4gpu 40 thr vinnana, 4gpu, 20 thr sanna == 3gpu, 20 thr vinnanna, 2gpu 10 threads sanna == 2 gpu 10 threads vinnana, 1 gpu, same as before for both
+
 1.	Ask about the outcome of the conference. When can I quote
 	out research paper and where can I find it?
 2.  Can I create GitHub repository with all the code and
