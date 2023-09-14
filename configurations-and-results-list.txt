@@ -1,0 +1,21 @@
+Comprehensive list of all configurations
+
+Servers-wise:
+    1. sanna.kask
+        1.1. CPU:
+            1.1.1 OMP-CPP:
+                1.1.1.1 lu.C (approx. 34.88s) x10
+                    1.1.1.1.1 - 1 CPU, 1 Thread
+                    1.1.1.1.2 - 1 CPU, 5 Thread
+                    1.1.1.1.3 - 1 CPU, 10 Thread
+                    1.1.1.1.4 - 1 CPU, 20 Thread
+                    1.1.1.1.5 - 2 CPU, 2 Thread
+                    1.1.1.1.6 - 2 CPU, 10 Thread
+                    1.1.1.1.7 - 2 CPU, 20 Thread
+                    1.1.1.1.8 - 2 CPU, 40 Thread
+                1.1.1.2 is.D (approx. 37.53s) x10
+                1.1.1.3 bt.C (approx. 55.18s) x10
+    2. vinnana.kask
+    3. two-nodes(sanna.kask)
+    4. two-nodes(vinnana.kask)
+    5. apl11.maas
