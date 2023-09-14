@@ -72,7 +72,69 @@ Explanation regarding the entire setups:
                     1.3.1.3.3 - 2 CPUs, 16 Threads & 4 GPUs (4 Threads) [50%   of all resources]
                     1.3.1.3.4 - 2 CPUs, 32 Threads & 8 GPUs (8 Threads) [100%  of all resources]
     2. vinnana.kask
+        2.1. CPU(s):
+            2.1.1 OMP-CPP:
+                2.1.1.1 lu.C
+                    2.1.1.1.1 - 1 CPU, 1 Thread
+                    2.1.1.1.2 - 1 CPU, 5 Threads
+                    2.1.1.1.3 - 1 CPU, 10 Threads
+                    2.1.1.1.4 - 1 CPU, 20 Threads
+                    2.1.1.1.5 - 2 CPUs, 2 Threads
+                    2.1.1.1.6 - 2 CPUs, 10 Threads
+                    2.1.1.1.7 - 2 CPUs, 20 Threads
+                    2.1.1.1.8 - 2 CPUs, 40 Threads
+                2.1.1.2 is.D
+                    2.1.1.2.1 - 1 CPU, 1 Thread
+                    2.1.1.2.2 - 1 CPU, 5 Threads
+                    2.1.1.2.3 - 1 CPU, 10 Threads
+                    2.1.1.2.4 - 1 CPU, 20 Threads
+                    2.1.1.2.5 - 2 CPUs, 2 Threads
+                    2.1.1.2.6 - 2 CPUs, 10 Threads
+                    2.1.1.2.7 - 2 CPUs, 20 Threads
+                    2.1.1.2.8 - 2 CPUs, 40 Threads
+                2.1.1.3 bt.C
+                    2.1.1.3.1 - 1 CPU, 1 Thread
+                    2.1.1.3.2 - 1 CPU, 5 Threads
+                    2.1.1.3.3 - 1 CPU, 10 Threads
+                    2.1.1.3.4 - 1 CPU, 20 Threads
+                    2.1.1.3.5 - 2 CPUs, 2 Threads
+                    2.1.1.3.6 - 2 CPUs, 10 Threads
+                    2.1.1.3.7 - 2 CPUs, 20 Threads
+                    2.1.1.3.8 - 2 CPUs, 40 Threads
+        2.2 GPU(s):
+            2.2.1 OMP-CUDA:
+                2.2.1.1 ep.D
+                    2.2.1.1.1 - 1 GPU  (1 Thread)
+                    2.2.1.1.2 - 2 GPUs (2 Threads)
+                    2.2.1.1.3 - 4 GPUs (4 Threads)
+                    2.2.1.1.4 - 8 GPUs (8 Threads)
+                2.2.1.2 sp.D
+                    2.2.1.2.1 - 1 GPU  (1 Thread)
+                    2.2.1.2.2 - 2 GPUs (2 Threads)
+                    2.2.1.2.3 - 4 GPUs (4 Threads)
+                    2.2.1.2.4 - 8 GPUs (8 Threads)
+                2.2.1.3 lu.D
+                    2.2.1.3.1 - 1 GPU  (1 Thread)
+                    2.2.1.3.2 - 2 GPUs (2 Threads)
+                    2.2.1.3.3 - 4 GPUs (4 Threads)
+                    2.2.1.3.4 - 8 GPUs (8 Threads)
+        2.3 Hybrid:
+            2.3.1 OMP-CPP & OMP-CUDA:
+                2.3.1.1 CPU: lu.C, GPU: ep.D
+                    2.3.1.1.1 - 1 CPU,   8 Threads & 2 GPUs (2 Threads) [25%   of all resources]
+                    2.3.1.1.2 - 2 CPUs, 16 Threads & 4 GPUs (4 Threads) [50%   of all resources]
+                    2.3.1.1.3 - 2 CPUs, 32 Threads & 8 GPUs (8 Threads) [100%  of all resources]
+                2.3.1.2 CPU: is.C, GPU: sp.D
+                    2.3.1.2.1 - 1 CPU,   8 Threads & 2 GPUs (2 Threads) [25%   of all resources]
+                    2.3.1.2.2 - 2 CPUs, 16 Threads & 4 GPUs (4 Threads) [50%   of all resources]
+                    2.3.1.2.3 - 2 CPUs, 32 Threads & 8 GPUs (8 Threads) [100%  of all resources]
+                2.3.1.3 CPU: bt.C, GPU: lu.D
+                    2.3.1.3.1 - 1 CPU,   8 Threads & 2 GPUs (2 Threads) [25%   of all resources]
+                    2.3.1.3.2 - 2 CPUs, 16 Threads & 4 GPUs (4 Threads) [50%   of all resources]
+                    2.3.1.3.3 - 2 CPUs, 32 Threads & 8 GPUs (8 Threads) [100%  of all resources]
     3. two-nodes(sanna.kask)
+        3.1 Hybrid:
+            3.1.1 MPI-Fortran
     4. two-nodes(vinnana.kask)
     5. apl11.maas
 
