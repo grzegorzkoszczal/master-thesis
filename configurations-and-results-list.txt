@@ -1,5 +1,10 @@
 Comprehensive list of all configurations
 
+// TO-DO list:
+Check 3 benchmarks from MPI-Fortran, which one are the best in terms of execution times
+Check their configs (not all of them are as flexible as OMP-CPP ones)
+reserve them for apl11.maas
+
 Explanation regarding the entire setups:
     Servers:
         Devices:
@@ -132,10 +137,8 @@ Explanation regarding the entire setups:
                     2.3.1.3.1 - 1 CPU,   8 Threads & 2 GPUs (2 Threads) [25%   of all resources]
                     2.3.1.3.2 - 2 CPUs, 16 Threads & 4 GPUs (4 Threads) [50%   of all resources]
                     2.3.1.3.3 - 2 CPUs, 32 Threads & 8 GPUs (8 Threads) [100%  of all resources]
-    3. two-nodes(sanna.kask)
-        3.1 Hybrid:
-            3.1.1 MPI-Fortran
-    4. two-nodes(vinnana.kask)
-    5. apl11.maas
+    3. apl11.maas
+
+    4. two-nodes(sanna.kask and vinnana.kask)
 
 
