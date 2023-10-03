@@ -171,14 +171,16 @@ originally consisted of five kernels and three pseudo-applications. Later on,
 the benchmark suite has been extended with more kernels, such as adaptive meshes,
 parallel I/O, multi-zone applications, and computational grids. Every application
 comes with predefined and indicated problem size, labeled as class size.
-Moreover, the benchmark kernels are available in commonly-used programming
+Moreover, the benchmark kernels are available in widely-used programming
 models like MPI and OpenMP, which allows for easy configuration of use with
 various number of CPU threads (NPB-OMP and NPB-MPI)~\cite{NPB-CPP}, as well
 as execution on two or more computational nodes (NPB-MPI only). For the
 computations on GPUs, different set has been created, which excels in tests
-on a single devices (NPB-CUDA)~\cite{NPB-CUDA_1}~\cite{NPB-CUDA_2}.
+on a single devices (NPB-CUDA)~\cite{NPB-CUDA_1}~\cite{NPB-CUDA_2}. In order To
+run GPUs benchmarks in multi-GPUs and multi-node environments, a custom deep
+learning model has been created solely for the purpose of this task.
 
-The original set consists of eight benchmarks, which are tested later in the
+Below is listed the original set of eight NPB benchmarks, which are tested later in the
 experiments conducted for the purpose of this work.
 
 Five kernels:
@@ -215,32 +217,96 @@ Benchmark classes:
 \begin{itemize}
     \item Class S $-$ Very small, used for quick test purpose. Nowadays obsolete.
     \item Class W $-$ The so-called `90's workstation' size, nowadays consisted small.
-    \item Classes A, B, C $-$ Standard test problems (~4 times size increase from
+    \item Classes A, B, C $-$ Standard test problems ($\sim$4 times size increase from
     each of the previous classes)
-    \item Classes D, E, F $-$ Large test problems (~16 times size increase from
+    \item Classes D, E, F $-$ Large test problems ($\sim$16 times size increase from
     each of the previous classes)
 \end{itemize}
 
 
 \subsection{NPB for CPU, C++ with OMP}
 
-(Work-In-Progress)
+NAS Parallel Benchmarks for CPU has been ported from Fortran to C++ $-$ a programming
+language that has been developed for a long time as an Object-Oriented successor of
+a very popular and successful C language. It is a strongly typed, highly portable
+language with very high performance, compatibility and excellent yet difficult,
+manual memory management, which makes it a grea choice for writing code, that
+is meant to use in High Performance Computing, where fast execution times and low
+memory usages are among the most important factors. C++ offers also many 
+well-optimised libraries to choose from, based on our goals, as well as extensive
+amount of documentations and books, explaining the principles of the language.
 
-Explain those benchmarks, how do they works, what problems do they
-tackle, what are class sizes, how do they differ, why is it 
-useful and so on.
+OpenMP (Open Multi-Processing) is an API (Application Programming Interface)
+and set of directives for parallel programming in shared-memory multiprocessing
+environments, primarily used for multi-threading. It's designed to simplify
+the development of parallel applications by allowing developers to add parallelism
+to their code through compiler directives and library functions. OpenMP is
+particularly popular in scientific and high-performance computing applications
+where performance optimization is crucial.
 
-Write that it works on one a two CPUs and on different number of
-threads $-$ and prove it by screenshots or something.
+Since NPB-OMP comes with up to eight benchmarks and each benchmark can be compiled
+with various class sizes, it creates a very diverse and flexible test cases to
+choose from, depending of our needs. More informations about choosing the correct
+configurations for our purposes are explained in Chapter 4: `Proposal of the
+Solution'
 
-DON'T EXPLAIN WHICH ONE YOU CHOSE, ADD THAT LATER IN ANOTHER CHAPTER
-FOR EXAMPLE, `TEST METHODOLOGY' CHAPTER
+Another major advantage of these benchmarks are the fact, that after the
+compilation, one can be executed and pinned to specific logical processor using
+Linux's \emph{taskset} command~\cite{Linux_taskset}, which is mainly used to
+set or retrieve the CPU affinity of a running process. In practice, it allows
+to set exact number of created benchmark processes and allows to manually pin
+them to the desired threads, which gives us the absolute control over choosing
+the benchmark configuration and gives us confidence, that they are correctly
+executed.
 
 \subsection{NPB for CPU, Fortran with MPI}
 
-[PLACEHOLDER]
+Another suite of benchmarks created for execution on CPUs $-$ an older set that
+was written in the world's first high level programming language, the Fortran.
+Fortran has been widely used in scientific, engineering and numerical computing
+applications for several decades. Its main advantages such as high performance,
+standarized libraries, support for complex numbers and parallel computing makes
+it a valuable and reliable choice in numerical and scientific computing to this
+day.
+
+MPI (Message Passing Interface), is a standardized and portable message-passing
+system designed for parallel and distributed computing. It provides a set of
+routines and libraries for high-performance communication and coordination among
+processes or tasks in a parallel or distributed computing environment. MPI is
+particularly popular in high-performance computing (HPC) and scientific computing,
+where large-scale parallelism is essential for solving complex problems. In
+contrast to OMP, this implementation provides inter-node communication for
+execution of code on several nodes in parallel manner.
+
+Similar to NPB-OMP, this benchmarks suite also comes with many kernels and class
+sizes to choose from, but it should be noted, that it does not offer complete
+flexibility in therms of choosing the number of processes $-$ some kernels
+require a certain number of processes to run which are specified in the code
+documentation, and are caused by the way, the implementation was created.
 
 \subsection{NPB for GPU, CUDA}
+
+CUDA (Compute Unified Device Architecture), is a parallel computing platform
+and application programming interface (API) developed by NVIDIA Corporation.
+CUDA is specifically designed for accelerating general-purpose computational
+tasks on NVIDIA GPUs (Graphics Processing Units). It allows developers to harness
+the massive parallel processing power of GPUs to accelerate a~wide range of
+applications, including scientific simulations, machine learning, image
+processing, and more.
+
+Key features and concepts of CUDA include, but are not limited, to:
+\begin{itemize}
+    \item Parallel Computing Model: CUDA enables developers to write parallel
+    code that can be executed on GPUs.
+    \item GPU Acceleration: CUDA provides a means to offload computationally
+    intensive tasks from the CPU to the GPU\@.
+    \item CUDA C/C++ Language Extensions: Developers can write CUDA code using
+    C or C++ with CUDA-specific extensions. These extensions allow developers
+    to define GPU kernels, which are functions that run in parallel on the GPU\@.
+    \item CUDA Toolkit: The CUDA Toolkit includes the CUDA compiler, runtime
+    libraries, and development tools. It enables developers to write, compile,
+    and optimize CUDA applications.
+\end{itemize}
 
 (Work-In-Progress)
 
