@@ -308,14 +308,26 @@ Key features and concepts of CUDA include, but are not limited, to:
     and optimize CUDA applications.
 \end{itemize}
 
-(Work-In-Progress)
-
-Most of content will be covered in previous subsection, so mention
-how does it work for GPUs
-
-Mention that it works on SINGLE GPU
+As mentioned in the previously shown, CPU implementations, this benchmarks
+suite also comes with various kernels and class sizes to choose from, according
+to our needs. One important thing should be noted, however $-$ due to the
+nature of the way it has been implemented, the index number of the GPU, that
+will be used during tests must be specified in the configurations file during
+compilation. Therefore this benchmark sets are single-GPU only and require
+creation of many executable files with various configs, if the test server
+has many GPUs. This problem is explained in more detail and ultimately
+resolved in Chapter 4.
 
 \subsection{Custom Deep Neural Networks model}
+
+Last benchmark application used in this work fills the remaining gap for test
+suite $-$ an multi-GPUs kernel that utilizes MPI and has potential for
+multi-node training. This application was created solely for this purpose,
+utilizing high level deep learning frameworks, such as Tensorflow and Keras,
+widely known and used, general-purpose programming language such as Python,
+as well as Horovod~\cite{Horovod} framework, that utilizes MPI and NCCL
+communication libraries.
+
 
 Explain thoroughly Your own model and the fact it works 
 on GPUs in distributed manner.
