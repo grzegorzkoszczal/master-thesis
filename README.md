@@ -1,4 +1,4 @@
-# Master Thesis workspace repository
+# Master Thesis workspace
 
 The intention of this repository is to provide a LaTeX workspace for
 writing and revieving my master thesis. This readme.md file indicates the
@@ -13,6 +13,11 @@ was taken also from [guidelines from the year
 which are more detailed than the latest version.
 
 ## Table of Contents
+
+This section is created as an overview on the relations of .tex files with
+compiled .pdf file, rather than real ToC. For the actual Table of Contents,
+please refer to main.pdf file and see the compiled master thesis or see
+the chapters below.
 
 ```
 1. pdf/title-page.pdf
@@ -31,102 +36,128 @@ which are more detailed than the latest version.
 14. tables/
 ```
 
+## Abstract
+
+Short insight on master thesis, keywords and field of study. Next we can see
+table of contents of the master thesis and list of important symbols and
+abbreviations.
+
 ## Chapter 0 - Introduction
 
+Introduction chapter gives a short overview on global shares of energy usage
+in ICT sector and needs of reliable power measurement methods in HPC.
 
+## Chapter 1 - Research goal
 
-## Chapter 1 
+### 1.1 Purpose and research question
 
-The only supported language is Polish, however it shouldn't be very hard
-to adjust the template for writing in English. Polish requires
-additional options, so some of the changes is just removing
-Polish-specific settings.
+Main goal of the master thesis
 
-### Then why is this readme in English?
+### 1.2 Scope and limitation
 
-Mostly out of habit, as I've never experienced any
-`addBag/dodajWorek`:tm: issues during my studies, so I always tend to
-write code and documentation in English even if Polish here makes more
-sense.
+Constraint on the research scope put by the devices and measurements
+tools used.
 
-## Setup
+### 1.3 Project requirements
 
-Clone the repo, and make sure that `main.tex` compiles into a PDF on
-your system. The template was successfully tested against TeXLive 2022.
+Requirements set for computation servers, benchmark applications chosen for the
+tests, and overall preparation for the experiments
 
-### Overleaf
+## Chapter 2 - Theoretical background
 
-If you prefer working in Overleaf, here you can access the files for
-this template: <https://www.overleaf.com/read/mngqxzfvdhpk>.
+More theory about used measurements software (RAPL, NVML) and hardware
+(Yokogawa), as well as benchmark applications.
 
-## How to use?
+### 2.1 Measurement software
 
-This repo should be treated a sample project, so you're supposed to copy
-the files and edit them freely. The most of the actual settings live in
-`config/preamble.sty`. To be compliant with PG, you probably don't want
-to modify existing settings there unless you're fixing something (pull
-request is welcomed in this case).
+#### 2.1.1 Intel RAPL
 
-Depending on your needs, you might want to include more packages and
-settings in this file to get access to some more niche LaTeX features
-provided by packages not included in the template by default.
+Short explanation about CPU-specific measurement tool, utilized by Linux Perf
+used in later tests.
 
-## Structure and conventions
+#### 2.1.2 NVIDIA NVML
 
-The below diagram describes all important parts of the template. You
-should also take a look at the notes in the example chapter which
-describes how to add figures, tables, and citations along with some good
-practices. It's a good idea to analyze both the raw TeX, and the
-generated PDF (you can get the PDF easily from the Overleaf linked
-above).
+Short explanation about GPU-specific measurement tool.
 
-```
-main.tex
- \_ Entry point of the template, start here to understand how the rest
-    of the files is referenced
-config
-  \_ preamble.sty      # The heart of the template with most settings
-  \_ bibliography.bib  # Put your bibliography positions here
-  \_ macros.sty        # Define your macros here
-chapters # A TeX file per chapter
-  \_ 01.tex
-  \_ 02.tex
-figures
-  \_ Graphics, images etc.
-misc
-  \_ TeX files which are not chapters but are part of the thesis
-pdf
-  \_ Here you should put PDFs which will be included as separate pages
-     into your thesis
-tables
-  \_ Big and complex tables can be defined here and with `\input{}`
-     included in chapters
-```
+### 2.1 Measurement hardware
 
-## Misc
+#### 2.2.1 Yokogawa WT310E
 
-In some places, you can notice a bit strange formatting with LaTeX
-comments `%` at the end of lines. This was done to prevent automatic
-wrapping of lines by [stkb/Rewrap](https://github.com/stkb/Rewrap) VS
-Code extension.
+Short explanation about hardware measurement tool, that collect the data of
+power draw of the entire node.
 
-## See also
+### 2.3 Benchmark applications
 
-* [jachoo/pg-beamer](https://github.com/jachoo/pg-beamer)\
-  A PG template for creating LaTeX presentations
+Introduction to NAS Parallel Benchmarks - who wrote them, why are they popular,
+widely used and reliable, what different implementations are available in the
+benchmarks suite, what benchmark problems do they compute (kernels and
+pseudo-applications) and finally, what are the class sizes for each benchmark.
 
-* [splaw1k/PG_LaTeX_Templates](https://github.com/splaw1k/PG_LaTeX_Templates)\
-  Another PG thesis template available on GitHub
+#### 2.3.1 NPB for CPU, C++ with OMP
 
-* [typografia.info](https://typografia.info/podstawy)\
-  Writing a thesis is not writing a book, but some typographic knowledge
-  is nice to have if you decided to be a LaTeX guy (some people *really*
-  prefer Word)
+Overview on C++ as a programming language that is a reliable choice for
+writing a code with focus on performance. Brief explanation of OpenMP
+directives for parallel programming. Advantages of the overall benchmark
+in chosing the configurations during tests.
 
-* [James-Yu/LaTeX-Workshop](https://github.com/James-Yu/LaTeX-Workshop)\
-  If you're new to LaTeX and already familiar with VS Code, you can try
-  this extension before installing full-fledged LaTeX "IDE"
+#### 2.3.2. NPB for CPU, Fortran with MPI
 
-## Contributing
+Brief insight on advantages of Fortran programming language in numerical
+and scientific computing. Advantages of MPI in both parallel and distributed
+computing (mainly inter-node communication support).
+#### 2.3.3. NPB for GPU, CUDA
 
-All fixes, proposed updates, or comments are welcome!
+Short description of CUDA, a parallel computing platform and application
+programming interface designed to utilize the resources of GPUs. Pros and
+cons of the benchmarks with a commentary on the issues and solutions that
+emerged during the usage of this benchmark suite
+
+#### 2.3.4. Custom Deep Neural Networks model
+
+More detailed explanation of this benchmark comes from the fact, that it has
+been written for the sole purpose of being used in this master thesis, in order
+to fill the need for multi-GPU, multi-node benchmark. At first are explained
+the advantages of Python as a popular general-purpose programming language with
+many modules that helps works in fields like web development, data science or
+artificial intelligence. Next, the deep neural networks are explained, such as
+TensorFlow, Keras and Horovod, that particularly focues on training models in
+efficient parallel and distributed manner. Next, the model itself is explained
+in more details - the problem it solves, how the dataset was aqcuired and why
+it is valuable as a benchmark in this work
+
+## Chapter 3 - Related work
+
+This chapter describes the workflow of experiments done in the research papers,
+that broach the topics similar to the goal of this master thesis. This part
+has been written as an requirement for Master Thesis Seminar I
+(the "state-of-the-art" chapter was required to pass that subject) and it was
+graded 5.0 for the contents, so I am fairly confident, that there is little to
+change in that terms.
+
+#### 3.1. "A comparative study of methos for measurement of energy of computing"
+
+#### 3.2. "Verified instruction-level energy consumption measurement for NVIDIA GPUs"
+
+#### 3.3. "Measuring GPU power with the K20 built-in sensor"
+
+## Chapter 4 - Preparations to experiments
+
+### 4.1 [Placeholder]
+
+## Chapter 5 - Experiments
+
+### 5.1 [Placeholder]
+
+## Chapter 6 - Summary and future work
+
+### 6.1 Summary
+
+#### 6.2 Future work
+
+## To-do list:
+
+I highly encourage my supervisor, Dr. Czarnul to periodicaly check the updates
+on this master thesis and write back the feedback on what is needed to be
+written and/or changed.
+
+1. Field of science and technology in accordance with OECD requirements
