@@ -24,7 +24,7 @@ which consists of:
 
 \begin{itemize}
     \item PP0 (Core Devices) $-$ Includes the energy consumption
-    by all the CPU cores in the socket(s).
+    by all the CPU cores in the socket\@(s).
     \item PP1 (Uncore Devices) $-$ Includes the power consumption
     of integrated graphics processing unit (unavailable on the
     server platforms)
@@ -57,7 +57,7 @@ Sampling Monitoring Approach (SMA) $-$ The C-based API provided
 by NVML that can query the power usage of the device and provide
 an instantaneous power measurement. Therefore, it can be
 programmed to keep reading the hardware sensor with a certain
-frequency. The \emph{nvmlDeviceGetPowerUsage()} function is
+frequency. The \emph{nvmlDeviceGetPowerUsage\@()} function is
 used to retrieve the power usage reading for the device, in
 milliwatts. This function is called and executed by the CPU\@.
 The highest frequency possible is 66.7 Hz, which means the
@@ -76,7 +76,7 @@ both measuring and capping power usage on modern NVIDIA GPU
 architectures. The major advantage of using PAPI is that the
 measurements are by default synchronized with the kernel execution.
 The NVML component implemented in PAPI uses the function,
-\emph{getPowerUsage()} which query \emph{nvmlDeviceGetPowerUsage()}
+\emph{getPowerUsage\@()} which query \emph{nvmlDeviceGetPowerUsage\@()}
 function. According to the documentation, this function is called
 only once when the command “papi end” is called. Thus, the power
 returned using this method is an instantaneous power when the
@@ -397,7 +397,7 @@ Main features in this benchmark, that allowed to achieve such great results
 are: usage of Horovod innate function to automatically allocate memory growth
 based on chosen number of devices, Horovod handling the deep learning
 distributed optimizer among the devices via callbacks, TensorFlow's
-\emph{.cache()} and \emph{.prefetch()} utilizing maximum of GPUs VRAM and
+\emph{.cache\@()} and \emph{.prefetch\@()} utilizing maximum of GPUs VRAM and
 finally, usage of XCeption Model $-$ a deep convolutional neural network
 architecture that involves Depthwise Separable Convolutions, that has been
 developed mainly for the purpose of solving the images classification problems.
