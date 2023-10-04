@@ -322,12 +322,86 @@ resolved in Chapter 4.
 
 Last benchmark application used in this work fills the remaining gap for test
 suite $-$ an multi-GPUs kernel that utilizes MPI and has potential for
-multi-node training. This application was created solely for this purpose,
-utilizing high level deep learning frameworks, such as Tensorflow and Keras,
-widely known and used, general-purpose programming language such as Python,
-as well as Horovod~\cite{Horovod} framework, that utilizes MPI and NCCL
-communication libraries.
+multi-node training. This application was created solely for the purpose of
+this paper and utilizes high-level deep learning frameworks, such as
+TensorFlow and Keras, widely known and used, general-purpose programming
+language such as Python, as well as Horovod~\cite{Horovod_IDRIS} framework,
+that utilizes MPI and NCCL communication libraries. The mentioned components
+used in this benchmark are more precisely described below:
+
+Python is a versatile and widely-used high-level programming language known
+for its simplicity, readability, and extensive standard libraries. The fact
+that it is a general-purpose language means, that it can be used in various
+fields, such as web development, data analysis, scientific computing and
+artificial intelligence. Its high-level abstraction provides a clean and
+readable syntax and the fact that its an interpreted language means that
+there is no need to compile the code before running it, shortening the
+time between each tests of new features. Moreover, Python comes with a large
+and comprehensive standard library for basic programming tasks such as file I/O,
+regular expressions, networking and data manipulation, and in case if someone
+needs more specific libraries, it features an easy solution for installing
+additional packages using PIP (Python Index Package).
+
+TensorFlow is a comprehensive deep learning framework that provides low-level
+and high-level APIs. While one can use TensorFlow for a wide range of machine
+learning and deep learning tasks, it also includes the Keras API as a high-level
+component. TensorFlow provides more low-level control, allowing developers to
+customize their models and training loops extensively. This is useful for
+researchers and engineers who need fine-grained control over model architecture
+and training procedures.
+
+Keras is an open-source high-level neural networks API written in Python.
+It provides a user-friendly, high-level interface for building and training
+neural networks. Keras was designed with simplicity and ease of use in mind.
+
+Both TensorFlow and Keras offers extensive documentations that allows user
+to quickly learn the basics of theirs modules and libraries. Moreover,
+organizations such as Google~\cite{Google_Machine_Learning_Crash_Course}
+or Kaggle~\cite{Kaggle} offers a practical approach in learning such concepts,
+especially Kaggle comes with a wide array of many datasets and exemplary
+solutions, created by the community members.
+
+Horovod~\cite{Horovod} is an open-source distributed deep learning framework
+designed to make it easier to train machine learning models on distributed
+computing environments, such as clusters or cloud-based setups. It was
+developed by Uber Engineering and is designed to provide efficient and
+scalable distributed training for deep learning models. Horovod is
+particularly well-suited for distributed training with popular deep learning
+libraries like TensorFlow, PyTorch, and MXNet. Main advantages of Horovod
+framework are: large scale distributed training, that allows multi-GPU and
+multi-node support, efficient data parallelism, compatibility with deep
+learning frameworks, such as TensorFlow and Keras, resource awarness and
+dynamic scaling.
+
+The custom deep learning benchmark, created for the purpose of this Master's
+Thesis, tackles the problem of image classification. It involves training
+a neural network to categorize or classify images into predefined classes
+or categories. The goal is to teach the model to recognize patterns and
+features in images that distinguish one category from another. This problem
+is commonly addressed using supervised learning, where the neural network
+learns from a labeled dataset containing examples of images and their
+corresponding class labels. The dataset used has been taken from the Kaggle
+website~\cite{Kaggle_Dataset} classes of the dataset represents various
+species of birds, that are labeled. The birds in nearly all images occupies
+over 50\% of the image, the photos themselves are of good quality $-$ no images
+are blurry, done in bad lighting or misslabeled. All images are 224 $\times$
+224 $\times$ 3 color images in \@.jpg format. Considering all the informations
+about the dataset mentioned above, one can expect a good results when training
+deep neural networks models on it. During the tests and fine-tuning phase of
+the creation of the model, a very high accuracy of over 90\% has been achieved
+in relatively small number of iteration. What is more important in the terms
+of this work, the utilization of the GPUs and their power draw has been very
+high, thus meeting the requirement for a good benchmark application, to use
+possibly as much of the devices resources during measurements as possible.
+Main features in this benchmark, that allowed to achieve such great results
+are: usage of Horovod innate function to automatically allocate memory growth
+based on chosen number of devices, Horovod handling the deep learning
+distributed optimizer among the devices via callbacks, TensorFlow's
+\emph{.cache()} and \emph{.prefetch()} utilizing maximum of GPUs VRAM and
+finally, usage of XCeption Model $-$ a deep convolutional neural network
+architecture that involves Depthwise Separable Convolutions, that has been
+developed mainly for the purpose of solving the images classification problems.
 
 
-Explain thoroughly Your own model and the fact it works 
-on GPUs in distributed manner.
+
+
