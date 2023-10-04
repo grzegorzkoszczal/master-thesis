@@ -1,17 +1,41 @@
-# PG LaTeX thesis template
+# Master Thesis workspace repository
 
-The intention of this repo is to provide a working LaTeX template for
-writing bachelor and master theses for students of Politechnika Gdańska
-(Gdańsk University of Technology). The template was prepared to be
-compliant with editorial guidelines from the year 2018 which are
-available on the [university
+The intention of this repository is to provide a LaTeX workspace for
+writing and revieving my master thesis. This readme.md file indicates the
+connections between LaTeX files and compiled .pdf file in sequential manner.
+
+The configurations used in this master thesis are compliant with editorial
+guidelines from the year 2018 which are available on the [university
 website](https://pg.edu.pl/documents/8597924/15531473/ZR%2022-2018)
 (document contains guidelines in Polish and English). Some inspiration
 was taken also from [guidelines from the year
 2014](https://eti.pg.edu.pl/documents/1115629/0/zarz%C4%85dzenie%20wytyczne%20pracy)
 which are more detailed than the latest version.
 
-## Supported languages
+## Table of Contents
+
+```
+1. pdf/title-page.pdf
+2. pdf/author-statement.pdf
+3. misc/abstract-en.tex
+4. misc/list-of-symbols.tex
+5. chapters/00_Introduction.tex
+6. chapters/01_Research_Goal.tex
+7. chapters/02_Theoretical_Background.tex
+8. chapters/03_Related_Work.tex
+9. chapters/04_Preparations_to_Experiments.tex
+10. chapters/05_Experiments.tex
+11. chapters/06_Summary.tex
+12. config/bibliography.bib
+13. figures/
+14. tables/
+```
+
+## Chapter 0 - Introduction
+
+
+
+## Chapter 1 
 
 The only supported language is Polish, however it shouldn't be very hard
 to adjust the template for writing in English. Polish requires
