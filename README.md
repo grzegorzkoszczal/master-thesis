@@ -161,3 +161,15 @@ on this master thesis and write back the feedback on what is needed to be
 written and/or changed.
 
 1. Field of science and technology in accordance with OECD requirements
+2. Chapter 4, add to the implementation list the Hybrid ones
+
+
+Prepare two flowcharts: one general for the scheduler (chose servers, devices,
+benchmarks etc.), and the second more detailed, explaining starting threads,
+running measurements scripts, killing processes and so on.
+
+General Flowchart:
+[Mostly done, needs revision and polishing]
+
+Processes Flowchart:
+[W-I-P]
