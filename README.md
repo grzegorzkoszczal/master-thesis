@@ -17,7 +17,7 @@ which are more detailed than the latest version.
 This section is created as an overview on the relations of .tex files with
 compiled .pdf file, rather than real ToC. For the actual Table of Contents,
 please refer to main.pdf file and see the compiled master thesis or see
-the chapters below.
+the chapters below in this README.md file.
 
 ```
 1. pdf/title-page.pdf
@@ -51,7 +51,7 @@ in ICT sector and needs of reliable power measurement methods in HPC.
 
 ### 1.1 Purpose and research question
 
-Main goal of the master thesis
+Main goal of the master thesis.
 
 ### 1.2 Scope and limitation
 
@@ -61,7 +61,7 @@ tools used.
 ### 1.3 Project requirements
 
 Requirements set for computation servers, benchmark applications chosen for the
-tests, and overall preparation for the experiments
+tests, and overall preparation for the experiments.
 
 ## Chapter 2 - Theoretical background
 
@@ -110,7 +110,7 @@ computing (mainly inter-node communication support).
 Short description of CUDA, a parallel computing platform and application
 programming interface designed to utilize the resources of GPUs. Pros and
 cons of the benchmarks with a commentary on the issues and solutions that
-emerged during the usage of this benchmark suite
+emerged during the usage of this benchmark suite.
 
 #### 2.3.4. Custom Deep Neural Networks model
 
@@ -123,7 +123,7 @@ artificial intelligence. Next, the deep neural networks are explained, such as
 TensorFlow, Keras and Horovod, that particularly focues on training models in
 efficient parallel and distributed manner. Next, the model itself is explained
 in more details - the problem it solves, how the dataset was aqcuired and why
-it is valuable as a benchmark in this work
+it is valuable as a benchmark in this work.
 
 ## Chapter 3 - Related work
 
