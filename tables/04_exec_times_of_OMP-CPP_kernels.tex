@@ -1,0 +1,28 @@
+\begin{table}[!ht]
+    \centering
+    \small
+    \caption{Execution times of OMP-CPP benchmarks}\label{tbl:table-label}
+    \begin{tblr}{%
+        hlines,%
+        vlines,%
+        row{1}={font=\bfseries},%
+        column{1}={halign=c},%
+    }%
+        Benchmark & Class size & Execution time [s] & Benchmark & Class size & Execution time [s] \\
+        IS & Class B & 0.35 & FT & Class B & 2.92 \\
+        IS & Class C & 1.25 & FT & Class C & 16.14 \\
+        IS & Class D & 37.53 & FT & Class D & 371 \\
+
+        EP & Class B & 3.06 & SP & Class B & 14.48 \\
+        EP & Class C & 11.96 & SP & Class C & (freezed) \\
+        EP & Class D & 177 & SP & Class D & (core dumped) \\
+
+        CG & Class B & 7.77 & BT & Class B & 15.82 \\
+        CG & Class C & 27.2 & BT & Class C & 55.182 \\
+        CG & Class D & (freezed) & BT & Class D & 1185 \\
+
+        MG & Class B & 2.32 & LU & Class B & 9.88 \\
+        MG & Class C & 17.459 & LU & Class C & 34.88 \\
+        MG & Class D & 185 & LU & Class D & 1111 \\
+    \end{tblr}
+\end{table}

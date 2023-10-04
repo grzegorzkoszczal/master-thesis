@@ -1,3 +1,143 @@
-\chapter{Proposal of a Solution to the Problem}
+\chapter{Preparations to experiments}
+
+\section{[Overview on all configurations]}
+
+The measurements will be conducted on many different setups, therefore it is
+important to explain throughly the entire workflow.
+
+\begin{itemize}
+    \item Server $-$ The tests will be conducted on two computational
+    nodes, that slightly differs from each other based on hardware equipped.
+        \begin{itemize}
+            \item sanna.kask
+            \item vinnana.kask
+        \end{itemize}
+    \item Device $-$ Next, benchmarks will be organized based on devices,
+    that will be utilized during tests.
+        \begin{itemize}
+            \item CPU(s)
+            \item GPU(s)
+            \item Hybrid (CPUs + GPUs)
+        \end{itemize}
+    \item Implementation $-$ Depending on current server, as well as device
+    chosen, the implementation technology is specified.
+        \begin{itemize}
+            \item OMP-CPP (sanna.kask, CPU(s))
+            \item OMP-CUDA (sanna.kask, GPU(s))
+            \item MPI-Fortran (vinnana.kask, CPU(s))
+            \item Horovod-Python (vinnana.kask, GPU(s))
+        \end{itemize}
+    \item Benchmark and class size $-$ Picking the correct benchmark by the
+    automation scheduler is based on implementation technology currently
+    chosen as well device and server.
+        \begin{itemize}
+            \item OMP-CPP
+            \begin{itemize}
+                \item bt.C
+                \item is.D
+                \item lu.D
+            \end{itemize}
+        \end{itemize}
+        \begin{itemize}
+            \item OMP-CUDA
+            \begin{itemize}
+                \item lu.D
+                \item sp.D
+                \item ep.D
+            \end{itemize}
+        \end{itemize}
+        \begin{itemize}
+            \item Hybrid (OMP-CPP+OMP-CUDA)
+            \begin{itemize}
+                \item bt.C+lu.D
+                \item is.D+sp.D
+                \item lu.D+ep.D
+            \end{itemize}
+        \end{itemize}
+
+        \begin{itemize}
+            \item MPI-Fortran
+            \begin{itemize}
+                \item ep.D.x
+                \item is.D.x
+                \item lu.C.x
+            \end{itemize}
+        \end{itemize}
+        \begin{itemize}
+            \item Horovod-Python
+            \begin{itemize}
+                \item XCeption
+            \end{itemize}
+        \end{itemize}
+        \begin{itemize}
+            \item Hybrid (MPI-Fortran+Horovod-Python)
+            \begin{itemize}
+                \item ep.D.x+XCeption
+                \item is.D.x+XCeption
+                \item lu.C.x+XCeption
+            \end{itemize}
+        \end{itemize}
+    \item Configuration $-$ lastly, the configuration of number of logical
+    processors on CPU(s) and/or number of GPU(s) used in test are based on
+    chosen implementation.
+        \begin{itemize}
+            \item for OMP-CPP implementation:
+            \item 1 CPU 1 Thread
+            \item 1 CPU 5 Threads
+            \item 1 CPU 10 Threads
+            \item 1 CPU 20 Threads
+            \item 2 CPUs 2 Threads
+            \item 2 CPUs 10 Threads
+            \item 2 CPUs 20 Threads
+            \item 2 CPUs 40 Threads
+        \end{itemize}
+        \begin{itemize}
+            \item for OMP-CUDA implementation:
+            \item 1 GPU 1 Thread
+            \item 2 GPUs 2 Threads
+            \item 4 GPUs 4 Threads
+            \item 8 GPUs 8 Threads
+        \end{itemize}
+        \begin{itemize}
+            \item for OMP-CPP+OMP-CUDA implementation:
+            \item 1 CPU 4 Threads \& 1 GPU 1 Thread
+            \item 1 CPU 8 Threads \& 2 GPUs 2 Threads
+            \item 2 CPUs 16 Threads \& 4 GPUs 4 Threads
+            \item 2 CPUs 32 Threads \& 8 GPUs 8 Threads
+        \end{itemize}
+        \begin{itemize}
+            \item for MPI-Fortran implementation:
+            \item Processes: 4
+            \item Processes: 8
+            \item Processes: 16
+            \item Processes: 32
+        \end{itemize}
+        \begin{itemize}
+            \item for Horovod-Python implementation:
+            \item 1 GPU
+            \item 2 GPUs
+            \item 4 GPUs
+        \end{itemize}
+        \begin{itemize}
+            \item for MPI-Fortran+Horovod-Python implementation:
+            \item Processes: 8 \& 1 GPU
+            \item Processes: 16 \& 2 GPUs
+            \item Processes: 32 \& 4 GPUs
+        \end{itemize}
+\end{itemize}
 
 \section{[PLACEHOLDER]}
+\section{[PLACEHOLDER]}
+\section{[Choosing the correct configurations]}
+\section{[Preliminary tests]}
+
+
+
+\input{tables/01_przykladowa-tabela.tex}
+\input{tables/04_exec_times_of_OMP-CPP_kernels.tex}
+\input{tables/04_exec_times_of_OMP-CUDA_kernels.tex}
+
+
+ep.D = 27.16 s          avg 155~160 [w]
+sp.D = 220.86 s         avg 200~210 [W]
+lu.D = 300.74 s         fluctuates between 200~230 [W]
