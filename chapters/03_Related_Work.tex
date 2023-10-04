@@ -381,7 +381,9 @@ power draw value then become a single function of the slope of
 power profile derived in time domain and is shown in a function
 below:
 
-Ptrue(ti)=Pmeasured(ti) + C  (Pmeasured(ti+1) {-} Pmeasured(ti-1))(ti+1 {-} tt-1)    [W]
+\begin{equation} \label{eq:Computing the true instant power}
+    P_{true} (t_i) = P_{meas} (t_i) + C \times (\frac{P_{meas} (t_{i+1}) - P_{meas} (t_{i-1})}{t_{i+1} - t_{i-1}})  [W]
+\end{equation}
 
 Moving back onto the recommended steps for this experiment,
 following assumption should be considered: highest possible sample
