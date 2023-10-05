@@ -24,8 +24,10 @@ important to explain throughly the entire workflow.
         \begin{itemize}
             \item OMP-CPP (sanna.kask, CPU\@(s))
             \item OMP-CUDA (sanna.kask, GPU\@(s))
+            \item OMP-CPP + OMP-CUDA (sanna.kask, CPU\@(s))
             \item MPI-Fortran (vinnana.kask, CPU\@(s))
             \item Horovod-Python (vinnana.kask, GPU\@(s))
+            \item MPI-Fortran + Horovod-Python (vinnana.kask, CPU\@(s))
         \end{itemize}
     \item Benchmark and class size $-$ Picking the correct benchmark by the
     automation scheduler is based on implementation technology currently
@@ -47,7 +49,7 @@ important to explain throughly the entire workflow.
             \end{itemize}
         \end{itemize}
         \begin{itemize}
-            \item Hybrid (OMP-CPP+OMP-CUDA)
+            \item Hybrid (OMP-CPP + OMP-CUDA)
             \begin{itemize}
                 \item bt.C+lu.D
                 \item is.D+sp.D
@@ -70,7 +72,7 @@ important to explain throughly the entire workflow.
             \end{itemize}
         \end{itemize}
         \begin{itemize}
-            \item Hybrid (MPI-Fortran+Horovod-Python)
+            \item Hybrid (MPI-Fortran + Horovod-Python)
             \begin{itemize}
                 \item ep.D.x+XCeption
                 \item is.D.x+XCeption
@@ -125,6 +127,12 @@ important to explain throughly the entire workflow.
             \item Processes: 32 \& 4 GPUs
         \end{itemize}
 \end{itemize}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.25\linewidth]{przykladowy-rysunek}
+    \caption{Logo książki o LaTeXu w Wikibooks~\cite{book:latex}}~\label{fig:General-Flowchart}
+\end{figure}
 
 \section{[PLACEHOLDER]}
 \section{[PLACEHOLDER]}
