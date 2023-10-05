@@ -1,0 +1,30 @@
+wnioski na szybko:
+
+CPU:
+rośnie ta różnica wraz ze zwiekszaniem sie liczby wątków 
+
+
+GPU:
+1, 2 różnica jest liniowa, ale powtórka z projektu badawczego,
+4 i 8 GPUs nagle wywala w kosmos (dlaczego tak się dzieje?)
+
+JEST POTENCJAŁ NA:
+> Stworzenie modelu/funkcji, działającej w sposób empiryczny
+na wyliczenie, o ile się zwiększy różnica 
+poboru mocy yoko od sumy aktywnych CPUs i GPUs
+
+
+w kontekscie artykulu naukowego:
+> pomierzyć zużycie energii przez RAM z wykorzystaniem linux
+perf'a
+> pomierzyć % zużycie RAM'u na node
+
+przesłać Dr. Czarnulowi google sheet'sa z danymi z sanny
+> na bazie tego on da mi znać jakie wykresy sporządzić
+
+
+Future works:
+1. opracowanie modelu
+2. włączyć pomiary RAM'u do pracy
+3. opracować testy na 2 węzłach
+4. zbadać kwestie zasilaczy
