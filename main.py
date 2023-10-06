@@ -621,7 +621,7 @@ class Execution:
     def get_pigrep(name):
         return check_output(["pgrep", name])
 
-def runner(
+def scheduler(
     server,
     device,
     implementation,
@@ -893,7 +893,7 @@ def main(
                         configuration_gpu = configuration_tmp_gpu[c]
 
                     for iterator in range(8, number_of_tests + 1, 1):
-                        runner(
+                        scheduler(
                             server,
                             device,
                             implementation,

@@ -1,6 +1,6 @@
 \chapter{Preparations to experiments}
 
-\section{[Overview on all configurations]}
+\section{Overview on all configurations}
 
 The measurements will be conducted on many different setups, therefore it is
 important to explain throughly the entire workflow.
@@ -128,28 +128,15 @@ important to explain throughly the entire workflow.
         \end{itemize}
 \end{itemize}
 
-\begin{figure}[hbtp]
-    \centering
-    \includegraphics{general_flowchart}
-    \caption{General Flowchart}~\label{fig:general_flowchart}
-\end{figure}
-
-\begin{figure}[hbtp]
-    \centering
-    \includegraphics{processes_flowchart.jpeg}
-    \caption{Processes Flowchart}~\label{fig:processes_flowchart.jpeg}
-\end{figure}
-
-\section{[PLACEHOLDER]}
-\section{[PLACEHOLDER]}
-\section{[Choosing the correct configurations]}
-\section{[Preliminary tests]}
+\section{Choosing the correct configurations}
+% Write stuff from the seminar
+% Maybe cite some othe works, where benchmarks were short and tell why it was bas
 
 
-
-
+\section{Preliminary tests}
 
 \input{tables/04_exec_times_of_OMP-CPP_kernels.tex}
+
 \input{tables/04_exec_times_of_OMP-CUDA_kernels.tex}
 
 \input{tables/04_exec_times_of_MPI-Fortran_kernels.tex}
@@ -169,3 +156,18 @@ OMP-CPP was run on 40 Threads
 MPI-Fortran was run on 32 Threads, due to code structure
 
 verfiy if cpp, cuda, F exec times has been correctly ported
+
+
+1 GPU, 1 iteration - 124.2s acc: 88.99\%, gpu: util 90\% avg pwr draw: ~ 185 W
+1 GPU, 3 iteration - 326.7s acc: 91.30\%
+1 GPU, 5 iteration - 528.6s acc: 91.59\%
+
+2 GPU, 1 iteration - 72.2s, acc: 82.9\%
+2 GPU, 3 iteration - 176.2s, acc: 90.72\%
+2 GPU, 5 iteration - 280.9s, 92.46\%     180 W
+
+4 GPU, 1 iteration - 48.5s, acc: 76.81\%
+4 GPU, 3 iteration - 101.1s, acc: 91.59\%
+4 GPU, 5 iteration - 155.3s, acc: 93.91\% 180 W
+
+
