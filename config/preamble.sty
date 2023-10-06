@@ -93,8 +93,8 @@
 
 % Configure captions.
 \usepackage[font=small, labelsep=period]{caption}
-\captionsetup[figure]{justification=centering, name=Rys., labelfont=bf}
-\captionsetup[table]{justification=centering, name=Tabela, labelfont=bf}
+\captionsetup[figure]{justification=centering, name=Fig., labelfont=bf}
+\captionsetup[table]{justification=centering, name=Table, labelfont=bf}
 
 % Define environment for list of symbols & abbreviations
 \newenvironment{symbols}
@@ -145,3 +145,6 @@
 
 % Specialized user-defined macros can be stored in a separate file
 \usepackage{config/macros}
+
+% Highlight table rows/columns with color
+\usepackage{color, colortbl}

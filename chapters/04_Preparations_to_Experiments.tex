@@ -152,7 +152,20 @@ important to explain throughly the entire workflow.
 \input{tables/04_exec_times_of_OMP-CPP_kernels.tex}
 \input{tables/04_exec_times_of_OMP-CUDA_kernels.tex}
 
+\input{tables/04_exec_times_of_MPI-Fortran_kernels.tex}
+
+\input{tables/04_exet_times_of_Horovod_Python_kernels.tex}
+
+
 
 ep.D = 27.16 s          avg 155~160 [W]
 sp.D = 220.86 s         avg 200~210 [W]
 lu.D = 300.74 s         fluctuates between 200~230 [W]
+
+
+check the avg power draws of horovod-python benchmark
+
+OMP-CPP was run on 40 Threads
+MPI-Fortran was run on 32 Threads, due to code structure
+
+verfiy if cpp, cuda, F exec times has been correctly ported

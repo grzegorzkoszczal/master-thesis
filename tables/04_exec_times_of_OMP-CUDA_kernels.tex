@@ -6,23 +6,23 @@
         hlines,%
         vlines,%
         row{1}={font=\bfseries},%
-        column{1}={halign=c},%
+        column{1,2,4,5}={halign=c},%
     }%
         Benchmark & Class size & Execution time [s] & Benchmark & Class size & Execution time [s] \\
-        IS & Class C & (too short) & FT & Class C & 6.63 \\
-        IS & Class D & 15.33 & FT & Class D & (unsuccesful) \\
-        IS & Class E & (not defined) & FT & Class E & (unsuccesful) \\
+        IS & C & (too short) & FT & C & 6.63 \\
+        IS & D & 15.33 & FT & D & (unsuccesful) \\
+        IS & E & (not defined) & FT & E & (unsuccesful) \\
 
-        EP & Class C & (too short) & SP & Class C & 10.39 \\
-        EP & Class D & 27.16 & SP & Class D & 220.86 \\
-        EP & Class E & 442.79 & SP & Class E & (unsuccesful) \\
+        EP & C & (too short) & CG & C & (too short) \\
+        EP & D & 27.16 & CG & D & (freezed) \\
+        EP & E & 442.79 & CG & E & (freezed) \\
 
-        CG & Class C & (too short) & BT & Class C & 12.19 \\
-        CG & Class D & (freezed) & BT & Class D & (unsuccesful) \\
-        CG & Class E & (freezed) & BT & Class E & (unsuccesful) \\
+        MG & C & (too short) & LU & C & 16.89 \\
+        MG & D & (unsuccesful) & LU & D & 300.74 \\
+        MG & E & (unsuccesful) & LU & E & (unsuccesful) \\
 
-        MG & Class C & (too short) & LU & Class C & 16.89 \\
-        MG & Class D & (unsuccesful) & LU & Class D & 300.74 \\
-        MG & Class E & (unsuccesful) & LU & Class E & (unsuccesful) \\
+        SP & C & 10.39 & BT & C & 12.19 \\
+        SP & D & 220.86 & BT & D & (unsuccesful) \\
+        SP & E & (unsuccesful) & BT & E & (unsuccesful) \\
     \end{tblr}
 \end{table}
