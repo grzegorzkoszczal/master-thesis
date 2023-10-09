@@ -1,0 +1,15 @@
+\begin{table}[hbt!]
+    \centering
+    \small
+    \caption{Overview on implementations used in tests}\label{tbl:Implementations}
+    \begin{tblr}{
+        hlines,
+        vlines,
+        row{1}={font=\bfseries,halign=c}
+    }
+                & sanna.kask        & vinnana.kask                  \\
+        CPUs    & OMP-CPP           & MPI-Fortran                   \\
+        GPUs    & OMP-CUDA          & Horovod-Python                \\
+        Hybrid  & OMP-CPP+OMP-CUDA  & MPI-Fortran+Horovod-Python    \\
+    \end{tblr}
+\end{table}

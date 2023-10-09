@@ -1,0 +1,15 @@
+\begin{table}[!ht]
+    \centering
+    \small
+    \caption{Overview on benchmarks used in tests on sanna.kask}\label{tbl:Benchmarks_sanna.kask}
+    \begin{tblr}{
+        hlines,
+        vlines,
+        row{1}={font=\bfseries,halign=c}
+    }
+                        & OMP-CPP   & OMP-CUDA  & OMP-CPP+OMP-CUDA \\
+        Benchmark \#1    & bt.C      & lu.D      & bt.C+lu.D        \\
+        Benchmark \#2    & is.D      & sp.D      & is.D+sp.D        \\
+        Benchmark \#3    & lu.D      & ep.D      & lu.D+ep.D        \\
+    \end{tblr}
+\end{table}
