@@ -1,0 +1,32 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{Configurations used on node \emph{vinnana.kask}}\label{tbl:config_vinnana.kask}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        % row{7-8} = {bg = lightgray!20}
+        }
+    \hline
+        \SetCell[c=5]{c} vinnana.kask  \\
+    \hline
+        Device & \SetCell[c=4]{c} Implementation  \\
+    \hline
+    \hline
+        & \SetCell[c=4]{c} MPI-Fortran  \\
+    \hline
+        CPUs & 4 Processes & 8 Processes & 16 Processes & 32 Processes \\
+    \hline
+    \hline
+        & \SetCell[c=4]{c} Horovod-Python \\
+    \hline
+        GPUs & 1 GPU & 2 GPUs & 4 GPUs & $-$ \\
+    \hline
+    \hline
+        & \SetCell[c=4]{c} MPI-Fortran + Horovod-Python  \\
+    \hline
+        Hybrid & 8 Processes \& 1 GPU & 16 Processes \& 2 GPUs & 32 Processes \& 4 GPUs & $-$ \\
+    \hline
+    \end{tblr}
+\end{table}

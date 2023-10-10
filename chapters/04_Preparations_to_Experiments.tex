@@ -59,15 +59,15 @@ minimal error for the longest test runs is less than 0.5\%.
 This insight gives us a simple formula:
 
 \begin{equation} \label{eq:Error of power draw readings}
-    E = \frac{x}{T} [\%]
+    E = \frac{f}{T} [\%]
 \end{equation}
 
 Where:
 
 \begin{conditions}
-    E & Error of reading $[\%]$ \\
-    x & Lowest sampling rate of the measurements tool $[s]$ \\
-    T & Execution time of benchmark $[s]$ \\
+    \textbf{E} & Error of reading $[\%]$ \\
+    \textbf{f} & Lowest sampling rate of the measurements tool $[s]$ \\
+    \textbf{T} & Execution time of benchmark $[s]$ \\
 \end{conditions}
 
 Based on that information, it has been tentatively accepted, that the maximum
@@ -283,28 +283,55 @@ we have \emph{MPI-Fortran} for CPUs, \emph{Horovod-Python} for GPUs and
 
 % Benchmarks:
 \subsection{Benchmarks}
-Benchmarks $-$ [PLACEHOLDER: HERE RESUME THE WORK]
+Based on the server and implementation currently used, benchmarks are chosen
+by a scheduler script to run. The main task the benchmarks are responsible is
+to utilize the devices' resources for the purpose of the tests.
 
+\begin{figure*}[h!]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figures/benchmarks/Benchmarks.png}
+    \caption{Benchmarks evaluation example}~\label{fig:benchmarks}
+\end{figure*}
+
+In the tables below are listed the benchmarks chosen for final tests:
 \input{tables/04_benchmarks_sanna.tex}
 \input{tables/04_benchmarks_vinnana.tex}
 
+\newpage
+
 % Configurations
 \subsection{Configurations}
-Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
+Configurations are based on currently used implementation and defines, which
+devices' resources should be allocated for the purpose of the current
+benchmark kernel. Configuration vary heavily between each other and the
+comprehensive data sheet is listed in the tables below:
+
+\input{tables/04_configurations_sanna.tex}
+
+\input{tables/04_configurations_vinnana.tex}
+
+It is worth noting, that the OMP-based implementations that has been prepared
+to run on \emph{sanna.kask} node has been pinned carefully to respective CPUs
+logical processors and GPUs, based on input configuration values. Therefore,
+using a CPUs monitoring tools, such as \emph{top} or \emph{htop}, one can see
+the utilization of individual logical processors. Such graphical representation
+has been collected and prepared for inspection in the set of figures below.
+The MPI-based implementations were run without manual pinning of the processes
+to threads, leaving load balancing to the framework itself.
 
 % 1 CPU: 1 & 5 Threads
 \begin{figure*}[!h]
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_1Thread.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_cpus/1CPU_1Thread.png}
         \caption{1 CPU, 1 Thread}\label{fig:1CPU_1Thread}
     \end{minipage}
     \hspace{0.4cm}
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_5Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_cpus/1CPU_5Threads.png}
         \caption{1 CPU, 5 Threads}\label{fig:1CPU_5Threads}
     \end{minipage}
 
@@ -312,14 +339,14 @@ Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_10Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_cpus/1CPU_10Threads.png}
         \caption{1 CPU, 10 Threads}\label{fig:1CPU_10Threads}
     \end{minipage}
     \hspace{0.4cm}
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_20Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_cpus/1CPU_20Threads.png}
         \caption{1 CPU, 20 Threads}\label{fig:1CPU_20Threads}
     \end{minipage}
 
@@ -327,14 +354,14 @@ Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_2Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_cpus/2CPUs_2Threads.png}
         \caption{2 CPUs, 2 Threads}\label{fig:2CPUs_2Threads}
     \end{minipage}
     \hspace{0.4cm}
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_10Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_cpus/2CPUs_10Threads.png}
         \caption{2 CPUs, 10 Threads}\label{fig:2CPUs_10Threads}
     \end{minipage}
 
@@ -342,14 +369,14 @@ Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_20Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_cpus/2CPUs_20Threads.png}
         \caption{2 CPUs, 20 Threads}\label{fig:2CPUs_20Threads}
     \end{minipage}
     \hspace{0.4cm}
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_40Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_cpus/2CPUs_40Threads.png}
         \caption{2 CPUs, 40 Threads}\label{fig:2CPUs_40Threads}
     \end{minipage}
 \end{figure*}
@@ -359,14 +386,14 @@ Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_gpus/1GPU_1Thread.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_gpus/1GPU_1Thread.png}
         \caption{1 GPU, 1 Thread}\label{fig:1GPU_1Thread}
     \end{minipage}
     \hspace{0.4cm}
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_gpus/2GPUs_2Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_gpus/2GPUs_2Threads.png}
         \caption{2 GPUs, 2 Threads}\label{fig:2GPUs_2Threads}
     \end{minipage}
 
@@ -374,14 +401,14 @@ Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_gpus/4GPUs_4Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_gpus/4GPUs_4Threads.png}
         \caption{4 GPUs, 4 Threads}\label{fig:4GPUs_4Threads}
     \end{minipage}
     \hspace{0.4cm}
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_gpus/8GPUs_8Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_gpus/8GPUs_8Threads.png}
         \caption{8 GPUs, 8 Threads}\label{fig:8GPUs_8Threads}
     \end{minipage}
 
@@ -390,14 +417,14 @@ Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_hybrid/1CPU_4Threads___1GPU_1Thread.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_hybrid/1CPU_4Threads___1GPU_1Thread.png}
         \caption{1 CPU, 4 Threads + 1 GPU, 1 Thread}\label{fig:1CPU_4Threads___1GPU_1Thread}
     \end{minipage}
     \hspace{0.4cm}
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_hybrid/1CPU_8Threads___2GPUs_2Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_hybrid/1CPU_8Threads___2GPUs_2Threads.png}
         \caption{1 CPU, 8 Threads + 2 GPUs, 2 Threads}\label{fig:1CPU_8Threads___2GPUs_2Threads}
     \end{minipage}
 
@@ -406,14 +433,14 @@ Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_hybrid/2CPUs_16Threads___4GPUs_4Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_hybrid/2CPUs_16Threads___4GPUs_4Threads.png}
         \caption{2 CPUs, 16 Threads + 4 GPU, 4 Threads}\label{fig:2CPUs_16Threads___4GPUs_4Threads}
     \end{minipage}
     \hspace{0.4cm}
     \centering
     \captionsetup{width=.48\linewidth}
     \begin{minipage}[t]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/htop_hybrid/2CPU_32Threads___8GPUs_8Threads.png}
+        \includegraphics[width=\textwidth]{figures/configurations/OMP/htop_hybrid/2CPU_32Threads___8GPUs_8Threads.png}
         \caption{2 CPUs, 32 Threads + 8 GPUs, 8 Threads}\label{fig:2CPU_32Threads___8GPUs_8Threads}
     \end{minipage}
 \end{figure*}

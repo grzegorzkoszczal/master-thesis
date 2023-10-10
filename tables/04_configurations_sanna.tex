@@ -1,0 +1,37 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{Configurations used on node \emph{sanna.kask}}\label{tbl:config_sanna.kask}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        % row{7-8} = {bg = lightgray!20}
+        }
+    \hline
+        \SetCell[c=5]{c} sanna.kask  \\
+    \hline
+        Device & \SetCell[c=4]{c} Implementation  \\
+    \hline
+    \hline
+        & \SetCell[c=4]{c} OMP-CPP  \\
+    \hline
+        1 CPU & 1 Thread  & 5 Threads & 10 Threads & 20 Threads \\
+    \hline
+        2 CPUs & 2 Threads  & 10 Threads & 20 Threads & 40 Threads \\
+    \hline
+    \hline
+        & \SetCell[c=4]{c} OMP-CUDA  \\
+    \hline
+        GPUs & 1 GPU \& 1 Thread & 2 GPUs \& 2 Threads & 4 GPUs \& 4 Threads & 8 GPUs \& 8 Threads \\
+    \hline
+    \hline
+        & \SetCell[c=4]{c} OMP-CPP + OMP-CUDA  \\
+    \hline
+        Hybrid & {1 CPU \& 4 Threads \\ 1 GPU \& 1 Thread} &
+                 {1 CPU \& 8 Threads \\ 2 GPUs \& 2 Threads} &
+                 {2 CPUs \& 16 Threads \\ 4 GPUs \& 4 Threads} &
+                 {2 CPUs \& 32 Threads \\ 8 GPUs \& 8 Threads} \\
+    \hline
+    \end{tblr}
+\end{table}

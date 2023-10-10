@@ -4,13 +4,69 @@
 % conducted, explain thorougly the scheduler script, gathered data etc.
 \section{Proposed workflow and methodology}
 
-[PLACEHOLDER]
-% Here explain, what should be done in order to conduct measurements and make sure 
-% No one taints them! Enumerate the ideas from the research paper / seminar i.e.
-% Reservartion of node, request and fail of setting the fans to full speed etc.
+In order to obtain the details of how system-level physical measurement
+estimates energy consumption by a component (such as a CPU or a GPU)
+during an application execution, several steps must be taken:
 
-% HERE TALK ABOUT WHICH BENCHMARK ARE BEING RUN AND THE CONFIGS
-% Remind about the chosen benchmarks and configs 
+\begin{enumerate}
+    \item Exclusive reservation of the entire computational node.
+    \item Observation of the disk consumption and network usage before and
+    during tests.
+    \item Monitoring of the CPUs and GPUs utilization before and during tests.
+    \item Running the benchmark kernels on an abstract processor only.
+    Abstract processor comprises of the multicore CPU processor consisting
+    of a certain number of physical cores and DRAM\@.
+    \item Gathering of the power measurements.
+    \item Verification of the accuracy and reliability of the software
+    measurements tools, based on ground truth results.
+\end{enumerate}
+
+One of the notable mentions that could be done in order to reduce the amount
+of uncertain power draw measurements done by the background components is
+setting the fans to full speed. This solution have a potential of reducing
+power draw fluctuations, especially during higher workloads, i\. e\. when
+running benchmarks kernels utilizing maximum amount of GPUs or running Hybrid
+configuration, where power draw of the entire nodes are very high. This could
+not be implemented, however, as the administrator of the department's servers
+stated, that interference in servers fans could be crucial for the nodes
+stability.
+
+\textbf{For Intel RAPL / NVIDIA Management Library:}
+\begin{enumerate}
+    \item Obtain base power of idle CPUs / GPUs.
+    \item Obtain execution time of benchmark application.
+    \item Obtain total energy consumption of the CPUs / GPUs during tests.
+    \item Calculate dynamic energy consumption by subtracting base energy from
+    total energy used during run.
+\end{enumerate}
+
+\textbf{For Yokotool:}
+\begin{enumerate}
+    \item Obtain base power of idle CPUs.
+    \item Obtain execution time of benchmark application.
+    \item Obtain total energy consumption of the CPUs during tests.
+    \item Calculate dynamic energy consumption by subtracting base power from
+    total energy used during run
+\end{enumerate}
+
+\newpage
+
+In addition to the main experiments workflow, another methodology must be
+adapted $-$ the data collection methodology. In order for the results to be
+properly comparable, several point have to be met:
+\begin{enumerate}
+    \item Tests environment must be identical in every case, to eliminate
+    discrepancy of the results.
+    \item The results of the power draw reading must be properly compared for
+    the device only measurements (Intel RAPL / NVML) and the measurements of
+    the entire node (Yokotool).
+    \item Experiments should be conducted on different nodes that utilizes
+    different hardware, in order to state repeatability of tests. [TO BE REDACTED]
+    \item Experiments should be conducted, using different benchmark kernels
+    or application, to remove the possibility of bias of the results, due to
+    poor diversification of test cases. [TO BE REDACTED]
+    \item Test runs must be repeated many times.
+\end{enumerate}
 
 \section{Working environment $-$ servers details}
 
@@ -29,7 +85,7 @@ provides path to save measurements
 4. Function that cleans-up every process after tests
 
 
-\subsection{Main automation function \- scheduler()}
+\subsection{Main automation function $-$ scheduler()}
 
 % NOTE TO SELF: Make sure this chart belongs to this section
 
@@ -40,23 +96,23 @@ provides path to save measurements
 \end{figure}
 
 
-\subsection{Threads pinning and kernels execution \- cpu\_benchmark()}
+\subsection{Threads pinning and kernels execution $-$ cpu\_benchmark()}
 
 \begin{figure}[hbtp]
     \centering
     \includegraphics{processes_flowchart.jpeg}
-    \caption{Processes Flowchart}~\label{fig:processes_flowchart.jpeg}
+    \caption{Processes Flowchart}~\label{fig:processes_flowchart}
 \end{figure}
 
 % ===================
 
-\subsection{GPUs and threads management \- gpu\_benchmark()}
+\subsection{GPUs and threads management $-$ gpu\_benchmark\@()}
 
-\subsection{Measurements with Yokotool software \- yoko()}
+\subsection{Measurements with Yokotool software $-$ yoko\@()}
 
-\subsection{Measurements with Linux Perf software \- perf()}
+\subsection{Measurements with Linux Perf software $-$ perf\@()}
 
-\subsection{Measurements with NVML handling function \- nvml()}
+\subsection{Measurements with NVML handling function $-$ nvml\@()}
 
 \subsection{Cleanup of measurements daemons}
 
