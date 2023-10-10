@@ -83,48 +83,98 @@ excessively long execution time.
 \section{Preliminary tests}
 
 The goal of the set of preliminary tests is to choose three, best suitable
-benchmarks from each implementation. 
+benchmarks from each implementation, based on the metrics stated earlier.
+
+\begin{itemize}
+    \item Implementation: \textbf{OMP-CPP}
+    \begin{itemize}
+        \item Benchmarks available: IS, FT, EP, CG, MG, LU, SP \& BT
+        \item Class sizes to choose from: B, C \& D
+        \item 24 different combinations of benchmarks and class sizes in total
+        \item All tests were run on 2 CPUs and 40 logical processors in parallel
+    \end{itemize}
+    \item Implementation: \textbf{OMP-CUDA}
+    \begin{itemize}
+        \item Benchmarks available: IS, FT, EP, CG, MG, LU, SP \& BT
+        \item Class sizes to choose from: C, D \& E
+        \item 24 different combinations of benchmarks and class sizes in total
+        \item All tests were run on a single GPU with the same grid sizes each time
+    \end{itemize}
+    \item Implementation: \textbf{MPI-Fortran}
+    \begin{itemize}
+        \item Benchmarks available: IS, FT, EP, CG, MG \& LU
+        \item Class sizes to choose from: B, C \& D
+        \item 18 different combinations of benchmarks and class sizes in total
+        \item All tests were run on 2 CPUs and 32 logical processors in parallel
+    \end{itemize}
+    \item Implementation: \textbf{Horovod-Python}
+    \begin{itemize}
+        \item Benchmark available: XCeption
+        \item Number of training epochs: 1, 3 \& 5
+        \item 3 different combinations of model training parameters to choose from
+        \item All tests were run in configurations with 1, 2 \& 4 GPUs, to
+        check training behavior
+    \end{itemize}
+\end{itemize}
+
+Every configuration stated above has been conducted 3 times in order to obtain
+an average results, which are presented in the tables below.
 
 \newpage
 
 \input{tables/04_exec_times_of_OMP-CPP_kernels.tex}
 
+According to tests, three CPUs benchmarks has been chosen as the most suitable for
+the main experiments on \emph{sanna.kask} later. Those benchmarks are:
+
+\begin{itemize}
+    \item \textbf{bt.C} $-$ Block Tri-diagonal solver, class size `C'
+    \item \textbf{is.D} $-$ Integer Sort, class size `D'
+    \item \textbf{lu.C} $-$ Lower-Upper Gauss-Seidel solver, class size `C'
+\end{itemize}
+
 \input{tables/04_exec_times_of_OMP-CUDA_kernels.tex}
 
+According to tests, three GPUs benchmarks has been chosen as the most suitable for
+the main experiments on \emph{sanna.kask} later. Those benchmarks are:
+
+\begin{itemize}
+    \item \textbf{lu.D} $-$ Lower-Upper Gauss-Seidel solver, class size `D'
+    \item \textbf{sp.D} $-$ Scalar Penta-diagonal solver, class size `D'
+    \item \textbf{ep.D} $-$ Embarassingly Parallel, class size `D'
+\end{itemize}
 \newpage
 
 \input{tables/04_exec_times_of_MPI-Fortran_kernels.tex}
 
+According to tests, three CPUs benchmarks has been chosen as the most suitable for
+the main experiments on \emph{vinnana.kask} later. Those benchmarks are:
+
+\begin{itemize}
+    \item \textbf{ep.D.x} $-$ Embarassingly Parallel, class size `D'
+    \item \textbf{lu.C.x} $-$ Lower-Upper Gauss-Seidel solver, class size `C'
+    \item \textbf{is.D.x} $-$ Integer Sort, class size `D'
+\end{itemize}
+
 \input{tables/04_exet_times_of_Horovod_Python_kernels.tex}
 
+According to tests, the best number of epochs for the training of `XCeption'
+model is 1. Test accuracy of model is high and the execution time is
+satisfactory.
 
+What is worth noting in terms of GPUs benchmarks is the fact, that while
+utilizing between 90$\sim$100\% fo the GPUs resources, various kernels results in
+different power draw values. The averages of those values are listed below and
+may provide an additional insight on the future experiments:
 
-ep.D = 27.16 s          avg 155~160 [W]
-sp.D = 220.86 s         avg 200~210 [W]
-lu.D = 300.74 s         fluctuates between 200~230 [W]
-
-
-check the avg power draws of horovod-python benchmark
-
-OMP-CPP was run on 40 Threads
-MPI-Fortran was run on 32 Threads, due to code structure
-
-verfiy if cpp, cuda, F exec times has been correctly ported
-
-
-1 GPU, 1 iteration - 124.2s acc: 88.99\%, gpu: util 90\% avg pwr draw: ~ 185 W
-1 GPU, 3 iteration - 326.7s acc: 91.30\%
-1 GPU, 5 iteration - 528.6s acc: 91.59\%
-
-2 GPU, 1 iteration - 72.2s, acc: 82.9\%
-2 GPU, 3 iteration - 176.2s, acc: 90.72\%
-2 GPU, 5 iteration - 280.9s, 92.46\%     180 W
-
-4 GPU, 1 iteration - 48.5s, acc: 76.81\%
-4 GPU, 3 iteration - 101.1s, acc: 91.59\%
-4 GPU, 5 iteration - 155.3s, acc: 93.91\% 180 W
-
+\begin{itemize}
+    \item \textbf{lu.D} $-$ Power draw fluctuates between 200$\sim$230 [W]
+    \item \textbf{sp.D} $-$ Average power draw of 200$\sim$210 [W]
+    \item \textbf{ep.D} $-$ Average power draw of 155$\sim$160 [W]
+    \item \textbf{XCeption} $-$ Average power draw of 180$\sim$185 [W]
+\end{itemize}
 \newpage
+
 \section{Overview on all final configurations}
 
 The measurements will be conducted on many different setups, therefore it is
@@ -141,7 +191,6 @@ are suitable choices in terms of choosing the testbed machines.
     \centering
     \captionsetup{width=.33\linewidth}
     \begin{minipage}[t]{0.33\textwidth}
-    % \begin{minipage}[t]{\dimexpr.3\textwidth-1em}
         \includegraphics[width=\textwidth]{figures/servers/sanna.kask.png}
         \caption{sanna.kask}\label{fig:sanna.kask}
     \end{minipage}
@@ -149,7 +198,6 @@ are suitable choices in terms of choosing the testbed machines.
     \centering
     \captionsetup{width=.21\linewidth}
     \begin{minipage}[t]{0.21\textwidth}
-    % \begin{minipage}[t]{\dimexpr.2\textwidth-1em}
         \includegraphics[width=\textwidth]{figures/servers/vinnana.kask.png}
         \caption{vinnana.kask}\label{fig:vinnana.kask}
     \end{minipage}
@@ -235,141 +283,142 @@ we have \emph{MPI-Fortran} for CPUs, \emph{Horovod-Python} for GPUs and
 
 % Benchmarks:
 \subsection{Benchmarks}
-Benchmarks $-$ x
+Benchmarks $-$ [PLACEHOLDER: HERE RESUME THE WORK]
 
 \input{tables/04_benchmarks_sanna.tex}
 \input{tables/04_benchmarks_vinnana.tex}
 
-% % Configurations
-% Configurations $-$ x
+% Configurations
+\subsection{Configurations}
+Configurations $-$ [PLACEHOLDER: HERE RESUME THE WORK]
 
-% % 1 CPU: 1 & 5 Threads
-% \begin{figure*}[!h]
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_1Thread.png}
-%         \caption{1 CPU, 1 Thread}\label{fig:1CPU_1Thread}
-%     \end{minipage}
-%     \hspace{0.4cm}
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_5Threads.png}
-%         \caption{1 CPU, 5 Threads}\label{fig:1CPU_5Threads}
-%     \end{minipage}
+% 1 CPU: 1 & 5 Threads
+\begin{figure*}[!h]
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_1Thread.png}
+        \caption{1 CPU, 1 Thread}\label{fig:1CPU_1Thread}
+    \end{minipage}
+    \hspace{0.4cm}
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_5Threads.png}
+        \caption{1 CPU, 5 Threads}\label{fig:1CPU_5Threads}
+    \end{minipage}
 
-% % 1 CPU: 10 & 20 Threads
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_10Threads.png}
-%         \caption{1 CPU, 10 Threads}\label{fig:1CPU_10Threads}
-%     \end{minipage}
-%     \hspace{0.4cm}
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_20Threads.png}
-%         \caption{1 CPU, 20 Threads}\label{fig:1CPU_20Threads}
-%     \end{minipage}
+% 1 CPU: 10 & 20 Threads
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_10Threads.png}
+        \caption{1 CPU, 10 Threads}\label{fig:1CPU_10Threads}
+    \end{minipage}
+    \hspace{0.4cm}
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_cpus/1CPU_20Threads.png}
+        \caption{1 CPU, 20 Threads}\label{fig:1CPU_20Threads}
+    \end{minipage}
 
-% % 2 CPUs: 2 & 10 Threads
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_2Threads.png}
-%         \caption{2 CPUs, 2 Threads}\label{fig:2CPUs_2Threads}
-%     \end{minipage}
-%     \hspace{0.4cm}
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_10Threads.png}
-%         \caption{2 CPUs, 10 Threads}\label{fig:2CPUs_10Threads}
-%     \end{minipage}
+% 2 CPUs: 2 & 10 Threads
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_2Threads.png}
+        \caption{2 CPUs, 2 Threads}\label{fig:2CPUs_2Threads}
+    \end{minipage}
+    \hspace{0.4cm}
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_10Threads.png}
+        \caption{2 CPUs, 10 Threads}\label{fig:2CPUs_10Threads}
+    \end{minipage}
 
-% % 2 CPUs: 20 & 40 Threads
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_20Threads.png}
-%         \caption{2 CPUs, 20 Threads}\label{fig:2CPUs_20Threads}
-%     \end{minipage}
-%     \hspace{0.4cm}
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_40Threads.png}
-%         \caption{2 CPUs, 40 Threads}\label{fig:2CPUs_40Threads}
-%     \end{minipage}
-% \end{figure*}
+% 2 CPUs: 20 & 40 Threads
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_20Threads.png}
+        \caption{2 CPUs, 20 Threads}\label{fig:2CPUs_20Threads}
+    \end{minipage}
+    \hspace{0.4cm}
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_cpus/2CPUs_40Threads.png}
+        \caption{2 CPUs, 40 Threads}\label{fig:2CPUs_40Threads}
+    \end{minipage}
+\end{figure*}
 
-% % 1 & 2 GPUs
-% \begin{figure*}[!h]
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_gpus/1GPU_1Thread.png}
-%         \caption{1 GPU, 1 Thread}\label{fig:1GPU_1Thread}
-%     \end{minipage}
-%     \hspace{0.4cm}
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_gpus/2GPUs_2Threads.png}
-%         \caption{2 GPUs, 2 Threads}\label{fig:2GPUs_2Threads}
-%     \end{minipage}
+% 1 & 2 GPUs
+\begin{figure*}[!h]
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_gpus/1GPU_1Thread.png}
+        \caption{1 GPU, 1 Thread}\label{fig:1GPU_1Thread}
+    \end{minipage}
+    \hspace{0.4cm}
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_gpus/2GPUs_2Threads.png}
+        \caption{2 GPUs, 2 Threads}\label{fig:2GPUs_2Threads}
+    \end{minipage}
 
-% % 4 & 8 GPUs
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_gpus/4GPUs_4Threads.png}
-%         \caption{4 GPUs, 4 Threads}\label{fig:4GPUs_4Threads}
-%     \end{minipage}
-%     \hspace{0.4cm}
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_gpus/8GPUs_8Threads.png}
-%         \caption{8 GPUs, 8 Threads}\label{fig:8GPUs_8Threads}
-%     \end{minipage}
+% 4 & 8 GPUs
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_gpus/4GPUs_4Threads.png}
+        \caption{4 GPUs, 4 Threads}\label{fig:4GPUs_4Threads}
+    \end{minipage}
+    \hspace{0.4cm}
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_gpus/8GPUs_8Threads.png}
+        \caption{8 GPUs, 8 Threads}\label{fig:8GPUs_8Threads}
+    \end{minipage}
 
-% % 1 CPU, 4 Threads + 1 GPU, 1 Thread
-% % 1 CPU, 8 Threads + 2 GPUs, 2 Threads
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_hybrid/1CPU_4Threads___1GPU_1Thread.png}
-%         \caption{1 CPU, 4 Threads + 1 GPU, 1 Thread}\label{fig:1CPU_4Threads___1GPU_1Thread}
-%     \end{minipage}
-%     \hspace{0.4cm}
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_hybrid/1CPU_8Threads___2GPUs_2Threads.png}
-%         \caption{1 CPU, 8 Threads + 2 GPUs, 2 Threads}\label{fig:1CPU_8Threads___2GPUs_2Threads}
-%     \end{minipage}
+% 1 CPU, 4 Threads + 1 GPU, 1 Thread
+% 1 CPU, 8 Threads + 2 GPUs, 2 Threads
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_hybrid/1CPU_4Threads___1GPU_1Thread.png}
+        \caption{1 CPU, 4 Threads + 1 GPU, 1 Thread}\label{fig:1CPU_4Threads___1GPU_1Thread}
+    \end{minipage}
+    \hspace{0.4cm}
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_hybrid/1CPU_8Threads___2GPUs_2Threads.png}
+        \caption{1 CPU, 8 Threads + 2 GPUs, 2 Threads}\label{fig:1CPU_8Threads___2GPUs_2Threads}
+    \end{minipage}
 
-% % 2 CPUs, 16 Threads + 4 GPU, 4 Threads
-% % 2 CPUs, 32 Threads + 8 GPUs, 8 Threads
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_hybrid/2CPUs_16Threads___4GPUs_4Threads.png}
-%         \caption{2 CPUs, 16 Threads + 4 GPU, 4 Threads}\label{fig:2CPUs_16Threads___4GPUs_4Threads}
-%     \end{minipage}
-%     \hspace{0.4cm}
-%     \centering
-%     \captionsetup{width=.48\linewidth}
-%     \begin{minipage}[t]{0.48\textwidth}
-%         \includegraphics[width=\textwidth]{figures/htop_hybrid/2CPU_32Threads___8GPUs_8Threads.png}
-%         \caption{2 CPUs, 32 Threads + 8 GPUs, 8 Threads}\label{fig:2CPU_32Threads___8GPUs_8Threads}
-%     \end{minipage}
-% \end{figure*}
+% 2 CPUs, 16 Threads + 4 GPU, 4 Threads
+% 2 CPUs, 32 Threads + 8 GPUs, 8 Threads
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_hybrid/2CPUs_16Threads___4GPUs_4Threads.png}
+        \caption{2 CPUs, 16 Threads + 4 GPU, 4 Threads}\label{fig:2CPUs_16Threads___4GPUs_4Threads}
+    \end{minipage}
+    \hspace{0.4cm}
+    \centering
+    \captionsetup{width=.48\linewidth}
+    \begin{minipage}[t]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/htop_hybrid/2CPU_32Threads___8GPUs_8Threads.png}
+        \caption{2 CPUs, 32 Threads + 8 GPUs, 8 Threads}\label{fig:2CPU_32Threads___8GPUs_8Threads}
+    \end{minipage}
+\end{figure*}
 
-% % =================================================================================================
+% =================================================================================================
 
 % [IMPORTANT! ADD ONE BIG TREE, GIVING THE OVERVIEW ON ALL THE CONFIGS RELATIONS!]
 
@@ -407,7 +456,7 @@ Benchmarks $-$ x
 %             \begin{itemize}
 %                 \item bt.C
 %                 \item is.D
-%                 \item lu.D
+%                 \item lu.C
 %             \end{itemize}
 %         \end{itemize}
 %         \begin{itemize}
@@ -462,7 +511,6 @@ Benchmarks $-$ x
 %             \item 2 CPUs 20 Threads
 %             \item 2 CPUs 40 Threads
 %         \end{itemize}
-%         % Maybe put here the figures of htop?
 %         \begin{itemize}
 %             \item for OMP-CUDA implementation:
 %             \item 1 GPU 1 Thread
