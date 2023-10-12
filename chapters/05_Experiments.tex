@@ -77,36 +77,145 @@ properly comparable, several point have to be met:
 
 \subsection{Overview on the scheduler script}
 
-Things to explain:
-1. Dictionaries with configs, that work for both choosing the right config and
-provides path to save measurements
+In order to automate the experiments, an entire scheduler script had to be
+created. Its has two main tasks: first is to store the information about the
+configurations and run the benchmarks according to the presets. The second
+is to run the measurements softwares and save all the results in the ordered
+manner.
+
+Both of these goals are reached by using dictionaries with key-value pairs.
+That created a~tree-like dependencies between the corresponding layers of
+configurations. Finally, that solution works for both choosing the right
+config and providing the path to save measurements.
+
+
 2. Section that run CPUs benchmarks, GPUs benchmarks, perf, nvml, yoko
 3. Functions that check if the benchmarks are still running
 4. Function that cleans-up every process after tests
 
+\newpage
 
 \subsection{Main automation function $-$ scheduler()}
 
 % NOTE TO SELF: Make sure this chart belongs to this section
 
-\begin{figure}[hbtp]
+The entire scheduler script consists of classes and functions that are
+explicitly designated for their purposes in the code. Overview of them is
+as follows:
+
+\begin{itemize}
+    \item \textbf{class `Config'} $-$ Contains all the informations about the servers,
+    devices, implementations, benchmarks and configurations, handles the
+    relations between them and provides correct pathes to the corresponding
+    measurements directories.
+    \item \textbf{class `Benchmark'} $-$ Defines functions responsible for
+    executing CPUs and GPUs benchmarks, as well as the measurements
+    softwares: Linux Perf, NVIDIA Management Library and Yokotool
+    \item \textbf{class `Execution'} $-$ This class contains functions tasked with
+    calling the benchmark kernels and checking their status, if they are still
+    running, for the purpose of ending the measurements. Since the
+    measurements softwares are highly dependent on benchmarks being run, they
+    are executed directly from the \emph{main\@()} function and
+    the \emph{Execution} class only has the functions tasked with the proper
+    termination of them.
+    \item \textbf{function `scheduler\@()'} $-$ This major function triggers
+    secondary functions from \emph{Execution} class and watched their status.
+    \item \textbf{function `main\@()'} $-$ Runs every configuration
+    sequentially, based on the lists of presets. Additionally, repeats every
+    ten times in order to achieve repeatability of the experiments.
+\end{itemize}
+
+In order to visualize the entire workflow of the scheduler, as well as the 
+workings of the individual processes, two charts has been created:
+\begin{itemize}
+    \item \textbf{General Flowchart} $-$ This chart
+    (\textbf{Fig. \ref{fig:general_flowchart}}) describes the relations
+    between the currently used configurations and the instructions executed
+    based on those conditions.
+    \item \textbf{Processes Flowchart} $-$ This chart
+    (\textbf{Fig. \ref{fig:processes_flowchart}}) shows the working priciples of the
+    \emph{runner\@()} subfunction, which shows the benchmarks and measurements
+    softwares are started on a~high level of abstraction.
+\end{itemize}
+
+\newpage
+
+\begin{figure}[hbtp!]
     \centering
     \includegraphics{general_flowchart}
     \caption{General Flowchart}~\label{fig:general_flowchart}
 \end{figure}
 
-
-\subsection{Threads pinning and kernels execution $-$ cpu\_benchmark()}
-
-\begin{figure}[hbtp]
+\begin{figure}[hbtp!]
     \centering
     \includegraphics{processes_flowchart.jpeg}
     \caption{Processes Flowchart}~\label{fig:processes_flowchart}
 \end{figure}
 
-% ===================
+\newpage
+
+\subsection{Threads pinning and kernels execution $-$ cpu\_benchmark()}
+
+This function is responsible of executing CPUs benchmarks, based on the
+given configuration. It creates a separate processes by utilizing the
+Python \emph{subprocess} module. 
+
+\begin{lstlisting}[language=Python]
+    cpu_benchmark = subprocess.Popen(
+        [
+            "taskset --cpu-list <T> <P> <B> > /dev/null 2>&1"
+        ],
+        shell=True,
+    )
+\end{lstlisting}
+
+Here is an explanation of every part of the command:
+
+\begin{itemize}
+    \item \textbf{cpu\_benchmark} $-$ text
+    \item \textbf{subprocess.Popen} $-$ text
+    \item \textbf{taskset} $-$ This command is used to set or retrieve the
+    CPU affinity of a running process given its pid, or to launch a new
+    command with a given CPU affinity.
+    \item \textbf{--cpu-list} $-$ This option interprets mask as numerical
+    list of processors instead of a bitmask. Numbers are separated by
+    commas and may include ranges. For example: 0,5,8-11.
+    \item Variables that dynamically changes based on the configurations:
+    \begin{conditions}
+        \textbf{T} & Logical processors indexes \\
+        \textbf{P} & Specified absolute path to the correct measurements folder \\
+        \textbf{B} & Currently used benchmark kernel \\
+    \end{conditions}
+    \item \textbf{\textgreater~/dev/null 2\textgreater\&1} $-$
+    Redirecting \emph{stderr} containing error messages from the
+    executed command or script to \emph{stdout} to the output of the
+    command. Both are, in fact, redirected then to the so-called
+    \emph{null device}. The result of that action is suppression of all
+    messages printed by the benchmark kernels. It is useful when
+    collecting logs from the terminal, that is running the entire
+    scheduler script, without unnecessary messages.
+    \item \textbf{shell=True} $-$ text
+\end{itemize}
+
+Finally, the function returns the PID of newly created process
+as an integer value. It is done for the purpose of terminating the
+benchmark in a Hybrid configuration.
 
 \subsection{GPUs and threads management $-$ gpu\_benchmark\@()}
+
+This function consists of two parts: first part is responsible for executing
+the Horovod-Python benchmark and the second part is responsible for running
+the OMP-CUDA benchmark.
+
+\begin{lstlisting}[language=Python]
+    gpu_benchmark = subprocess.Popen(
+        [
+            "mpirun -np <N> --map-by socket -x NCCL_DEBUG=INFO \
+            python3 <P>+"Xception.py"
+        ],
+        shell=True
+    )
+\end{lstlisting}
 
 \subsection{Measurements with Yokotool software $-$ yoko\@()}
 
