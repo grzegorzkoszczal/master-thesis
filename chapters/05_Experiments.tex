@@ -70,7 +70,8 @@ properly comparable, several point have to be met:
 
 \section{Working environment $-$ servers details}
 
-[PLACEHOLDER]
+[PLACEHOLDER] NOTE: Probably this section will be cut, because it has been
+covered in previous chapter
 % Describe more thoroughly the nodes: CPUs, GPUs, RAM, PSUs, PM connection etc
 
 \section{Main tests}
@@ -165,15 +166,20 @@ Python \emph{subprocess} module.
         [
             "taskset --cpu-list <T> <P> <B> > /dev/null 2>&1"
         ],
-        shell=True,
+        shell=True
     )
+    return cpu_benchmark.pid
 \end{lstlisting}
 
 Here is an explanation of every part of the command:
 
 \begin{itemize}
-    \item \textbf{cpu\_benchmark} $-$ text
-    \item \textbf{subprocess.Popen} $-$ text
+    \item \textbf{cpu\_benchmark} $-$ A variable of type
+    \emph{<class `subprocess.Popen'>} is created mainly in order to
+    retrieve PID later on.
+    \item \textbf{subprocess.Popen} $-$ The underlying process creation and
+    management is handled by the Popen class. Its function is to execute
+    a child program in a new process.
     \item \textbf{taskset} $-$ This command is used to set or retrieve the
     CPU affinity of a running process given its pid, or to launch a new
     command with a given CPU affinity.
@@ -194,12 +200,14 @@ Here is an explanation of every part of the command:
     messages printed by the benchmark kernels. It is useful when
     collecting logs from the terminal, that is running the entire
     scheduler script, without unnecessary messages.
-    \item \textbf{shell=True} $-$ text
+    \item \textbf{shell=True} $-$ Invokes the program as `shell'
 \end{itemize}
 
 Finally, the function returns the PID of newly created process
 as an integer value. It is done for the purpose of terminating the
 benchmark in a Hybrid configuration.
+
+\newpage
 
 \subsection{GPUs and threads management $-$ gpu\_benchmark\@()}
 
@@ -211,25 +219,291 @@ the OMP-CUDA benchmark.
     gpu_benchmark = subprocess.Popen(
         [
             "mpirun -np <N> --map-by socket -x NCCL_DEBUG=INFO \
-            python3 <P>+"Xception.py"
+            python3 <P>+"Xception.py > /dev/null 2>&1"
         ],
         shell=True
     )
+    return gpu_benchmark.pid
 \end{lstlisting}
+
+Here is an explanation of every part of the command:
+
+\begin{itemize}
+    \item \textbf{gpu\_benchmark} $-$ A variable of type
+    \emph{<class `subprocess.Popen'>} is created mainly in order to
+    retrieve PID later on.
+    \item \textbf{subprocess.Popen} $-$ The underlying process creation and
+    management is handled by the Popen class. Its function is to execute
+    a child program in a new process.
+    \item \textbf{mpirun} $-$ This command is used to execute serial and
+    parallel jobs. It will run X copies of specified program in the current
+    run-time environment and scheduling (by default) in a~round-robin fashion
+    by CPU slot.
+    \item \textbf{-np} $-$ This option specifies, how many processes will be
+    started.
+    \item Variables that dynamically changes based on the configurations:
+    \begin{conditions}
+        \textbf{N} & Number of GPUs used in training \\
+        \textbf{P} & Specified absolute path to the correct measurements folder \\
+    \end{conditions}
+    \item \textbf{--map-by socket} $-$ Map to the specified object, such as 
+    slot, hwthread, core, socket, numa, board, node and more. In this
+    particular case, benchmark application is mapped by `socket', allowing to
+    utilize multiple GPUs for training in a ditributed manner.
+    \item \textbf{-x} $-$ Export the specified environment variables to the
+    remote nodes before executing the program.
+    \item \textbf{NCCL\_DEBUG=INFO} $-$ This flag is used for debugging. In
+    case of NCCL failure, you can set NCCL\_DEBUG=INFO to print an explicit
+    warning message as well as basic NCCL initialization information.
+    \item \textbf{python3} $-$ Specify the use of Python interpreter when
+    executing the script of deep neural networks model training.
+    \item \textbf{Xception.py} $-$ Name of the script file.
+    \item \textbf{\textgreater~/dev/null 2\textgreater\&1} $-$
+    As mentioned in the previous subsection, this command suppresses the
+    output from the terminal, in order to avoid the unnecessary messages.
+    \item \textbf{shell=True} $-$ Invokes the program as `shell'
+\end{itemize}
+
+Finally, the function returns the PID of newly created process
+as an integer value. It is done for the purpose of terminating the
+benchmark in a Hybrid configuration.
+
+\newpage
+
+The second part of the function that runs the OMP-CUDA benchmarks is as
+follows:
+
+\begin{lstlisting}[language=Python]
+    list_of_gpu_benchmarks = []
+    value = Config.taskset_gpu[configuration_gpu]
+    for i in range(0, len(value), 1):
+        gpu_benchmark = subprocess.Popen(
+            [
+                "taskset --cpu-list <I> <P+I> <B> > /dev/null 2>&1"
+            ],
+            shell=True,
+        )
+        list_of_gpu_benchmarks.append(gpu_benchmark.pid)
+    return list_of_gpu_benchmarks
+\end{lstlisting}
+
+Here is an explanation of every part of the command:
+
+\begin{itemize}
+    \item \textbf{gpu\_benchmark} $-$ A variable of type
+    \emph{<class `subprocess.Popen'>} is created mainly in order to
+    retrieve PID later on.
+    \item \textbf{subprocess.Popen} $-$ The underlying process creation and
+    management is handled by the Popen class. Its function is to execute
+    a child program in a new process.
+    \item \textbf{taskset} $-$ This command is used to set or retrieve the
+    CPU affinity of a running process given its pid, or to launch a new
+    command with a given CPU affinity.
+    \item \textbf{--cpu-list} $-$ This option interprets mask as numerical
+    list of processors instead of a bitmask. Numbers are separated by
+    commas and may include ranges.
+    \item Variables that dynamically changes based on the configurations:
+    \begin{conditions}
+        \textbf{I} & \parbox[t]{12cm}{Allocation of individual logical
+        processors to the GPUs, based on the index number from special
+        dictionary} \\
+        \textbf{P+I} & \parbox[t]{12cm}{Specified absolute path to
+        the correct measurements folder, modified by the number of total GPUs
+        used} \\
+        \textbf{B} & Currently used benchmark kernel \\
+    \end{conditions}
+    \item \textbf{\textgreater~/dev/null 2\textgreater\&1} $-$
+    As mentioned in the previous subsection, this command suppresses the
+    output from the terminal, in order to avoid the unnecessary messages.
+    \item \textbf{shell=True} $-$ Invokes the program as `shell'
+    \item \textbf{list\_of\_gpu\_benchmarks.append\@(gpu\_benchmark.pid)} $-$
+    Filling the list with PIDs of benchmarks for later termination.
+\end{itemize}
+
+Finally, the function returns the PID of newly created process
+as an integer value. In this particular case, if there are more than one GPUs
+used in tests, the PIDs of all spawned processes are parsed as a list to the
+function that is responsible in orderly terminating all the kernels.
+
+\newpage
 
 \subsection{Measurements with Yokotool software $-$ yoko\@()}
 
+This function utilizes the high-level Python wrapper for Yokogawa WT310E Power
+Meter, the \emph{Yokotool}.
+
+Syntax is similar to the previous examples:
+
+\begin{lstlisting}[language=Python]
+    yokotool = subprocess.Popen(
+        [
+            "yokotool read T,P -o <P+N> > /dev/null 2>&1 &"
+        ],
+        shell=True
+    )
+    return yokotool.pid
+\end{lstlisting}
+
+Here is an explanation of every part of the command:
+
+\begin{itemize}
+    \item \textbf{yokotool} $-$ Yokotool's command line interface is based
+    on commands and sub-commands, similar to git and many other tools. This
+    invokes the Yokotool wrapper for use.
+    \item \textbf{read} $-$ Read measurements data.
+    \item \textbf{T,P} $-$ Specifies, what data we want to read. In this
+    particular case it is time \textbf{T} measured from the start of the epoch
+    (on `UNIX time' is starts at 00:00:00 UTC on 1 January 1970) and power
+    \textbf{P}, measured in Watts [W]. Output is separated with comma for
+    easy manipulation of data after tests.
+    \item \textbf{-o} $-$ This flags redirects the output from the
+    measurements to a file for later analysis.
+    \item Variables that dynamically changes based on the configurations:
+    \begin{conditions}
+        \textbf{P+N} & \parbox[t]{12cm}{Specified absolute path to
+        the correct measurements folder, modified by the current number of
+        iterations} \\
+    \end{conditions}
+    \item \textbf{\textgreater~/dev/null 2\textgreater\&1} $-$
+    As mentioned in the previous subsection, this command suppresses the
+    output from the terminal, in order to avoid the unnecessary messages.
+    In this case, and additional \& is placed at the end, which means that
+    the entire command is put as a~background process.
+    \item \textbf{shell=True} $-$ Invokes the program as `shell'
+\end{itemize}
+
+Finally, the function returns the PID of newly created process
+as an integer value. It is done for the purpose of terminating the
+measurements by the designated function.
+
+\newpage
+
 \subsection{Measurements with Linux Perf software $-$ perf\@()}
+
+Linux Perf is a lightweight profiling tool with performance counters.
+It utilizes Intel RAPL for measurements of pre-defined events on CPUs.
+To obtain more informations about what can be measured by Linux Perf,
+one can use \emph{perf list} command in the terminal.
+
+\begin{lstlisting}[language=Python]
+    list_of_perf_pids = []
+    pin_to_cpus = ("0", "10")
+    idx_names = {"0": "0", "10": "1"}
+    for i in pin_to_cpus:
+        perf = subprocess.Popen(
+            [
+                "perf stat --event=power/energy-pkg/ \
+                --cpu=<C> --delay 100 --interval-print 100 \
+                --summary --field-separator , \
+                --output <P+N> > /dev/null 2>&1 &"
+            ],
+            shell = True,
+        )
+        list_of_perf_pids.append(perf.pid)
+    return list_of_perf_pids
+\end{lstlisting}
+
+Here is an explanation of every part of the command:
+
+\begin{itemize}
+    \item \textbf{perf} $-$ Invocation of measurements tool.
+    \item \textbf{stat} $-$ Run a command and gather performance counter
+    statistics.
+    \item \textbf{--event=power/energy-pkg/} $-$ Event selector, in this case,
+    the measured physical quantity is the energy usage of selected CPUs,
+    during the benchmark kernel execution.
+    \item \textbf{--cpu=<C>} $-$ Targeting of a specific CPU\. Correct integer
+    value is based on the output of \emph{lscpu} command and the information
+    about \emph{NUMA node\@(s)}.
+    \item \textbf{--delay 100} $-$ A small delay of 100 [ms] is introduced in
+    order to offset the slight delay of measurements of Yokogawa power meter.
+    This solution has been introduced as a result of an observation during the
+    preliminary tests. 
+    \item \textbf{--interval-print 100} $-$ Measurements are performed with
+    the same time interval of 100 [ms] set as two others measurements methods.
+    \item \textbf{--summary} $-$ At the end of the measurements, an additional
+    information about total energy used during tests, as well as the total
+    measurements time is given. Mainly used during preliminary tests as an
+    additional insight on gathered results.
+    \item \textbf{--field-separator \,} $-$ Sets the output delimiter for
+    easier access in softwares like LibreOffice $-$ every printed value is
+    separated by commas `\,'
+    \item \textbf{--output} $-$ Saves measurements to file. In this case,
+    file names matches the consecutive runs.
+    \item Variables that dynamically changes based on the configurations:
+    \begin{conditions}
+        \textbf{P+N} & \parbox[t]{12cm}{Specified absolute path to
+        the correct measurements folder, modified by the current number of
+        iterations} \\
+    \end{conditions}
+    \item \textbf{\textgreater~/dev/null 2\textgreater\&1} $-$
+    Silences the output, redirecting it to null device and puts the process
+    in the background.
+    \item \textbf{shell=True} $-$ Invokes the program as `shell'
+\end{itemize}
+
+Finally, the function returns the PID of newly created process
+as an integer value. It is done for the purpose of terminating the
+measurements by the designated function.
 
 \subsection{Measurements with NVML handling function $-$ nvml\@()}
 
-\subsection{Cleanup of measurements daemons}
+The method of gathering the measurements of power draw of GPUs, using NVIDIA
+Management Library is a little different than in previously shown
+implementations. No new processes are spawned, due to the fact, that the
+measurements are handled by a special function already implemented in the
+scheduler script. This function has two core parts: the first one is
+responsible of precise executing the measurements every 100 [ms] $-$ it works
+as an built-in scheduler, and the second part handled the invocation of
+NVML-specific functions and saving the results to the file.
+
+A short code-snippet below illustrates the practical usage of NVML related
+function
+
+\begin{lstlisting}[language=Python]
+    import py3nvml
+    nvmlInit()
+    handle_Idx0 = nvmlDeviceGetHandleByIndex(0)
+    # based on number of GPUs used, there are more variables of that kind
+    measure_Idx0 = nvmlDeviceGetPowerUsage(handle_Idx0) / 1000.0
+    # rest of code contains the sub-scheduler routine and saving the output
+    to file.
+\end{lstlisting}
+
+\begin{itemize}
+    \item \textbf{import py3nvml} $-$ Import of a module, that function as
+    a high level Python wrapper for NVML\@.
+    \item \textbf{nvmlInit\@()} $-$ NVIDIA Management Library initialization.
+    It is mandatory to run before calling any other methods.
+    \item \textbf{handle\_Idx0 = nvmlDeviceGetHandleByIndex\@(0)} $-$ create
+    variable \emph{handle\_Idx0} and assign the return value of data type
+    \emph{<class `py3nvml.py3nvml.LP\_struct\_c\_nvmlDevice\_t'>}, which is,
+    in fact, a pointer to a memory register containing data about specific
+    GPU\@.
+    \item \textbf{measure\_Idx0 = nvmlDeviceGetPowerUsage\@(handle\_Idx0) / 1000.0}
+    $-$ This function return a value of power draw of a specified GPU, in
+    Watts [W]. 
+\end{itemize}
+
+In terms of proper ending the measurements process, this task is handled quite
+differently than in previous implementations. The \emph{nvml\@()} function is
+started as a parallel thread, using \emph{multiprocessing.Process\@()} module.
+The thread is then started as a daemon, collecting measurements and saving
+them in the background. After the end of benchmark kernel, the function is
+ended by using innate multiprocessing function $-$ \emph{.terminate\@()}.
+
+\newpage
 
 \subsection{Termination of benchmarks in Hybrid configuration}
 
 % psutil
 
 [PLACEHOLDER]
+
+\subsection{Cleanup of measurements daemons}
+
+[PLACEHOLDER]
+
 % Put the charts and plots of received measurements
 
 \newpage
