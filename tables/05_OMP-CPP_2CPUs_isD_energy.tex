@@ -1,0 +1,66 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{sanna.kask}, device: \textbf{2 CPUs}, implementation: \textbf{OMP-CPP},\\
+    benchmark: \textbf{is.D}, data displayed: \textbf{energy used}}\label{tbl:OMP-CPP_2CPUs_isD_energy}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10,13-14,17-18,21-22,25-26} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=4]{c} 2 CPUs  \\
+    \hline
+        Results from 10 runs                                        & 2 Threads & 10 Threads    & 20 Threads    & 40 Threads \\
+        \hline
+        {Avg. Exec\@. time [s]}                                     & 398.075   & 86.848        & 47.879        & 38.223 \\
+    \hline
+        {Std\@. dev\@. of time [-]}                                 & 18.477    & 2.783         & 1.263         & 1.377 \\
+    \hline
+        {(Yokogawa) \\ Avg\@. energy used [kJ]}                     & 1526.987  & 358.284       & 212.741       & 177.825 \\
+    \hline
+        {(Yokogawa) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 70.954    & 11.063        & 5.185         & 5.924 \\
+    \hline
+        {(CPU\@: 0) \\ Avg\@. energy used [kJ]}                     & 12.799    & 3.774         & 2.603         & 2.279 \\
+    \hline
+        {(CPU\@: 0) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 0.628     & 0.103         & 0.051         & 0.06 \\
+    \hline
+        {(CPU\@: 1) \\ Avg\@. energy used [kJ]}                     & 12.968    & 3.691         & 2.561         & 2.232 \\
+    \hline
+        {(CPU\@: 1) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 0.605     & 0.102         & 0.058         & 0.06 \\
+    \hline
+        {(GPU\@: 0) \\ Avg\@. energy used [kJ]}                     & 86.305    & 18.678        & 10.271        & 8.178 \\
+    \hline
+        {(GPU\@: 0) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 4.044     & 0.623         & 0.263         & 0.295 \\
+    \hline
+        {(GPU\@: 1) \\ Avg\@. energy used [kJ]}                     & 101.589   & 22.105        & 12.145        & 9.683 \\
+    \hline
+        {(GPU\@: 1) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 4.678     & 0.721         & 0.321         & 0.354 \\
+    \hline
+        {(GPU\@: 2) \\ Avg\@. energy used [kJ]}                     & 54.922    & 11.91         & 6.612         & 5.247 \\
+    \hline
+        {(GPU\@: 2) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 3.041     & 0.371         & 0.175         & 0.188 \\
+    \hline
+        {(GPU\@: 3) \\ Avg\@. energy used [kJ]}                     & 68.538    & 14.918        & 8.2           & 6.535 \\
+    \hline
+        {(GPU\@: 3) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 3.182     & 0.489         & 0.214         & 0.235 \\
+    \hline
+        {(GPU\@: 4) \\ Avg\@. energy used [kJ]}                     & 16.342    & 3.529         & 1.952         & 1.553 \\
+    \hline
+        {(GPU\@: 4) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 0.747     & 0.122         & 0.054         & 0.058 \\
+    \hline
+        {(GPU\@: 5) \\ Avg\@. energy used [kJ]}                     & 72.849    & 15.934        & 8.751         & 7.015 \\
+    \hline
+        {(GPU\@: 5) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 3.79      & 0.526         & 0.22          & 0.26 \\
+    \hline
+        {(GPU\@: 6) \\ Avg\@. energy used [kJ]}                     & 24.659    & 5.503         & 3.051         & 2.383 \\
+    \hline
+        {(GPU\@: 6) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 1.113     & 0.173         & 0.087         & 0.09 \\
+    \hline
+        {(GPU\@: 7) \\ Avg\@. energy used [kJ]}                     & 49.235    & 10.845        & 5.872         & 4.714 \\
+    \hline
+        {(GPU\@: 7) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 2.37      & 0.427         & 0.208         & 0.178 \\
+    \hline
+    \end{tblr}
+\end{table}

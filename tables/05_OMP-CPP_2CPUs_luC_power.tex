@@ -1,0 +1,66 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{sanna.kask}, device: \textbf{2 CPUs}, implementation: \textbf{OMP-CPP},\\
+    benchmark: \textbf{lu.C}, data displayed: \textbf{power draw}}\label{tbl:OMP-CPP_2CPUs_luC_power}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10,13-14,17-18,21-22,25-26} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=4]{c} 2 CPUs  \\
+    \hline
+        Results from 10 runs                                    & 2 Threads & 10 Threads    & 20 Threads    & 40 Threads \\
+    \hline
+        {Avg. Exec\@. time [s]}                                 & 598.76    & 75.879        & 46.189        & 43.611 \\
+    \hline
+        {Std\@. dev\@. of time [-]}                             & 90.086    & 0.893         & 0.889         & 0.981 \\
+    \hline
+        {(Yokogawa) \\ Avg\@. power draw [W]}                   & 385.213   & 437.88        & 484.794       & 502.661 \\
+    \hline
+        {(Yokogawa) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 1.288     & 0.628         & 2.355         & 2.661 \\
+    \hline
+        {(CPU\@: 0) \\ Avg\@. power draw [W]}                   & 32.9      & 52.479        & 67.311        & 71.26 \\
+    \hline
+        {(CPU\@: 0) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.397     & 0.208         & 0.387         & 0.434 \\
+    \hline
+        {(CPU\@: 1) \\ Avg\@. power draw [W]}                   & 33.085    & 51.276        & 67.364        & 71.366 \\
+    \hline
+        {(CPU\@: 1) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.657     & 0.266         & 0.473         & 0.458 \\
+    \hline
+        {(GPU\@: 0) \\ Avg\@. power draw [W]}                   & 21.581    & 21.577        & 21.593        & 21.517 \\
+    \hline
+        {(GPU\@: 0) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.156     & 0.065         & 0.09          & 0.08 \\
+    \hline
+        {(GPU\@: 1) \\ Avg\@. power draw [W]}                   & 25.514    & 25.488        & 25.473        & 25.461 \\
+    \hline
+        {(GPU\@: 1) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.028     & 0.022         & 0.035         & 0.025 \\
+    \hline
+        {(GPU\@: 2) \\ Avg\@. power draw [W]}                   & 13.522    & 13.952        & 13.853        & 14.04 \\
+    \hline
+        {(GPU\@: 2) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.171     & 0.184         & 0.116         & 0.193 \\
+    \hline
+        {(GPU\@: 3) \\ Avg\@. power draw [W]}                   & 17.235    & 17.224        & 17.25         & 17.225 \\
+    \hline
+        {(GPU\@: 3) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.037     & 0.014         & 0.022         & 0.015 \\
+    \hline
+        {(GPU\@: 4) \\ Avg\@. power draw [W]}                   & 4.095     & 4.085         & 4.09          & 4.083 \\
+    \hline
+        {(GPU\@: 4) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.046     & 0.011         & 0.017         & 0.013 \\
+    \hline
+        {(GPU\@: 5) \\ Avg\@. power draw [W]}                   & 18.365    & 18.626        & 18.685        & 18.529 \\
+    \hline
+        {(GPU\@: 5) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.12      & 0.17          & 0.116         & 0.09 \\
+    \hline
+        {(GPU\@: 6) \\ Avg\@. power draw [W]}                   & 6.19      & 6.092         & 6.173         & 6.306 \\
+    \hline
+        {(GPU\@: 6) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.174     & 0.12          & 0.094         & 0.128 \\
+    \hline
+        {(GPU\@: 7) \\ Avg\@. power draw [W]}                   & 12.276    & 12.53         & 12.253        & 12.635 \\
+    \hline
+        {(GPU\@: 7) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.227     & 0.148         & 0.308         & 0.149 \\
+    \hline
+    \end{tblr}
+\end{table}

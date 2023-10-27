@@ -4,6 +4,19 @@
 % For custom sorting, use `key` parameter. By default, positions are
 % sorted according to the `author` field.
 
+@misc{book:latex,
+  title    = {LaTeX},
+  subtitle = {Guide to the LaTeX typesetting system},
+  keywords = {Useful_Link}
+}
+    % {} are used in 'author' field to disable printing the author 'Joe
+    % Doe' name, as 'J. Doe'. Overall, you can use them to enforce
+    % verbatim representation.
+    author       = "{Wikibooks community}",
+    publisher    = "Wikibooks",
+    howpublished = "\url{https://en.wikibooks.org/wiki/LaTeX}",
+
+
 # ===== RESEARCH PAPERS =====
 
 # One of the major articles this Master Thesis is based on
@@ -21,34 +34,7 @@
   article-number = {2204},
   url            = {https://www.mdpi.com/1996-1073/12/11/2204},
   issn           = {1996-1073},
-  abstract       = {Energy of computing is a serious environmental concern and
-  mitigating it is an important technological challenge. Accurate measurement
-  of energy consumption during an application execution is key to
-  application-level energy minimization techniques. There are three popular
-  approaches to providing it: (a) System-level physical measurements using
-  external power meters; (b) Measurements using on-chip power sensors and (c)
-  Energy predictive models. In this work, we present a comprehensive study
-  comparing the accuracy of state-of-the-art on-chip power sensors and energy
-  predictive models against system-level physical measurements using external
-  power meters, which we consider to be the ground truth. We show that the
-  average error of the dynamic energy profiles obtained using on-chip power
-  sensors can be as high as 73\% and the maximum reaches 300\% for two
-  scientific applications, matrix-matrix multiplication and 2D fast Fourier
-  transform for a wide range of problem sizes. The applications are executed
-  on three modern Intel multicore CPUs, two Nvidia GPUs and an Intel Xeon Phi
-  accelerator. The average error of the energy predictive models employing
-  performance monitoring counters (PMCs) as predictor variables can be as
-  high as 32\% and the maximum reaches 100\% for a diverse set of seventeen
-  benchmarks executed on two Intel multicore CPUs (one Haswell and the other
-  Skylake). We also demonstrate that using inaccurate energy measurements
-  provided by on-chip sensors for dynamic energy optimization can result in
-  significant energy losses up to 84\%. We show that, owing to the nature of
-  the deviations of the energy measurements provided by on-chip sensors from
-  the ground truth, calibration can not improve the accuracy of the on-chip
-  sensors to an extent that can allow them to be used in optimization of
-  applications for dynamic energy. Finally, we present the lessons learned,
-  our recommendations for the use of on-chip sensors and energy predictive
-  models and future directions.},
+  abstract       = {Energy of computing is a serious environmental concern and mitigating it is an important technological challenge. Accurate measurement of energy consumption during an application execution is key to application-level energy minimization techniques. There are three popular approaches to providing it: (a) System-level physical measurements using external power meters; (b) Measurements using on-chip power sensors and (c) Energy predictive models. In this work, we present a comprehensive study comparing the accuracy of state-of-the-art on-chip power sensors and energy predictive models against system-level physical measurements using external power meters, which we consider to be the ground truth. We show that the average error of the dynamic energy profiles obtained using on-chip power sensors can be as high as 73\% and the maximum reaches 300\% for two scientific applications, matrix-matrix multiplication and 2D fast Fourier transform for a wide range of problem sizes. The applications are executed on three modern Intel multicore CPUs, two Nvidia GPUs and an Intel Xeon Phi accelerator. The average error of the energy predictive models employing performance monitoring counters (PMCs) as predictor variables can be as high as 32\% and the maximum reaches 100\% for a diverse set of seventeen benchmarks executed on two Intel multicore CPUs (one Haswell and the other Skylake). We also demonstrate that using inaccurate energy measurements provided by on-chip sensors for dynamic energy optimization can result in significant energy losses up to 84\%. We show that, owing to the nature of the deviations of the energy measurements provided by on-chip sensors from the ground truth, calibration can not improve the accuracy of the on-chip sensors to an extent that can allow them to be used in optimization of applications for dynamic energy. Finally, we present the lessons learned, our recommendations for the use of on-chip sensors and energy predictive models and future directions.},
   keywords       = {Research_Paper},
   doi            = {10.3390/en12112204}
 }
@@ -56,9 +42,7 @@
 # Second major article, being a backbone of this Master Thesis
 # Used in "state-of-the-art" chapter, as the second article mentioned
 @inproceedings{State_of_the_Art_Article_2,
-  author    = {Arafa, Yehia and ElWazir, Ammar and ElKanishy, Abdelrahman and Aly,
-  Youssef and Elsayed, Ayatelrahman and Badawy, Abdel-Hameed and Chennupati,
-  Gopinath and Eidenbenz, Stephan and Santhi, Nandakishore},
+  author    = {Arafa, Yehia and ElWazir, Ammar and ElKanishy, Abdelrahman and Aly, Youssef and Elsayed, Ayatelrahman and Badawy, Abdel-Hameed and Chennupati, Gopinath and Eidenbenz, Stephan and Santhi, Nandakishore},
   title     = {Verified Instruction-Level Energy Consumption Measurement for NVIDIA GPUs},
   year      = {2020},
   isbn      = {9781450379564},
@@ -66,27 +50,12 @@
   address   = {New York, NY, USA},
   url       = {https://doi.org/10.1145/3387902.3392613},
   doi       = {10.1145/3387902.3392613},
-  abstract  = {GPUs are prevalent in modern computing systems at all scales.
-  They consume a significant fraction of the energy in these systems. However,
-  vendors do not publish the actual cost of the power/energy overhead of their
-  internal microarchitecture. In this paper, we accurately measure the energy
-  consumption of various PTX instructions found in modern NVIDIA GPUs. We
-  provide an exhaustive comparison of more than 40 instructions for four
-  high-end NVIDIA GPUs from four different generations (Maxwell, Pascal, Volta,
-  and Turing). Furthermore, we show the effect of the CUDA compiler
-  optimizations on the energy consumption of each instruction. We use three
-  different software techniques to read the GPU on-chip power sensors, which
-  use NVIDIA's NVML API and provide an in-depth comparison between these
-  techniques. Additionally, we verified the software measurement techniques
-  against a custom-designed hardware power measurement. The results show that
-  Volta GPUs have the best energy efficiency of all the other generations for
-  the different categories of the instructions. This work should aid in
-  understanding NVIDIA GPUs' microarchitecture. It should also make energy
-  measurements of any GPU kernel both efficient and accurate.},
+  abstract  = {GPUs are prevalent in modern computing systems at all scales. They consume a significant fraction of the energy in these systems. However, vendors do not publish the actual cost of the power/energy overhead of their internal microarchitecture. In this paper, we accurately measure the energy consumption of various PTX instructions found in modern NVIDIA GPUs. We provide an exhaustive comparison of more than 40 instructions for four high-end NVIDIA GPUs from four different generations (Maxwell, Pascal, Volta, and Turing). Furthermore, we show the effect of the CUDA compiler optimizations on the energy consumption of each instruction. We use three different software techniques to read the GPU on-chip power sensors, which use NVIDIA's NVML API and provide an in-depth comparison between these techniques. Additionally, we verified the software measurement techniques against a custom-designed hardware power measurement. The results show that Volta GPUs have the best energy efficiency of all the other generations for the different categories of the instructions. This work should aid in understanding NVIDIA GPUs' microarchitecture. It should also make energy measurements of any GPU kernel both efficient and accurate.},
   booktitle = {Proceedings of the 17th ACM International Conference on Computing Frontiers},
   pages     = {60-70},
   numpages  = {11},
   keywords  = {Research_Paper, PTX, NVML, internal power sensors, external power meters, GPU power usage, PAPI},
+  location  = {Catania, Sicily, Italy},
   series    = {CF '20}
 }
 
@@ -106,11 +75,12 @@
   pages     = {28-36},
   numpages  = {9},
   keywords  = {Research_Paper, Power measurement, GPU power sensor, energy measurement},
+  location  = {Salt Lake City, UT, USA},
   series    = {GPGPU-7}
 }
 
 # NAS Parallel Benchmarks Article
-#
+# 
 @inbook{NPB,
   author    = {Bailey, David H.},
   editor    = {Padua, David},
@@ -144,6 +114,8 @@
 
 # NPB-CUDA Article #1
 # Used in section explaining benchmarks
+# https://doi.org/10.1002/spe.3056
+# https://onlinelibrary.wiley.com/doi/10.1002/spe.3056#pane-pcw-references
 @article{NPB-CUDA_1,
   author   = {Araujo, Gabriell and Griebler, Dalvan and Rockenbach, Dinei A. and Danelutto, Marco and Fernandes, Luiz G.},
   title    = {NAS Parallel Benchmarks with CUDA and beyond},
@@ -361,6 +333,7 @@
   abstract  = {GPUs have been used to accelerate many regular applications and, more recently, irregular applications in which the control flow and memory access patterns are data-dependent and statically unpredictable. This paper defines two measures of irregularity called control-flow irregularity and memory-access irregularity, and investigates, using performance-counter measurements, how irregular GPU kernels differ from regular kernels with respect to these measures. For a suite of 13 benchmarks, we find that (i) irregularity at the warp level varies widely, (ii) control-flow irregularity and memory-access irregularity are largely independent of each other, and (iii) most kernels, including regular ones, exhibit some irregularity. A program's irregularity can change between different inputs, systems, and arithmetic precision but generally stays in a specific region of the irregularity space. Whereas some highly tuned implementations of irregular algorithms exhibit little irregularity, trading off extra irregularity for better locality or less work can improve overall performance.},
   keywords  = {Research_Paper},
   doi       = {10.1109/IISWC.2012.6402918},
+  issn      = {}
 }
 
 # ===== EXTERNAL LINKS =====
@@ -370,16 +343,7 @@
   title    = {NAS Parallel Benchmarks},
   keywords = {Useful_Link},
   url      = {https://www.nas.nasa.gov/software/npb.html},
-  abstract = {The NAS Parallel Benchmarks (NPB) are a small set of programs
-  designed to help evaluate the performance of parallel supercomputers. The
-  benchmarks are derived from computational fluid dynamics (CFD) applications
-  and consist of five kernels and three pseudo-applications in the original
-  "pencil-and-paper" specification (NPB 1). The benchmark suite has been
-  extended to include new benchmarks for unstructured adaptive meshes,
-  parallel I/O, multi-zone applications, and computational grids. Problem
-  sizes in NPB are predefined and indicated as different classes. Reference
-  implementations of NPB are available in commonly-used programming models
-  like MPI and OpenMP (NPB 2 and NPB 3).}
+  abstract = {The NAS Parallel Benchmarks (NPB) are a small set of programs designed to help evaluate the performance of parallel supercomputers. The benchmarks are derived from computational fluid dynamics (CFD) applications and consist of five kernels and three pseudo-applications in the original "pencil-and-paper" specification (NPB 1). The benchmark suite has been extended to include new benchmarks for unstructured adaptive meshes, parallel I/O, multi-zone applications, and computational grids. Problem sizes in NPB are predefined and indicated as different classes. Reference implementations of NPB are available in commonly-used programming models like MPI and OpenMP (NPB 2 and NPB 3).}
 }
 
 # Link to GitHub repository with software used for controlling the Yokogawa WT310E Power Meter
@@ -514,32 +478,12 @@
   title    = {IEC 62301:2011 | IEC Webstore | energy efficiency, smart city, standby power},
   keywords = {Useful_Link},
   url      = {https://webstore.iec.ch/publication/6789},
-  abstract = {IEC 62301:2011 specifies methods of measurement of electrical
-  power consumption in standby mode(s) and other low power modes (off mode and
-  network mode), as applicable. It is applicable to electrical products with
-  a rated input voltage or voltage range that lies wholly or partly in the
-  range 100 V a.c. to 250 V a.c. for single phase products and 130 V a.c. to
-  480 V a.c. for other products. The objective of this standard is to provide
-  a method of test to determine the power consumption of a range of products
-  in relevant low power modes (see 3.4), generally where the product is not in
-  active mode (i.e. not performing a primary function). This standard does not
-  specify safety requirements. It does not specify minimum performance
-  requirements nor does it set maximum limits on power or energy consumption.
-  This second edition cancels and replaces the first edition published in 2005
-  and constitutes a technical revision. The main changes from the previous
-  edition are as follows:
-              - greater detail in set-up procedures and introduction of stability
-              requirements for all measurement methods to ensure that results
-              are as representative as possible;
-              - refinement of measurement uncertainty requirements for power measuring
-              instruments, especially for more difficult loads with high crest factor and/or low power factor;
-              - updated guidance on product configuration, instrumentation and
-              calculation of measurement uncertainty;
-              - inclusion of definitions for low power modes as requested by
-              TC59 and use of these new definitions and more rigorous
-              terminology throughout the standard;
-              - inclusion of specific test conditions where power consumption
-              is affected by ambient illumination.}
+  abstract = {IEC 62301:2011 specifies methods of measurement of electrical power consumption in standby mode(s) and other low power modes (off mode and network mode), as applicable. It is applicable to electrical products with a rated input voltage or voltage range that lies wholly or partly in the range 100 V a.c. to 250 V a.c. for single phase products and 130 V a.c. to 480 V a.c. for other products. The objective of this standard is to provide a method of test to determine the power consumption of a range of products in relevant low power modes (see 3.4), generally where the product is not in active mode (i.e. not performing a primary function). This standard does not specify safety requirements. It does not specify minimum performance requirements nor does it set maximum limits on power or energy consumption. This second edition cancels and replaces the first edition published in 2005 and constitutes a technical revision. The main changes from the previous edition are as follows:
+              - greater detail in set-up procedures and introduction of stability requirements for all measurement methods to ensure that results are as representative as possible;
+              - refinement of measurement uncertainty requirements for power measuring instruments, especially for more difficult loads with high crest factor and/or low power factor;
+              - updated guidance on product configuration, instrumentation and calculation of measurement uncertainty;
+              - inclusion of definitions for low power modes as requested by TC59 and use of these new definitions and more rigorous terminology throughout the standard;
+              - inclusion of specific test conditions where power consumption is affected by ambient illumination.}
 }
 
 @misc{iTeh,
@@ -566,51 +510,54 @@
 @misc{Google_Machine_Learning_Crash_Course,
   author   = {Google},
   title    = {Machine Learning Crash Course with TensorFlow APIs},
-  keywords = {Useful_Link},
+  keywords = {Useful_Links},
   url      = {https://developers.google.com/machine-learning/crash-course}
 }
 
 @misc{Kaggle,
   author   = {Kaggle},
   title    = {Kaggle: Your Machine Learning and Data Science Community},
-  keywords = {Useful_Link},
+  keywords = {Useful_Links},
   url      = {https://www.kaggle.com/}
 }
 
 @misc{Kaggle_Dataset,
-  author   = {Piosenka, Gerry},
+  author   = {Gerry Piosenka},
   title    = {Birds 525 Species - Image Classification},
   year     = {2023},
   month    = {5},
-  keywords = {Useful_Link},
+  keywords = {Useful_Links},
   url      = {https://www.kaggle.com/datasets/gpiosenka/100-bird-species}
 }
+
+https://www.kaggle.com/datasets/gpiosenka/100-bird-species
 
 @misc{Horovod,
   author   = {Uber Technologies},
   title    = {Horovod documentation},
-  keywords = {Useful_Link},
+  keywords = {Useful_Links},
   url      = {https://horovod.readthedocs.io/en/latest/index.html/}
 }
 
 @misc{WattsUp_Quick_Reference_Guide,
   author   = {Electronic Educational Devices},
   title    = {WattsUp? Operators Manual},
-  keywords = {Useful_Link},
+  keywords = {Useful_Links},
   url      = {https://arcb.csc.ncsu.edu/~mueller/cluster/arc/wattsup/metertools-1.0.0/docs/meters/wattsup/manual.pdf}
 }
 
 @misc{Python_os_module,
-  author   = {Python},
-  title    = {"os" — Miscellaneous operating system interfaces},
-  year     = {2023},
-  keywords = {Useful_Link},
-  url      = {https://docs.python.org/3/library/signal.html?highlight=signal#module-signal}
+  author       = {Python},
+  title        = {os — Miscellaneous operating system interfaces},
+  year         = {2023},
+  keywords     = {Useful_Links},
+  url          = {https://docs.python.org/3/library/signal.html?highlight=signal#module-signal}
 }
 
 @misc{Python_signal_module,
-  author   = {Python},
-  title    = {"signal" - Set handlers for asynchronous events},
-  keywords = {Useful_Link},
-  url      = {https://docs.python.org/3/library/os.html}
+  author       = {Python},
+  title        = {signal — Set handlers for asynchronous events},
+  year         = {2023},
+  keywords     = {Useful_Links},
+  url          = {https://docs.python.org/3/library/os.html}
 }

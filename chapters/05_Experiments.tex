@@ -135,11 +135,11 @@ In order to visualize the entire workflow of the scheduler, as well as the
 workings of the individual processes, two charts has been created:
 \begin{itemize}
     \item \textbf{General Flowchart} $-$ This chart
-    (\textbf{Fig. \ref{fig:general_flowchart}}) describes the relations
+    (\textbf{Fig.~\ref{fig:general_flowchart}}) describes the relations
     between the currently used configurations and the instructions executed
     based on those conditions.
     \item \textbf{Processes Flowchart} $-$ This chart
-    (\textbf{Fig. \ref{fig:processes_flowchart}}) shows the working priciples of the
+    (\textbf{Fig.~\ref{fig:processes_flowchart}}) shows the working priciples of the
     \emph{runner\@()} subfunction, which shows the benchmarks and measurements
     softwares are started on a~high level of abstraction.
 \end{itemize}
@@ -469,10 +469,11 @@ function
     import py3nvml
     nvmlInit()
     handle_Idx0 = nvmlDeviceGetHandleByIndex(0)
-    # based on number of GPUs used, there are more variables of that kind
+    # based on number of GPUs used, there are more
+    # variables of that kind
     measure_Idx0 = nvmlDeviceGetPowerUsage(handle_Idx0) / 1000.0
-    # rest of code contains the sub-scheduler routine and saving the output
-    to file.
+    # rest of code contains the sub-scheduler routine
+    # and saves the output to file.
 \end{lstlisting}
 
 \begin{itemize}
@@ -501,21 +502,98 @@ ended by using innate multiprocessing function $-$ \emph{.terminate\@()}.
 
 \subsection{Termination of benchmarks in Hybrid configuration}
 
-% psutil
-
-[PLACEHOLDER]
+In order to make sure that the Hybrid benchmarks starts and ends at the same
+time, an additional subroutine has been implemented. At first, the condition
+is checked if used \emph{devices} in tests are currently set to \emph{Hybrid}.
+Then, a special `while' loop is started, in which a special functions checks,
+if CPUs and GPUs benchmarks are still running. They work by periodically
+checking, if PID associated with respective kernels still exists. If the 
+benchmark on one of the devices has ended, then the second one should be
+terminated as well. The flag is passed to a function that, based on PID or
+PIDs of the second benchmark, starts the cleaning process. Major facilitation
+comes from the utilities of \emph{psutil} module. This solution allows to
+easily find all the child processes spawned by the parent benchmark process,
+terminate them iteratively in a ordered manner, and finally, terminate the
+parent process. After that, the measurements threads are terminated via
+another, designated for that function and the current run is ended.
 
 \subsection{Cleanup of measurements daemons}
 
-[PLACEHOLDER]
+In terms of the termination of measurements daemons, a single function
+handles Linux Perf, NVIDIA Management Library and Yokotool. It utilizes two
+popular Python modules: \emph{os} and \emph{signal}. The first module provides
+a portable way of using operating system dependent
+functionality~\cite{Python_os_module}, while the second allows defining custom
+handlers to be executed when a signal is received~\cite{Python_signal_module}.
+In case of Perf and Yokotool, at first, the PIDs of those processes are being
+received, either by using \emph{pidof} or \emph{pigrep} of those daemons.
+Then, they are terminated using following, quite self-explanatory command:
 
-% Put the charts and plots of received measurements
+\begin{lstlisting}[language=Python]
+    os.kill(<PID>, signal.SIGTERM)
+\end{lstlisting}
 
-\newpage
+Since measurements of GPUs power draw that uses NVML are incorporated directly
+into the scheduler script as an function, the entire thread is being handled
+and terminated by using the function, that comes from \emph{multiprocessing}
+module $-$ \emph{.terminate\@()}.
 
 \section{Analysis of the results and discussion}
 
-\input{tables/05_OMP-CPP_btC.tex}
-
 [PLACEHOLDER]
-% Put the analysis of the received data, according to Dr. Czarnul
+
+\input{tables/05_OMP-CPP_1CPU_btC_power.tex}
+
+\input{tables/05_OMP-CPP_1CPU_btC_energy.tex}
+
+\input{tables/05_OMP-CPP_2CPUs_btC_power.tex}
+
+\input{tables/05_OMP-CPP_2CPUs_btC_energy.tex}
+
+
+
+\input{tables/05_OMP-CPP_1CPU_isD_power.tex}
+
+\input{tables/05_OMP-CPP_1CPU_isD_energy.tex}
+
+\input{tables/05_OMP-CPP_2CPUs_isD_power.tex}
+
+\input{tables/05_OMP-CPP_2CPUs_isD_energy.tex}
+
+
+
+\input{tables/05_OMP-CPP_1CPU_luC_power.tex}
+
+\input{tables/05_OMP-CPP_1CPU_luC_energy.tex}
+
+\input{tables/05_OMP-CPP_2CPUs_luC_power.tex}
+
+\input{tables/05_OMP-CPP_2CPUs_luC_energy.tex}
+
+
+
+\input{tables/05_OMP-CUDA_epD_power.tex}
+
+\input{tables/05_OMP-CUDA_epD_energy.tex}
+
+\input{tables/05_OMP-CUDA_luD_power.tex}
+
+\input{tables/05_OMP-CUDA_luD_energy.tex}
+
+\input{tables/05_OMP-CUDA_spD_power.tex}
+
+\input{tables/05_OMP-CUDA_spD_energy.tex}
+
+
+
+\input{tables/05_Hybrid_btC+luD_power.tex}
+
+\input{tables/05_Hybrid_btC+luD_energy.tex}
+
+\input{tables/05_Hybrid_isD+spD_power.tex}
+
+\input{tables/05_Hybrid_isD+spD_energy.tex}
+
+\input{tables/05_Hybrid_luC+epD_power.tex}
+
+\input{tables/05_Hybrid_luC+epD_energy.tex}

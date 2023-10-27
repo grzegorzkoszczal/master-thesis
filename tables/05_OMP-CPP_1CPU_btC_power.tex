@@ -1,14 +1,13 @@
 \begin{table}[hbt!]
     \rowcolors{1}{Lavender!80!gray}{white}
     \centering
-    \caption{sanna.kask, CPUs, OMP-CPP, bt.C, 1 CPU [POWER DRAW ONLY!!!]}\label{tbl:sanna.kask_CPUs_OMP-CPP_bt.C}
+    \caption{server: \textbf{sanna.kask}, device: \textbf{1 CPU}, implementation: \textbf{OMP-CPP},\\
+    benchmark: \textbf{bt.C}, data displayed: \textbf{power draw}}\label{tbl:OMP-CPP_1CPU_btC_power}
     \setlength{\tabcolsep}{5mm}
     \begin{tblr}{
-        % {|l|c|c|c|c|},
-        % hlines,
         vlines,
         row{1}={font=\bfseries,halign=c,bg=lightgray!30},
-        row{7-8} = {bg = lightgray!20}
+        row{2,5-6,9-10,13-14,17-18,21-22,25-26} = {bg = lightgray!30}
         }
     \hline
         & \SetCell[c=4]{c} 1 CPU  \\
@@ -39,59 +38,29 @@
     \hline
         {(GPU\@: 1) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.023     & 0.032     & 0.052         & 0.029 \\
     \hline
-        {(GPU\@: 2) \\ Avg\@. power draw [W]}                   & \\
+        {(GPU\@: 2) \\ Avg\@. power draw [W]}                   & 13.96     & 14.024    & 13.744        & 13.642 \\
     \hline
-        {(GPU\@: 2) \\ Std\@. dev\@. of avg\@. power draw [-]}  & \\
+        {(GPU\@: 2) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.117     & 0.114     & 0.243         & 0.157 \\
     \hline
-        {(GPU\@: 3) \\ Avg\@. power draw [W]}                   & \\
+        {(GPU\@: 3) \\ Avg\@. power draw [W]}                   & 17.196    & 17.21     & 17.207        & 17.209 \\
     \hline
-        {(GPU\@: 3) \\ Std\@. dev\@. of avg\@. power draw [-]}  & \\
+        {(GPU\@: 3) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.016     & 0.022     & 0.015         & 0.012 \\
     \hline
-        {(GPU\@: 4) \\ Avg\@. power draw [W]}                   & \\
+        {(GPU\@: 4) \\ Avg\@. power draw [W]}                   & 4.109     & 4.122     & 4.119         & 4.096 \\
     \hline
-        {(GPU\@: 4) \\ Std\@. dev\@. of avg\@. power draw [-]}  & \\
+        {(GPU\@: 4) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.01      & 0.018     & 0.016         & 0.012 \\
     \hline
-        {(GPU\@: 5) \\ Avg\@. power draw [W]}                   & \\
+        {(GPU\@: 5) \\ Avg\@. power draw [W]}                   & 18.456    & 18.372    & 18.297        & 18.334 \\
     \hline
-        {(GPU\@: 5) \\ Std\@. dev\@. of avg\@. power draw [-]}  & \\
+        {(GPU\@: 5) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.04      & 0.097     & 0.107         & 0.111 \\
     \hline
-        {(GPU\@: 6) \\ Avg\@. power draw [W]}                   & \\
+        {(GPU\@: 6) \\ Avg\@. power draw [W]}                   & 6.285     & 6.3       & 6.351         & 6.449 \\
     \hline
-        {(GPU\@: 6) \\ Std\@. dev\@. of avg\@. power draw [-]}  & \\
+        {(GPU\@: 6) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.075     & 0.08      & 0.146         & 0.075 \\
     \hline
-        {(GPU\@: 7) \\ Avg\@. power draw [W]}                   & \\
+        {(GPU\@: 7) \\ Avg\@. power draw [W]}                   & 12.174    & 12. 163   & 12.071        & 12.134 \\
     \hline
-        {(GPU\@: 7) \\ Std\@. dev\@. of avg\@. power draw [-]}  & \\
+        {(GPU\@: 7) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.313     & 0.14      & 0.316         & 0.311 \\
     \hline
     \end{tblr}
 \end{table}
-
-
-% \begin{table}[hbt!]
-%     % \centering
-%     % \small
-%     \caption{sanna.kask, CPUs, OMP-CPP, bt.C [POWER DRAW ONLY!!!]}\label{tbl:sanna.kask_CPUs_OMP-CPP_bt.C}
-%     \begin{tblr}{|c|c|c|c|c|c|c|c|c|}
-%     \hline
-%         & \SetCell[c=4]{c} 1 CPU & & & & \SetCell[c=4]{c} 2 CPUs \\
-%     \hline
-%         (10 runs) & 1 Thread & 5 Threads & 10 Threads & 20 Threads & 2 Threads & 10 Threads & 20 Threads & 40 Threads \\
-%     \hline
-%         {Avg. \\ Exec\@. time [s]} & \\
-%     \hline
-%         {Std\@. dev\@. \\ of time [-]} & \\
-%     \hline
-%         {(Yokogawa) Avg\@. \\ power draw [W]} & \\
-%     \hline
-%         {(Yokogawa) Std\@. \\ dev\@. of avg\@. \\ power draw [-]} & \\
-%     \hline
-%         {(CPU:0) Avg\@. \\ power draw [W]} & \\
-%     \hline
-%         {(CPU:0) Std\@. dev\@. \\ of avg\@. \\ power draw [-]} & \\
-%     \hline
-%         {(CPU:1) Avg\@. \\ power draw [W]} & \\
-%     \hline
-%         {(CPU:1) Std\@. dev\@. \\ of avg\@. \\ power draw  [-]} & \\
-%     \hline
-%     \end{tblr}
-% \end{table}
