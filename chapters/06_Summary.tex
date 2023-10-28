@@ -6,4 +6,58 @@
 
 \section{Future work}
 
-[PLACEHOLDER]
+In the terms of future work, this master thesis gives a strong insights for
+further expansion of the experiments.
+
+One of the ideas is to perform tests
+on different node with more diverse components, such as different CPUs and
+GPUs, than those tested, to check if the results can be repeated and compared
+with already performed experiments. Other idea is to perform tests on both 
+\emph{sanna.kask} and \emph{vinnana.kask} nodes simultaneously, using the
+MPI and Horovod based benchmarks, due to their inter-node communication.
+This approach would simulate running benchmarks on a HPC cluster. For
+the configurations of this setup, it is a sound strategy to run the tests
+utilising significant amount of the resources, such as tests on half of the
+devices and then, utilising all of them on both servers. This will avoid
+the repetition of already performed experiments and focus solely on
+researching the behaviour of the nodes under high computational strain.
+
+Another good idea is to use Linux Perf to gather the information about energy
+consumption of the RAM of the servers. This would reduce the uncertainty of
+the measurements done by Yokogawa WT310E on the entire nodes, giving more
+informations about the behaviour of the servers power draw during tests,
+therefore allowing to receive more precise results and form even better
+conclusions.
+
+Due to the fact, that many tests using different benchmarkshas has been
+performed on various configurations, starting from the single thread benchmarks,
+through the multi-CPUs and multi-GPUs and the finally hybrid benchmarks
+utilizing all the resources available on the servers, another solution has been
+proposed. Future goal is to create an empirical model, that will give insight
+about how much will increase the difference between readings from the Yokogawa
+external power meter and software solutions, such as Linux Perf and NVML\@.
+The purpose of such model would be rapidly checking the link of the 
+entire node power draw and the sum of power draws of active CPUs and GPUs.
+
+Other suggestion is to give more attentions to the PSUs used in order to
+power the servers. Many PSUs have different certifications, such as
+\emph{Bronze}, \emph{Silver}, \emph{Gold}, \emph{Platinum} and \emph{Titanium}.
+Their main difference is their energy efficiencies at various load levels.
+The least efficient are the PSUs with \emph{Bronze} certification, while the
+best are \emph{Titanium} ones. This could discover potential differencies
+in the readings of power draw of the servers and could also benefit in
+fine-tuning the previously mentioned empirical model.
+
+As the culmination of this work, there is a high potential in writing
+a research paper that would containg the most insightful informations
+and conclusions made afer the tests. As a motivation for this idea it should
+be noted, that this master thesis contains very exhausting experiments part,
+with various implementations, benchmarks and class sizes tested as well as
+meaningful conclusions drawn form the tests, than paired with previously
+mentioned ideas for the expansion of the experiments, can form a strong base
+for the research paper. The topic of energy aware computing is currently
+very popular, due to increase of electricity use by the ICT sector world-wide,
+and the rising demand of the \emph{green computing}, that has in mind finding
+the best ratio of performance to energy use. Research paper based on this work
+could contribute to this idea, due to verification of the software measurements
+method upon which the power draw of the computational nodes is estimated.
