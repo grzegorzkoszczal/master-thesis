@@ -1,12 +1,5 @@
 \chapter{Experiments}
 
-% Short introduction such as: this chapter describes how the tests should be
-% conducted, explain thorougly the scheduler script, gathered data etc.
-
-[NOTE-TO-SELF: Section 5.1 should be redacted a bit, because it has been 
-copy-pasted from Master Thesis Seminar presentation. Section 5.2 will
-probably be cut, because it would be a repetition of informations]
-
 \section{Proposed workflow and methodology}
 
 In order to obtain the details of how system-level physical measurement
@@ -66,18 +59,12 @@ properly comparable, several point have to be met:
     the device only measurements (Intel RAPL / NVML) and the measurements of
     the entire node (Yokotool).
     \item Experiments should be conducted on different nodes that utilizes
-    different hardware, in order to state repeatability of tests. [TO BE REDACTED]
+    different hardware, in order to state repeatability of tests.
     \item Experiments should be conducted, using different benchmark kernels
     or application, to remove the possibility of bias of the results, due to
-    poor diversification of test cases. [TO BE REDACTED]
+    poor diversification of test cases.
     \item Test runs must be repeated many times.
 \end{enumerate}
-
-\section{Working environment $-$ servers details}
-
-[PLACEHOLDER] NOTE: Probably this section will be cut, because it has been
-covered in previous chapter
-% Describe more thoroughly the nodes: CPUs, GPUs, RAM, PSUs, PM connection etc
 
 \section{Main tests}
 
@@ -597,3 +584,17 @@ module $-$ \emph{.terminate\@()}.
 \input{tables/05_Hybrid_luC+epD_power.tex}
 
 \input{tables/05_Hybrid_luC+epD_energy.tex}
+
+
+
+\input{tables/05_MPI-Fortran_epDx_power.tex}
+
+\input{tables/05_MPI-Fortran_epDx_energy.tex}
+
+\input{tables/05_MPI-Fortran_isDx_power.tex}
+
+\input{tables/05_MPI-Fortran_isDx_energy.tex}
+
+\input{tables/05_MPI-Fortran_luCx_power.tex}
+
+\input{tables/05_MPI-Fortran_luCx_energy.tex}

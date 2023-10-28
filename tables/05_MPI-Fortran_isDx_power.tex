@@ -1,0 +1,46 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{vinnana.kask}, device: \textbf{CPUs}, implementation: \textbf{MPI-Fortran},\\
+    benchmark: \textbf{is.D.x}, data displayed: \textbf{power draw}}\label{tbl:MPI-Fortran_isDx_power}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10,13-14} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=4]{c} 2 CPUs  \\
+    \hline
+        Results from 10 runs                                    & Processes: 4  & Processes: 8  & Processes: 16 & Processes: 32 \\
+    \hline
+        {Avg. Exec\@. time [s]}                                 & 153.946       & 82.896        & 46.065        & 33.465 \\
+    \hline
+        {Std\@. dev\@. of time [-]}                             & 0.267         & 0.285         & 0.075         & 0.528 \\
+    \hline
+        {(Yokogawa) \\ Avg\@. power draw [W]}                   & 350.311       & 367.628       & 402.346       & 443.225 \\
+    \hline
+        {(Yokogawa) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.215         & 0.317         & 0.517         & 1.332 \\
+    \hline
+        {(CPUs) \\ Avg\@. power draw [W]}                       & 77.438        & 90.402        & 114.976       & 138.504 \\
+    \hline
+        {(CPUs) \\ Std\@. dev\@. of avg\@. power draw [-]}      & 0.05          & 0.146         & 0.124         & 0.604 \\
+    \hline
+        {(GPU\@: 0) \\ Avg\@. power draw [W]}                   & 11.371        & 11.286        & 11.318        & 11.403 \\
+    \hline
+        {(GPU\@: 0) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.051         & 0.054         & 0.092         & 0.114 \\
+    \hline
+        {(GPU\@: 1) \\ Avg\@. power draw [W]}                   & 13.185        & 13.225        & 13.349        & 13.328 \\
+    \hline
+        {(GPU\@: 1) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.069         & 0.068         & 0.041         & 0.051 \\
+    \hline
+        {(GPU\@: 2) \\ Avg\@. power draw [W]}                   & 11.303        & 11.238        & 11.266        & 11.35 \\
+    \hline
+        {(GPU\@: 2) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.031         & 0.044         & 0.039         & 0.046 \\
+    \hline
+        {(GPU\@: 3) \\ Avg\@. power draw [W]}                   & 14.482        & 14.401        & 14.439        & 14.463 \\
+    \hline
+        {(GPU\@: 3) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.036         & 0.037         & 0.057         & 0.049 \\
+    \hline
+    \end{tblr}
+\end{table}

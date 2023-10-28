@@ -1,19 +1,18 @@
 \begin{table}[hbt!]
     \rowcolors{1}{Lavender!80!gray}{white}
     \centering
-    \caption{sanna.kask, CPUs, OMP-CPP, bt.C, 1 CPU [POWER DRAW ONLY!!!]}\label{tbl:sanna.kask_CPUs_OMP-CPP_bt.C}
+    \caption{server: \textbf{sanna.kask}, device: \textbf{Hybrid}, implementation: \textbf{OMP-CPP+OMP-CUDA},\\
+    benchmark: \textbf{is.D+sp.D}, data displayed: \textbf{power draw}}\label{tbl:OMP-CPP_OMP-CUDA_Hybrid_btC_luD_power}
     \setlength{\tabcolsep}{5mm}
     \begin{tblr}{
-        % {|l|c|c|c|c|},
-        % hlines,
         vlines,
         row{1}={font=\bfseries,halign=c,bg=lightgray!30},
-        row{7-8} = {bg = lightgray!20}
+        row{2,5-6,9-10,13-14,17-18,21-22,25-26} = {bg = lightgray!30}
         }
     \hline
-        & \SetCell[c=4]{c} 1 CPU  \\
+        & \SetCell[c=4]{c} Hybrid  \\
     \hline
-        Results from 10 runs                                    & 1 + 4     & 1 + 8     & 2 + 16        & 2 + 32 \\
+        Results from 10 runs (GPU(s) + Threads)                 & 1 + 4     & 2 + 8     & 4 + 16        & 8 + 32  \\
     \hline
         {Avg. Exec\@. time [s]}                                 & 177.298   & 92.61     & 57.096        & 43.868 \\
     \hline

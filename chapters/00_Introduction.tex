@@ -46,3 +46,73 @@ WT310E~\cite{Yokogawa_Producent_Page}
 ~\cite{Yokogawa_Meter_Series_Specifications}.
 Its high precision, backed up by certificates, makes it an
 excellent tool to benchmark the precision of Intel RAPL and NVML\@.
+
+\chapter*{Research goal}
+
+\section*{Purpose and research question}
+
+The goal of the project is to verify the accuracy and
+reliability of the CPU and GPU power draw measurement
+tools during the computational-straining benchmark applications.
+
+\section*{Scope and limitation}
+
+The scope of the project is to verify whether the software
+power measurement tools are precise, based upon the results
+of the certified external measurement tool and to specify
+their error range in case of inaccuracy.
+
+In case of benchmark applications, a hypothesis worth
+considering is whether the change of computational data
+impacts the power draw measurements between hardware and
+software tools. There are
+experiments that proved that increasing
+the data used in the benchmarks influences the increasingly
+different results from the tools. Another hypothesis, however,
+makes the claim that the application of power capping does
+not impact the results. In order to make a conclusion, all
+those configurations should be investigated independently.
+Another aspect worth investigating is the use of various
+power supply units, both the server and consumer grade. Those
+tests would give us insight, whether they differ in total
+power draw or is it more likely associated with the certificates
+they have.
+
+The project is limited to testing CPUs and software released
+by Intel Corporation and to testing the GPUs and software
+released by NVIDIA Corporation.
+
+\section*{Project requirements}
+
+The project requires a reliable testbed in order to run the
+computations, verified benchmark applications and certified
+external measurement tool. Moreover, the computational station
+must be exclusively reserved for the time of research in order
+to prevent other user's applications from interfering in the
+tests results, as well as the tests itself should be repeated
+several times in order to maintain credibility.
+
+The workstations on which the experiments will be conducted are
+the two different university computational nodes. One of them
+consists of two server grade CPUs and eight GPUs, while the second
+one is equipped with two server grade CPUs and four GPUs. Both nodes
+are adapted to use a custom power strip that supports the use
+of external measurement tool.
+
+The tests benchmark applications are considered suitable for the
+purpose of the project, when they are able to strain the
+workstation's hardware, using their entire computational resources.
+The chosen applications for this task are mainly NAS Parallel
+Benchmarks~\cite{NPB}~\cite{NASA_Advanced_Supercomputing} $-$ a set
+of benchmarks designed to evaluate the performance of parallel
+computing systems. The NPB suite contains a variety of
+benchmarks, including linear algebra, FFT, stencil computations
+and others. The benchmarks are intended to be representative of
+some important real-world application problems and can be used
+to assess the performance of various systems under different
+conditions.
+
+The external measurement tool is Yokogawa WT310E. It's a precise
+and reliable equipment that will serve as the ground truth in
+verification of reading from the software tools.
+

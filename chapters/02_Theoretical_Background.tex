@@ -395,4 +395,460 @@ developed mainly for the purpose of solving the images classification problems.
 
 
 
+% State-of-the-art chapter
+\chapter*{Related works}
 
+% First research paper
+\section{`A Comparative Study of Methods for Measurement
+of Energy of Computing'}
+
+Authors of this work~\cite{State_of_the_Art_Article_1}
+investigated the accuracy of measurement of energy consumption
+during an application execution in order to ensure the
+application-level energy minimization techniques.
+They mentioned three most popular methods of measurement:
+(a) System-level physical measurements using external power meters;
+(b) Measurements using on-chip power sensors and (c) Energy
+predictive models. Later, they presented a comparison of the
+state-of-the-art on-chip power sensors as well as energy
+predictive models against system-level physical measurements
+using external power meters, which played the role of a credible
+measurement appliance.
+
+The methodology is as follows: The ground truth tests were
+performed at first, using WattsUp Pro
+Meter~\cite{WattsUp_Quick_Reference_Guide}. The group of
+components that were running the benchmark kernel were defined
+as abstract processor $-$ a whole that consists of multicore CPU
+processor, consisting of a certain number of physical cores and
+DRAM\@. In order to perform meaningful measurements, only a~certain
+configuration of application was run, that executed solely on an
+abstract processor, without need of using any other system
+resources, such as solid state drives or network interface cards
+and so on. The result of such an approach is that HCLWattsUp
+reflects solely the power drawn from CPU and DRAM\@.
+
+The researchers took other important precautions during the
+experiment. At first, all the resources they used have been
+reserved and fully dedicated to the experiment, making sure
+that no unwanted, third-party applications are being run in
+the background. During the tests, they actively monitored the
+disk consumption and network to ensure that there is no
+interference in the measurements. Another important factor of
+the testbed that draws power and generates heat are the fans.
+In default configuration, the fans speed is dependent on the
+increasing temperature of the CPUs, which rises as the time of
+the training goes on. That generates a dynamic energy consumption
+that impacts negatively on the outcomes of the experiment.
+To rule this phenomenon out, all the fans in the entire testbed
+are set at full speed, therefore they draw the same amount of
+power regardless of the actual strain put on CPUs and their
+temperature. All the procedures mentioned above ensure that the
+dynamic energy consumption obtained using HCLWattsUp, reflects
+the contribution solely by the abstract processor executing the
+given application kernel.
+
+After determining the “ground truth” measurements using the
+configuration with HCLWattsUp, the researchers conducted a series
+of tests that determined the dynamic energy consumption by the
+given application using RAPL\@. At first the Intel PCM/PAPI was
+used to obtain the base power of CPUs, both core and uncore as
+well as DRAM, with no straining workload applied. Then, in the
+next phase, using HCLWattsUp API the execution time of the given
+application has been obtained. After that, the Intel PCM/PAPI has
+been used in order to obtain the total consumption of the CPUs and
+DRAM, all within the execution time of a given benchmark. Lastly,
+the researchers responsible for the experiment calculated the
+dynamic energy consumption of the abstract processor by subtracting
+the base energy from the total energy drawn during the kernel
+execution. To determine the dynamic energy consumption using
+HCLWattsUp, all the steps mentioned before has been repeated,
+but using the HCLWattsUp software instead of the Intel RAPL\@.
+
+The execution time of the benchmark kernels were the same for
+both of the power draw measurement tools, so any difference
+between the energy readings of the tools comes solely from
+their power readings. Finally, tests were conducted on three
+different sets of experiments in order to receive three different
+types of patterns.
+
+In the first set of experiments, the FFTW and MKL-FFT energy
+consumption has been explored, by using a given workload size.
+For many tests on various problem sizes, the Intel RAPL reports
+showed less dynamic energy consumption for all application
+configurations than HCLWattsUp, but it follows the same pattern
+as HCLWattsUp for most of the data points. Therefore it is
+possible to calibrate the RAPL readings, which resulted in
+significant decrease of average error for the dynamic energy
+profile.
+
+Second set of tests was conducted using OpenBLAS DGEMM\@.
+Executions were, again, performed using various configurations
+of data sizes, but results were less satisfactory than in the
+first tests. Like the first set of experiments, RAPL profiles
+lag behind the HCLWattsUp profiles. Unlike the first set of
+experiments where the error between both the profiles could be
+reduced significantly by calibration, the reduction of the average
+error for most of the application configurations was only as
+half as effective contrary to the first set of tests. This
+calibration, however, is again not the same for all the application
+configurations.
+
+In the third and last set of experiments the team studied the
+dynamic energy behavior of FFTW as a function of problem size
+N x N. The tests were performed in different problem ranges.
+Researchers claim that for many data points, RAPL reports an
+increase in dynamic energy consumption with respect to the
+previous data point in the profile whereas HCLWattsUp reports
+a~decrease and vice versa. Therefore it is impossible to use
+calibration to reduce the average error between the profiles
+because of their interlacing behavior.
+
+As a conclusion, readings from Intel RAPL and HCLWattsUp differ
+strongly based on executed benchmark and data size. In the first
+set of experiments, the FFTW and MKL-FFT energy consumption test,
+the Intel RAPL readings followed the pattern of HCLWattsUp
+readings, being even more accurate after calibrations. The second
+test however, showed that RAPL does not follow most of the energy
+consumption pattern of the power meter. This could be tuned to
+some extent by calibration, but not as good as in the first test
+case. In the last experiment, however, the RAPL does not follow
+the energy consumption pattern of the power meter and can not be
+calibrated, leaving the readings quite troublesome.
+
+Next experiment conducted in this paper was the comparison of
+measurements by GPU and Xeon Phi Sensors with HCLWattsUp. The
+methodology of work is similar to the one explained before $-$ the
+entire testbed is reserved solely for the purpose of the
+experiment, the fans are set to the maximum speed and only the
+abstract processor is measured. To strain the hardware, two
+applications were used:
+
+The first one was the matrix multiplication (DGEMM), the second
+one was 2D-FFT\@. Tests were performed on two NVIDIA GPUs: K40c
+~\cite{Implementation_for_Accelerator_Kernels} and P100,
+and one Intel coprocessor, the Intel Xeon Phi 3120P
+~\cite{Intel_Xeon_Phi_Coprocessor_Architecture}.
+To obtain the power values from on-chip sensors on NVIDIA GPUs,
+the dedicated libraries were used, called NVIDIA NVML
+~\cite{NVML_Reference_Manual} and
+to obtain power values from Intel Xeon Phi, the Intel System
+Management Controller chip
+(SMC)~\cite{Intel_Xeon_Phi_Coprocessor_Developer} was used.
+Values from the
+Intel Xeon Phi can be programmatically obtained using Intel
+manycore platform software stack (MPSS) [17]. The methodology
+taken to compare the measurements using GPU and Xeon Phi sensors
+and HCLWattsUp is similar to this for RAPL\@. Briefly, HCLWattsUp
+API provides the dynamic energy consumption of an application
+using both CPU and an accelerator (GPU or Xeon Phi) instead of
+the components involved in its execution. Execution of an
+application using GPU/Xeon Phi involves the CPU host-core, DRAM
+and PCIe to copy the data between CPU host-core and GPU/Intel
+Xeon Phi. On-chip power sensors (NVML and MPSS) only provide
+the power consumption of GPU or Xeon Phi only. Therefore, to
+obtain the dynamic energy profiles of applications, the Intel
+RAPL was used to determine the energy contribution of CPU and
+DRAM\@. Energy contributions from data transfers using PCIe were
+considered as not significant.
+
+At first, the DGEMM was used as the test benchmark with various
+workload sizes. The energy readings from the GPU NVIDIA K40c
+sensors exhibit a linear profile whereas HCLWattsUp does not.
+Moreover, the sensor does not follow the application behavior
+exhibited by HCLWattsUp for approximately two-thirds of the data
+points. In the case of the Intel Xeon Phi coprocessor, the results
+seemed to be better $-$ sensors follow the trend exhibited by
+HCLWattsUp for third-fourth of the data points. However, sensors
+report higher dynamic energy than HCLWattsUp, but that can be
+reduced significantly using calibration.
+
+In the case of the second benchmark, the 2D-FFT, the measurements
+by NVML follow the same trend for the majority of the data points,
+compared to the results from NCLWattsUp. The sensor of the Intel
+Xeon Phi followed the trend of HCLWattsUp for over 90\% of all
+data points, which is a good result. Overall, Intel RAPL and NVML
+both exhibit the same trend for FFT\@. Therefore, the difference
+with HCLWattsUp comes from both sensors collectively.
+
+The results of this test allows to draw several conclusions.
+First, the average error between measurements using sensors and
+HCLWattsUp can be reduced using calibration, which is,
+nevertheless, specific for an application configuration. Another
+important finding is that CPU host-core and DRAM consume equal
+or more dynamic energy than the accelerator for FFT applications
+(FFTW 2D and MKL FFT 2D),which means that data transfers (between
+CPU host-core and an accelerator) consume same amount of energy
+as that for computations on the accelerator for older generations
+of NVIDIA Tesla GPUs such as K40c and Intel Xeon Phi such as 3120P.
+However, for newer generations of Nvidia Tesla GPUs such as P100,
+the data transfers consume more dynamic energy than computations.
+It suggests that optimizing the data transfers for dynamic energy
+consumption is important.
+
+% Second research paper
+\section{`Verified Instruction-Level Energy Consumption Measurement
+for NVIDIA GPUs'}
+
+Authors of this research paper~\cite{State_of_the_Art_Article_2}
+investigated the actual cost of the power/energy overhead of
+the internal microarchitecture of various NVIDIA GPUs from
+four different generations. In order to do so, they compared
+over 40 different PTX instructions and showed the effect of
+the CUDA compiler optimizations on the energy consumption of
+each instruction. To measure the power consumption, they used
+three different software techniques to read the GPU on-chip
+power sensors and determined their precision by comparing them
+to custom-designed hardware power measurement.
+The motivation of their work comes from the fact that in order
+to increase the performance of the GPUs, their power consumption
+must be correctly and reliably measured, because it serves as
+a primary metric of performance evaluation. This issue is proven
+even more challenging, since the GPU vendors never publish the
+data on the actual energy cost of their GPUs' microarchitecture,
+therefore the independent research should be conducted in order
+to verify the power measurement software they provide.
+
+The authors of the research paper prepared a set of special
+micro-benchmarks to stress the GPU, in order to capture the
+power usage of each PTX
+instruction~\cite{NVIDIA_Parallel_Thread_Execution}, so the
+instructions were written in PTX as well. PTX is a virtual-assembly
+language used in NVIDIA's CUDA programming environment whose purpose
+is to control the exact sequence of instructions executing without
+any overhead. The researchers prepared two kernels for the purpose
+of this work $-$ first one is tasked with adding integers and second
+one responsible for dividing variables with unsigned values.
+Since it is impossible to capture power draw of an execution of
+a single instruction, a~different approach was proposed: the same
+instruction has been repeated millions of times and the power
+drawn during the entire test case has been measured. Then the
+amount of power reported by the measuring system was divided by
+the total number of instructions, giving the power consumed by
+a single PTX instruction. It is worth noting that GPUs drain
+power as static power and dynamic power. The static power is
+a constant power that the GPU consumes to maintain its operation.
+To eliminate the static power and any overhead dynamic power
+other than the instruction power consumption, the kernel's was
+computed twice and the energy consumption was measured both times.
+First, the kernel was run in a configuration to measure the total
+energy drawn for the operation. In the second run the back-to-back
+instructions were omitted and the energy measured was defined as
+overhead energy. Energy used on instruction was defined as
+subtraction of total energy and overhead energy, divided by the
+total number of instructions.
+
+In this experiment, the ground truth of energy drawn by the GPUs
+was set by the external power meter. It was pointed out that the
+GPUs have two power sources: one is direct DC power, provided by
+a PSU, another one is the PCI-E power source, provided through
+the motherboard. In order to capture the total power, the
+measurement of current and voltage has been done for each power
+source simultaneously. A clamp meter and a shunt series resistor
+were used for the current measurement. For voltage measurement,
+a direct probe on the voltage line using an oscilloscope has been
+used. In case of measurements of current and voltage on the direct
+DC power supply source, everything was measured using an
+oscilloscope, therefore the power draw calculations were performed
+using a certain formula. The measurement of the PCI-E power source
+was more difficult. Since there wasn't any possibility to directly
+receive current or voltage, the authors of this paper decided to
+set up a special PCI-E riser board that measures the power supplied
+through the motherboard. Two in-series shunt resistors are used as
+a power sensing technique. Using the series property, the current
+that flows through the riser is the same current that goes to the
+graphics card, same with the voltages.
+
+The experiment has been conducted for four NVIDIA GPUs from four
+different generations/architectures: GTX TITAN X from Maxwell
+architecture, GTX 1080 Ti from Pascal architecture, TITAN V from
+Volta architecture and TITAN RTX from Turing architecture. To
+compile and run the previously prepared benchmarks, the CUDA NVCC
+compiler~\cite{NVIDIA_NVCC} has been used. The results of the
+tests show that NVIDIA TITAN V has the lowest energy consumption
+per instruction among all the tested GPUs. Additionally the tests
+were performed on both CUDA optimized and non-optimized versions
+of code, and overall the optimized versions of instruction proved
+to be less energy hungry than the non-optimized ones. In terms of
+differences between various software power measuring techniques,
+namely PAPI versus MTSM, The dominant tendency of the results is
+that PAPI readings are always more than the MTSM\@. Although the
+difference is not significant for small kernels, it can be up to
+1 µJ for bigger kernels like Floating Single and Double Precision
+div instructions. Different software techniques (MTSM and PAPI)
+have been compared against the hardware setup on Volta TITAN V GPU\@.
+Compared to the ground truth hardware measurements, for all the
+instructions, the average Mean Absolute Percentage Error (MAPE)
+of MTSM Energy is 6.39 and the mean Root Mean Square Error (RMSE)
+is 3.97. In contrast, PAPI average MAPE is 10.24 and the average
+RMSE is 5.04. The results prove that MTSM is more accurate than
+PAPI as it is closer to what has been measured using the hardware.
+
+% Third research paper
+\newpage
+\section{`Measuring GPU Power with the K20 Built-in Sensor'}
+
+Authors of this research paper~\cite{State_of_the_Art_Article_3}
+investigated accurate profiling of the power consumption of
+GPU code when using the on-board power sensor of NVIDIA K20 GPUs.
+Moreover, two major anomalies that happened during the tests
+were more thoroughly analyzed $-$ the first one being related to
+the doubling a benchmark kernel's runtime resulted with more
+than double energy usage, the second indicated that running two
+kernels in close temporal proximity inflates the energy
+consumption of the later kernel. Based on previous work in
+a similar field and set of preliminary tests, a new, reliable
+methodology~\cite{K20Power} has been proposed as the conclusion
+of this experiment.
+
+GPUs used in this project are NVIDIA Tesla K20, equipped with
+on-board sensors for querying the power consumption at runtime.
+As noted by the authors of the work, measurement of the power draw
+of the GPU using its built-in sensor is more complex than it would
+seem at first glance. The straightforward approach of sampling the
+power, computing the average, and multiplying by the runtime of the
+GPU code is likely to yield large errors and nonsensical results,
+hence the anomalies related to more energy used than expected due
+to increase of kernel's runtime or kernel's energy consumption
+increase after consecutive runs. Therefore another approach must
+be adopted. Methodology of the experiment is as follows: a number
+of unexpected behaviors when measuring a GPU's power consumption
+have been noted for further investigation, various observations
+has been noted during the tests runs conducted on the NVIDIA K20
+GPUs and based on those observations and other related work,
+a correct way of measuring the power and energy consumption using
+sensor has been created. Later on it was validated for reliability
+by performing it multiple ways on many GPUs based on Kepler
+architecture, equipped with power sensor, such as the NVIDIA K20c,
+K20m, and K20x. The custom tool, created by the authors of the
+work, has been published for future use by other scientists, as an
+open source code.
+
+Benchmark applications used in this paper solved two different
+n-body problem implementations. The algorithm models the simulation
+of gravity-induced motion of stars in a star cluster. The first
+kernel, called NB (N-Body), performs precise pairwise force
+calculations, which means that the same operations are performed
+for all n bodies, leading to a very regular implementation that
+maps well to GPUs. Moreover, the force calculations are
+independent, resulting in large amounts of parallelism. The second
+code, called BH, uses the Barnes-Hut algorithm to approximately
+compute the forces~\cite{O(N)_Force_Calculation_Algorithm}
+~\cite{LonestarGPU}. It hierarchically partitions the
+volume around the n bodies into successively smaller cubes, called
+cells, until there is just one body per innermost cell. The
+resulting spatial hierarchy is recorded in an unbalanced octree.
+Each cell summarizes information about the bodies it contains. The
+NB code is relatively straightforward, has a high computational
+density, and only accesses main memory infrequently due to
+excellent caching in shared memory. In contrast, the BH code is
+quite complex, has a low computational density, performs mostly
+irregular~\cite{Irregular_Programs_GPUs_Study} pointer-chasing
+memory accesses, and consists of multiple different kernels.
+Nevertheless, because of its lower time complexity, it is about
+33 times faster than the NB code when simulating one million stars.
+
+In order to conduct the energy measurement from the GPU power
+sensor, the authors of the work wrote their own tool to query the
+sensor via the NVIDIA Management Library (NVML) interface, which
+returns the power readings in milliwatts. The sampling intervals
+of the measurement are lowest possible $-$ 15 ms between
+measurements. At first, during the tests, there was a noticeable
+power lag and measurement distortion $-$ power profiling tends to
+lag behind the kernel activity and shape of the profile does not
+match the kernel activity in both shape (minor difference) and time
+(major difference). The key insight in creating a model of correct
+measurement is the fact that the power sensor gradually approaches
+the true power level rather than doing so instantly. Since the
+`curved' power readings between time when kernel start running and
+time when the power curve stabilizes reminded the authors of this
+work of capacitors charging and discharging, they tested whether
+the power profiles can be described by the same formulas. This
+turned out to work very well in the end. It is assumed that this
+is the case because the power sensor hardware uses a capacitor of
+some sort. After this revelation, the authors determined the 
+`capacitance' of the power sensor by using a single capacitor
+function to approximate the curve between the kernel start time
+and kernel stop time. After that, they determined the value of the
+capacitance that minimizes the sum of the differences between the
+measured values and the function values. As the capacitance is
+constant, it only needs to be established once for a given GPU,
+which is C~=~833.333 on all tested K20 GPUs. Computing the true
+power draw value then become a single function of the slope of
+power profile derived in time domain and is shown in a function
+below:
+
+\begin{equation} \label{eq:Computing the true instant power}
+    P_{true} (t_i) = P_{meas} (t_i) + C \times (\frac{P_{meas} (t_{i+1}) - P_{meas} (t_{i-1})}{t_{i+1} - t_{i-1}})  [W]
+\end{equation}
+
+Moving back onto the recommended steps for this experiment,
+following assumption should be considered: highest possible sample
+rate for NVML (which is 66.7 Hz / 15 ms between intervals) as well
+as including the time stamps, removal of consecutive samples of
+the same value that are no more than 4 ms apart of each other,
+computation of true power with the equation mentioned above and
+finally, computation of the true energy consumption by integrating
+the true power, using the time stamps, over all intervals where
+the power level is above the `active idle' threshold of 52.5~W.
+
+After incorporating the steps mentioned above in the tests, the
+authors of the research paper validated their results. To do so,
+they checked if the computed power profile follows the GPU kernel
+activity and also they revisited anomalies that they encountered
+before in order to check if their new approach eliminates them.
+In the end, the profiling almost instantly shoots up when the
+kernel starts, stays at a (more or less) constant level during
+execution, and almost instantly drops to the aforementioned 52.5 W
+after the kernel stops. Importantly, the power level during
+execution coincides with the asymptotic power between kernel start
+and kernel stop, which verifies the above hypothesis. This
+observation gives insight that power should be integrated from the
+time point of kernel start to the point of kernel end. Any energy
+consumption by the GPU before or after the kernel execution is due
+to idling (at different power levels) and is a function of time
+but independent of the kernel. In case of anomalies, the first one
+was regarding the kernel runtime changes and unintuitive increase
+of measured power draw. In the early tests that were based solely
+on readings from NVML, after increasing the kernel's runtime by
+two times, the power draw readings were not increased
+proportionally as well, they were higher by approximately 8\% than
+expected. The corrected power profile, however, indicates that, in
+fact, the energy consumption increase follows the total runtime
+one-to-one, thus resolving this particular anomaly. The second
+anomaly was that running the same kernel twice in close temporal
+proximity inflates the energy consumption of the second invocation.
+Once again, the power profiling proposed by the author clearly
+resolves this anomaly as the two corrected profiles are now at the
+same level (and the power level between the kernel runs is at the
+active-idle level). In other words, the computed power profile of
+a kernel is unaffected by prior kernel runs, which is an important
+advantage of this approach. This means that there is no need to
+have to delay kernel runs until the GPU reaches its idle power
+level before one can measure the energy consumption of the next
+kernel. Those tests were also validated on other GPUs and the
+results showed that they behave in a~similar manner to the first
+one. The only notable difference is that all of the measurements
+are a few watts higher on the second GPU\@. The difference is,
+however, within the 5 W absolute accuracy of the sensor. The
+profiled power obtained from tests on other GPUs are all very
+similar to each other, which further validates the used methodology.
+
+As a conclusion of this work, many results and insights were
+obtained, such as: Power profile is distorted with respect to the
+kernel activity; the measured power lags behind the kernel
+activity; running multiple kernels one after another inflates the
+power draw of the later kernels; after a~short-running kernel, the
+power draw can even increase for a while; integrating the power to
+a discernable time after a kernel stops does not correctly
+compensate for the power lag; the sampling interval lengths vary
+greatly; the GPU sensor only performs power measurements once in
+a while; the true sampling rate may be too low to accurately
+measure short-running kernels and the PCI-bus activity is not
+included in the sensor's measurements. This paper proposes and
+evaluates a power- and energy-measurement methodology that is
+accurate even in the presence of the above problems. It computes
+the true instant power consumption from the measured power samples,
+accounts for variations in the sampling frequency, and correctly
+identifies when kernels are running and when the GPU is in
+active-idle mode waiting for the next kernel launch.

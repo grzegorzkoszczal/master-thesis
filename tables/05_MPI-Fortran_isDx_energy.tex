@@ -1,0 +1,46 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{vinnana.kask}, device: \textbf{CPUs}, implementation: \textbf{MPI-Fortran},\\
+    benchmark: \textbf{is.D.x}, data displayed: \textbf{energy used}}\label{tbl:MPI-Fortran_isDx_energy}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10,13-14} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=4]{c} 2 CPUs  \\
+    \hline
+        Results from 10 runs                                        & Processes: 4  & Processes: 8  & Processes: 16 & Processes: 32 \\
+    \hline
+        {Avg. Exec\@. time [s]}                                     & 153.946       & 82.896        & 46.065        & 33.465 \\
+    \hline
+        {Std\@. dev\@. of time [-]}                                 & 0.267         & 0.285         & 0.075         & 0.528 \\
+    \hline
+        {(Yokogawa) \\ Avg\@. energy used [kJ]}                     & 53.929       & 30.475       & 18.534       & 14.832 \\
+    \hline
+        {(Yokogawa) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 0.08         & 0.124         & 0.041         & 0.203 \\
+    \hline
+        {(CPUs) \\ Avg\@. energy used [kJ]}                         & 11.901        & 7.47          & 5.266         & 4.6 \\
+    \hline
+        {(CPUs) \\ Std\@. dev\@. of avg\@. energy used [-]}         & 0.022         & 0.036         & 0.009         & 0.089 \\
+    \hline
+        {(GPU\@: 0) \\ Avg\@. energy used [kJ]}                     & 1.75        & 0.936         & 0.521         & 0.382 \\
+    \hline
+        {(GPU\@: 0) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 0.009         & 0.007         & 0.004         & 0.008 \\
+    \hline
+        {(GPU\@: 1) \\ Avg\@. energy used [kJ]}                     & 2.3        & 1.096        & 0.615         & 0.446 \\
+    \hline
+        {(GPU\@: 1) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 0.011         & 0.006         & 0.002         & 0.007 \\
+    \hline
+        {(GPU\@: 2) \\ Avg\@. energy used [kJ]}                     & 1.74        & 0.932         & 0.519         & 0.38 \\
+    \hline
+        {(GPU\@: 2) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 0.006         & 0.004         & 0.002         & 0.007 \\
+    \hline
+        {(GPU\@: 3) \\ Avg\@. energy used [kJ]}                     & 2.229        & 1.194          & 0.665         & 0.484 \\
+    \hline
+        {(GPU\@: 3) \\ Std\@. dev\@. of avg\@. energy used [-]}     & 0.006         & 0.006         & 0.003         & 0.008 \\
+    \hline
+    \end{tblr}
+\end{table}
