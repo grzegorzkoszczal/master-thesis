@@ -82,7 +82,7 @@ only once when the command “papi end” is called. Thus, the power
 returned using this method is an instantaneous power when the
 kernel finishes execution.
 
-Multi-Threaded Synchronized Monitoring (MTSM) $-$ This method
+Multi-Threaded Synchronized Monitoring (MTSM) $-$ this method
 differs from SMA approach in the measurement period, a specific,
 exact window of the kernel execution is identified which results
 in recording of only the power reading of the kernel solely.
@@ -143,7 +143,7 @@ are: being able to run in parallel on various numbers of logical
 processors, being able to run on one or more GPUs and being able to
 execute on various input parameters class sizes.
 
-There are four benchmark sets, that satisfies mentioned goals:
+There are four benchmark sets, that satisfy mentioned goals:
 \begin{itemize}
     \item NAS Parallel Benchmarks (C++ with OMP)
     \item NAS Parallel Benchmarks (Fortran with MPI)
@@ -186,7 +186,7 @@ Three pseudo applications:
     \item \textbf{LU} $-$ Lower-Upper Gauss-Seidel solver
 \end{itemize}
 
-The three pseudo applications mentioned earlier also comes with the multi-zone
+The three pseudo applications mentioned earlier also come with the multi-zone
 versions, designed to exploit multiple levels of parallelism. Moreover, NPB
 suite also offers benchmarks for unstructured computation, parallel I/O and
 data movement. For the purpose of this work only the original single-zone
@@ -297,7 +297,7 @@ Key features and concepts of CUDA include, but are not limited, to:
     and optimize CUDA applications.
 \end{itemize}
 
-As mentioned in the previously shown, CPU implementations, this benchmarks
+As mentioned in the previously shown CPU implementations, this benchmarks
 suite also comes with various kernels and class sizes to choose from, according
 to our needs. One important thing should be noted, however $-$ due to the
 nature of the way it has been implemented, the index number of the GPU, that
@@ -327,7 +327,7 @@ fields, such as web development, data analysis, scientific computing and
 artificial intelligence. Its high-level abstraction provides a clean and
 readable syntax and the fact that its an interpreted language means that
 there is no need to compile the code before running it, shortening the
-time between each tests of new features. Moreover, Python comes with a large
+time between each tests of new features. Moreover, Python comes with a~large
 and comprehensive standard library for basic programming tasks such as file I/O,
 regular expressions, networking and data manipulation, and in case if someone
 needs more specific libraries, it features an easy solution for installing
@@ -349,7 +349,7 @@ Both TensorFlow and Keras offers extensive documentations that allows user
 to quickly learn the basics of theirs modules and libraries. Moreover,
 organizations such as Google~\cite{Google_Machine_Learning_Crash_Course}
 or Kaggle~\cite{Kaggle} offers a practical approach in learning such concepts,
-especially Kaggle comes with a wide array of many datasets and exemplary
+especially Kaggle comes with a~wide array of many datasets and exemplary
 solutions, created by the community members.
 
 Horovod~\cite{Horovod} is an open-source distributed deep learning framework
@@ -373,7 +373,7 @@ is commonly addressed using supervised learning, where the neural network
 learns from a labeled dataset containing examples of images and their
 corresponding class labels. The dataset used has been taken from the Kaggle
 website~\cite{Kaggle_Dataset} classes of the dataset represents various
-species of birds, that are labeled. The birds in nearly all images occupies
+species of birds, that are labeled. The birds in nearly all images occupy
 over 50\% of the image, the photos themselves are of good quality $-$ no images
 are blurry, done in bad lighting or misslabeled. All images are 224 $\times$
 224 $\times$ 3 color images in \@.jpg format. Considering all the informations
@@ -393,13 +393,11 @@ finally, usage of XCeption Model $-$ a deep convolutional neural network
 architecture that involves Depthwise Separable Convolutions, that has been
 developed mainly for the purpose of solving the images classification problems.
 
-
-
 % State-of-the-art chapter
-\chapter*{Related works}
+\section{Related works}
 
 % First research paper
-\section{`A Comparative Study of Methods for Measurement
+\subsection{`A Comparative Study of Methods for Measurement
 of Energy of Computing'}
 
 Authors of this work~\cite{State_of_the_Art_Article_1}
@@ -587,7 +585,7 @@ It suggests that optimizing the data transfers for dynamic energy
 consumption is important.
 
 % Second research paper
-\section{`Verified Instruction-Level Energy Consumption Measurement
+\subsection{`Verified Instruction-Level Energy Consumption Measurement
 for NVIDIA GPUs'}
 
 Authors of this research paper~\cite{State_of_the_Art_Article_2}
@@ -685,8 +683,7 @@ RMSE is 5.04. The results prove that MTSM is more accurate than
 PAPI as it is closer to what has been measured using the hardware.
 
 % Third research paper
-\newpage
-\section{`Measuring GPU Power with the K20 Built-in Sensor'}
+\subsection{`Measuring GPU Power with the K20 Built-in Sensor'}
 
 Authors of this research paper~\cite{State_of_the_Art_Article_3}
 investigated accurate profiling of the power consumption of

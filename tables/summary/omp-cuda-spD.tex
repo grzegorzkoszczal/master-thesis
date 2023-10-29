@@ -1,0 +1,26 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{sanna.kask}, device: \textbf{GPUs}, implementation: \textbf{OMP-CUDA},\\
+    benchmark: \textbf{sp.D}, data displayed: \textbf{increase in power draw}}\label{tbl:omp-cuda-spD}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=2]{c} GPUs  \\
+    \hline
+        Configurations          & Measured power draw [W]   & Increase in power draw during tests [\%] \\
+    \hline
+        1 GPU                   & 604.859                   & 69.16 \\
+    \hline
+        2 GPUs                  & 807.122                   & 125.72 \\
+    \hline
+        4 GPUs                  & 1488.43                   & 316.26 \\
+    \hline
+        8 GPUs                  & 2479.957                  & 593.55 \\
+    \hline
+    \end{tblr}
+\end{table}

@@ -1,0 +1,26 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{sanna.kask}, device: \textbf{Hybrid}, implementation: \textbf{OMP-CPP+OMP-CUDA},\\
+    benchmarks: \textbf{lu.C+ep.D}, data displayed: \textbf{increase in power draw}}\label{tbl:omp-hybrid-luC-epD}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=2]{c} Hybrid  \\
+    \hline
+        Configurations          & Measured power draw [W]   & Increase in power draw during tests [\%] \\
+    \hline
+        1 GPU + 4 Threads       & 577.48                    & 61.50 \\
+    \hline
+        2 GPUs + 8 Threads      & 749.685                   & 109.66 \\
+    \hline
+        4 GPUs + 16 Threads     & 1399.988                  & 291.52 \\
+    \hline
+        8 GPUs + 32 Threads     & 2031.805                  & 468.22 \\
+    \hline
+    \end{tblr}
+\end{table}

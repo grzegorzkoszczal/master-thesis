@@ -1,0 +1,26 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{vinnana.kask}, device: \textbf{CPUs}, implementation: \textbf{MPI-Fortran},\\
+    benchmark: \textbf{ep.D.x}, data displayed: \textbf{increase in power draw}}\label{tbl:mpi-cpu-epD}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=2]{c} CPUs  \\
+    \hline
+        Configurations          & Measured power draw [W]   & Increase in power draw during tests [\%] \\
+    \hline
+        Processes: 4            & 353.715                   & 12.40 \\
+    \hline
+        Processes: 8            & 370.336                   & 17.68 \\
+    \hline
+        Processes: 16           & 409.864                   & 30.24 \\
+    \hline
+        Processes: 32           & 455.735                   & 44.82 \\
+    \hline
+    \end{tblr}
+\end{table}

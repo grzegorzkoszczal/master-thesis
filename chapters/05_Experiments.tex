@@ -81,14 +81,10 @@ That created a~tree-like dependencies between the corresponding layers of
 configurations. Finally, that solution works for both choosing the right
 config and providing the path to save measurements.
 
-
-2. Section that run CPUs benchmarks, GPUs benchmarks, perf, nvml, yoko
-3. Functions that check if the benchmarks are still running
-4. Function that cleans-up every process after tests
-
 \newpage
 
-\subsection{Main automation function $-$ scheduler()}
+% \subsection{Main automation function $-$ scheduler()}
+\subsection{Main automation function}
 
 % NOTE TO SELF: Make sure this chart belongs to this section
 
@@ -147,7 +143,8 @@ workings of the individual processes, two charts has been created:
 
 \newpage
 
-\subsection{Threads pinning and kernels execution $-$ cpu\_benchmark()}
+% \subsection{Threads pinning and kernels execution $-$ cpu\_benchmark()}
+\subsection{Threads pinning and kernels execution}
 
 This function is responsible of executing CPUs benchmarks, based on the
 given configuration. It creates a separate processes by utilizing the
@@ -201,7 +198,8 @@ benchmark in a Hybrid configuration.
 
 \newpage
 
-\subsection{GPUs and threads management $-$ gpu\_benchmark\@()}
+% \subsection{GPUs and threads management $-$ gpu\_benchmark\@()}
+\subsection{GPUs and threads management}
 
 This function consists of two parts: first part is responsible for executing
 the Horovod-Python benchmark and the second part is responsible for running
@@ -319,7 +317,8 @@ function that is responsible in orderly terminating all the kernels.
 
 \newpage
 
-\subsection{Measurements with Yokotool software $-$ yoko\@()}
+% \subsection{Measurements with Yokotool software $-$ yoko\@()}
+\subsection{Measurements with Yokotool software}
 
 This function utilizes the high-level Python wrapper for Yokogawa WT310E Power
 Meter, the \emph{Yokotool}.
@@ -370,7 +369,8 @@ measurements by the designated function.
 
 \newpage
 
-\subsection{Measurements with Linux Perf software $-$ perf\@()}
+% \subsection{Measurements with Linux Perf software $-$ perf\@()}
+\subsection{Measurements with Linux Perf software}
 
 Linux Perf is a lightweight profiling tool with performance counters.
 It utilizes Intel RAPL for measurements of pre-defined events on CPUs.
@@ -438,7 +438,8 @@ Finally, the function returns the PID of newly created process
 as an integer value. It is done for the purpose of terminating the
 measurements by the designated function.
 
-\subsection{Measurements with NVML handling function $-$ nvml\@()}
+% \subsection{Measurements with NVML handling function $-$ nvml\@()}
+\subsection{Measurements with NVML handling function}
 
 The method of gathering the measurements of power draw of GPUs, using NVIDIA
 Management Library is a little different than in previously shown
@@ -530,6 +531,52 @@ module $-$ \emph{.terminate\@()}.
 [PLACEHOLDER]
 
 [WYKRESY: LICZBA WĄTKÓW NA OSI X I POBÓR MOCY NA OSI Y]
+
+[TUTAJ SĄ WYKRESY ZESTAWIENIOWE, DO ANALIZY I WYCIĄGNIĘCIA WNIOSKÓW]
+
+\newpage
+
+\input{tables/summary/omp-cpp-btC.tex}
+
+\input{tables/summary/omp-cpp-isD.tex}
+
+\input{tables/summary/omp-cpp-luC.tex}
+
+\newpage
+
+\input{tables/summary/omp-cuda-epD.tex}
+
+\input{tables/summary/omp-cuda-luD.tex}
+
+\input{tables/summary/omp-cuda-spD.tex}
+
+\newpage
+
+\input{tables/summary/omp-hybrid-btC-luD.tex}
+
+\input{tables/summary/omp-hybrid-isD-spD.tex}
+
+\input{tables/summary/omp-hybrid-luC-epD.tex}
+
+\newpage
+
+\input{tables/summary/mpi-cpu-epD.tex}
+
+\input{tables/summary/mpi-cpu-isD.tex}
+
+\input{tables/summary/mpi-cpu-luC.tex}
+
+\newpage
+
+\input{tables/summary/mpi-gpu-xception.tex}
+
+\input{tables/summary/mpi-hybrid-epD.tex}
+
+\input{tables/summary/mpi-hybrid-isD.tex}
+
+\input{tables/summary/mpi-hybrid-luC.tex}
+
+\newpage
 
 \input{tables/05_OMP-CPP_1CPU_btC_power.tex}
 

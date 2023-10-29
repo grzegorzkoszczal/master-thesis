@@ -1,0 +1,34 @@
+\begin{table}[hbt!]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{sanna.kask}, device: \textbf{CPUs}, implementation: \textbf{OMP-CPP},\\
+    benchmark: \textbf{is.D}, data displayed: \textbf{increase in power draw}}\label{tbl:omp-cpp-isD}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=2]{c} CPUs  \\
+    \hline
+        Configurations          & Measured power draw [W]   & Increase in power draw during tests [\%] \\
+    \hline
+        1 CPU 1 Thread          & 378.666                   & 5.90 \\
+    \hline
+        1 CPU 5 Threads         & 394.555                   & 10.34 \\
+    \hline
+        1 CPU 10 Threads        & 413.561                   & 15.66 \\
+    \hline
+        1 CPU 20 Threads        & 426.861                   & 19.38 \\
+    \hline
+        2 CPUs 2 Threads        & 383.887                   & 7.36 \\
+    \hline
+        2 CPUs 10 Threads       & 414.22                    & 15.84 \\
+    \hline
+        2 CPUs 20 Threads       & 447.238                   & 25.08 \\
+    \hline
+        2 CPUs 40 Threads       & 470.243                   & 31.51 \\
+    \hline
+    \end{tblr}
+\end{table}
