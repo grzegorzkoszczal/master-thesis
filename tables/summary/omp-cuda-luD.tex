@@ -1,8 +1,8 @@
-\begin{table}[hbt!]
+\begin{table}[H]
     \rowcolors{1}{Lavender!80!gray}{white}
     \centering
     \caption{server: \textbf{sanna.kask}, device: \textbf{GPUs}, implementation: \textbf{OMP-CUDA},\\
-    benchmark: \textbf{lu.D}, data displayed: \textbf{increase in power draw}}\label{tbl:omp-cuda-luD}
+    benchmark: \textbf{lu.D}, data displayed: \textbf{differences in power draw}}\label{tbl:omp-cuda-luD}
     \setlength{\tabcolsep}{5mm}
     \begin{tblr}{
         vlines,
@@ -10,17 +10,20 @@
         row{2,5-6,9-10} = {bg = lightgray!30}
         }
     \hline
-        & \SetCell[c=2]{c} GPUs  \\
+        & \SetCell[c=4]{c} GPUs  \\
     \hline
-        Configurations          & Measured power draw [W]   & Increase in power draw during tests [\%] \\
+        Configurations          & {(Yokogawa) \\ Measured power draw \\ of entire node [W]}
+        & {Difference \\ (Base value: \\ 192.064) [W]}
+        & Offset [W]
+        & Increase [\%] \\
     \hline
-        1 GPU                   & 605.116                   & 69.23 \\
+        1 GPU                   & 605.116                   & 220.341 & 28.277 & 69.23 \\
     \hline
-        2 GPUs                  & 806.718                   & 125.61 \\
+        2 GPUs                  & 806.718                   & 215.244 & 23.18 & 125.61 \\
     \hline
-        4 GPUs                  & 1456.046                  & 307.20 \\
+        4 GPUs                  & 1456.046                  & 469.023 & 276.959 & 307.20 \\
     \hline
-        8 GPUs                  & 2453.513                  & 586.15 \\
+        8 GPUs                  & 2453.513                  & 609.312 & 417.248 & 586.15 \\
     \hline
     \end{tblr}
 \end{table}

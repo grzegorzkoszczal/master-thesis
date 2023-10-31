@@ -1,0 +1,25 @@
+\begin{table}[H]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{Power draw measurements of idle \emph{sanna.kask} server}\label{tbl:idle_sanna}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30}, 
+        row{2,5-6} = {bg = lightgray!30}
+        }
+    \hline
+                                                                                        & Idle power draw  \\
+    \hline
+        Measured components                                                             & Power draw readings [W] \\
+    \hline
+        Sum of entire node idle power draw (Yokogawa)                                   & 357.575 \\
+    \hline
+        Sum of CPUs idle power draw (Linux Perf / Intel RAPL)                           & 44.908 \\
+    \hline
+        Sum of GPUs idle power draw (NVML)                                              & 120.604 \\
+    \hline
+        {Difference between idle node power draw \\and sum of CPUs and GPUs power draw} & 192.064 \\
+    \hline
+    \end{tblr}
+\end{table}

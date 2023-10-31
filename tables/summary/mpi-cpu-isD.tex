@@ -1,8 +1,8 @@
-\begin{table}[hbt!]
+\begin{table}[H]
     \rowcolors{1}{Lavender!80!gray}{white}
     \centering
     \caption{server: \textbf{vinnana.kask}, device: \textbf{CPUs}, implementation: \textbf{MPI-Fortran},\\
-    benchmark: \textbf{is.D.x}, data displayed: \textbf{increase in power draw}}\label{tbl:mpi-cpu-isD}
+    benchmark: \textbf{is.D.x}, data displayed: \textbf{differences in power draw}}\label{tbl:mpi-cpu-isD}
     \setlength{\tabcolsep}{5mm}
     \begin{tblr}{
         vlines,
@@ -10,17 +10,20 @@
         row{2,5-6,9-10} = {bg = lightgray!30}
         }
     \hline
-        & \SetCell[c=2]{c} CPUs  \\
+        & \SetCell[c=4]{c} CPUs  \\
     \hline
-        Configurations          & Measured power draw [W]   & Increase in power draw during tests [\%] \\
+        Configurations          & {(Yokogawa) \\ Measured power draw \\ of entire node [W]}
+        & {Difference \\ (Base value: \\ 217.471) [W]}
+        & Offset [W]
+        & Increase [\%] \\
     \hline
-        Processes: 4            & 350.311                   & 11.32 \\
+        Processes: 4            & 350.311                   & 222.532 & 5.061 & 11.32 \\
     \hline
-        Processes: 8            & 367.628                   & 16.82 \\
+        Processes: 8            & 367.628                   & 227.076 & 9.605 & 16.82 \\
     \hline
-        Processes: 16           & 402.346                   & 27.85 \\
+        Processes: 16           & 402.346                   & 236.998 & 19.527 & 27.85 \\
     \hline
-        Processes: 32           & 443.225                   & 40.84 \\
+        Processes: 32           & 443.225                   & 254.177 & 36.706 & 40.84 \\
     \hline
     \end{tblr}
 \end{table}

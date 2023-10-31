@@ -1,4 +1,4 @@
-\begin{table}[hbt!]
+\begin{table}[!htbp]
     \rowcolors{1}{Lavender!80!gray}{white}
     \centering
     \caption{server: \textbf{sanna.kask}, device: \textbf{Hybrid}, implementation: \textbf{OMP-CPP+OMP-CUDA},\\
@@ -6,7 +6,7 @@
     \setlength{\tabcolsep}{5mm}
     \begin{tblr}{
         vlines,
-        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30}, 
         row{2,5-6,9-10,13-14,17-18,21-22,25-26} = {bg = lightgray!30}
         }
     \hline
@@ -18,49 +18,49 @@
     \hline
         {Std\@. dev\@. of time [-]}                             & 2.918     & 0.269     & 0.441         & 0.692 \\
     \hline
-        {(Yokogawa) \\ Avg\@. power draw [W]}                   & 169,403  & 118,735  & 145,829      & 213,561 \\
+        {(Yokogawa) \\ Avg\@. energy used [kJ]}                 & 169.403   & 118.735   & 145.829       & 213.561 \\
     \hline
-        {(Yokogawa) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 2,612    & 1,185    & 0,977         & 2,49 \\
+        {(Yokogawa) \\ Std\@. dev\@. of avg\@. energy used [-]} & 2.612     & 1.185     & 0.977         & 2.49 \\
     \hline
-        {(CPU\@: 0) \\ Avg\@. power draw [W]}                   & 13.829    & 9.895     & 5.734         & 6.043 \\
+        {(CPU\@: 0) \\ Avg\@. energy used [kJ]}                 & 13.829    & 9.895     & 5.734         & 6.043 \\
     \hline
-        {(CPU\@: 0) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.087     & 0.015     & 0.021         & 0.043 \\
+        {(CPU\@: 0) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.087     & 0.015     & 0.021         & 0.043 \\
     \hline
-        {(CPU\@: 1) \\ Avg\@. power draw [W]}                   & 8.025     & 4.161     & 5.787         & 6.106 \\
+        {(CPU\@: 1) \\ Avg\@. energy used [kJ]}                 & 8.025     & 4.161     & 5.787         & 6.106 \\
     \hline
-        {(CPU\@: 1) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0.069     & 0.01      & 0.022         & 0.04 \\
+        {(CPU\@: 1) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.069     & 0.01      & 0.022         & 0.04 \\
     \hline
-        {(GPU\@: 0) \\ Avg\@. power draw [W]}                   & 59,331   & 30,574   & 17,765       & 16,743 \\
+        {(GPU\@: 0) \\ Avg\@. energy used [kJ]}                 & 59.331    & 30.574    & 17.765        & 16.743 \\
     \hline
-        {(GPU\@: 0) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0,176     & 0,077    & 0,092         & 0,126 \\
+        {(GPU\@: 0) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.176     & 0.077     & 0.092         & 0.126 \\
     \hline
-        {(GPU\@: 1) \\ Avg\@. power draw [W]}                   & 6,759    & 31,278   & 18,453       & 17,282 \\
+        {(GPU\@: 1) \\ Avg\@. energy used [kJ]}                 & 6.759     & 31.278    & 18.453        & 17.282 \\
     \hline
-        {(GPU\@: 1) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0,069     & 0,413     & 0,092         & 0,176 \\
+        {(GPU\@: 1) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.069     & 0.413     & 0.092         & 0.176 \\
     \hline
-        {(GPU\@: 2) \\ Avg\@. power draw [W]}                   & 3,608    & 1,85    & 18,618      & 17,566 \\
+        {(GPU\@: 2) \\ Avg\@. energy used [kJ]}                 & 3.608     & 1.85      & 18.618        & 17.566 \\
     \hline
-        {(GPU\@: 2) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0,054    & 0,02     & 0,165          & 0,137 \\
+        {(GPU\@: 2) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.054     & 0.02      & 0.165         & 0.137 \\
     \hline
-        {(GPU\@: 3) \\ Avg\@. power draw [W]}                   & 4,649    & 2,418    & 19,248       & 18,039 \\
+        {(GPU\@: 3) \\ Avg\@. energy used [kJ]}                 & 4.649     & 2.418     & 19.248        & 18.039 \\
     \hline
-        {(GPU\@: 3) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0,055      & 0,004     & 0,097         & 0,165 \\
+        {(GPU\@: 3) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.055     & 0.004     & 0.097         & 0.165 \\
     \hline
-        {(GPU\@: 4) \\ Avg\@. power draw [W]}                   & 1,095    & 0,576     & 0,397         & 17,276 \\
+        {(GPU\@: 4) \\ Avg\@. energy used [kJ]}                 & 1.095     & 0.576     & 0.397         & 17.276 \\
     \hline
-        {(GPU\@: 4) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0,012     & 0,002     & 0,005         & 0,18 \\
+        {(GPU\@: 4) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.012     & 0.002     & 0.005         & 0.18 \\
     \hline
-        {(GPU\@: 5) \\ Avg\@. power draw [W]}                   & 4,982    & 2,63    & 1,83        & 17,469 \\
+        {(GPU\@: 5) \\ Avg\@. energy used [kJ]}                 & 4.982     & 2.63      & 1.83          & 17.469 \\
     \hline
-        {(GPU\@: 5) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0,082     & 0,018     & 0,018          & 0,188 \\
+        {(GPU\@: 5) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.082     & 0.018     & 0.018         & 0.188 \\
     \hline
-        {(GPU\@: 6) \\ Avg\@. power draw [W]}                   & 2,143    & 1,166    & 0,74         & 17,78 \\
+        {(GPU\@: 6) \\ Avg\@. energy used [kJ]}                 & 2.143     & 1.166     & 0.74          & 17.78 \\
     \hline
-        {(GPU\@: 6) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0,049     & 0,026     & 0,043        & 0,174 \\
+        {(GPU\@: 6) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.049     & 0.026     & 0.043         & 0.174 \\
     \hline
-        {(GPU\@: 7) \\ Avg\@. power draw [W]}                   & 3,414    & 1,75    & 1,154        & 19,723 \\
+        {(GPU\@: 7) \\ Avg\@. energy used [kJ]}                 & 3.414     & 1.75      & 1.154         & 19.723 \\
     \hline
-        {(GPU\@: 7) \\ Std\@. dev\@. of avg\@. power draw [-]}  & 0,056    & 0,014     & 0,017         & 0,228 \\
+        {(GPU\@: 7) \\ Std\@. dev\@. of avg\@. energy used [-]} & 0.056     & 0.014     & 0.017         & 0.228 \\
     \hline
     \end{tblr}
 \end{table}

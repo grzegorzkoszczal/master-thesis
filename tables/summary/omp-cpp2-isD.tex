@@ -1,0 +1,29 @@
+\begin{table}[H]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{sanna.kask}, device: \textbf{2 CPUs}, implementation: \textbf{OMP-CPP},\\
+    benchmark: \textbf{is.D}, data displayed: \textbf{differences in power draw}}\label{tbl:omp-cpp2-isD}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=4]{c} 2 CPUs \\
+    \hline
+        Configurations          & {(Yokogawa) \\ Measured power draw \\ of entire node [W]}
+        & {Difference \\ (Base value: \\ 192.064) [W]}
+        & Offset [W]
+        & Increase [\%] \\
+    \hline
+        2 CPUs 2 Threads        & 383.887                   & 199.86 & 7.796 & 7.36 \\
+    \hline
+        2 CPUs 10 Threads       & 414.22                    & 208.536 & 16.472 & 15.84 \\
+    \hline
+        2 CPUs 20 Threads       & 447.238                   & 219.243 & 27.179 & 25.08 \\
+    \hline
+        2 CPUs 40 Threads       & 470.243                   & 231.621 & 39.557 & 31.51 \\
+    \hline
+    \end{tblr}
+\end{table}

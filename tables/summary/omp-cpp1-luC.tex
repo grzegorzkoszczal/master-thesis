@@ -1,0 +1,29 @@
+\begin{table}[H]
+    \rowcolors{1}{Lavender!80!gray}{white}
+    \centering
+    \caption{server: \textbf{sanna.kask}, device: \textbf{1 CPU}, implementation: \textbf{OMP-CPP},\\
+    benchmark: \textbf{lu.C}, data displayed: \textbf{differences in power draw}}\label{tbl:omp-cpp1-luC}
+    \setlength{\tabcolsep}{5mm}
+    \begin{tblr}{
+        vlines,
+        row{1}={font=\bfseries,halign=c,bg=lightgray!30},
+        row{2,5-6,9-10} = {bg = lightgray!30}
+        }
+    \hline
+        & \SetCell[c=4]{c} 1 CPU  \\
+    \hline
+        Configurations          & {(Yokogawa) \\ Measured power draw \\ of entire node [W]}
+        & {Difference \\ (Base value: \\ 192.064) [W]}
+        & Offset [W]
+        & Increase [\%] \\
+    \hline
+        1 CPU 1 Thread          & 383.095                   & 199.431 & 7.367 & 7.14 \\
+    \hline
+        1 CPU 5 Threads         & 417.551                   & 209.368 & 17.304 & 16.77 \\
+    \hline
+        1 CPU 10 Threads        & 456.064                   & 221.806 & 29.742 & 27.54 \\
+    \hline
+        1 CPU 20 Threads        & 470.299                   & 233.046 & 40.982 & 31.52 \\
+    \hline
+    \end{tblr}
+\end{table}

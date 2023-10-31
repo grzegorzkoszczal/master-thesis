@@ -528,53 +528,43 @@ module $-$ \emph{.terminate\@()}.
 
 \section{Analysis of the results and discussion}
 
-[PLACEHOLDER]
+This section contains a summary of tables with measurements results as well as
+the analysis of the dependencies between individual results.
 
-[WYKRESY: LICZBA WĄTKÓW NA OSI X I POBÓR MOCY NA OSI Y]
+The first set of tables contains the information about the average power draw
+and average energy used for every configuration chosen during the preliminary
+tests. The tables themselves are self-explanatory, the captions associated
+with them gives hints about used server, device, implementation, benchmark
+and finally, the data displayed. 
 
-[TUTAJ SĄ WYKRESY ZESTAWIENIOWE, DO ANALIZY I WYCIĄGNIĘCIA WNIOSKÓW]
+Two things should be noted, however. First, the physical quantities with label
+(Yokogawa) means that the measurements has been done using Yokogawa WT310E
+Power Meter and are related to the entire node, while those with labels
+(CPU\@: <index>) and (GPU\@: <index>) are related to measurements done using
+Linux Perf and NVML respectively. Second, the configurations execution
+times vary $-$ majority of the tests have shorter execution times the more
+resources of used devices are dedicated. Such configurations are\@:
+OMP-CPP benchmarks for \emph{sanna.kask}, MPI-Fortran and Horovod-Python
+for \emph{vinnana.kask} and their hybrid variants. This is due to the fact,
+those implementations utilize parallel programmings paradigms, therefore the
+execution speed-up can be observed. In case of the OMP-CUDA benchmarks,
+situation is different $-$ those benchmarks were prepared for single GPU tests
+only. Since the main purpose of the benchmarks is to simply strain and fully
+utilize the devices resources, rather than compute meaningful research
+problems, the OMP-CUDA benchmarks on multi-GPUs are simply many instances of
+the same benchmark, running on different GPUs. Since those kernels are
+independent from each other, the average execution times between configurations
+are rougly the same. This also explains the fact, that the Hybrid benchmarks
+that were run on \emph{sanna.kask} has sometimes shorter execution times the
+more resources are dedicated and sometimes and sometimes they are similar.
+The Hybrid benchmarks works in a way, that the listener function from the
+scheduler script checks, whether the benchmarks are running or not. If the
+CPUs benchmarks ends, the termination signal is send to GPUs benchmarks,
+resulting with varying execution times. If the GPUs benchmarks in given
+configuration ends faster, the CPUs benchmarks are terminated in return,
+resulting in similar execution times.
 
-\newpage
 
-\input{tables/summary/omp-cpp-btC.tex}
-
-\input{tables/summary/omp-cpp-isD.tex}
-
-\input{tables/summary/omp-cpp-luC.tex}
-
-\newpage
-
-\input{tables/summary/omp-cuda-epD.tex}
-
-\input{tables/summary/omp-cuda-luD.tex}
-
-\input{tables/summary/omp-cuda-spD.tex}
-
-\newpage
-
-\input{tables/summary/omp-hybrid-btC-luD.tex}
-
-\input{tables/summary/omp-hybrid-isD-spD.tex}
-
-\input{tables/summary/omp-hybrid-luC-epD.tex}
-
-\newpage
-
-\input{tables/summary/mpi-cpu-epD.tex}
-
-\input{tables/summary/mpi-cpu-isD.tex}
-
-\input{tables/summary/mpi-cpu-luC.tex}
-
-\newpage
-
-\input{tables/summary/mpi-gpu-xception.tex}
-
-\input{tables/summary/mpi-hybrid-epD.tex}
-
-\input{tables/summary/mpi-hybrid-isD.tex}
-
-\input{tables/summary/mpi-hybrid-luC.tex}
 
 \newpage
 
@@ -634,7 +624,7 @@ module $-$ \emph{.terminate\@()}.
 
 \input{tables/05_Hybrid_luC+epD_energy.tex}
 
-
+\newpage
 
 \input{tables/05_MPI-Fortran_epDx_power.tex}
 
@@ -667,3 +657,134 @@ module $-$ \emph{.terminate\@()}.
 \input{tables/05_MPI_luC_power.tex}
 
 \input{tables/05_MPI_luC_energy.tex}
+
+
+\newpage
+\FloatBarrier
+
+In order to obtain information about the changes of power draw measurements
+behaviour during the execution of benchmarks, a base values of idle nodes
+power draw should be gathered as a reference for further investigation.
+Idle nodes power draw has been measured as follows: each server has been
+reserved for the duration of tests, with no other processes running in the
+background. Then, using the Yokogawa WT310E Power Meter, the power draw of
+entire servers has been measured independently for the period of one hour.
+Additionally, the power draw of each CPU and each GPU has been measured
+as well, using Linux Perf and NVML respectively. Finally, the base value
+for further analysis has been calculated by substracting the sum of idle
+CPUs and GPUs power draw from the idle node power draw. These values are
+presented in the tables below as a reference:
+
+\input{tables/idle_sanna.tex}
+
+\input{tables/idle_vinnana.tex}
+
+Last set of tables presented on the next pages serve as a summary of
+differences in power draw between the values measured during the execution
+of benchmark kernels and the base value of idle node power draw.
+Explanation of data presented in summary tables is shown below:
+
+\begin{itemize}
+    \item \textbf{Difference} $-$ substraction of active node and the sum of
+    active CPUs and GPUs power draw [W]
+    \item \textbf{Offset} $-$ difference between the substraction of active
+    node and the sum of active CPUs and GPUs power draw [W] and substraction
+    of idle node and the sum of idle CPUs and GPUs power draw [W]
+    \item \textbf{Increase} $-$ percentage increase in node power draw during
+    tests, compared to idle node power draw [\%]
+\end{itemize}
+
+\newpage
+\FloatBarrier
+
+\input{tables/summary/omp-cpp1-btC.tex}
+
+\input{tables/summary/omp-cpp1-isD.tex}
+
+\input{tables/summary/omp-cpp1-luC.tex}
+
+\newpage
+
+\input{tables/summary/omp-cpp2-btC.tex}
+
+\input{tables/summary/omp-cpp2-isD.tex}
+
+\input{tables/summary/omp-cpp2-luC.tex}
+
+\newpage
+
+\input{tables/summary/omp-cuda-epD.tex}
+
+\input{tables/summary/omp-cuda-luD.tex}
+
+\input{tables/summary/omp-cuda-spD.tex}
+
+\newpage
+
+\input{tables/summary/omp-hybrid-btC-luD.tex}
+
+\input{tables/summary/omp-hybrid-isD-spD.tex}
+
+\input{tables/summary/omp-hybrid-luC-epD.tex}
+
+\newpage
+
+\input{tables/summary/mpi-cpu-epD.tex}
+
+\input{tables/summary/mpi-cpu-isD.tex}
+
+\input{tables/summary/mpi-cpu-luC.tex}
+
+\newpage
+
+\input{tables/summary/mpi-gpu-xception.tex}
+
+\input{tables/summary/mpi-hybrid-epD.tex}
+
+\input{tables/summary/mpi-hybrid-isD.tex}
+
+\input{tables/summary/mpi-hybrid-luC.tex}
+
+In this section, the conclusion are drawn based on the interpretation of
+summary tables of differences in power draw during various tests
+configurations.
+
+\begin{itemize}
+    \item \textbf{CPUs benchmarks on \emph{sanna.kask}} $-$ based on the
+    observation of power draw offsets, the conclusion is that the power draw
+    of entire node grows almost linearly, the more logical processors are used
+    for running the benchmarks. Biggest change occurs when the tests are
+    started at all, in the \emph{1 CPU 1 Thread} and \emph{2 CPUs 2 Threads}
+    configurations, and gets smaller, the more resources are dedicated to
+    tests.
+    \item \textbf{GPUs benchmarks on \emph{sanna.kask}} $-$ in this set
+    of tests one can observe an interesting phenomenon. At first, situation
+    seems similar to CPUs benchmarks in terms of near linear offset changes,
+    when 1 or 2 GPUs are used for the tests. When benchmarks are executed on
+    4 or 8 GPUs, however, we can observe a significant surge in power draw of
+    the entire node. This could be related to the increased activity of other
+    components of the server, such as increased power draw of motherboard,
+    increased fans speed or greater RAM usage.
+    \item \textbf{Hybrid benchmarks on \emph{sanna.kask}} $-$ this set gives
+    similar results to the GPUs-only set. The increase in power draw of the
+    whole server, when executing benchmarks
+    on 4 GPUs + 16 Threads and 8 GPUs + 32 Threads is even more visible.
+    Again, the conclusions are similar to the analysis of the GPUs benchmarks.
+    \item \textbf{CPUs benchmarks on \emph{vinnana.kask}} $-$ analysis of the
+    results from this configurations confirm the observation of CPUs benchmarks
+    on \emph{sanna.kask}. This time, the offset of node power draw seems to be
+    near linear as well, again with slightly bigger difference at lower
+    processes count and decreasing the more processes are being spawned.
+    \item \textbf{GPUs benchmarks on \emph{vinnana.kask}} $-$ interesting
+    difference between these GPU benchmarks and the benchmarks executed on
+    \emph{sanna.kask} is fact, that the results of the tests performed
+    on \emph{vinnana.kask} are more similar to the CPU benchmarks. The power
+    draw surge is not observed anymore, when executing the training on the
+    configuration with 4~GPUs, leading to a more linear changes in offset and
+    percentage increase of node power draw compared to idle values.
+    \item \textbf{Hybrid benchmarks on \emph{vinnana.kask}} $-$ finally, the
+    last set of configurations. While the values of offsets and percentage
+    increases are higher than those in GPUs benchmarks, overall the change
+    is without major changes between configurations, unlike the tests
+    performed on \emph{vinnana.kask}.
+\end{itemize}

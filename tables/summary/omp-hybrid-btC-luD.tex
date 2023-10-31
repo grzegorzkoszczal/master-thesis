@@ -1,8 +1,8 @@
-\begin{table}[hbt!]
+\begin{table}[H]
     \rowcolors{1}{Lavender!80!gray}{white}
     \centering
     \caption{server: \textbf{sanna.kask}, device: \textbf{Hybrid}, implementation: \textbf{OMP-CPP+OMP-CUDA},\\
-    benchmarks: \textbf{bt.C+lu.D}, data displayed: \textbf{increase in power draw}}\label{tbl:omp-hybrid-btC-luD}
+    benchmarks: \textbf{bt.C+lu.D}, data displayed: \textbf{differences in power draw}}\label{tbl:omp-hybrid-btC-luD}
     \setlength{\tabcolsep}{5mm}
     \begin{tblr}{
         vlines,
@@ -10,17 +10,20 @@
         row{2,5-6,9-10} = {bg = lightgray!30}
         }
     \hline
-        & \SetCell[c=2]{c} Hybrid  \\
+        & \SetCell[c=4]{c} Hybrid  \\
     \hline
-        Configurations          & Measured power draw [W]   & Increase in power draw during tests [\%] \\
+        Configurations          & {(Yokogawa) \\ Measured power draw \\ of entire node [W]}
+        & {Difference \\ (Base value: \\ 192.064) [W]}
+        & Offset [W]
+        & Increase [\%] \\
     \hline
-        1 GPU + 4 Threads       & 627.96                    & 75.62 \\
+        1 GPU + 4 Threads       & 627.96                    & 228.108 & 36.044 & 75.62 \\
     \hline
-        2 GPUs + 8 Threads      & 849.046                   & 137.45 \\
+        2 GPUs + 8 Threads      & 849.046                   & 231.746 & 39.682 & 137.45 \\
     \hline
-        4 GPUs + 16 Threads     & 1677.74                   & 369.20 \\
+        4 GPUs + 16 Threads     & 1677.74                   & 645.005 & 452.941 & 369.20 \\
     \hline
-        8 GPUs + 32 Threads     & 2594.956                  & 625.71 \\
+        8 GPUs + 32 Threads     & 2594.956                  & 722.785 & 530.721 & 625.71 \\
     \hline
     \end{tblr}
 \end{table}
