@@ -2,7 +2,75 @@
 
 \section{Summary}
 
-[PLACEHOLDER]
+The goal of this master thesis was to conduct experiments and compare various
+methods of power draw measurements of computational nodes. The idea came from
+the fact, that the ICT sector holds a fair share in global electricity usage
+and this contribution will rapidly grow in the near future. Therefore, data
+centers responsible with major energy usage are more prone to shift their
+focus on the so-calles \emph{green computing}, where the performance of the
+computations meets the lower energy consumption. In order to achieve this,
+a precise power measurements tools are necessary, so any changes such as
+kernels optimization or power-capping can be verified as a~proper solutions
+for lowering the energy usage.
+
+For the purpose of the tests, two software measurements tools provided by the
+major CPUs and GPUs manufacturers were compared againt external power meter
+in order to check their reliability. The software tools used are Intel RAPL,
+wrapped conveniently in Linux Perf toolkit for the measurements of the Intel
+CPUs and NVIDIA Management Library for the measurements of the NVIDIA GPUs.
+As a ground truth, the Yokogawa WT310E Power Meter has been used $-$ certified
+and reliable source of the power measurements of the entire computational
+nodes.
+
+Later in this work, the benchmarks were discussed $-$ set of programs that
+are designed to help evaluate the performance of parallel supercomputers.
+Their main goal is to put the testsed devices under strain and fully utilize
+their resources. After set of preliminary tests, benchmarks chosen for the
+final tests uses different implementations and solves various problems with
+different input sizes, all in order to recreate diverse computational problems
+that could be faced during the tests in data centers.
+
+Next, the three research papers are presented as a part of the `related works'
+section. This gives the insight on methodology used by the scientists that
+conducted similar experiments. Such research allows to learn more about the
+topic and gives hints on how the tests should be correctly executed.
+
+For the clarity of the work, an exhausting overview on all of the
+configurations used in experiments was given. Every setup has been sorted
+in ordered manner: server, device, implementation, benchmark and configuration.
+This approach helps to get grasp on the used solutions and helps in organizing
+and writing the \emph{scheduler} script, that was responsible for the
+automation of the experiments. The individual parts of the script has been
+then thoroughly explained, both the workflows of the application and the
+tasks performed by the implemented functions.
+
+Finally, the measurements data has been presented in form of convenient tables.
+The first set of tables shows the power draw and energy consumption of both
+individual devices and the entire node as a whole. It gives a very precise
+informations about every components used during tests, with values accompanied
+with the standard deviations, that helps to describe how dispersed these sets
+of data are. For a better overview on the differences between power draw
+of active node during during tests and base values of power draw from idle
+node, a set of summary tables has been created. Based on the information
+they include, the analysis of the entire experiment has been done.
+As a final remark, the best solution for measurements of the power draw of the
+entire server is to use external power meter $-$ this way one can be sure that
+estimates of the energy usage are as close to the real values as possible, due
+to the fact, that the power draw of components other than CPUs and GPUs are
+also included. The devices such as RAM sticks, motherboard, fans tends to
+increase their power usage, the more of the CPUs and GPUs resources are being
+utilized during tests. In case of the software measurements tools, they seems
+to be very useful for gathering information about device specific power draw
+and by analysing the mentioned in previous chapter \emph{offset} and
+\emph{percentage increase in power draw during tests}, they behave predictably,
+showing rather linear increases, based on the more resources used. The only
+configurations that shows concerns are the GPUs and Hybrid benchmarks
+executed on \emph{sanna.kask}, where the surges of power draw could be
+observed in configurations with 4 and 8~GPUs. As of the reason for what 
+causes such behaviour, further investigation would be required in the
+future works.
+
+
 
 \section{Future work}
 
